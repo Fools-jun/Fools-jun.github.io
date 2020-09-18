@@ -1,8 +1,14 @@
 ---
 title: 使用 Hexo+GitHub 搭建个人免费博客教程
+date: 2020-09-17 17:05:00 
+categories: 
+- 安装教程
+tags:
+- Java
+- Kafka
+copyright: true
+top: true
 ---
-
-## 前言
 
 近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。
 
@@ -38,7 +44,9 @@ Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 
 
 在本地撰写 Markdown 格式文章后，通过 Hexo 解析文档，渲染生成具有主题样式的 HTML 静态网页，再推送到 GitHub 上完成博文的发布。
 
-![img](https://pic1.zhimg.com/80/v2-a193a47cf70fe6ecf156e5f3d34920ea_720w.jpg)
+![img](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg)
+
+
 
 
 
@@ -72,9 +80,7 @@ Hexo 基于 Node.js，搭建过程中还需要使用 npm（Node.js 已带） 和
 
 安装完成后，Win+R 输入 cmd 并打开，依次输入 `node -v`、`npm -v` 和 `git --version` 并回车，如下图出现程序版本号即可。
 
-![img](https://picb.zhimg.com/80/v2-27b47b5ae479ce7987851292a67774b0_720w.jpg)
-
-
+![](https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg)
 
 ### 连接 Github
 
@@ -103,7 +109,7 @@ git config --global user.email "GitHub 邮箱"
 
 Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。
 
-![img](https://pic1.zhimg.com/80/v2-9125065afd24332d7cd84feb6a350730_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg)
 
 
 
@@ -111,7 +117,7 @@ Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击
 
 打开 Git Bash，输入 `ssh -T git@github.com` 出现 “Are you sure……”，输入 yes 回车确认。
 
-![img](https://picb.zhimg.com/80/v2-b4c7524a2451f4ab42f9c22ea3c7b6be_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg)
 
 显示 “Hi xxx! You've successfully……” 即连接成功。
 
@@ -127,7 +133,7 @@ GitHub 主页右上角加号 -> New repository：
 
 填好后点击 Create repository 创建。
 
-![img](https://pic2.zhimg.com/80/v2-67a8165154f4c5f4a6333e76e78ed815_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg)
 
 创建后默认自动启用 HTTPS，博客地址为：`https://用户名.github.io`
 
@@ -153,7 +159,7 @@ sudo npm install -g hexo-cli
 
 安装时间有点久（真的很慢！），界面也没任何反应，**耐心等待**，安装完成后如下图。
 
-![img](https://pic2.zhimg.com/80/v2-01e7fc8bb9280437deb437bf73a190a1_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg)
 
 
 
@@ -175,13 +181,13 @@ hexo s   # 启动预览
 
 **访问** `http://localhost:4000`**，出现 Hexo 默认页面，本地博客安装成功！**
 
-![img](https://picb.zhimg.com/80/v2-1c3baeecf1ef3bec5c8ef3f14639f68b_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg)
 
 **Tips：**如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行 `hexo server -p 5000` 更改端口号后重试。
 
 Hexo 博客文件夹目录结构如下：
 
-![img](https://pic4.zhimg.com/80/v2-264c75c0e493ae8cc5f283567c64ff2c_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/7_sp5gdj.jpg)
 
 
 
@@ -214,7 +220,7 @@ deploy:
 
 博客搭建完成使用的是 GitHub 的子域名（用户名.[http://github.io](https://link.zhihu.com/?target=http%3A//github.io)），我们可以为 Hexo 博客绑定自己的域名替换 GitHub 域名，更加个性化和专业，也利于 SEO。
 
-我们使用 [阿里云](https://homenew.console.aliyun.com/) 进行注册,如果是用户的话,com域名差不多50左右,cn域名10左右。
+我们使用 [阿里云](https://homenew.console.aliyun.com/) 进行注册,如果是新用户的话,com域名差不多50RMB左右,cn域名10RMB左右。
 
 
 
@@ -224,7 +230,7 @@ deploy:
 
 在 DNS 设置部分，删除自带的记录，然后添加 CNAME 记录将 www 域名解析指向 `用户名.github.io`。
 
-![](E:\Desktop\Blog\source\_posts\picture\阿里云域名配置.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png)
 
 
 
@@ -248,7 +254,7 @@ hexo s       # 启动预览
 
 配置自己的域名后，需要我们手动开启 HTTPS。打开博客所在 GitHub 仓库，Settings -> 下拉找到 GitHub Pages -> 勾选 Enforce HTTPS。
 
-![img](https://pic1.zhimg.com/80/v2-54f8744afc9746884e6b3acecfc5f8cf_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg)
 
 HTTPS 证书部署成功需要一定时间，等大概几分钟再访问域名，就可以看到域名前面的小绿锁了，HTTPS 配置完成！
 
@@ -338,7 +344,7 @@ Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可
 
 该代码前面的内容会作为摘要显示，而后面的内容会替换为 “Read More” 隐藏起来。
 
-![img](https://pic4.zhimg.com/80/v2-45701cf120ca77e6733ad30b40666f33_720w.jpg)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg)
 
 
 
