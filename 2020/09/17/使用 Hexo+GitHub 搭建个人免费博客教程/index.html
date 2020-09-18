@@ -14,36 +14,36 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。 虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。 本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。 此博客搬运至 : 知乎-“crystal”">
+  <meta name="description" content="近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。 虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。 本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。 此博客搬运至 : 知乎-“crystal”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Hexo+GitHub 搭建个人免费博客教程">
 <meta property="og:url" content="http://example.com/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="君de秘密基地">
-<meta property="og:description" content="前言近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。 虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。 本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。 此博客搬运至 : 知乎-“crystal”">
+<meta property="og:description" content="近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。 虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。 本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。 此博客搬运至 : 知乎-“crystal”">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-a193a47cf70fe6ecf156e5f3d34920ea_720w.jpg">
-<meta property="og:image" content="https://picb.zhimg.com/80/v2-27b47b5ae479ce7987851292a67774b0_720w.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-9125065afd24332d7cd84feb6a350730_720w.jpg">
-<meta property="og:image" content="https://picb.zhimg.com/80/v2-b4c7524a2451f4ab42f9c22ea3c7b6be_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-67a8165154f4c5f4a6333e76e78ed815_720w.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-01e7fc8bb9280437deb437bf73a190a1_720w.jpg">
-<meta property="og:image" content="https://picb.zhimg.com/80/v2-1c3baeecf1ef3bec5c8ef3f14639f68b_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-264c75c0e493ae8cc5f283567c64ff2c_720w.jpg">
-<meta property="og:image" content="e:/Desktop/Blog/source_posts/picture/阿里云域名配置.jpg">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-54f8744afc9746884e6b3acecfc5f8cf_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-45701cf120ca77e6733ad30b40666f33_720w.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/7_sp5gdj.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg">
 <meta property="article:published_time" content="2020-09-17T09:05:00.000Z">
-<meta property="article:modified_time" content="2020-09-18T01:35:22.315Z">
+<meta property="article:modified_time" content="2020-09-18T03:44:29.098Z">
 <meta property="article:author" content="JunPzx">
-<meta property="article:tag" content="Java,学习笔记,Python,Mysql,Oracle">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Kafka">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-a193a47cf70fe6ecf156e5f3d34920ea_720w.jpg">
+<meta name="twitter:image" content="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg">
 
 <link rel="canonical" href="http://example.com/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
 
@@ -118,6 +118,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -152,11 +153,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -198,6 +226,11 @@
         </h1>
 
         <div class="post-meta">
+	  
+		<i class="fa fa-thumb-tack"></i>
+		<font color="green">置顶</font>
+		<span class="post-meta-divider">|</span>
+	  
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
@@ -211,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-18 09:35:22" itemprop="dateModified" datetime="2020-09-18T09:35:22+08:00">2020-09-18</time>
+                <time title="修改时间：2020-09-18 11:44:29" itemprop="dateModified" datetime="2020-09-18T11:44:29+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,7 +281,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。</p>
+        <p>近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。</p>
 <p>虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。</p>
 <p>本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。</p>
 <p>此博客搬运至 : <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">知乎-“crystal”</a></p>
@@ -263,7 +296,7 @@
 </ul>
 <p>Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 运行，可以将我们撰写的 Markdown 文档解析渲染成静态的 HTML 网页。</p>
 <h3 id="★Hexo-GitHub-文章发布原理"><a href="#★Hexo-GitHub-文章发布原理" class="headerlink" title="★Hexo + GitHub 文章发布原理"></a>★Hexo + GitHub 文章发布原理</h3><p>在本地撰写 Markdown 格式文章后，通过 Hexo 解析文档，渲染生成具有主题样式的 HTML 静态网页，再推送到 GitHub 上完成博文的发布。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-a193a47cf70fe6ecf156e5f3d34920ea_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg" alt="img"></p>
 <h3 id="☆优点和不足"><a href="#☆优点和不足" class="headerlink" title="☆优点和不足"></a>☆优点和不足</h3><p><strong>优点：</strong>完全免费；静态站点，轻量快速；可按需求自由定制改造；托管在 GitHub，安全省心；迁移方便……</p>
 <p><strong>不足：</strong>发文不便，依赖于本地环境；更适合个人博客使用；GitHub 在国内访问速度有点不快。</p>
 <h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
@@ -279,7 +312,7 @@
 </ul>
 <p>下载 Node.js 和 Git 程序并安装，一路点 “下一步” 按默认配置完成安装。</p>
 <p>安装完成后，Win+R 输入 cmd 并打开，依次输入 <code>node -v</code>、<code>npm -v</code> 和 <code>git --version</code> 并回车，如下图出现程序版本号即可。</p>
-<p><img src="https://picb.zhimg.com/80/v2-27b47b5ae479ce7987851292a67774b0_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg"></p>
 <h3 id="连接-Github"><a href="#连接-Github" class="headerlink" title="连接 Github"></a>连接 Github</h3><p>使用邮箱注册 <a href="https://link.zhihu.com/?target=https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。</p>
 <p>右键 -&gt; Git Bash Here，<strong>设置用户名和邮箱</strong>：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
@@ -292,10 +325,10 @@
 <p>进入 [C:\Users\用户名.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
 <p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。</p>
 <p>Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-9125065afd24332d7cd84feb6a350730_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg"></p>
 <p><strong>验证连接：</strong></p>
 <p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。</p>
-<p><img src="https://picb.zhimg.com/80/v2-b4c7524a2451f4ab42f9c22ea3c7b6be_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg"></p>
 <p>显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
 <h3 id="创建-Github-Pages-仓库"><a href="#创建-Github-Pages-仓库" class="headerlink" title="创建 Github Pages 仓库"></a>创建 Github Pages 仓库</h3><p>GitHub 主页右上角加号 -&gt; New repository：</p>
 <ul>
@@ -304,7 +337,7 @@
 <li>Description 选填</li>
 </ul>
 <p>填好后点击 Create repository 创建。</p>
-<p><img src="https://pic2.zhimg.com/80/v2-67a8165154f4c5f4a6333e76e78ed815_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg"></p>
 <p>创建后默认自动启用 HTTPS，博客地址为：<code>https://用户名.github.io</code></p>
 <h3 id="本地安装-Hexo-博客程序"><a href="#本地安装-Hexo-博客程序" class="headerlink" title="本地安装 Hexo 博客程序"></a>本地安装 Hexo 博客程序</h3><p>新建一个文件夹用来存放 Hexo 的程序文件，如 Hexo-Blog。打开该文件夹，右键 -&gt; Git Bash Here。</p>
 <h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p>使用 npm 一键安装 Hexo 博客程序：</p>
@@ -314,7 +347,7 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <p>安装时间有点久（真的很慢！），界面也没任何反应，<strong>耐心等待</strong>，安装完成后如下图。</p>
-<p><img src="https://pic2.zhimg.com/80/v2-01e7fc8bb9280437deb437bf73a190a1_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg"></p>
 <h4 id="Hexo-初始化和本地预览"><a href="#Hexo-初始化和本地预览" class="headerlink" title="Hexo 初始化和本地预览"></a>Hexo 初始化和本地预览</h4><p><strong>初始化并安装所需组件：</strong></p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init      # 初始化</span><br><span class="line">npm install    # 安装组件</span><br></pre></td></tr></table></figure>
 
@@ -322,10 +355,10 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g   # 生成页面</span><br><span class="line">hexo s   # 启动预览</span><br></pre></td></tr></table></figure>
 
 <p><strong>访问</strong> <code>http://localhost:4000</code><strong>，出现 Hexo 默认页面，本地博客安装成功！</strong></p>
-<p><img src="https://picb.zhimg.com/80/v2-1c3baeecf1ef3bec5c8ef3f14639f68b_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg"></p>
 <p><strong>Tips：</strong>如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号后重试。</p>
 <p>Hexo 博客文件夹目录结构如下：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-264c75c0e493ae8cc5f283567c64ff2c_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/7_sp5gdj.jpg"></p>
 <h3 id="部署-Hexo-到-GitHub-Pages"><a href="#部署-Hexo-到-GitHub-Pages" class="headerlink" title="部署 Hexo 到 GitHub Pages"></a>部署 Hexo 到 GitHub Pages</h3><p>本地博客测试成功后，就是上传到 GitHub 进行部署，使其能够在网络上访问。</p>
 <p>首先<strong>安装 hexo-deployer-git</strong>：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
@@ -341,14 +374,14 @@
 <li>域名注册和解析教程：</li>
 </ul>
 <p>在 DNS 设置部分，删除自带的记录，然后添加 CNAME 记录将 www 域名解析指向 <code>用户名.github.io</code>。</p>
-<p><img src="E:\Desktop\Blog\source_posts\picture\阿里云域名配置.jpg"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png"></p>
 <h4 id="绑定域名到-Hexo-博客"><a href="#绑定域名到-Hexo-博客" class="headerlink" title="绑定域名到 Hexo 博客"></a>绑定域名到 Hexo 博客</h4><p>进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 <a target="_blank" rel="noopener" href="http://www.example.com,保存名称为/">http://www.example.com，保存名称为</a> “CNAME”，格式为 “所有文件”（无 .txt 后缀）。</p>
 <p>清除缓存等文件并重新发布网站：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   # 清除缓存文件等</span><br><span class="line">hexo g       # 生成页面</span><br><span class="line">hexo s       # 启动预览</span><br></pre></td></tr></table></figure>
 
 <p>现在就可以使用自己的域名访问 Hexo 博客了。</p>
 <h4 id="开启-HTTPS"><a href="#开启-HTTPS" class="headerlink" title="开启 HTTPS"></a>开启 HTTPS</h4><p>配置自己的域名后，需要我们手动开启 HTTPS。打开博客所在 GitHub 仓库，Settings -&gt; 下拉找到 GitHub Pages -&gt; 勾选 Enforce HTTPS。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-54f8744afc9746884e6b3acecfc5f8cf_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg"></p>
 <p>HTTPS 证书部署成功需要一定时间，等大概几分钟再访问域名，就可以看到域名前面的小绿锁了，HTTPS 配置完成！</p>
 <h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><h4 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h4><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
@@ -375,7 +408,7 @@
 
 <h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="Hexo-设置显示文章摘要，首页不显示全文"><a href="#Hexo-设置显示文章摘要，首页不显示全文" class="headerlink" title="Hexo 设置显示文章摘要，首页不显示全文"></a>Hexo 设置显示文章摘要，首页不显示全文</h4><p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 `` 进行分段。</p>
 <p>该代码前面的内容会作为摘要显示，而后面的内容会替换为 “Read More” 隐藏起来。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-45701cf120ca77e6733ad30b40666f33_720w.jpg" alt="img"></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg"></p>
 <h4 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h4><p>进入 themes/主题 文件夹，打开 _config.yml 配置文件，找到 favicon 修改，一般格式为：<code>favicon: 图标地址</code>。（不同主题可能略有差别）</p>
 <h4 id="修改并部署后没有效果"><a href="#修改并部署后没有效果" class="headerlink" title="修改并部署后没有效果"></a>修改并部署后没有效果</h4><p>使用 <code>hexo clean</code> 清理后重新部署。</p>
 <h4 id="开启-HTTPS-后访问网站显示连接不安全？"><a href="#开启-HTTPS-后访问网站显示连接不安全？" class="headerlink" title="开启 HTTPS 后访问网站显示连接不安全？"></a>开启 HTTPS 后访问网站显示连接不安全？</h4><p>证书还未部署生效，等待一会儿，清除浏览器缓存再试。</p>
@@ -396,6 +429,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/Kafka/" rel="tag"><i class="fa fa-tag"></i> Kafka</a>
+          </div>
 
         
 
@@ -458,7 +495,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85GitHub-Pages-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">★GitHub Pages 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%86Hexo-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.2.</span> <span class="nav-text">☆Hexo 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85Hexo-GitHub-%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%8E%9F%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">★Hexo + GitHub 文章发布原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%86%E4%BC%98%E7%82%B9%E5%92%8C%E4%B8%8D%E8%B6%B3"><span class="nav-number">2.4.</span> <span class="nav-text">☆优点和不足</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">安装教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">3.1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.1.1.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">3.1.2.</span> <span class="nav-text">环境搭建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-Github"><span class="nav-number">3.2.</span> <span class="nav-text">连接 Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Github-Pages-%E4%BB%93%E5%BA%93"><span class="nav-number">3.3.</span> <span class="nav-text">创建 Github Pages 仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85-Hexo-%E5%8D%9A%E5%AE%A2%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.4.</span> <span class="nav-text">本地安装 Hexo 博客程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">3.4.1.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="nav-number">3.4.2.</span> <span class="nav-text">Hexo 初始化和本地预览</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-Hexo-%E5%88%B0-GitHub-Pages"><span class="nav-number">3.5.</span> <span class="nav-text">部署 Hexo 到 GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">绑定域名（可选）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%92%8C%E8%A7%A3%E6%9E%90"><span class="nav-number">3.6.1.</span> <span class="nav-text">域名注册和解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E5%88%B0-Hexo-%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.6.2.</span> <span class="nav-text">绑定域名到 Hexo 博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-HTTPS"><span class="nav-number">3.6.3.</span> <span class="nav-text">开启 HTTPS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="nav-number">3.7.</span> <span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="nav-number">3.7.1.</span> <span class="nav-text">发布文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.7.2.</span> <span class="nav-text">网站设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">3.7.3.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.7.4.</span> <span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">3.8.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%EF%BC%8C%E9%A6%96%E9%A1%B5%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E6%96%87"><span class="nav-number">3.8.1.</span> <span class="nav-text">Hexo 设置显示文章摘要，首页不显示全文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87"><span class="nav-number">3.8.2.</span> <span class="nav-text">设置网站图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%90%8E%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C"><span class="nav-number">3.8.3.</span> <span class="nav-text">修改并部署后没有效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-HTTPS-%E5%90%8E%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99%E6%98%BE%E7%A4%BA%E8%BF%9E%E6%8E%A5%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-number">3.8.4.</span> <span class="nav-text">开启 HTTPS 后访问网站显示连接不安全？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-%E5%AE%89%E8%A3%85-Hexo-%E6%8A%A5%E9%94%99%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="nav-number">3.8.5.</span> <span class="nav-text">Mac 安装 Hexo 报错无法安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%EF%BC%8C%E7%94%9A%E8%87%B3%E5%AE%8C%E5%85%A8%E6%B2%A1%E5%8F%8D%E5%BA%94"><span class="nav-number">3.8.6.</span> <span class="nav-text">npm 下载速度慢，甚至完全没反应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85GitHub-Pages-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">★GitHub Pages 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%86Hexo-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">☆Hexo 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85Hexo-GitHub-%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">★Hexo + GitHub 文章发布原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%86%E4%BC%98%E7%82%B9%E5%92%8C%E4%B8%8D%E8%B6%B3"><span class="nav-number">1.4.</span> <span class="nav-text">☆优点和不足</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">安装教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">2.1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.1.1.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.1.2.</span> <span class="nav-text">环境搭建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-Github"><span class="nav-number">2.2.</span> <span class="nav-text">连接 Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Github-Pages-%E4%BB%93%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">创建 Github Pages 仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85-Hexo-%E5%8D%9A%E5%AE%A2%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.4.</span> <span class="nav-text">本地安装 Hexo 博客程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">2.4.1.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="nav-number">2.4.2.</span> <span class="nav-text">Hexo 初始化和本地预览</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-Hexo-%E5%88%B0-GitHub-Pages"><span class="nav-number">2.5.</span> <span class="nav-text">部署 Hexo 到 GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.6.</span> <span class="nav-text">绑定域名（可选）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%92%8C%E8%A7%A3%E6%9E%90"><span class="nav-number">2.6.1.</span> <span class="nav-text">域名注册和解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E5%88%B0-Hexo-%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">绑定域名到 Hexo 博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-HTTPS"><span class="nav-number">2.6.3.</span> <span class="nav-text">开启 HTTPS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="nav-number">2.7.</span> <span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="nav-number">2.7.1.</span> <span class="nav-text">发布文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.7.2.</span> <span class="nav-text">网站设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">2.7.3.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.7.4.</span> <span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">2.8.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%EF%BC%8C%E9%A6%96%E9%A1%B5%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E6%96%87"><span class="nav-number">2.8.1.</span> <span class="nav-text">Hexo 设置显示文章摘要，首页不显示全文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87"><span class="nav-number">2.8.2.</span> <span class="nav-text">设置网站图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%90%8E%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C"><span class="nav-number">2.8.3.</span> <span class="nav-text">修改并部署后没有效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-HTTPS-%E5%90%8E%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99%E6%98%BE%E7%A4%BA%E8%BF%9E%E6%8E%A5%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-number">2.8.4.</span> <span class="nav-text">开启 HTTPS 后访问网站显示连接不安全？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-%E5%AE%89%E8%A3%85-Hexo-%E6%8A%A5%E9%94%99%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="nav-number">2.8.5.</span> <span class="nav-text">Mac 安装 Hexo 报错无法安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%EF%BC%8C%E7%94%9A%E8%87%B3%E5%AE%8C%E5%85%A8%E6%B2%A1%E5%8F%8D%E5%BA%94"><span class="nav-number">2.8.6.</span> <span class="nav-text">npm 下载速度慢，甚至完全没反应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -483,6 +520,12 @@
           
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -524,9 +567,11 @@
     </span>
     <span title="站点阅读时长">4 分钟</span>
 </div>
+
+<!--
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
-
+-->
         
 
 
@@ -562,6 +607,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
