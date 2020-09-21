@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vue入门</title>
+    <url>/2020/09/21/Vue%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么?"></a>Vue.js是什么?</h2><p>Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p>
+<h2 id="Vue是一个渐进式框架-什么是渐进式的呢"><a href="#Vue是一个渐进式框架-什么是渐进式的呢" class="headerlink" title="Vue是一个渐进式框架,什么是渐进式的呢?"></a>Vue是一个渐进式框架,什么是渐进式的呢?</h2><ul>
+<li>渐进式意味着你可以将Vue作为你应用的一部分嵌入其中,带来更丰富的交互体验</li>
+<li>或者如果你希望将更多的业务逻辑使用Vue实现,那么Vue的核心库以及其生态系统</li>
+<li>比如Code+Vue-router+Vuex,也可以满足你各种各样的需求</li>
+</ul>
+<h2 id="Vue有很多特点和Web开发中常用的高级功能"><a href="#Vue有很多特点和Web开发中常用的高级功能" class="headerlink" title="Vue有很多特点和Web开发中常用的高级功能:"></a>Vue有很多特点和Web开发中常用的高级功能:</h2><ul>
+<li>解耦视图和数据</li>
+<li>可复用组件</li>
+<li>前端路由技术</li>
+<li>状态管理</li>
+<li>虚拟DOM</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p>直接CDN导入(CDN会选择距离最近的服务器进行下载,会提高下载效率)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 开发环境版本,包含了有帮助的命令行警告 --&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- 生产环境版本,优化了尺寸和速度 --&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载和引入</p>
+<p>开发环境   <a href="https://vue.js.org/js/vue.js">https://vue.js.org/js/vue.js</a></p>
+<p>生产环境   <a href="https://vuejs.org/js/vue.min.js">https://vuejs.org/js/vue.min.js</a></p>
+</li>
+<li><p>npm安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Vue的基本使用"><a href="#Vue的基本使用" class="headerlink" title="Vue的基本使用"></a>Vue的基本使用</h1><h2 id="Hello-Vue"><a href="#Hello-Vue" class="headerlink" title="Hello Vue"></a>Hello Vue</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let用于修饰变量</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;vue&quot;</span></span><br><span class="line"><span class="comment">// const用于修饰常量</span></span><br><span class="line"><span class="keyword">const</span> age = <span class="string">&quot;vue&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 编程范式: 声明式编程</span></span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>, <span class="comment">//用于挂载要管理的元素</span></span><br><span class="line">        data: &#123; <span class="comment">// 定义数据</span></span><br><span class="line">            message: <span class="string">&#x27;你好呀,pzx!&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用js的做法(编程范式: 命令式编程)</span></span><br><span class="line">    <span class="comment">//1.创建div元素,设置id属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.定义变量叫message</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.将message变量放在前面的div元素中显示</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.修改message的值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.将message的值重新赋值给div</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码的执行结果为:</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue相关/Vue入门/1_wsql5b.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/1_wsql5b.png"></p>
+<p><strong>代码做了什么事情:</strong></p>
+<ol>
+<li>首先创建了一个Vue对象</li>
+<li>创建Vue对象的时候,传入了一些options:{}<ul>
+<li>{}中包含了el属性:该属性决定了这个Vue对象挂载到哪一个元素上</li>
+<li>{}中包含了data属性:该属性通常会存储一些数据<ul>
+<li>这些数据可以是我们直接定义出来的,比如像上面那样</li>
+<li>也可能是来自网络,从服务器加载出来的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Vue的列表显示"><a href="#Vue的列表显示" class="headerlink" title="Vue的列表显示"></a>Vue的列表显示</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in tags&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            tags: [<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;JavaScript&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码的执行结果为:</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue相关/Vue入门/2_b7haeu.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/2_b7haeu.png"></p>
+<p>这个地方主要使用<strong>v-for</strong>指令,而且它还是响应式的</p>
+<ul>
+<li>也就是当数组中的数据发生变化时,界面会自动改变</li>
+</ul>
+<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;当前计数:&#123;&#123;counter&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;counter++&quot;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">&quot;counter-1 &lt; 0 ? counter=0 : counter--;&quot;</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;add&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;subtraction&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;yi</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            counter: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.counter++;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;+已被点击&quot;</span>)</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            subtraction: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.counter<span class="number">-1</span> &lt; <span class="number">0</span>?<span class="built_in">this</span>.counter=<span class="number">0</span>:<span class="built_in">this</span>.counter--;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;-已被点击&quot;</span>)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码代码的执行结果为:</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue相关/Vue入门/3_dqgp6p.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/3_dqgp6p.png"></p>
+<p><strong>新的属性: methods,该属性用于在Vue对象中定义方法</strong></p>
+<p><strong>新的指令: @click(等同于v-on:click,@click为前面的语法糖),该指令用于监听某个元素的点击事件,并且需要指定当发生点击时,执行的方法(方法通常是methods中定义的方法)</strong></p>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IDEA、WebStrom最新版破解教程</title>
     <url>/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="激活方法"><a href="#激活方法" class="headerlink" title="激活方法"></a>激活方法</h1><h2 id="1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；"><a href="#1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；" class="headerlink" title="1、下载完成后，双击 ideaIU-2020.2.exe,打开安装软件；"></a>1、下载完成后，双击 <code>ideaIU-2020.2.exe</code>,打开安装软件；</h2><blockquote>
