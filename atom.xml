@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-24T10:00:30.495Z</updated>
+  <updated>2020-09-24T10:02:26.647Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,11 +21,17 @@
     <link href="http://example.com/2020/09/24/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F-let%E5%92%8Cvar/"/>
     <id>http://example.com/2020/09/24/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F-let%E5%92%8Cvar/</id>
     <published>2020-09-24T10:00:30.000Z</published>
-    <updated>2020-09-24T10:00:30.495Z</updated>
+    <updated>2020-09-24T10:02:26.647Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
+    
+    <category term="Vue" scheme="http://example.com/tags/Vue/"/>
     
   </entry>
   
