@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-24T10:02:26.647Z</updated>
+  <updated>2020-09-25T03:30:19.867Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,21 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>块级作用域(let和var)</title>
-    <link href="http://example.com/2020/09/24/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F-let%E5%92%8Cvar/"/>
-    <id>http://example.com/2020/09/24/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F-let%E5%92%8Cvar/</id>
+    <title>ES语法</title>
+    <link href="http://example.com/2020/09/24/ES6%E8%AF%AD%E6%B3%95/"/>
+    <id>http://example.com/2020/09/24/ES6%E8%AF%AD%E6%B3%95/</id>
     <published>2020-09-24T10:00:30.000Z</published>
-    <updated>2020-09-24T10:02:26.647Z</updated>
+    <updated>2020-09-25T03:30:19.867Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;let和var&quot;&gt;&lt;a href=&quot;#let和var&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
     <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
+    <category term="前端" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Vue" scheme="http://example.com/tags/Vue/"/>
+    
+    <category term="ES6" scheme="http://example.com/tags/ES6/"/>
     
   </entry>
   
@@ -40,7 +48,7 @@
     <link href="http://example.com/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
     <id>http://example.com/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
     <published>2020-09-21T09:01:41.000Z</published>
-    <updated>2020-09-24T09:58:47.558Z</updated>
+    <updated>2020-09-25T03:30:33.612Z</updated>
     
     
     <summary type="html">&lt;p&gt;Vue的一些基本操作,包含插值操作和绑定属性和计算属性&lt;/p&gt;
@@ -49,6 +57,8 @@
     
     
     <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="前端" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="Vue" scheme="http://example.com/tags/Vue/"/>
@@ -60,7 +70,7 @@
     <link href="http://example.com/2020/09/21/Vue%E5%85%A5%E9%97%A8/"/>
     <id>http://example.com/2020/09/21/Vue%E5%85%A5%E9%97%A8/</id>
     <published>2020-09-21T05:20:27.000Z</published>
-    <updated>2020-09-25T01:51:01.291Z</updated>
+    <updated>2020-09-25T03:30:39.942Z</updated>
     
     
     <summary type="html">&lt;p&gt;简单介绍一下vue是什么,和vue的几种安装方式,vue的简单使用 &lt;/p&gt;
@@ -69,6 +79,8 @@
     
     
     <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="前端" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="Vue" scheme="http://example.com/tags/Vue/"/>
