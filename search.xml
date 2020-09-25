@@ -20,11 +20,27 @@
 <p>​    如果使用了闭包,就类似于,你给每一个按钮添加事件时,将i传入进去,函数内部使用局部变量num用来保存i的值(<strong>函数是一个作用域</strong>),那么我使用的就是num的值,而不是i的引用,所以你修改了i的值,不关num的事,所以最后的输出结果为所期待的结果</p>
 <h4 id="方案二-使用let"><a href="#方案二-使用let" class="headerlink" title="方案二:使用let"></a>方案二:使用let</h4><h5 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">const</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; btns.length; i++) &#123;</span><br><span class="line">    btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span> + i + <span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  i = <span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h5 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925111537.png" alt="2020-09-25_11-15-24"></p>
-<h5 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h5><p>ES6中加入了let,let它是有if和for的块级作用域</p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
-<li>ES5之前因为if和for都没有块级作用域的概念,所以在很多使用,我们必须借助于function的作用域来解决应用外面变量的问题</li>
-<li>ES6中加入了let,let它是有if和for的块级作用域</li>
-</ul>]]></content>
+<h5 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h5><p>ES6中加入了let,let它是有if和for的块级作用域。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul>
+<li>ES5之前因为if和for都没有块级作用域的概念,所以在很多使用,我们必须借助于function的作用域来解决应用外面变量的问题。</li>
+<li>ES6中加入了let,let它是有if和for的块级作用域。</li>
+</ul>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>在很多语言中都已经存在,主要的作用是将某个变量修饰成常量。</li>
+<li>在JavaScript中也是如此,使用const修饰的标识符为常量,不可再次赋值。</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>当我们修饰的标识符不会被再次赋值时,就可以使用const来保证数据的安全性。</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>被赋值的常量不可被再次赋值</li>
+<li>在初始化常量时必须赋值</li>
+<li>常量定义的对象不能修改,指的是该对象的引用不能修改,对象内的属性值是可以修改的</li>
+</ol>
+<h1 id="对象字面量的增强写法"><a href="#对象字面量的增强写法" class="headerlink" title="对象字面量的增强写法"></a>对象字面量的增强写法</h1><p><strong>什么叫做字面量?</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如:</span><br><span class="line">普通创建对象是这样创建的: const obj &#x3D; new Object()</span><br><span class="line">字面量就是: const obj &#x3D; &#123;&#125;</span><br><span class="line">这个大括号就叫做字面量</span><br></pre></td></tr></table></figure>
+<h2 id="属性的增强写法"><a href="#属性的增强写法" class="headerlink" title="属性的增强写法"></a>属性的增强写法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> age = <span class="number">18</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;张三&#x27;</span></span><br><span class="line"><span class="keyword">const</span> height = <span class="number">1.88</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    age : age,</span><br><span class="line">    name : name,</span><br><span class="line">    height : height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    age,</span><br><span class="line">    name,</span><br><span class="line">    height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上两种写法最后的结果是等价的</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数的增强写法"><a href="#函数的增强写法" class="headerlink" title="函数的增强写法"></a>函数的增强写法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    eat: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//方法体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    eat()&#123;</span><br><span class="line">		<span class="comment">//方法体        </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上两种写法最后的结果是等价的</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>笔记</category>
         <category>前端</category>
@@ -117,7 +133,14 @@
 <li>计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值，多次访问计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
 <li>methods方法，每当触发重新渲染时，调用方法将总会再次执行函数。</li>
 <li>对于任何复杂逻辑，你都应当使用计算属性</li>
-</ul>]]></content>
+</ul>
+<h1 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h1><h2 id="v-on介绍"><a href="#v-on介绍" class="headerlink" title="v-on介绍"></a>v-on介绍</h2><ul>
+<li>作用: 绑定事件监听器</li>
+<li>缩写: @</li>
+<li>预期: Function | Inline Statement | Object</li>
+<li>参数: event</li>
+</ul>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2>]]></content>
       <categories>
         <category>笔记</category>
         <category>前端</category>
