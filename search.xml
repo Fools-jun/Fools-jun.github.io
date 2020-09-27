@@ -332,7 +332,6 @@
 <p>虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。</p>
 <p>本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。</p>
 <p>此博客搬运至 : <a href="https://zhuanlan.zhihu.com/p/60578464">知乎-“crystal”</a></p>
-<a id="more"></a>
 <h1 id="二、简介"><a href="#二、简介" class="headerlink" title="二、简介"></a>二、简介</h1><h2 id="GitHub-Pages-是什么？"><a href="#GitHub-Pages-是什么？" class="headerlink" title="GitHub Pages 是什么？"></a>GitHub Pages 是什么？</h2><ul>
 <li><a href="https://docs.github.com/en/github/working-with-github-pages/about-github-pages">What is GitHub Pages? - GitHub Help</a></li>
 </ul>
