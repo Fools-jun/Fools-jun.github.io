@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-28T09:13:27.823Z</updated>
+  <updated>2020-09-28T09:37:37.102Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vue基本操作(二)</title>
+    <link href="http://example.com/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/"/>
+    <id>http://example.com/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/</id>
+    <published>2020-09-28T09:36:38.000Z</published>
+    <updated>2020-09-28T09:37:37.102Z</updated>
+    
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="前端" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Vue" scheme="http://example.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript事件</title>
     <link href="http://example.com/2020/09/28/JavaScript%E4%BA%8B%E4%BB%B6/"/>
     <id>http://example.com/2020/09/28/JavaScript%E4%BA%8B%E4%BB%B6/</id>
     <published>2020-09-28T09:02:46.000Z</published>
-    <updated>2020-09-28T09:13:27.823Z</updated>
+    <updated>2020-09-28T09:37:21.381Z</updated>
     
     
     <summary type="html">&lt;p&gt;JavaScript的常用事件&lt;/p&gt;</summary>
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="前端" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
@@ -57,14 +78,17 @@
   </entry>
   
   <entry>
-    <title>Vue基本操作</title>
-    <link href="http://example.com/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
-    <id>http://example.com/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <title>Vue基本操作(一)</title>
+    <link href="http://example.com/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%B8%80)/"/>
+    <id>http://example.com/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%B8%80)/</id>
     <published>2020-09-21T09:01:41.000Z</published>
-    <updated>2020-09-28T09:17:29.771Z</updated>
+    <updated>2020-09-28T09:35:21.108Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Vue的插值操作、绑定属性、计算属性和事件监听。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;插值操作的介绍和使用&lt;/p&gt;
+&lt;p&gt;绑定属性的介绍和使用&lt;/p&gt;
+&lt;p&gt;计算属性的介绍和使用&lt;/p&gt;
+&lt;p&gt;事件监听的介绍和使用&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
     
     
