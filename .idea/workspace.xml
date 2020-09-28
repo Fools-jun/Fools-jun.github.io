@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e665e5ba-47aa-4abc-8bf1-17f7a11af665" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/categories/算法.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/tags/hexo.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/tags/next.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/使用 Hexo+GitHub 搭建个人免费博客教程.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/使用 Hexo+GitHub 搭建个人免费博客教程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/动态规划.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/动态规划.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/languages/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/languages/zh-CN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/layout/_macro/post.swig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/layout/_macro/post.swig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/layout/_partials/footer.swig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/layout/_partials/footer.swig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/layout/_partials/head/head.swig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/layout/_partials/head/head.swig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post.styl" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1i8V1BleqljCTd9lD16Y8pFu28W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e665e5ba-47aa-4abc-8bf1-17f7a11af665" name="Default Changelist" comment="" />
+      <created>1601288988332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601288988332</updated>
+      <workItem from="1601288989578" duration="9000" />
+    </task>
+    <servers />
+  </component>
+</project>

@@ -17,6 +17,20 @@ copyright: true
 此博客搬运至 : [知乎-"crystal"](https://zhuanlan.zhihu.com/p/60578464)
 
 <!-- less -->
+<<<<<<< HEAD
+=======
+
+# 一、前言
+
+近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。
+
+虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。
+
+本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。
+
+此博客搬运至 : [知乎-"crystal"](https://zhuanlan.zhihu.com/p/60578464)
+
+>>>>>>> 5d9e045be773a3cd0c298905bf2776ef360bfa25
 
 # 一、前言
 
@@ -388,6 +402,7 @@ Mac 用户需要管理员权限运行，使用 `sudo npm install -g hexo-cli` �
 
 
 
+<<<<<<< HEAD
 ### Hexo命令报以下错误
 
 ```
@@ -396,6 +411,8 @@ console.js:35 throw new TypeError('Console expects a writable stream instance');
 
 该错误为nodejs的版本不够高,需要更换成最新版!
 
+=======
+>>>>>>> 5d9e045be773a3cd0c298905bf2776ef360bfa25
 # 四、结语
 
 Hexo 是一种纯静态的博客，我们必须要在本地完成文章的编辑再部署到 GitHub 上，依赖于本地环境。不能像 WordPress 或 Typecho 那样的动态博客一样能直接在浏览器中完成撰文和发布。
