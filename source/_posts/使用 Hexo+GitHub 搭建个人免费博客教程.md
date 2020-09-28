@@ -28,10 +28,6 @@ copyright: true
 
 此博客搬运至 : [知乎-"crystal"](https://zhuanlan.zhihu.com/p/60578464)
 
-
-
-<!--more-->
-
 # 二、简介
 
 ## GitHub Pages 是什么？
