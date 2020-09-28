@@ -50,103 +50,36 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue基本操作</title>
-    <url>/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="插值操作"><a href="#插值操作" class="headerlink" title="插值操作"></a>插值操作</h1><h2 id="Mustache语法"><a href="#Mustache语法" class="headerlink" title="Mustache语法"></a>Mustache语法</h2><p>使用双大括号,也就是mustache语法</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;age&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name + message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name + <span class="string">&#x27; &#x27;</span> + message &#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name&#125;&#125;  &#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;age * <span class="number">2</span>&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      message: <span class="string">&#x27;你好&#x27;</span>,</span><br><span class="line">      name: <span class="string">&#x27;君&#x27;</span>,</span><br><span class="line">      age: <span class="number">17</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600757346/Vue相关/Vue的基本操作/1_uq1zcr.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600757346/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/1_uq1zcr.png"></p>
-<h2 id="v-once指令"><a href="#v-once指令" class="headerlink" title="v-once指令"></a>v-once指令</h2><p>不期望某个地方的值是响应式的,就可以使用该指令</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2  v-once&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600757514/Vue相关/Vue的基本操作/2_tjrvbj.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600757514/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/2_tjrvbj.png"></p>
-<h2 id="v-html指令"><a href="#v-html指令" class="headerlink" title="v-html指令"></a>v-html指令</h2><p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;url&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-html=<span class="string">&quot;url&quot;</span>&gt;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span>,</span><br><span class="line">        url: <span class="string">&#x27;&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度一下&lt;/a&gt;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600757974/Vue相关/Vue的基本操作/3_zn2do2.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600757974/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/3_zn2do2.png"></p>
-<h2 id="v-text指令"><a href="#v-text指令" class="headerlink" title="v-text指令"></a>v-text指令</h2><p>使用较少,因为不够灵活</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-text=<span class="string">&quot;message&quot;</span>&gt;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600758176/Vue相关/Vue的基本操作/4_rortqw.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600758176/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/4_rortqw.png"></p>
-<h2 id="v-pre指令"><a href="#v-pre指令" class="headerlink" title="v-pre指令"></a>v-pre指令</h2><p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-pre&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600758367/Vue相关/Vue的基本操作/5_xns1np.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600758367/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/5_xns1np.png"></p>
-<h2 id="v-cloak指令"><a href="#v-cloak指令" class="headerlink" title="v-cloak指令"></a>v-cloak指令</h2><p>cloak:斗篷</p>
-<p>作用:当vue对象未创建时,将会显示v-cloak属性,而当vue对象创建完成以后,属性将自动删除,那么如果vue对象还未创建,可能发生页面上显示这个结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;h2&gt;</span><br></pre></td></tr></table></figure>
-<p>而我们并不期望显示这个结果,而是如果当时vue对象未创建,直接不显示就好</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        [v-cloak]&#123;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-cloak&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p>运行结果因为该代码的结果图不好表现,所以没有截图</p>
-<h1 id="绑定属性"><a href="#绑定属性" class="headerlink" title="绑定属性"></a>绑定属性</h1><h2 id="v-bind指令基本使用"><a href="#v-bind指令基本使用" class="headerlink" title="v-bind指令基本使用"></a>v-bind指令基本使用</h2><p><strong>作用</strong></p>
-<p>动态绑定属性</p>
-<ul>
-<li>比如动态绑定a元素的href属性</li>
-<li>比如动态绑定img元素的src属性</li>
-</ul>
-<p><strong>缩写(语法糖)</strong></p>
-<p>:</p>
-<p><strong>预期</strong></p>
-<p>any(with argument) | Object(without argument)</p>
-<p><strong>参数</strong></p>
-<p>attrOrProp(optional)</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;img :src=<span class="string">&quot;imgUrl&quot;</span> alt=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">    &lt;!--等同于&lt;img v-bind:src=<span class="string">&quot;imgUrl&quot;</span> alt=<span class="string">&quot;&quot;</span>&gt;--&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        imgUrl: <span class="string">&#x27;https://img30.360buyimg.com/babel/s1180x940_jfs/t1/147101/20/8922/101180/5f685a77Eac4e4d8f/cbc61d2e465fde2c.jpg.webp&#x27;</span></span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600760783/Vue相关/Vue的基本操作/6_vfzcbn.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600760783/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/6_vfzcbn.png"></p>
-<h2 id="v-bind动态绑定class"><a href="#v-bind动态绑定class" class="headerlink" title="v-bind动态绑定class"></a>v-bind动态绑定class</h2><h3 id="对象语法"><a href="#对象语法" class="headerlink" title="对象语法"></a>对象语法</h3><h4 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h4><p>在:class=”” 中直接使用对象</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt; </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;isActive=!isActive&quot;</span>&gt;变变变&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        message: <span class="string">&quot;Hello Vue&quot;</span>,</span><br><span class="line">        active: <span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">        isActive: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h4><p>在:class=””中使用方法</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;getClass()&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;isActive=!isActive&quot;</span>&gt;变变变&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        message: <span class="string">&quot;Hello Vue&quot;</span>,</span><br><span class="line">        active: <span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">        isActive: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      methods:&#123;</span><br><span class="line">        getClass:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="keyword">return</span> &#123;<span class="attr">active</span>: <span class="built_in">this</span>.isActive&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="数组语法"><a href="#数组语法" class="headerlink" title="数组语法"></a>数组语法</h3><p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;!--请注意,数组内部如果元素加<span class="string">&#x27;&#x27;</span>,会将其当做字符串解析,如果不加<span class="string">&#x27;&#x27;</span>,则会当作变量去查找解析--&gt;</span><br><span class="line">    &lt;!--这样写,那么就不是动态的呢--&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;[&#x27;active&#x27;,&#x27;line&#x27;]&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;isActive=!isActive&quot;</span>&gt;变变变&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        message: <span class="string">&quot;Hello Vue&quot;</span>,</span><br><span class="line">        active: <span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">        isActive: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="v-bind动态绑定style"><a href="#v-bind动态绑定style" class="headerlink" title="v-bind动态绑定style"></a>v-bind动态绑定style</h2><p>多用于组件的在多个地方的自定义的动态设置组件的样式</p>
-<h3 id="对象语法-1"><a href="#对象语法-1" class="headerlink" title="对象语法"></a>对象语法</h3><p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!-- <span class="xml"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;key(属性名): value(属性值)&#125;&quot;</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;!--如果属性值不加单引号,会将属性值当做变量--&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: &#x27;50px&#x27;&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: fontSizeZ&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: fontSizeZ2 + &#x27;px&#x27;&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: fontSizeZ2 + &#x27;px&#x27;,color: colorZ&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;getStyles()&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">            fontSizeZ: <span class="string">&#x27;50px&#x27;</span>,</span><br><span class="line">            fontSizeZ2: <span class="number">50</span>,</span><br><span class="line">            colorZ: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            getStyles:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;<span class="attr">fontSize</span>: <span class="built_in">this</span>.fontSizeZ2 + <span class="string">&#x27;px&#x27;</span>,<span class="attr">color</span>: <span class="built_in">this</span>.colorZ&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924141740.png" alt="20200924111447"></p>
-<h3 id="数组语法-1"><a href="#数组语法-1" class="headerlink" title="数组语法"></a>数组语法</h3><p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;[baseStyle]&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">            baseStyle: &#123;</span><br><span class="line">                color: <span class="string">&#x27;red&#x27;</span>,</span><br><span class="line">                fontSize: <span class="string">&#x27;50px&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924141657.png" alt="20200924111816"></p>
-<h1 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h1><p>在模板中绑定表达式是非常便利的，但是它们实际上只用于简单的操作。模板是为了描述视图的结构。在模板中放入太多的逻辑会让模板过重且难以维护。这就是为什么 Vue.js 将绑定表达式限制为一个表达式。如果需要多于一个表达式的逻辑，应当使用<strong>计算属性</strong>。</p>
-<h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h2><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><p>拼接两个变量</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message + <span class="string">&#x27; &#x27;</span> + message2&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125; &#123;&#123;message2&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;getAllMessage()&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;allMessage&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">            message2: <span class="string">&#x27;Bye,Vue&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            getAllMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.message + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.message2</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 计算属性,给函数取名称时最好按照变量的命名方式</span></span><br><span class="line">        computed: &#123;</span><br><span class="line">            allMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.message + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.message2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924163151.png" alt="20200924163144"></p>
-<h3 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h3><p>计算一个数组里面,所有书籍对象的总价格</p>
-<p><strong>代码</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;总价格: &#123;&#123;totalPrice&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            books: [</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;101&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;Java&#x27;</span>,</span><br><span class="line">                    price: <span class="number">200</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;102&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;C&#x27;</span>,</span><br><span class="line">                    price: <span class="number">100</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;103&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;C++&#x27;</span>,</span><br><span class="line">                    price: <span class="number">400</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;104&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;Python&#x27;</span>,</span><br><span class="line">                    price: <span class="number">300</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            totalPrice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> total = <span class="number">0</span>;</span><br><span class="line">                <span class="comment">// 遍历的三种方式</span></span><br><span class="line">                <span class="comment">//第一种</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.books.length; i++) &#123;</span><br><span class="line">                    total += <span class="built_in">this</span>.books[i].price;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//第二种</span></span><br><span class="line">               <span class="comment">/* for (let i in this.books) &#123;</span></span><br><span class="line"><span class="comment">                    total += this.books[i].price;</span></span><br><span class="line"><span class="comment">                &#125;*/</span></span><br><span class="line">                <span class="comment">//第三种</span></span><br><span class="line">               <span class="comment">/* for (let book of this.books) &#123;</span></span><br><span class="line"><span class="comment">                    total += book.price;</span></span><br><span class="line"><span class="comment">                &#125;*/</span></span><br><span class="line">                <span class="keyword">return</span> total;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果</strong></p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924164456.png" alt="20200924164447"></p>
-<h2 id="Getter和Setter"><a href="#Getter和Setter" class="headerlink" title="Getter和Setter"></a>Getter和Setter</h2><p>计算属性一般都是只读属性,所以只有get方法,因为只有get方法,所以可以简写</p>
-<p>而这又解释了为什么在调用计算属性的时候不用加()</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">        message2: <span class="string">&#x27;Bye,Vue&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        <span class="comment">// 简写</span></span><br><span class="line">        <span class="comment">// allMessage: function () &#123;</span></span><br><span class="line">        <span class="comment">//     return this.message+ &#x27; &#x27; + this.message2</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 完整写法</span></span><br><span class="line">        <span class="comment">// 计算属性一般是没有set方法的,只读属性</span></span><br><span class="line">         allMessage: &#123;</span><br><span class="line">             get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.message + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.message2;</span><br><span class="line">             &#125;,</span><br><span class="line">             set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>)</span>&#123;</span><br><span class="line">                 <span class="keyword">const</span> messages = newValue.split(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">                 <span class="built_in">this</span>.message = messages[<span class="number">0</span>];</span><br><span class="line">                 <span class="built_in">this</span>.message2 = messages[<span class="number">1</span>];</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="计算属性和Methods的对比"><a href="#计算属性和Methods的对比" class="headerlink" title="计算属性和Methods的对比"></a>计算属性和Methods的对比</h2><ul>
-<li>methods方法和computed计算属性，两种方式的最终结果确实是完全相同</li>
-<li>计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值，多次访问计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
-<li>methods方法，每当触发重新渲染时，调用方法将总会再次执行函数。</li>
-<li>对于任何复杂逻辑，你都应当使用计算属性</li>
-</ul>
-<h1 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h1><h2 id="v-on介绍"><a href="#v-on介绍" class="headerlink" title="v-on介绍"></a>v-on介绍</h2><ul>
-<li>作用: 绑定事件监听器</li>
-<li>缩写: @</li>
-<li>预期: Function | Inline Statement | Object</li>
-<li>参数: event</li>
-</ul>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2>]]></content>
+    <title>IDEA、WebStrom最新版破解教程</title>
+    <url>/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="激活方法"><a href="#激活方法" class="headerlink" title="激活方法"></a>激活方法</h1><h2 id="1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；"><a href="#1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；" class="headerlink" title="1、下载完成后，双击 ideaIU-2020.2.exe,打开安装软件；"></a>1、下载完成后，双击 <code>ideaIU-2020.2.exe</code>,打开安装软件；</h2><blockquote>
+<p>PS: 确保电脑没有安装老版本软件，如有请卸载。</p>
+</blockquote>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/1_m4b8on.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/1_m4b8on.png"></p>
+<h2 id="2、-安装目录选择；"><a href="#2、-安装目录选择；" class="headerlink" title="2、 安装目录选择；"></a><strong>2、</strong> 安装目录选择；</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/2_juogad.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/2_juogad.png"></p>
+<h2 id="3、-按自己电脑配置勾选："><a href="#3、-按自己电脑配置勾选：" class="headerlink" title="3、 按自己电脑配置勾选："></a><strong>3、</strong> 按自己电脑配置勾选：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/3_cewijo.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/3_cewijo.png"></p>
+<h2 id="4、-点击-next-安心等待其安装完成："><a href="#4、-点击-next-安心等待其安装完成：" class="headerlink" title="4、 点击 next, 安心等待其安装完成："></a><strong>4、</strong> 点击 <code>next</code>, 安心等待其安装完成：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/4_erf7vj.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/4_erf7vj.png"></p>
+<h2 id="5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件"><a href="#5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件" class="headerlink" title="5、 安装完成后，勾选 Run IntelliJ IDEA，点击 finish 运行软件:"></a><strong>5、</strong> 安装完成后，勾选 <code>Run IntelliJ IDEA</code>，点击 <code>finish</code> 运行软件:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/5_pxaqbd.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/5_pxaqbd.png"></p>
+<h2 id="6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate"><a href="#6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate" class="headerlink" title="6、 会先弹出一个注册框，勾选 Evaluate for free, 点击 Evaluate:"></a><strong>6、</strong> 会先弹出一个注册框，勾选 <code>Evaluate for free</code>, 点击 <code>Evaluate</code>:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/6_l7v8mh.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/6_l7v8mh.png"></p>
+<h2 id="7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中"><a href="#7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中" class="headerlink" title="7、 2020 版本文件夹中的激活补丁破解补丁拖入IDEA 界面中"></a><strong>7、</strong> 2020 版本文件夹中的激活补丁<em><a href="https://api.cloudinary.com/v1_1/junpzx/raw/download?api_key=926984447943426&attachment=true&audit_context=eyJhY3Rvcl90eXBlIjoidXNlciIsImFjdG9yX2lkIjoiNGEzYTQ5NjllNDExM2U2ZmIyOWYzYTk5ZGQ2ZDE0MmMiLCJ1c2VyX2V4dGVybmFsX2lkIjoiYmQ0ZTQ4MzNhODVlOGYxZmEzNDM4MGUyMTkwMWExIiwidXNlcl9jdXN0b21faWQiOiJqdW5wenhAMTYzLmNvbSIsImNvbXBvbmVudCI6ImNvbnNvbGUifQ%3D%3D&public_id=idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B%2Fjetbrains-agent_lcbbnb.zip&signature=c996e1fd172879b3e20d03af99b186ee31587245&target_filename=jetbrains-agent_lcbbnb.zip&timestamp=1600513199&type=upload">破解补丁</a></em>拖入IDEA 界面中</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/7_o7c2z1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/7_o7c2z1.png"></p>
+<p> <strong>补丁，拖不进去，请重启 IDEA ，新建一个Java 项目，写一个空的 main 方法，再次试试</strong></p>
+<p> <strong>注意：激活补丁，拖进去之后，激活补丁的位置不要更换，不要删除。否则激活之后还会失效，</strong></p>
+<p> <strong>注意：激活补丁，拖进去，等于是程序，帮你去写一个激活补丁的位置，你换补丁jar位置，或者，删除补丁jar，就找不到激活补丁了</strong></p>
+<h2 id="8、拖入补丁后会弹框，点击-restart-重启-idea："><a href="#8、拖入补丁后会弹框，点击-restart-重启-idea：" class="headerlink" title="8、拖入补丁后会弹框，点击 restart 重启 idea："></a>8、拖入补丁后会弹框，点击 <code>restart</code> 重启 <strong>idea</strong>：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/8_ttpxq1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/8_ttpxq1.png"></p>
+<h2 id="9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装："><a href="#9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装：" class="headerlink" title="9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 Activation Code，通过注册码来激活，点击为IDEA安装："></a>9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 <code>Activation Code</code>，通过注册码来激活，点击<code>为IDEA安装</code>：</h2><p><strong>安装参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGXawLB4qswPOXYG7+ItDNUR&#x2F;9UkLTUWlnHLX07hnR1USOrWIjTmbytcIKEdaI6x0RskyotuItj84xxoSBP&#x2F;iRBW2EHpOc</span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/9_fsezuf.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/9_fsezuf.png">激活破解方法, JetBrains 全家桶激活</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/10_skts9u.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/10_skts9u.png"></p>
+<h2 id="10、-点击是，重启-IDEA-即可"><a href="#10、-点击是，重启-IDEA-即可" class="headerlink" title="10、 点击是，重启 IDEA 即可"></a><strong>10、</strong> 点击<code>是</code>，重启 <strong>IDEA</strong> 即可</h2><h1 id="验证是否激活成功"><a href="#验证是否激活成功" class="headerlink" title="验证是否激活成功"></a>验证是否激活成功</h1><p>验证步骤如下：</p>
+<h2 id="1、-进入-IDEA-界面后，点击-Help-gt-Register-查看："><a href="#1、-进入-IDEA-界面后，点击-Help-gt-Register-查看：" class="headerlink" title="1、 进入 IDEA 界面后，点击 Help -&gt; Register 查看："></a><strong>1、</strong> 进入 <strong>IDEA</strong> 界面后，点击 <code>Help</code> -&gt; <code>Register</code> 查看：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/11_sbvbve.png"></p>
+<h2 id="2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新"><a href="#2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新" class="headerlink" title="2、 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新"></a><strong>2、</strong> 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/12_kl4v3h.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/12_kl4v3h.png"></p>]]></content>
       <categories>
-        <category>笔记</category>
-        <category>前端</category>
+        <category>安装教程</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>IDEA</tag>
+        <tag>WebStorm</tag>
+        <tag>JetBrains</tag>
       </tags>
   </entry>
   <entry>
@@ -215,36 +148,578 @@
       </tags>
   </entry>
   <entry>
-    <title>IDEA、WebStrom最新版破解教程</title>
-    <url>/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="激活方法"><a href="#激活方法" class="headerlink" title="激活方法"></a>激活方法</h1><h2 id="1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；"><a href="#1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；" class="headerlink" title="1、下载完成后，双击 ideaIU-2020.2.exe,打开安装软件；"></a>1、下载完成后，双击 <code>ideaIU-2020.2.exe</code>,打开安装软件；</h2><blockquote>
-<p>PS: 确保电脑没有安装老版本软件，如有请卸载。</p>
-</blockquote>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/1_m4b8on.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/1_m4b8on.png"></p>
-<h2 id="2、-安装目录选择；"><a href="#2、-安装目录选择；" class="headerlink" title="2、 安装目录选择；"></a><strong>2、</strong> 安装目录选择；</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/2_juogad.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/2_juogad.png"></p>
-<h2 id="3、-按自己电脑配置勾选："><a href="#3、-按自己电脑配置勾选：" class="headerlink" title="3、 按自己电脑配置勾选："></a><strong>3、</strong> 按自己电脑配置勾选：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/3_cewijo.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/3_cewijo.png"></p>
-<h2 id="4、-点击-next-安心等待其安装完成："><a href="#4、-点击-next-安心等待其安装完成：" class="headerlink" title="4、 点击 next, 安心等待其安装完成："></a><strong>4、</strong> 点击 <code>next</code>, 安心等待其安装完成：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/4_erf7vj.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/4_erf7vj.png"></p>
-<h2 id="5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件"><a href="#5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件" class="headerlink" title="5、 安装完成后，勾选 Run IntelliJ IDEA，点击 finish 运行软件:"></a><strong>5、</strong> 安装完成后，勾选 <code>Run IntelliJ IDEA</code>，点击 <code>finish</code> 运行软件:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/5_pxaqbd.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/5_pxaqbd.png"></p>
-<h2 id="6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate"><a href="#6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate" class="headerlink" title="6、 会先弹出一个注册框，勾选 Evaluate for free, 点击 Evaluate:"></a><strong>6、</strong> 会先弹出一个注册框，勾选 <code>Evaluate for free</code>, 点击 <code>Evaluate</code>:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/6_l7v8mh.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/6_l7v8mh.png"></p>
-<h2 id="7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中"><a href="#7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中" class="headerlink" title="7、 2020 版本文件夹中的激活补丁破解补丁拖入IDEA 界面中"></a><strong>7、</strong> 2020 版本文件夹中的激活补丁<em><a href="https://api.cloudinary.com/v1_1/junpzx/raw/download?api_key=926984447943426&attachment=true&audit_context=eyJhY3Rvcl90eXBlIjoidXNlciIsImFjdG9yX2lkIjoiNGEzYTQ5NjllNDExM2U2ZmIyOWYzYTk5ZGQ2ZDE0MmMiLCJ1c2VyX2V4dGVybmFsX2lkIjoiYmQ0ZTQ4MzNhODVlOGYxZmEzNDM4MGUyMTkwMWExIiwidXNlcl9jdXN0b21faWQiOiJqdW5wenhAMTYzLmNvbSIsImNvbXBvbmVudCI6ImNvbnNvbGUifQ%3D%3D&public_id=idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B%2Fjetbrains-agent_lcbbnb.zip&signature=c996e1fd172879b3e20d03af99b186ee31587245&target_filename=jetbrains-agent_lcbbnb.zip&timestamp=1600513199&type=upload">破解补丁</a></em>拖入IDEA 界面中</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/7_o7c2z1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/7_o7c2z1.png"></p>
-<p> <strong>补丁，拖不进去，请重启 IDEA ，新建一个Java 项目，写一个空的 main 方法，再次试试</strong></p>
-<p> <strong>注意：激活补丁，拖进去之后，激活补丁的位置不要更换，不要删除。否则激活之后还会失效，</strong></p>
-<p> <strong>注意：激活补丁，拖进去，等于是程序，帮你去写一个激活补丁的位置，你换补丁jar位置，或者，删除补丁jar，就找不到激活补丁了</strong></p>
-<h2 id="8、拖入补丁后会弹框，点击-restart-重启-idea："><a href="#8、拖入补丁后会弹框，点击-restart-重启-idea：" class="headerlink" title="8、拖入补丁后会弹框，点击 restart 重启 idea："></a>8、拖入补丁后会弹框，点击 <code>restart</code> 重启 <strong>idea</strong>：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/8_ttpxq1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/8_ttpxq1.png"></p>
-<h2 id="9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装："><a href="#9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装：" class="headerlink" title="9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 Activation Code，通过注册码来激活，点击为IDEA安装："></a>9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 <code>Activation Code</code>，通过注册码来激活，点击<code>为IDEA安装</code>：</h2><p><strong>安装参数</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGXawLB4qswPOXYG7+ItDNUR&#x2F;9UkLTUWlnHLX07hnR1USOrWIjTmbytcIKEdaI6x0RskyotuItj84xxoSBP&#x2F;iRBW2EHpOc</span><br></pre></td></tr></table></figure>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/9_fsezuf.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/9_fsezuf.png">激活破解方法, JetBrains 全家桶激活</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/10_skts9u.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/10_skts9u.png"></p>
-<h2 id="10、-点击是，重启-IDEA-即可"><a href="#10、-点击是，重启-IDEA-即可" class="headerlink" title="10、 点击是，重启 IDEA 即可"></a><strong>10、</strong> 点击<code>是</code>，重启 <strong>IDEA</strong> 即可</h2><h1 id="验证是否激活成功"><a href="#验证是否激活成功" class="headerlink" title="验证是否激活成功"></a>验证是否激活成功</h1><p>验证步骤如下：</p>
-<h2 id="1、-进入-IDEA-界面后，点击-Help-gt-Register-查看："><a href="#1、-进入-IDEA-界面后，点击-Help-gt-Register-查看：" class="headerlink" title="1、 进入 IDEA 界面后，点击 Help -&gt; Register 查看："></a><strong>1、</strong> 进入 <strong>IDEA</strong> 界面后，点击 <code>Help</code> -&gt; <code>Register</code> 查看：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/11_sbvbve.png"></p>
-<h2 id="2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新"><a href="#2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新" class="headerlink" title="2、 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新"></a><strong>2、</strong> 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/12_kl4v3h.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/12_kl4v3h.png"></p>]]></content>
+    <title>JavaScript事件</title>
+    <url>/2020/09/28/JavaScript%E4%BA%8B%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="常见类别"><a href="#常见类别" class="headerlink" title="常见类别"></a>常见类别</h1><h2 id="资源事件"><a href="#资源事件" class="headerlink" title="资源事件"></a>资源事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>error</code></td>
+<td style="text-align:left">资源加载失败时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>abort</code></td>
+<td style="text-align:left">正在加载资源已经被中止时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>load</code></td>
+<td style="text-align:left">资源及其相关资源已完成加载。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>beforeunload</code></td>
+<td style="text-align:left">window，document 及其资源即将被卸载。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>unload</code></td>
+<td style="text-align:left">文档或一个依赖资源正在被卸载。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="网络事件"><a href="#网络事件" class="headerlink" title="网络事件"></a>网络事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>online</code></td>
+<td style="text-align:left">浏览器已获得网络访问。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>offline</code></td>
+<td style="text-align:left">浏览器已失去网络访问。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="焦点事件"><a href="#焦点事件" class="headerlink" title="焦点事件"></a>焦点事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>focus</code></td>
+<td style="text-align:left">元素获得焦点（不会冒泡）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>blur</code></td>
+<td style="text-align:left">元素失去焦点（不会冒泡）。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="WebSocket-事件"><a href="#WebSocket-事件" class="headerlink" title="WebSocket 事件"></a>WebSocket 事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>open</code></td>
+<td style="text-align:left">WebSocket 连接已建立。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>message</code></td>
+<td style="text-align:left">通过 WebSocket 接收到一条消息。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>error</code></td>
+<td style="text-align:left">WebSocket 连接异常被关闭（比如有些数据无法发送）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>close</code></td>
+<td style="text-align:left">WebSocket 连接已关闭。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="会话历史事件"><a href="#会话历史事件" class="headerlink" title="会话历史事件"></a>会话历史事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>pagehide</code></td>
+<td style="text-align:left">A session history entry is being traversed from.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pageshow</code></td>
+<td style="text-align:left">A session history entry is being traversed to.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>popstate</code></td>
+<td style="text-align:left">A session history entry is being navigated to (in certain cases).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="CSS动画事件"><a href="#CSS动画事件" class="headerlink" title="CSS动画事件"></a>CSS动画事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>animationstart</code></td>
+<td style="text-align:left">某个 CSS 动画开始时触发。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>animationend</code></td>
+<td style="text-align:left">某个 CSS 动画完成时触发。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>animationiteration</code></td>
+<td style="text-align:left">某个 CSS 动画完成后重新开始时触发。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="CSS过渡事件"><a href="#CSS过渡事件" class="headerlink" title="CSS过渡事件"></a>CSS过渡事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>transitionstart</code></td>
+<td style="text-align:left">A <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions">CSS transition</a> has actually started (fired after any delay).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>transitioncancel</code></td>
+<td style="text-align:left">CSS过渡被取消</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>transitionend</code></td>
+<td style="text-align:left">CSS过渡已经完成</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>transitionrun</code></td>
+<td style="text-align:left">A <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions">CSS transition</a> has begun running (fired before any delay starts).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>reset</code></td>
+<td style="text-align:left">点击重置按钮时</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>submit</code></td>
+<td style="text-align:left">点击提交按钮</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="打印事件"><a href="#打印事件" class="headerlink" title="打印事件"></a>打印事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">时间名称</th>
+<th style="text-align:left">何时触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>beforeprint</code></td>
+<td style="text-align:left">打印机已经就绪时触发</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>afterprint</code></td>
+<td style="text-align:left">打印机关闭时触发</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="文本写作事件"><a href="#文本写作事件" class="headerlink" title="文本写作事件"></a>文本写作事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>compositionstart</code></td>
+<td style="text-align:left">The composition of a passage of text is prepared (similar to keydown for a keyboard input, but works with other inputs such as speech recognition).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>compositionupdate</code></td>
+<td style="text-align:left">A character is added to a passage of text being composed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>compositionend</code></td>
+<td style="text-align:left">The composition of a passage of text has been completed or canceled.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="视图事件"><a href="#视图事件" class="headerlink" title="视图事件"></a>视图事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>fullscreenchange</code></td>
+<td style="text-align:left">An element was turned to fullscreen mode or back to normal mode.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fullscreenerror</code></td>
+<td style="text-align:left">It was impossible to switch to fullscreen mode for technical reasons or because the permission was denied.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resize</code></td>
+<td style="text-align:left">The document view has been resized.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>scroll</code></td>
+<td style="text-align:left">The document view or an element has been scrolled.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="剪贴板事件"><a href="#剪贴板事件" class="headerlink" title="剪贴板事件"></a>剪贴板事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>cut</code></td>
+<td style="text-align:left">已经剪贴选中的文本内容并且复制到了剪贴板。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>copy</code></td>
+<td style="text-align:left">已经把选中的文本内容复制到了剪贴板。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>paste</code></td>
+<td style="text-align:left">从剪贴板复制的文本内容被粘贴。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>keydown</code></td>
+<td style="text-align:left">按下任意按键。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>keypress</code></td>
+<td style="text-align:left">除 Shift、Fn、CapsLock 外的任意键被按住。（连续触发。）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>keyup</code></td>
+<td style="text-align:left">释放任意按键。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>auxclick</code></td>
+<td style="text-align:left">A pointing device button (ANY non-primary button) has been pressed and released on an element.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>click</code></td>
+<td style="text-align:left">在元素上按下并释放任意鼠标按键。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>contextmenu</code></td>
+<td style="text-align:left">右键点击（在右键菜单显示前触发）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dblclick</code></td>
+<td style="text-align:left">在元素上双击鼠标按钮。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mousedown</code></td>
+<td style="text-align:left">在元素上按下任意鼠标按钮。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mouseenter</code></td>
+<td style="text-align:left">指针移到有事件监听的元素内。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mouseleave</code></td>
+<td style="text-align:left">指针移出元素范围外（不冒泡）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mousemove</code></td>
+<td style="text-align:left">指针在元素内移动时持续触发。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mouseover</code></td>
+<td style="text-align:left">指针移到有事件监听的元素或者它的子元素内。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mouseout</code></td>
+<td style="text-align:left">指针移出元素，或者移到它的子元素上。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>mouseup</code></td>
+<td style="text-align:left">在元素上释放任意鼠标按键。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pointerlockchange</code></td>
+<td style="text-align:left">鼠标被锁定或者解除锁定发生时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pointerlockerror</code></td>
+<td style="text-align:left">可能因为一些技术的原因鼠标锁定被禁止时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>select</code></td>
+<td style="text-align:left">有文本被选中。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>wheel</code></td>
+<td style="text-align:left">滚轮向任意方向滚动。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="拖放事件"><a href="#拖放事件" class="headerlink" title="拖放事件"></a>拖放事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>drag</code></td>
+<td style="text-align:left">正在拖动元素或文本选区（在此过程中持续触发，每 350ms 触发一次）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dragend</code></td>
+<td style="text-align:left">拖放操作结束。（松开鼠标按钮或按下 Esc 键）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dragenter</code></td>
+<td style="text-align:left">被拖动的元素或文本选区移入有效释放目标区</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dragstart</code></td>
+<td style="text-align:left">用户开始拖动HTML元素或选中的文本</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dragleave</code></td>
+<td style="text-align:left">被拖动的元素或文本选区移出有效释放目标区</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dragover</code></td>
+<td style="text-align:left">被拖动的元素或文本选区正在有效释放目标上被拖动 （在此过程中持续触发，每350ms触发一次）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>drop</code></td>
+<td style="text-align:left">元素在有效释放目标区上释放</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="媒体事件"><a href="#媒体事件" class="headerlink" title="媒体事件"></a>媒体事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>audioprocess</code></td>
+<td style="text-align:left">The input buffer of a <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ScriptProcessorNode"><code>ScriptProcessorNode</code></a> is ready to be processed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>canplay</code></td>
+<td style="text-align:left">The browser can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>canplaythrough</code></td>
+<td style="text-align:left">The browser estimates it can play the media up to its end without stopping for content buffering.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>complete</code></td>
+<td style="text-align:left">The rendering of an <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/OfflineAudioContext"><code>OfflineAudioContext</code></a> is terminated.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>durationchange</code></td>
+<td style="text-align:left">The <code>duration</code> attribute has been updated.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>emptied</code></td>
+<td style="text-align:left">The media has become empty; for example, this event is sent if the media has already been loaded (or partially loaded), and the <a href="https://developer.mozilla.org/zh-CN/docs/XPCOM_Interface_Reference/NsIDOMHTMLMediaElement"><code>load()</code></a> method is called to reload it.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ended</code></td>
+<td style="text-align:left">Playback has stopped because the end of the media was reached.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>loadeddata</code></td>
+<td style="text-align:left">The first frame of the media has finished loading.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>loadedmetadata</code></td>
+<td style="text-align:left">The metadata has been loaded.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pause</code></td>
+<td style="text-align:left">Playback has been paused.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>play</code></td>
+<td style="text-align:left">Playback has begun.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>playing</code></td>
+<td style="text-align:left">Playback is ready to start after having been paused or delayed due to lack of data.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ratechange</code></td>
+<td style="text-align:left">The playback rate has changed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>seeked</code></td>
+<td style="text-align:left">A <em>seek</em> operation completed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>seeking</code></td>
+<td style="text-align:left">A <em>seek</em> operation began.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>stalled</code></td>
+<td style="text-align:left">The user agent is trying to fetch media data, but data is unexpectedly not forthcoming.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>suspend</code></td>
+<td style="text-align:left">Media data loading has been suspended.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>timeupdate</code></td>
+<td style="text-align:left">The time indicated by the <code>currentTime</code> attribute has been updated.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>volumechange</code></td>
+<td style="text-align:left">The volume has changed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>waiting</code></td>
+<td style="text-align:left">Playback has stopped because of a temporary lack of data.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="进度事件"><a href="#进度事件" class="headerlink" title="进度事件"></a>进度事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Event Name</th>
+<th style="text-align:left">Fired When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>abort</code></td>
+<td style="text-align:left">Progression has been terminated (not due to an error).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>error</code></td>
+<td style="text-align:left">Progression has failed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>load</code></td>
+<td style="text-align:left">Progression has been successful.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>loadend</code></td>
+<td style="text-align:left">Progress has stopped (after “error”, “abort” or “load” have been dispatched).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>loadstart</code></td>
+<td style="text-align:left">Progress has begun.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>progress</code></td>
+<td style="text-align:left">In progress.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>timeout</code></td>
+<td style="text-align:left">Progression is terminated due to preset time expiring.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="存储事件"><a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h2><p><code>change</code><br><code>storage</code></p>
+<h2 id="更新事件"><a href="#更新事件" class="headerlink" title="更新事件"></a>更新事件</h2><p><code>checking</code><br><code>downloading</code><br><code>error</code><br><code>noupdate</code><br><code>obsolete</code><br><code>updateready</code></p>
+<h2 id="值变化事件"><a href="#值变化事件" class="headerlink" title="值变化事件"></a>值变化事件</h2><p><code>broadcast</code><br><code>CheckboxStateChange</code><br><code>hashchange</code><br><code>input</code><br><code>RadioStateChange</code><br><code>readystatechange</code><br><code>ValueChange</code></p>
+<h2 id="未分类的事件"><a href="#未分类的事件" class="headerlink" title="未分类的事件"></a>未分类的事件</h2><p><code>invalid</code><br><code>message</code><br><code>message</code><br><code>open</code><br><code>show</code></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events">更多事件</a></p>]]></content>
       <categories>
-        <category>安装教程</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>IDEA</tag>
-        <tag>WebStorm</tag>
-        <tag>JetBrains</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -451,6 +926,134 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue基本操作</title>
+    <url>/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="插值操作"><a href="#插值操作" class="headerlink" title="插值操作"></a>插值操作</h1><h2 id="Mustache语法"><a href="#Mustache语法" class="headerlink" title="Mustache语法"></a>Mustache语法</h2><p>使用双大括号,也就是mustache语法</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;age&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name + message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name + <span class="string">&#x27; &#x27;</span> + message &#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name&#125;&#125;  &#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;age * <span class="number">2</span>&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      message: <span class="string">&#x27;你好&#x27;</span>,</span><br><span class="line">      name: <span class="string">&#x27;君&#x27;</span>,</span><br><span class="line">      age: <span class="number">17</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600757346/Vue相关/Vue的基本操作/1_uq1zcr.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600757346/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/1_uq1zcr.png"></p>
+<h2 id="v-once指令"><a href="#v-once指令" class="headerlink" title="v-once指令"></a>v-once指令</h2><p>不期望某个地方的值是响应式的,就可以使用该指令</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2  v-once&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600757514/Vue相关/Vue的基本操作/2_tjrvbj.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600757514/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/2_tjrvbj.png"></p>
+<h2 id="v-html指令"><a href="#v-html指令" class="headerlink" title="v-html指令"></a>v-html指令</h2><p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;url&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-html=<span class="string">&quot;url&quot;</span>&gt;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span>,</span><br><span class="line">        url: <span class="string">&#x27;&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度一下&lt;/a&gt;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600757974/Vue相关/Vue的基本操作/3_zn2do2.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600757974/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/3_zn2do2.png"></p>
+<h2 id="v-text指令"><a href="#v-text指令" class="headerlink" title="v-text指令"></a>v-text指令</h2><p>使用较少,因为不够灵活</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-text=<span class="string">&quot;message&quot;</span>&gt;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600758176/Vue相关/Vue的基本操作/4_rortqw.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600758176/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/4_rortqw.png"></p>
+<h2 id="v-pre指令"><a href="#v-pre指令" class="headerlink" title="v-pre指令"></a>v-pre指令</h2><p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-pre&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600758367/Vue相关/Vue的基本操作/5_xns1np.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600758367/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/5_xns1np.png"></p>
+<h2 id="v-cloak指令"><a href="#v-cloak指令" class="headerlink" title="v-cloak指令"></a>v-cloak指令</h2><p>cloak:斗篷</p>
+<p>作用:当vue对象未创建时,将会显示v-cloak属性,而当vue对象创建完成以后,属性将自动删除,那么如果vue对象还未创建,可能发生页面上显示这个结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;h2&gt;</span><br></pre></td></tr></table></figure>
+<p>而我们并不期望显示这个结果,而是如果当时vue对象未创建,直接不显示就好</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        [v-cloak]&#123;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-cloak&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data:&#123;</span><br><span class="line">        message:<span class="string">&#x27;Hello Vue&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>运行结果因为该代码的结果图不好表现,所以没有截图</p>
+<h1 id="绑定属性"><a href="#绑定属性" class="headerlink" title="绑定属性"></a>绑定属性</h1><h2 id="v-bind指令基本使用"><a href="#v-bind指令基本使用" class="headerlink" title="v-bind指令基本使用"></a>v-bind指令基本使用</h2><p><strong>作用</strong></p>
+<p>动态绑定属性</p>
+<ul>
+<li>比如动态绑定a元素的href属性</li>
+<li>比如动态绑定img元素的src属性</li>
+</ul>
+<p><strong>缩写(语法糖)</strong></p>
+<p>:</p>
+<p><strong>预期</strong></p>
+<p>any(with argument) | Object(without argument)</p>
+<p><strong>参数</strong></p>
+<p>attrOrProp(optional)</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;img :src=<span class="string">&quot;imgUrl&quot;</span> alt=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">    &lt;!--等同于&lt;img v-bind:src=<span class="string">&quot;imgUrl&quot;</span> alt=<span class="string">&quot;&quot;</span>&gt;--&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        imgUrl: <span class="string">&#x27;https://img30.360buyimg.com/babel/s1180x940_jfs/t1/147101/20/8922/101180/5f685a77Eac4e4d8f/cbc61d2e465fde2c.jpg.webp&#x27;</span></span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600760783/Vue相关/Vue的基本操作/6_vfzcbn.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600760783/Vue%E7%9B%B8%E5%85%B3/Vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/6_vfzcbn.png"></p>
+<h2 id="v-bind动态绑定class"><a href="#v-bind动态绑定class" class="headerlink" title="v-bind动态绑定class"></a>v-bind动态绑定class</h2><h3 id="对象语法"><a href="#对象语法" class="headerlink" title="对象语法"></a>对象语法</h3><h4 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h4><p>在:class=”” 中直接使用对象</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt; </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;isActive=!isActive&quot;</span>&gt;变变变&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        message: <span class="string">&quot;Hello Vue&quot;</span>,</span><br><span class="line">        active: <span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">        isActive: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h4><p>在:class=””中使用方法</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;getClass()&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;isActive=!isActive&quot;</span>&gt;变变变&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        message: <span class="string">&quot;Hello Vue&quot;</span>,</span><br><span class="line">        active: <span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">        isActive: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      methods:&#123;</span><br><span class="line">        getClass:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="keyword">return</span> &#123;<span class="attr">active</span>: <span class="built_in">this</span>.isActive&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="数组语法"><a href="#数组语法" class="headerlink" title="数组语法"></a>数组语法</h3><p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;!--请注意,数组内部如果元素加<span class="string">&#x27;&#x27;</span>,会将其当做字符串解析,如果不加<span class="string">&#x27;&#x27;</span>,则会当作变量去查找解析--&gt;</span><br><span class="line">    &lt;!--这样写,那么就不是动态的呢--&gt;</span><br><span class="line">    &lt;h2 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;[&#x27;active&#x27;,&#x27;line&#x27;]&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;isActive=!isActive&quot;</span>&gt;变变变&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        message: <span class="string">&quot;Hello Vue&quot;</span>,</span><br><span class="line">        active: <span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">        isActive: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="v-bind动态绑定style"><a href="#v-bind动态绑定style" class="headerlink" title="v-bind动态绑定style"></a>v-bind动态绑定style</h2><p>多用于组件的在多个地方的自定义的动态设置组件的样式</p>
+<h3 id="对象语法-1"><a href="#对象语法-1" class="headerlink" title="对象语法"></a>对象语法</h3><p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!-- <span class="xml"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;key(属性名): value(属性值)&#125;&quot;</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;!--如果属性值不加单引号,会将属性值当做变量--&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: &#x27;50px&#x27;&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: fontSizeZ&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: fontSizeZ2 + &#x27;px&#x27;&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;&#123;fontSize: fontSizeZ2 + &#x27;px&#x27;,color: colorZ&#125;&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;getStyles()&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">            fontSizeZ: <span class="string">&#x27;50px&#x27;</span>,</span><br><span class="line">            fontSizeZ2: <span class="number">50</span>,</span><br><span class="line">            colorZ: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            getStyles:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;<span class="attr">fontSize</span>: <span class="built_in">this</span>.fontSizeZ2 + <span class="string">&#x27;px&#x27;</span>,<span class="attr">color</span>: <span class="built_in">this</span>.colorZ&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924141740.png" alt="20200924111447"></p>
+<h3 id="数组语法-1"><a href="#数组语法-1" class="headerlink" title="数组语法"></a>数组语法</h3><p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">&quot;[baseStyle]&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">            baseStyle: &#123;</span><br><span class="line">                color: <span class="string">&#x27;red&#x27;</span>,</span><br><span class="line">                fontSize: <span class="string">&#x27;50px&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924141657.png" alt="20200924111816"></p>
+<h1 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h1><p>在模板中绑定表达式是非常便利的，但是它们实际上只用于简单的操作。模板是为了描述视图的结构。在模板中放入太多的逻辑会让模板过重且难以维护。这就是为什么 Vue.js 将绑定表达式限制为一个表达式。如果需要多于一个表达式的逻辑，应当使用<strong>计算属性</strong>。</p>
+<h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h2><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><p>拼接两个变量</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message + <span class="string">&#x27; &#x27;</span> + message2&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125; &#123;&#123;message2&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;getAllMessage()&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;allMessage&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">            message2: <span class="string">&#x27;Bye,Vue&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            getAllMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.message + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.message2</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 计算属性,给函数取名称时最好按照变量的命名方式</span></span><br><span class="line">        computed: &#123;</span><br><span class="line">            allMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.message + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.message2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924163151.png" alt="20200924163144"></p>
+<h3 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h3><p>计算一个数组里面,所有书籍对象的总价格</p>
+<p><strong>代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;总价格: &#123;&#123;totalPrice&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            books: [</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;101&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;Java&#x27;</span>,</span><br><span class="line">                    price: <span class="number">200</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;102&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;C&#x27;</span>,</span><br><span class="line">                    price: <span class="number">100</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;103&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;C++&#x27;</span>,</span><br><span class="line">                    price: <span class="number">400</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: <span class="string">&#x27;104&#x27;</span>,</span><br><span class="line">                    name: <span class="string">&#x27;Python&#x27;</span>,</span><br><span class="line">                    price: <span class="number">300</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            totalPrice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> total = <span class="number">0</span>;</span><br><span class="line">                <span class="comment">// 遍历的三种方式</span></span><br><span class="line">                <span class="comment">//第一种</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.books.length; i++) &#123;</span><br><span class="line">                    total += <span class="built_in">this</span>.books[i].price;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//第二种</span></span><br><span class="line">               <span class="comment">/* for (let i in this.books) &#123;</span></span><br><span class="line"><span class="comment">                    total += this.books[i].price;</span></span><br><span class="line"><span class="comment">                &#125;*/</span></span><br><span class="line">                <span class="comment">//第三种</span></span><br><span class="line">               <span class="comment">/* for (let book of this.books) &#123;</span></span><br><span class="line"><span class="comment">                    total += book.price;</span></span><br><span class="line"><span class="comment">                &#125;*/</span></span><br><span class="line">                <span class="keyword">return</span> total;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200924164456.png" alt="20200924164447"></p>
+<h2 id="Getter和Setter"><a href="#Getter和Setter" class="headerlink" title="Getter和Setter"></a>Getter和Setter</h2><p>计算属性一般都是只读属性,所以只有get方法,因为只有get方法,所以可以简写</p>
+<p>而这又解释了为什么在调用计算属性的时候不用加()</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">        message2: <span class="string">&#x27;Bye,Vue&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        <span class="comment">// 简写</span></span><br><span class="line">        <span class="comment">// allMessage: function () &#123;</span></span><br><span class="line">        <span class="comment">//     return this.message+ &#x27; &#x27; + this.message2</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 完整写法</span></span><br><span class="line">        <span class="comment">// 计算属性一般是没有set方法的,只读属性</span></span><br><span class="line">         allMessage: &#123;</span><br><span class="line">             get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.message + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.message2;</span><br><span class="line">             &#125;,</span><br><span class="line">             set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>)</span>&#123;</span><br><span class="line">                 <span class="keyword">const</span> messages = newValue.split(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">                 <span class="built_in">this</span>.message = messages[<span class="number">0</span>];</span><br><span class="line">                 <span class="built_in">this</span>.message2 = messages[<span class="number">1</span>];</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="计算属性和Methods的对比"><a href="#计算属性和Methods的对比" class="headerlink" title="计算属性和Methods的对比"></a>计算属性和Methods的对比</h2><ul>
+<li>methods方法和computed计算属性，两种方式的最终结果确实是完全相同</li>
+<li>计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值，多次访问计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
+<li>methods方法，每当触发重新渲染时，调用方法将总会再次执行函数。</li>
+<li>对于任何复杂逻辑，你都应当使用计算属性</li>
+</ul>
+<h1 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h1><h2 id="v-on介绍"><a href="#v-on介绍" class="headerlink" title="v-on介绍"></a>v-on介绍</h2><ul>
+<li>作用: 绑定事件监听器</li>
+<li>缩写: @</li>
+<li>预期: Function | Inline Statement | Object</li>
+<li>参数: event</li>
+</ul>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;counter&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;counter++&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;counter--&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;increment&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;decrement&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">        counter: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        increment()&#123;</span><br><span class="line">            <span class="built_in">this</span>.counter++;</span><br><span class="line">        &#125;,</span><br><span class="line">        decrement()&#123;</span><br><span class="line">            <span class="built_in">this</span>.counter--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="v-on参数"><a href="#v-on参数" class="headerlink" title="v-on参数"></a>v-on参数</h2><p>当通过methods中定义方法,以供@click调用时,需要<strong>注意参数问题:</strong></p>
+<ul>
+<li>情况一: 如果该方法不需要额外参数,那么方法后的()可以不添加。<ul>
+<li>但是需要注意: 如果方法本身中有一个参数,那么会默认将原生事件event参数传递进去。</li>
+</ul>
+</li>
+<li>情况二: 如果需要同时传入某个参数,同时需要event时,可以通过$event传入事件。</li>
+</ul>
+<p><strong>代码:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;!--事件调用的方法没有参数--&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn1click&quot;</span>&gt;按钮<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn1click()&quot;</span>&gt;按钮<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    -----------------------------------------------------</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    &lt;!--在事件定义时,写函数时省略了小括号,但是方法本身是需要一个参数的,这个时候vue</span><br><span class="line">    会默认将浏览器产生的event事件对象作为参数传入到方法--&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn2click(&#x27;test&#x27;)&quot;</span>&gt;按钮<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn2click()&quot;</span>&gt;按钮<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn2click&quot;</span>&gt;按钮<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    ------------------------------------------------------</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    &lt;!--方法定义时,我们需要event对象,同时又需要其他参数--&gt;</span><br><span class="line">    &lt;!--在调用方法时,如何手动的获取到浏览器产生的event对象: $event--&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn3click&quot;</span>&gt;按钮<span class="number">3</span>&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn3click()&quot;</span>&gt;按钮<span class="number">3</span>&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn3click(&#x27;test&#x27;)&quot;</span>&gt;按钮<span class="number">3</span>&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;btn3click(&#x27;test&#x27;, $event)&quot;</span>&gt;按钮<span class="number">3</span>&lt;/button&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    ------------------------------------------------------</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">&#x27;Hello,Vue&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            btn1click() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;btn1Click&quot;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            btn2click(event) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;btn2Click&quot;</span> + <span class="string">&quot;-----&quot;</span> + event);</span><br><span class="line">            &#125;,</span><br><span class="line">            btn3click(option,event)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;btn3wuClick&quot;</span> + <span class="string">&quot;-----option:&quot;</span> + option+<span class="string">&quot;------event:&quot;</span>+event);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>运行结果:</strong></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200928163634.png" alt="2020-09-28_16-33-09"></p>
+<p><strong>注意:如果方法需要参数,传入的参数为String类型,那么需要加上<code>&#39; &#39;</code>,如果不加的话,vue会将其当做变量去data中进行查找,如果查找不到将会报错</strong></p>
+<h2 id="v-on修饰符"><a href="#v-on修饰符" class="headerlink" title="v-on修饰符"></a>v-on修饰符</h2><ul>
+<li><code>.stop</code> - 调用 <code>event.stopPropagation()</code>。</li>
+<li><code>.prevent</code> - 调用 <code>event.preventDefault()</code>。</li>
+<li><code>.capture</code> - 添加事件侦听器时使用 capture 模式。</li>
+<li><code>.self</code> - 只当事件是从侦听器绑定的元素本身触发时才触发回调。</li>
+<li><code>.&#123;keyCode | keyAlias&#125;</code> - 只当事件是从特定键触发时才触发回调。</li>
+<li><code>.native</code> - 监听组件根元素的原生事件。</li>
+<li><code>.once</code> - 只触发一次回调。</li>
+<li><code>.left</code> - (2.2.0) 只当点击鼠标左键时触发。</li>
+<li><code>.right</code> - (2.2.0) 只当点击鼠标右键时触发。</li>
+<li><code>.middle</code> - (2.2.0) 只当点击鼠标中键时触发。</li>
+<li><code>.passive</code> - (2.3.0) 以 <code>&#123; passive: true &#125;</code> 模式添加侦听器</li>
+</ul>
+<p><strong>示例:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 绑定一个 attribute --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">&quot;imageSrc&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 动态 attribute 名 (2.6.0+) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:</span>[<span class="attr">key</span>]=<span class="string">&quot;value&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 缩写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">&quot;imageSrc&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 动态 attribute 名缩写 (2.6.0+) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">:</span>[<span class="attr">key</span>]=<span class="string">&quot;value&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 内联字符串拼接 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">&quot;&#x27;/path/to/images/&#x27; + fileName&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- class 绑定 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;&#123; red: isRed &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;[classA, classB]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;[classA, &#123; classB: isB, classC: isC &#125;]&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- style 绑定 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;&#123; fontSize: size + &#x27;px&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;[styleObjectA, styleObjectB]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 绑定一个全是 attribute 的对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind</span>=<span class="string">&quot;&#123; id: someProp, &#x27;other-attr&#x27;: otherProp &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 通过 prop 修饰符绑定 DOM attribute --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:text-content.prop</span>=<span class="string">&quot;text&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- prop 绑定。“prop”必须在 my-component 中声明。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">:prop</span>=<span class="string">&quot;someThing&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 通过 $props 将父组件的 props 一起传给子组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">child-component</span> <span class="attr">v-bind</span>=<span class="string">&quot;$props&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- XLink --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">:xlink:special</span>=<span class="string">&quot;foo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
