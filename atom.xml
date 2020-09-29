@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-09-29T08:34:14.446Z</updated>
+  <updated>2020-09-29T08:37:54.226Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,17 @@
     <link href="https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
     <published>2020-09-29T06:59:24.000Z</published>
-    <updated>2020-09-29T08:34:14.446Z</updated>
+    <updated>2020-09-29T08:37:54.226Z</updated>
     
     
-    <summary type="html">&lt;p&gt;学习Vue过程中，一些零碎的知识点&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;学习Vue过程中，一些零碎的知识点&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="前段" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E6%AE%B5/"/>
+    <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="Vue" scheme="https://www.junpzx.cn/tags/Vue/"/>
@@ -42,18 +43,12 @@
     <link href="https://www.junpzx.cn/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/"/>
     <id>https://www.junpzx.cn/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/</id>
     <published>2020-09-28T09:36:38.000Z</published>
-    <updated>2020-09-29T08:35:09.568Z</updated>
+    <updated>2020-09-29T08:37:33.473Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;Vue的条件判断的介绍和使用&lt;/p&gt;
 &lt;p&gt;Vue的循环遍历的介绍和使用&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     

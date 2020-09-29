@@ -1,132 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Vue相关知识点</title>
-    <url>/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="数组中哪些方法是响应式的？"><a href="#数组中哪些方法是响应式的？" class="headerlink" title="数组中哪些方法是响应式的？"></a>数组中哪些方法是响应式的？</h1><p><strong>注意：通过数组下标直接修改数组元素的值，界面不会发生改变，但是数组内的值已经修改，如果需要修改的时候是响应式的，那么可以通过以下方法：</strong></p>
+    <title>ES语法</title>
+    <url>/2020/09/24/ES6%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="let和var"><a href="#let和var" class="headerlink" title="let和var"></a>let和var</h1><p>事实上var的设计可以看成JavaScript语言设计上的错误,但是这种错误多半不能修复和移除,因为需要向后兼容.</p>
 <ul>
-<li><strong>数组的splice方法</strong></li>
-<li><p><strong>vue.set(array,下标,值)</strong></p>
-<table>
-   <tr>
-       <td>方法名</td>
-       <td>作用</td>
-       <td>语法</td>
-       <td>是否是响应式</td>
-   </tr>
-   <tr>
-       <td>push</td>
-       <td>在数组最后追加元素</td>
-       <td>array.push(元素1,元素2...)</td>
-       <td>是</td>
-   </tr>
-   <tr>
-       <td>pop</td>
-       <td>移除数组中最后一位元素</td>
-       <td>array.pop()</td>
-       <td>是</td>
-   </tr>
-    <tr>
-       <td>shift</td>
-       <td>移除数组中第一位元素</td>
-       <td>array.shift()</td>
-       <td>是</td>
-   </tr>
-    <tr>
-       <td>unshift</td>
-       <td>在数组最前面添加元素</td>
-       <td>array.unshift(元素1,元素2...)</td>
-       <td>是</td>
-   </tr>
-    <tr>
-       <td>splice</td>
-       <td>删除元素/插入元素/替换元素</td>
-       <td>array.splice(开始下标,需要删除的数量, 添加元素1,添加元素,...)</td>
-       <td>是</td>
-   </tr>
-    <tr>
-       <td>sort</td>
-       <td>将数组进行排序</td>
-       <td>array.sort(function)</td>
-       <td>是</td>
-   </tr>
-    <tr>
-       <td>reverse</td>
-       <td>将数组内的元素进行反转</td>
-       <td>array.reverse()</td>
-       <td>是</td>
-   </tr>
-</table>
-
-</li>
-</ul>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>前段</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue基本操作(二)</title>
-    <url>/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/</url>
-    <content><![CDATA[<p>Vue的条件判断的介绍和使用</p>
-<p>Vue的循环遍历的介绍和使用</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png"></p>
-<h1 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h1><h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p><strong>使用:</strong></p>
-<ul>
-<li>v-if</li>
-<li>v-else-if</li>
-<li>v-else</li>
+<li>大概十年前,Brendan Eich就决定修复这个问题,于是他添加了一个新的关键字:let</li>
+<li>我们可以将let看成更加完美的var</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span> &gt;</span><br><span class="line">    &lt;h2 v-<span class="keyword">if</span>=<span class="string">&quot;display&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-<span class="keyword">else</span>&gt;&#123;&#123;message + <span class="string">&#x27;2&#x27;</span>&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;checkout()&quot;</span>&gt;切换&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">        display: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        checkout()&#123;</span><br><span class="line">            <span class="built_in">this</span>.display = !<span class="built_in">this</span>.display;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>注意:如果需要判断的层级很多,那么推荐使用计算属性</strong></p>
-<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>主要用于控制某个元素是否显示</p>
-<h3 id="跟v-if的区别"><a href="#跟v-if的区别" class="headerlink" title="跟v-if的区别"></a>跟v-if的区别</h3><ul>
-<li>v-if:当条件为false时,包含v-if指令的元素,根本就不会存在在dom中</li>
-<li>v-show: 当条件为false时,包含v-show指令的元素添加了一个行内样式:display: none</li>
+<h2 id="var问题分析"><a href="#var问题分析" class="headerlink" title="var问题分析"></a>var问题分析</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">3</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">4</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">5</span>&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">      btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span>+i+<span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a><strong>运行结果</strong></h3><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925103505.png" alt="2020-09-25_10-34-09"></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="为什么点击每一个按钮的打印结果都为-第五个按钮被点击"><a href="#为什么点击每一个按钮的打印结果都为-第五个按钮被点击" class="headerlink" title="为什么点击每一个按钮的打印结果都为 第五个按钮被点击?"></a><strong>为什么点击每一个按钮的打印结果都为</strong> <code>第五个按钮被点击</code><strong>?</strong></h4><p>​    这是因为当给btns[i]添加click事件时,其事件内部使用该变量i,当循环继续执行,事件内部引用的i的值被修改了,所以才会在打印时全部都是第五个按钮被点击</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">      btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span>+i+<span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    i=<span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>如果像上面那样,在事件添加完毕后,将i的值修改为3,那么所有按钮的打印结果都为<code>第3个按钮被点击</code></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="方案一-使用闭包"><a href="#方案一-使用闭包" class="headerlink" title="方案一:使用闭包"></a>方案一:使用闭包</h4><h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;</span><br><span class="line">        btns[num].addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span>+num+<span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)(i)</span><br><span class="line">    &#125;</span><br><span class="line">    i=<span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925105049.png" alt="2020-09-25_10-50-41"></p>
+<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p><strong>为什么能使用闭包来解决该问题?</strong></p>
+<p>​    这个就类似于Java中的值传递和引用传递,当你不使用闭包时,你所有按钮事件内部的i是同一个i,也就是它们的i的引用地址是相同的,那么你修改了i的值,因为你引用的都是同一个i,那么得到那个结果也就不足为奇了。</p>
+<p>​    如果使用了闭包,就类似于,你给每一个按钮添加事件时,将i传入进去,函数内部使用局部变量num用来保存i的值(<strong>函数是一个作用域</strong>),那么我使用的就是num的值,而不是i的引用,所以你修改了i的值,不关num的事,所以最后的输出结果为所期待的结果</p>
+<h4 id="方案二-使用let"><a href="#方案二-使用let" class="headerlink" title="方案二:使用let"></a>方案二:使用let</h4><h5 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">const</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; btns.length; i++) &#123;</span><br><span class="line">    btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span> + i + <span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  i = <span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925111537.png" alt="2020-09-25_11-15-24"></p>
+<h5 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h5><p>ES6中加入了let,let它是有if和for的块级作用域。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul>
+<li>ES5之前因为if和for都没有块级作用域的概念,所以在很多使用,我们必须借助于function的作用域来解决应用外面变量的问题。</li>
+<li>ES6中加入了let,let它是有if和for的块级作用域。</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>v-if是在控制是否在dom中显示,v-show是在设置行内样式display</p>
-<p>如果需要频繁切换显示隐藏,那么推荐使用v-show</p>
-<p>如果只是一次切换,那么推荐使用v-if</p>
-<h1 id="循环遍历"><a href="#循环遍历" class="headerlink" title="循环遍历"></a>循环遍历</h1><h2 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h2><h3 id="不需要下标"><a href="#不需要下标" class="headerlink" title="不需要下标"></a>不需要下标</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in names&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        names: [<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="需要下标"><a href="#需要下标" class="headerlink" title="需要下标"></a>需要下标</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in names&quot;</span>&gt;</span><br><span class="line">            &#123;&#123;index + <span class="number">1</span>&#125;&#125;.&#123;&#123;item&#125;&#125;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        names: [<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><h3 id="只要Value"><a href="#只要Value" class="headerlink" title="只要Value"></a>只要Value</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in peopleInfo&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        peopleInfo:&#123;</span><br><span class="line">            name: <span class="string">&#x27;JunPzx&#x27;</span>,</span><br><span class="line">            age: <span class="number">18</span>,</span><br><span class="line">            height: <span class="number">1.80</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Key和Value都要"><a href="#Key和Value都要" class="headerlink" title="Key和Value都要"></a>Key和Value都要</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,key) in peopleInfo&quot;</span>&gt;&#123;&#123;key&#125;&#125;:&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        peopleInfo:&#123;</span><br><span class="line">            name: <span class="string">&#x27;JunPzx&#x27;</span>,</span><br><span class="line">            age: <span class="number">18</span>,</span><br><span class="line">            height: <span class="number">1.80</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Key和Vue和Index都要"><a href="#Key和Vue和Index都要" class="headerlink" title="Key和Vue和Index都要"></a>Key和Vue和Index都要</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,key,index) in peopleInfo&quot;</span>&gt;&#123;&#123;index+<span class="number">1</span>&#125;&#125;.&#123;&#123;key&#125;&#125;:&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        peopleInfo:&#123;</span><br><span class="line">            name: <span class="string">&#x27;JunPzx&#x27;</span>,</span><br><span class="line">            age: <span class="number">18</span>,</span><br><span class="line">            height: <span class="number">1.80</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="组件的Key属性"><a href="#组件的Key属性" class="headerlink" title="组件的Key属性"></a>组件的Key属性</h2><ul>
-<li><p>官方推荐我们在使用v-for时,给对应的元素或组件添加上一个:key属性</p>
-</li>
-<li><p>为什么需要这个key属性呢?</p>
-<ul>
-<li>这个其实和Vue的虚拟DOM的Diff算法有关系</li>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>在很多语言中都已经存在,主要的作用是将某个变量修饰成常量。</li>
+<li>在JavaScript中也是如此,使用const修饰的标识符为常量,不可再次赋值。</li>
 </ul>
-</li>
-<li><p>当某一层有很多相同的节点时,也就是列表节点时,我们希望插入一个新的节点</p>
-<ul>
-<li>我们希望在B和C的中间添加一个F,Diff算法默认执行起来是这样的</li>
-<li>就是把C更新成F,D更新成C,E更新成D,最后在插入一个F,如下图左下</li>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>当我们修饰的标识符不会被再次赋值时,就可以使用const来保证数据的安全性。</li>
 </ul>
-</li>
-<li><p>所以我们需要使用key来给每一个节点做一个唯一标识</p>
-<ul>
-<li>Diff算法就可以正确的识别此节点</li>
-<li>找到正确的位置去插入新的节点</li>
-</ul>
-</li>
-<li><p><strong>总结：key的作用主要就是为了高效的更新虚拟DOM</strong></p>
-</li>
-</ul>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200929144135.png" alt="2020-09-29_14-40-59"></p>
-<p><strong>尽量保证key的唯一性</strong></p>
-]]></content>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>被赋值的常量不可被再次赋值</li>
+<li>在初始化常量时必须赋值</li>
+<li>常量定义的对象不能修改,指的是该对象的引用不能修改,对象内的属性值是可以修改的</li>
+</ol>
+<h1 id="对象字面量的增强写法"><a href="#对象字面量的增强写法" class="headerlink" title="对象字面量的增强写法"></a>对象字面量的增强写法</h1><p><strong>什么叫做字面量?</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如:</span><br><span class="line">普通创建对象是这样创建的: const obj &#x3D; new Object()</span><br><span class="line">字面量就是: const obj &#x3D; &#123;&#125;</span><br><span class="line">这个大括号就叫做字面量</span><br></pre></td></tr></table></figure>
+<h2 id="属性的增强写法"><a href="#属性的增强写法" class="headerlink" title="属性的增强写法"></a>属性的增强写法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> age = <span class="number">18</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;张三&#x27;</span></span><br><span class="line"><span class="keyword">const</span> height = <span class="number">1.88</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    age : age,</span><br><span class="line">    name : name,</span><br><span class="line">    height : height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    age,</span><br><span class="line">    name,</span><br><span class="line">    height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上两种写法最后的结果是等价的</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数的增强写法"><a href="#函数的增强写法" class="headerlink" title="函数的增强写法"></a>函数的增强写法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    eat: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//方法体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    eat()&#123;</span><br><span class="line">		<span class="comment">//方法体        </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上两种写法最后的结果是等价的</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>笔记</category>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA、WebStrom最新版破解教程</title>
+    <url>/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="激活方法"><a href="#激活方法" class="headerlink" title="激活方法"></a>激活方法</h1><h2 id="1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；"><a href="#1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；" class="headerlink" title="1、下载完成后，双击 ideaIU-2020.2.exe,打开安装软件；"></a>1、下载完成后，双击 <code>ideaIU-2020.2.exe</code>,打开安装软件；</h2><blockquote>
+<p>PS: 确保电脑没有安装老版本软件，如有请卸载。</p>
+</blockquote>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/1_m4b8on.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/1_m4b8on.png"></p>
+<h2 id="2、-安装目录选择；"><a href="#2、-安装目录选择；" class="headerlink" title="2、 安装目录选择；"></a><strong>2、</strong> 安装目录选择；</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/2_juogad.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/2_juogad.png"></p>
+<h2 id="3、-按自己电脑配置勾选："><a href="#3、-按自己电脑配置勾选：" class="headerlink" title="3、 按自己电脑配置勾选："></a><strong>3、</strong> 按自己电脑配置勾选：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/3_cewijo.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/3_cewijo.png"></p>
+<h2 id="4、-点击-next-安心等待其安装完成："><a href="#4、-点击-next-安心等待其安装完成：" class="headerlink" title="4、 点击 next, 安心等待其安装完成："></a><strong>4、</strong> 点击 <code>next</code>, 安心等待其安装完成：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/4_erf7vj.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/4_erf7vj.png"></p>
+<h2 id="5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件"><a href="#5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件" class="headerlink" title="5、 安装完成后，勾选 Run IntelliJ IDEA，点击 finish 运行软件:"></a><strong>5、</strong> 安装完成后，勾选 <code>Run IntelliJ IDEA</code>，点击 <code>finish</code> 运行软件:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/5_pxaqbd.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/5_pxaqbd.png"></p>
+<h2 id="6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate"><a href="#6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate" class="headerlink" title="6、 会先弹出一个注册框，勾选 Evaluate for free, 点击 Evaluate:"></a><strong>6、</strong> 会先弹出一个注册框，勾选 <code>Evaluate for free</code>, 点击 <code>Evaluate</code>:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/6_l7v8mh.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/6_l7v8mh.png"></p>
+<h2 id="7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中"><a href="#7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中" class="headerlink" title="7、 2020 版本文件夹中的激活补丁破解补丁拖入IDEA 界面中"></a><strong>7、</strong> 2020 版本文件夹中的激活补丁<em><a href="https://api.cloudinary.com/v1_1/junpzx/raw/download?api_key=926984447943426&attachment=true&audit_context=eyJhY3Rvcl90eXBlIjoidXNlciIsImFjdG9yX2lkIjoiNGEzYTQ5NjllNDExM2U2ZmIyOWYzYTk5ZGQ2ZDE0MmMiLCJ1c2VyX2V4dGVybmFsX2lkIjoiYmQ0ZTQ4MzNhODVlOGYxZmEzNDM4MGUyMTkwMWExIiwidXNlcl9jdXN0b21faWQiOiJqdW5wenhAMTYzLmNvbSIsImNvbXBvbmVudCI6ImNvbnNvbGUifQ%3D%3D&public_id=idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B%2Fjetbrains-agent_lcbbnb.zip&signature=c996e1fd172879b3e20d03af99b186ee31587245&target_filename=jetbrains-agent_lcbbnb.zip&timestamp=1600513199&type=upload">破解补丁</a></em>拖入IDEA 界面中</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/7_o7c2z1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/7_o7c2z1.png"></p>
+<p> <strong>补丁，拖不进去，请重启 IDEA ，新建一个Java 项目，写一个空的 main 方法，再次试试</strong></p>
+<p> <strong>注意：激活补丁，拖进去之后，激活补丁的位置不要更换，不要删除。否则激活之后还会失效，</strong></p>
+<p> <strong>注意：激活补丁，拖进去，等于是程序，帮你去写一个激活补丁的位置，你换补丁jar位置，或者，删除补丁jar，就找不到激活补丁了</strong></p>
+<h2 id="8、拖入补丁后会弹框，点击-restart-重启-idea："><a href="#8、拖入补丁后会弹框，点击-restart-重启-idea：" class="headerlink" title="8、拖入补丁后会弹框，点击 restart 重启 idea："></a>8、拖入补丁后会弹框，点击 <code>restart</code> 重启 <strong>idea</strong>：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/8_ttpxq1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/8_ttpxq1.png"></p>
+<h2 id="9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装："><a href="#9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装：" class="headerlink" title="9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 Activation Code，通过注册码来激活，点击为IDEA安装："></a>9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 <code>Activation Code</code>，通过注册码来激活，点击<code>为IDEA安装</code>：</h2><p><strong>安装参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGXawLB4qswPOXYG7+ItDNUR&#x2F;9UkLTUWlnHLX07hnR1USOrWIjTmbytcIKEdaI6x0RskyotuItj84xxoSBP&#x2F;iRBW2EHpOc</span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/9_fsezuf.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/9_fsezuf.png">激活破解方法, JetBrains 全家桶激活</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/10_skts9u.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/10_skts9u.png"></p>
+<h2 id="10、-点击是，重启-IDEA-即可"><a href="#10、-点击是，重启-IDEA-即可" class="headerlink" title="10、 点击是，重启 IDEA 即可"></a><strong>10、</strong> 点击<code>是</code>，重启 <strong>IDEA</strong> 即可</h2><h1 id="验证是否激活成功"><a href="#验证是否激活成功" class="headerlink" title="验证是否激活成功"></a>验证是否激活成功</h1><p>验证步骤如下：</p>
+<h2 id="1、-进入-IDEA-界面后，点击-Help-gt-Register-查看："><a href="#1、-进入-IDEA-界面后，点击-Help-gt-Register-查看：" class="headerlink" title="1、 进入 IDEA 界面后，点击 Help -&gt; Register 查看："></a><strong>1、</strong> 进入 <strong>IDEA</strong> 界面后，点击 <code>Help</code> -&gt; <code>Register</code> 查看：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/11_sbvbve.png"></p>
+<h2 id="2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新"><a href="#2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新" class="headerlink" title="2、 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新"></a><strong>2、</strong> 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/12_kl4v3h.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/12_kl4v3h.png"></p>]]></content>
+      <categories>
+        <category>安装教程</category>
+      </categories>
+      <tags>
+        <tag>IDEA</tag>
+        <tag>WebStorm</tag>
+        <tag>JetBrains</tag>
       </tags>
   </entry>
   <entry>
@@ -706,52 +659,399 @@
       </tags>
   </entry>
   <entry>
-    <title>ES语法</title>
-    <url>/2020/09/24/ES6%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="let和var"><a href="#let和var" class="headerlink" title="let和var"></a>let和var</h1><p>事实上var的设计可以看成JavaScript语言设计上的错误,但是这种错误多半不能修复和移除,因为需要向后兼容.</p>
-<ul>
-<li>大概十年前,Brendan Eich就决定修复这个问题,于是他添加了一个新的关键字:let</li>
-<li>我们可以将let看成更加完美的var</li>
+    <title>Vue入门</title>
+    <url>/2020/09/21/Vue%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么?"></a>Vue.js是什么?</h2><p>Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p>
+<h2 id="Vue是一个渐进式框架-什么是渐进式的呢"><a href="#Vue是一个渐进式框架-什么是渐进式的呢" class="headerlink" title="Vue是一个渐进式框架,什么是渐进式的呢?"></a>Vue是一个渐进式框架,什么是渐进式的呢?</h2><ul>
+<li>渐进式意味着你可以将Vue作为你应用的一部分嵌入其中,带来更丰富的交互体验</li>
+<li>或者如果你希望将更多的业务逻辑使用Vue实现,那么Vue的核心库以及其生态系统</li>
+<li>比如Code+Vue-router+Vuex,也可以满足你各种各样的需求</li>
 </ul>
-<h2 id="var问题分析"><a href="#var问题分析" class="headerlink" title="var问题分析"></a>var问题分析</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">3</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">4</span>&lt;/button&gt;</span><br><span class="line">    &lt;button&gt;<span class="number">5</span>&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">      btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span>+i+<span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a><strong>运行结果</strong></h3><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925103505.png" alt="2020-09-25_10-34-09"></p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="为什么点击每一个按钮的打印结果都为-第五个按钮被点击"><a href="#为什么点击每一个按钮的打印结果都为-第五个按钮被点击" class="headerlink" title="为什么点击每一个按钮的打印结果都为 第五个按钮被点击?"></a><strong>为什么点击每一个按钮的打印结果都为</strong> <code>第五个按钮被点击</code><strong>?</strong></h4><p>​    这是因为当给btns[i]添加click事件时,其事件内部使用该变量i,当循环继续执行,事件内部引用的i的值被修改了,所以才会在打印时全部都是第五个按钮被点击</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">      btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span>+i+<span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    i=<span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>如果像上面那样,在事件添加完毕后,将i的值修改为3,那么所有按钮的打印结果都为<code>第3个按钮被点击</code></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="方案一-使用闭包"><a href="#方案一-使用闭包" class="headerlink" title="方案一:使用闭包"></a>方案一:使用闭包</h4><h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;</span><br><span class="line">        btns[num].addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span>+num+<span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)(i)</span><br><span class="line">    &#125;</span><br><span class="line">    i=<span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925105049.png" alt="2020-09-25_10-50-41"></p>
-<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p><strong>为什么能使用闭包来解决该问题?</strong></p>
-<p>​    这个就类似于Java中的值传递和引用传递,当你不使用闭包时,你所有按钮事件内部的i是同一个i,也就是它们的i的引用地址是相同的,那么你修改了i的值,因为你引用的都是同一个i,那么得到那个结果也就不足为奇了。</p>
-<p>​    如果使用了闭包,就类似于,你给每一个按钮添加事件时,将i传入进去,函数内部使用局部变量num用来保存i的值(<strong>函数是一个作用域</strong>),那么我使用的就是num的值,而不是i的引用,所以你修改了i的值,不关num的事,所以最后的输出结果为所期待的结果</p>
-<h4 id="方案二-使用let"><a href="#方案二-使用let" class="headerlink" title="方案二:使用let"></a>方案二:使用let</h4><h5 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">const</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; btns.length; i++) &#123;</span><br><span class="line">    btns[i].addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span> + i + <span class="string">&#x27;个按钮被点击&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  i = <span class="number">3</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://gitee.com/junpzx/blog-img/raw/master/img/20200925111537.png" alt="2020-09-25_11-15-24"></p>
-<h5 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h5><p>ES6中加入了let,let它是有if和for的块级作用域。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul>
-<li>ES5之前因为if和for都没有块级作用域的概念,所以在很多使用,我们必须借助于function的作用域来解决应用外面变量的问题。</li>
-<li>ES6中加入了let,let它是有if和for的块级作用域。</li>
+<h2 id="Vue有很多特点和Web开发中常用的高级功能"><a href="#Vue有很多特点和Web开发中常用的高级功能" class="headerlink" title="Vue有很多特点和Web开发中常用的高级功能:"></a>Vue有很多特点和Web开发中常用的高级功能:</h2><ul>
+<li>解耦视图和数据</li>
+<li>可复用组件</li>
+<li>前端路由技术</li>
+<li>状态管理</li>
+<li>虚拟DOM</li>
 </ul>
-<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>在很多语言中都已经存在,主要的作用是将某个变量修饰成常量。</li>
-<li>在JavaScript中也是如此,使用const修饰的标识符为常量,不可再次赋值。</li>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p>直接CDN导入(CDN会选择距离最近的服务器进行下载,会提高下载效率)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 开发环境版本,包含了有帮助的命令行警告 --&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- 生产环境版本,优化了尺寸和速度 --&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载和引入</p>
+<p>开发环境   <a href="https://vue.js.org/js/vue.js">https://vue.js.org/js/vue.js</a></p>
+<p>生产环境   <a href="https://vuejs.org/js/vue.min.js">https://vuejs.org/js/vue.min.js</a></p>
+</li>
+<li><p>npm安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
-<li>当我们修饰的标识符不会被再次赋值时,就可以使用const来保证数据的安全性。</li>
+<h1 id="Vue的基本使用"><a href="#Vue的基本使用" class="headerlink" title="Vue的基本使用"></a>Vue的基本使用</h1><h2 id="案例一-Hello-Vue"><a href="#案例一-Hello-Vue" class="headerlink" title="案例一:Hello Vue"></a>案例一:Hello Vue</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let用于修饰变量</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;vue&quot;</span></span><br><span class="line"><span class="comment">// const用于修饰常量</span></span><br><span class="line"><span class="keyword">const</span> age = <span class="string">&quot;vue&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 编程范式: 声明式编程</span></span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>, <span class="comment">//用于挂载要管理的元素</span></span><br><span class="line">        data: &#123; <span class="comment">// 定义数据</span></span><br><span class="line">            message: <span class="string">&#x27;你好呀,pzx!&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用js的做法(编程范式: 命令式编程)</span></span><br><span class="line">    <span class="comment">//1.创建div元素,设置id属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.定义变量叫message</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.将message变量放在前面的div元素中显示</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.修改message的值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.将message的值重新赋值给div</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码的执行结果为:</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue相关/Vue入门/1_wsql5b.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/1_wsql5b.png"></p>
+<p><strong>代码做了什么事情:</strong></p>
+<ol>
+<li>首先创建了一个Vue对象</li>
+<li>创建Vue对象的时候,传入了一些options:{}<ul>
+<li>{}中包含了el属性:该属性决定了这个Vue对象挂载到哪一个元素上</li>
+<li>{}中包含了data属性:该属性通常会存储一些数据<ul>
+<li>这些数据可以是我们直接定义出来的,比如像上面那样</li>
+<li>也可能是来自网络,从服务器加载出来的</li>
 </ul>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>被赋值的常量不可被再次赋值</li>
-<li>在初始化常量时必须赋值</li>
-<li>常量定义的对象不能修改,指的是该对象的引用不能修改,对象内的属性值是可以修改的</li>
+</li>
+</ul>
+</li>
 </ol>
-<h1 id="对象字面量的增强写法"><a href="#对象字面量的增强写法" class="headerlink" title="对象字面量的增强写法"></a>对象字面量的增强写法</h1><p><strong>什么叫做字面量?</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如:</span><br><span class="line">普通创建对象是这样创建的: const obj &#x3D; new Object()</span><br><span class="line">字面量就是: const obj &#x3D; &#123;&#125;</span><br><span class="line">这个大括号就叫做字面量</span><br></pre></td></tr></table></figure>
-<h2 id="属性的增强写法"><a href="#属性的增强写法" class="headerlink" title="属性的增强写法"></a>属性的增强写法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> age = <span class="number">18</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;张三&#x27;</span></span><br><span class="line"><span class="keyword">const</span> height = <span class="number">1.88</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    age : age,</span><br><span class="line">    name : name,</span><br><span class="line">    height : height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    age,</span><br><span class="line">    name,</span><br><span class="line">    height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上两种写法最后的结果是等价的</span></span><br></pre></td></tr></table></figure>
-<h2 id="函数的增强写法"><a href="#函数的增强写法" class="headerlink" title="函数的增强写法"></a>函数的增强写法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    eat: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//方法体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法</span></span><br><span class="line"><span class="keyword">const</span> people = &#123;</span><br><span class="line">    eat()&#123;</span><br><span class="line">		<span class="comment">//方法体        </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上两种写法最后的结果是等价的</span></span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="案例二-Vue的列表显示"><a href="#案例二-Vue的列表显示" class="headerlink" title="案例二:Vue的列表显示"></a>案例二:Vue的列表显示</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in tags&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            tags: [<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;JavaScript&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码的执行结果为:</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue相关/Vue入门/2_b7haeu.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/2_b7haeu.png"></p>
+<p>这个地方主要使用<strong>v-for</strong>指令,而且它还是响应式的</p>
+<ul>
+<li>也就是当数组中的数据发生变化时,界面会自动改变</li>
+</ul>
+<h2 id="案例三-计数器"><a href="#案例三-计数器" class="headerlink" title="案例三:计数器"></a>案例三:计数器</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;当前计数:&#123;&#123;counter&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;counter++&quot;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">&quot;counter-1 &lt; 0 ? counter=0 : counter--;&quot;</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;add&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;subtraction&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;yi</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            counter: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.counter++;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;+已被点击&quot;</span>)</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            subtraction: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.counter<span class="number">-1</span> &lt; <span class="number">0</span>?<span class="built_in">this</span>.counter=<span class="number">0</span>:<span class="built_in">this</span>.counter--;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;-已被点击&quot;</span>)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码代码的执行结果为:</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue相关/Vue入门/3_dqgp6p.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/3_dqgp6p.png"></p>
+<p><strong>新的属性: methods,该属性用于在Vue对象中定义方法</strong></p>
+<p><strong>新的指令: @click(等同于v-on:click,@click为前面的语法糖),该指令用于监听某个元素的点击事件,并且需要指定当发生点击时,执行的方法(方法通常是methods中定义的方法)</strong></p>]]></content>
       <categories>
         <category>笔记</category>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue相关知识点</title>
+    <url>/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="数组中哪些方法是响应式的？"><a href="#数组中哪些方法是响应式的？" class="headerlink" title="数组中哪些方法是响应式的？"></a>数组中哪些方法是响应式的？</h1><p><strong>注意：通过数组下标直接修改数组元素的值，界面不会发生改变，但是数组内的值已经修改，如果需要修改的时候是响应式的，那么可以通过以下方法：</strong></p>
+<ul>
+<li><strong>数组的splice方法</strong></li>
+<li><p><strong>vue.set(array,下标,值)</strong></p>
+<table>
+   <tr>
+       <td>方法名</td>
+       <td>作用</td>
+       <td>语法</td>
+       <td>是否是响应式</td>
+   </tr>
+   <tr>
+       <td>push</td>
+       <td>在数组最后追加元素</td>
+       <td>array.push(元素1,元素2...)</td>
+       <td>是</td>
+   </tr>
+   <tr>
+       <td>pop</td>
+       <td>移除数组中最后一位元素</td>
+       <td>array.pop()</td>
+       <td>是</td>
+   </tr>
+    <tr>
+       <td>shift</td>
+       <td>移除数组中第一位元素</td>
+       <td>array.shift()</td>
+       <td>是</td>
+   </tr>
+    <tr>
+       <td>unshift</td>
+       <td>在数组最前面添加元素</td>
+       <td>array.unshift(元素1,元素2...)</td>
+       <td>是</td>
+   </tr>
+    <tr>
+       <td>splice</td>
+       <td>删除元素/插入元素/替换元素</td>
+       <td>array.splice(开始下标,需要删除的数量, 添加元素1,添加元素,...)</td>
+       <td>是</td>
+   </tr>
+    <tr>
+       <td>sort</td>
+       <td>将数组进行排序</td>
+       <td>array.sort(function)</td>
+       <td>是</td>
+   </tr>
+    <tr>
+       <td>reverse</td>
+       <td>将数组内的元素进行反转</td>
+       <td>array.reverse()</td>
+       <td>是</td>
+   </tr>
+</table>
+
+</li>
+</ul>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue基本操作(二)</title>
+    <url>/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/</url>
+    <content><![CDATA[<h1 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h1><h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p><strong>使用:</strong></p>
+<ul>
+<li>v-if</li>
+<li>v-else-if</li>
+<li>v-else</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span> &gt;</span><br><span class="line">    &lt;h2 v-<span class="keyword">if</span>=<span class="string">&quot;display&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-<span class="keyword">else</span>&gt;&#123;&#123;message + <span class="string">&#x27;2&#x27;</span>&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;checkout()&quot;</span>&gt;切换&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">&#x27;Hello,Vue&#x27;</span>,</span><br><span class="line">        display: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        checkout()&#123;</span><br><span class="line">            <span class="built_in">this</span>.display = !<span class="built_in">this</span>.display;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意:如果需要判断的层级很多,那么推荐使用计算属性</strong></p>
+<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>主要用于控制某个元素是否显示</p>
+<h3 id="跟v-if的区别"><a href="#跟v-if的区别" class="headerlink" title="跟v-if的区别"></a>跟v-if的区别</h3><ul>
+<li>v-if:当条件为false时,包含v-if指令的元素,根本就不会存在在dom中</li>
+<li>v-show: 当条件为false时,包含v-show指令的元素添加了一个行内样式:display: none</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>v-if是在控制是否在dom中显示,v-show是在设置行内样式display</p>
+<p>如果需要频繁切换显示隐藏,那么推荐使用v-show</p>
+<p>如果只是一次切换,那么推荐使用v-if</p>
+<h1 id="循环遍历"><a href="#循环遍历" class="headerlink" title="循环遍历"></a>循环遍历</h1><h2 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h2><h3 id="不需要下标"><a href="#不需要下标" class="headerlink" title="不需要下标"></a>不需要下标</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in names&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        names: [<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="需要下标"><a href="#需要下标" class="headerlink" title="需要下标"></a>需要下标</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in names&quot;</span>&gt;</span><br><span class="line">            &#123;&#123;index + <span class="number">1</span>&#125;&#125;.&#123;&#123;item&#125;&#125;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        names: [<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><h3 id="只要Value"><a href="#只要Value" class="headerlink" title="只要Value"></a>只要Value</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in peopleInfo&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        peopleInfo:&#123;</span><br><span class="line">            name: <span class="string">&#x27;JunPzx&#x27;</span>,</span><br><span class="line">            age: <span class="number">18</span>,</span><br><span class="line">            height: <span class="number">1.80</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Key和Value都要"><a href="#Key和Value都要" class="headerlink" title="Key和Value都要"></a>Key和Value都要</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,key) in peopleInfo&quot;</span>&gt;&#123;&#123;key&#125;&#125;:&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        peopleInfo:&#123;</span><br><span class="line">            name: <span class="string">&#x27;JunPzx&#x27;</span>,</span><br><span class="line">            age: <span class="number">18</span>,</span><br><span class="line">            height: <span class="number">1.80</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Key和Vue和Index都要"><a href="#Key和Vue和Index都要" class="headerlink" title="Key和Vue和Index都要"></a>Key和Vue和Index都要</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,key,index) in peopleInfo&quot;</span>&gt;&#123;&#123;index+<span class="number">1</span>&#125;&#125;.&#123;&#123;key&#125;&#125;:&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;../../js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        peopleInfo:&#123;</span><br><span class="line">            name: <span class="string">&#x27;JunPzx&#x27;</span>,</span><br><span class="line">            age: <span class="number">18</span>,</span><br><span class="line">            height: <span class="number">1.80</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="组件的Key属性"><a href="#组件的Key属性" class="headerlink" title="组件的Key属性"></a>组件的Key属性</h2><ul>
+<li><p>官方推荐我们在使用v-for时,给对应的元素或组件添加上一个:key属性</p>
+</li>
+<li><p>为什么需要这个key属性呢?</p>
+<ul>
+<li>这个其实和Vue的虚拟DOM的Diff算法有关系</li>
+</ul>
+</li>
+<li><p>当某一层有很多相同的节点时,也就是列表节点时,我们希望插入一个新的节点</p>
+<ul>
+<li>我们希望在B和C的中间添加一个F,Diff算法默认执行起来是这样的</li>
+<li>就是把C更新成F,D更新成C,E更新成D,最后在插入一个F,如下图左下</li>
+</ul>
+</li>
+<li><p>所以我们需要使用key来给每一个节点做一个唯一标识</p>
+<ul>
+<li>Diff算法就可以正确的识别此节点</li>
+<li>找到正确的位置去插入新的节点</li>
+</ul>
+</li>
+<li><p><strong>总结：key的作用主要就是为了高效的更新虚拟DOM</strong></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20200929144135.png" alt="2020-09-29_14-40-59"></p>
+<p><strong>尽量保证key的唯一性</strong></p>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 Hexo+GitHub 搭建个人免费博客教程</title>
+    <url>/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。</p>
+<p>虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。</p>
+<p>本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。</p>
+<p>此博客搬运至 : <a href="https://zhuanlan.zhihu.com/p/60578464">知乎-“crystal”</a></p>
+<h1 id="二、简介"><a href="#二、简介" class="headerlink" title="二、简介"></a>二、简介</h1><h2 id="GitHub-Pages-是什么？"><a href="#GitHub-Pages-是什么？" class="headerlink" title="GitHub Pages 是什么？"></a>GitHub Pages 是什么？</h2><ul>
+<li><a href="https://docs.github.com/en/github/working-with-github-pages/about-github-pages">What is GitHub Pages? - GitHub Help</a></li>
+</ul>
+<p>GitHub Pages 是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。</p>
+<h2 id="Hexo-是什么？"><a href="#Hexo-是什么？" class="headerlink" title="Hexo 是什么？"></a>Hexo 是什么？</h2><ul>
+<li>官网：<a href="https://hexo.io/zh-cn/">hexo.io</a></li>
+</ul>
+<p>Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 运行，可以将我们撰写的 Markdown 文档解析渲染成静态的 HTML 网页。</p>
+<h2 id="Hexo-GitHub-文章发布原理"><a href="#Hexo-GitHub-文章发布原理" class="headerlink" title="Hexo + GitHub 文章发布原理"></a>Hexo + GitHub 文章发布原理</h2><p>在本地撰写 Markdown 格式文章后，通过 Hexo 解析文档，渲染生成具有主题样式的 HTML 静态网页，再推送到 GitHub 上完成博文的发布。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg" alt="img"></p>
+<h2 id="优点和不足"><a href="#优点和不足" class="headerlink" title="优点和不足"></a>优点和不足</h2><p><strong>优点：</strong>完全免费；静态站点，轻量快速；可按需求自由定制改造；托管在 GitHub，安全省心；迁移方便……</p>
+<p><strong>不足：</strong>发文不便，依赖于本地环境；更适合个人博客使用；GitHub 在国内访问速度有点不快。</p>
+<h1 id="三、安装教程"><a href="#三、安装教程" class="headerlink" title="三、安装教程"></a>三、安装教程</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1.准备"></a>1.准备</h2><h3 id="1-1-注意事项"><a href="#1-1-注意事项" class="headerlink" title="1.1 注意事项"></a>1.1 注意事项</h3><ul>
+<li>输入代码时，核对准确，最好切换成英文输入法；</li>
+<li>将文中的 “用户名” 和 “邮箱” 替换为自己的 GitHub 账户名和绑定的邮箱；</li>
+<li>统一使用 Git Bash 进行操作（支持 Win、Mac）；</li>
+<li>小白请严格按步骤进行，不要跳！</li>
+</ul>
+<h3 id="1-2-环境搭建"><a href="#1-2-环境搭建" class="headerlink" title="1.2 环境搭建"></a>1.2 环境搭建</h3><p>Hexo 基于 Node.js，搭建过程中还需要使用 npm（Node.js 已带） 和 git，因此先搭建本地操作环境，安装 Node.js 和 Git。</p>
+<ul>
+<li>Node.js：<a href="https://nodejs.org/zh-cn">https://nodejs.org/zh-cn</a></li>
+<li>Git：<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+</ul>
+<p>下载 Node.js 和 Git 程序并安装，一路点 “下一步” 按默认配置完成安装。</p>
+<p>安装完成后，Win+R 输入 cmd 并打开，依次输入 <code>node -v</code>、<code>npm -v</code> 和 <code>git --version</code> 并回车，如下图出现程序版本号即可。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg" alt=""></p>
+<h2 id="2-连接-Github"><a href="#2-连接-Github" class="headerlink" title="2.连接 Github"></a>2.连接 Github</h2><p>使用邮箱注册 <a href="https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。</p>
+<p>右键 -&gt; Git Bash Here，<strong>设置用户名和邮箱</strong>：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>创建 SSH 密匙</strong>：</p>
+<p>输入 <code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code>，然后一路回车。</p>
+<p><strong>添加密匙：</strong></p>
+<p>进入 [C:\Users\用户名.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
+<p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。</p>
+<p>Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg" alt=""></p>
+<p><strong>验证连接：</strong></p>
+<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg" alt=""></p>
+<p>显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+<h2 id="3-创建-Github-Pages-仓库"><a href="#3-创建-Github-Pages-仓库" class="headerlink" title="3.创建 Github Pages 仓库"></a>3.创建 Github Pages 仓库</h2><p>GitHub 主页右上角加号 -&gt; New repository：</p>
+<ul>
+<li>Repository name 中输入 <code>用户名.github.io</code></li>
+<li>勾选 “Initialize this repository with a README”</li>
+<li>Description 选填</li>
+</ul>
+<p>填好后点击 Create repository 创建。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg" alt=""></p>
+<p>创建后默认自动启用 HTTPS，博客地址为：<code>https://用户名.github.io</code></p>
+<h2 id="4-本地安装-Hexo-博客程序"><a href="#4-本地安装-Hexo-博客程序" class="headerlink" title="4.本地安装 Hexo 博客程序"></a>4.本地安装 Hexo 博客程序</h2><p>新建一个文件夹用来存放 Hexo 的程序文件，如 Hexo-Blog。打开该文件夹，右键 -&gt; Git Bash Here。</p>
+<h3 id="4-1-安装-Hexo"><a href="#4-1-安装-Hexo" class="headerlink" title="4.1 安装 Hexo"></a>4.1 安装 Hexo</h3><p>使用 npm 一键安装 Hexo 博客程序：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>Mac 用户需要管理员权限（sudo），运行这条命令：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装时间有点久（真的很慢！），界面也没任何反应，<strong>耐心等待</strong>，安装完成后如下图。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg" alt=""></p>
+<h3 id="4-2-Hexo-初始化和本地预览"><a href="#4-2-Hexo-初始化和本地预览" class="headerlink" title="4.2 Hexo 初始化和本地预览"></a>4.2 Hexo 初始化和本地预览</h3><p><strong>初始化并安装所需组件：</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init      # 初始化</span><br><span class="line">npm install    # 安装组件</span><br></pre></td></tr></table></figure>
+<p>完成后依次输入下面命令，<strong>启动本地服务器进行预览</strong>：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g   # 生成页面</span><br><span class="line">hexo s   # 启动预览</span><br></pre></td></tr></table></figure>
+<p><strong>访问</strong> <code>http://localhost:4000</code><strong>，出现 Hexo 默认页面，本地博客安装成功！</strong></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg" alt=""></p>
+<p><strong>Tips：</strong>如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号后重试。</p>
+<p>Hexo 博客文件夹目录结构如下：</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/7_sp5gdj.jpg" alt=""></p>
+<h2 id="5-部署-Hexo-到-GitHub-Pages"><a href="#5-部署-Hexo-到-GitHub-Pages" class="headerlink" title="5.部署 Hexo 到 GitHub Pages"></a>5.部署 Hexo 到 GitHub Pages</h2><p>本地博客测试成功后，就是上传到 GitHub 进行部署，使其能够在网络上访问。</p>
+<p>首先<strong>安装 hexo-deployer-git</strong>：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>然后<strong>修改 _config.yml</strong> 文件末尾的 Deployment 部分，修改成如下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>完成后运行 <code>hexo d</code> 将网站上传部署到 GitHub Pages。</p>
+<p>完成！这时访问我们的 GitHub 域名 <code>https://用户名.github.io</code> 就可以看到 Hexo 网站了。</p>
+<h2 id="6-绑定域名（可选）"><a href="#6-绑定域名（可选）" class="headerlink" title="6.绑定域名（可选）"></a>6.绑定域名（可选）</h2><p>博客搭建完成使用的是 GitHub 的子域名（用户名.<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a>），我们可以为 Hexo 博客绑定自己的域名替换 GitHub 域名，更加个性化和专业，也利于 SEO。</p>
+<p>我们使用 <a href="https://homenew.console.aliyun.com/">阿里云</a> 进行注册,如果是新用户的话,com域名差不多50RMB左右,cn域名10RMB左右。</p>
+<h3 id="6-1-域名注册和解析"><a href="#6-1-域名注册和解析" class="headerlink" title="6.1 域名注册和解析"></a>6.1 域名注册和解析</h3><ul>
+<li>域名注册和解析教程：</li>
+</ul>
+<p>在 DNS 设置部分，删除自带的记录，然后添加 CNAME 记录将 www 域名解析指向 <code>用户名.github.io</code>。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png" alt=""></p>
+<h3 id="6-2-绑定域名到-Hexo-博客"><a href="#6-2-绑定域名到-Hexo-博客" class="headerlink" title="6.2 绑定域名到 Hexo 博客"></a>6.2 绑定域名到 Hexo 博客</h3><p>进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 <a href="http://www.example.com，保存名称为">http://www.example.com，保存名称为</a> “CNAME”，格式为 “所有文件”（无 .txt 后缀）。</p>
+<p>清除缓存等文件并重新发布网站：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo clean   # 清除缓存文件等</span><br><span class="line">hexo g       # 生成页面</span><br><span class="line">hexo s       # 启动预览</span><br></pre></td></tr></table></figure>
+<p>现在就可以使用自己的域名访问 Hexo 博客了。</p>
+<h3 id="6-3-开启-HTTPS"><a href="#6-3-开启-HTTPS" class="headerlink" title="6.3 开启 HTTPS"></a>6.3 开启 HTTPS</h3><p>配置自己的域名后，需要我们手动开启 HTTPS。打开博客所在 GitHub 仓库，Settings -&gt; 下拉找到 GitHub Pages -&gt; 勾选 Enforce HTTPS。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg" alt=""></p>
+<p>HTTPS 证书部署成功需要一定时间，等大概几分钟再访问域名，就可以看到域名前面的小绿锁了，HTTPS 配置完成！</p>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
+<p>然后 source 文件夹中会出现一个 My New Post.md 文件，就可以使用 Markdown 编辑器在该文件中撰写文章了。</p>
+<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。<strong>以后每次发布文章都是这两条命令。</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g   # 生成页面</span><br><span class="line">hexo d   # 部署发布</span><br></pre></td></tr></table></figure>
+<hr>
+<p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式 Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code> 发布。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World # 标题</span><br><span class="line">date: 2019/3/26 hh:mm:ss # 时间</span><br><span class="line">categories: # 分类</span><br><span class="line">- Diary</span><br><span class="line">tags: # 标签</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure>
+<h3 id="网站设置"><a href="#网站设置" class="headerlink" title="网站设置"></a>网站设置</h3><p>包括网站名称、描述、作者、链接样式等，全部在网站目录下的 _config.yml 文件中，参考<a href="https://link.zhihu.com/?target=https%3A//hexo.io/zh-cn/docs/configuration">官方文档</a>按需要编辑。</p>
+<p>注意：冒号后要加一个空格！</p>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>在 <a href="https://hexo.io/themes/">Themes | Hexo</a> 选择一个喜欢的主题，比如 <a href="http://theme-next.iissnan.com/getting-started.html">NexT</a>，进入网站目录打开 Git Bash Here 下载主题：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>然后修改 _config.yml 中的 theme 为新主题名称 next，发布。（有的主题需要将 _config.yml 替换为主题自带的，参考主题说明。）</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo new &quot;name&quot;       # 新建文章</span><br><span class="line">hexo new page &quot;name&quot;  # 新建页面</span><br><span class="line">hexo g                # 生成页面</span><br><span class="line">hexo d                # 部署</span><br><span class="line">hexo g -d             # 生成页面并部署</span><br><span class="line">hexo s                # 本地预览</span><br><span class="line">hexo clean            # 清除缓存和已生成的静态文件</span><br><span class="line">hexo help             # 帮助</span><br></pre></td></tr></table></figure>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Hexo-设置显示文章摘要，首页不显示全文"><a href="#Hexo-设置显示文章摘要，首页不显示全文" class="headerlink" title="Hexo 设置显示文章摘要，首页不显示全文"></a>Hexo 设置显示文章摘要，首页不显示全文</h3><p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 `` 进行分段。</p>
+<p>该代码前面的内容会作为摘要显示，而后面的内容会替换为 “Read More” 隐藏起来。</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg" alt=""></p>
+<h3 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h3><p>进入 themes/主题 文件夹，打开 _config.yml 配置文件，找到 favicon 修改，一般格式为：<code>favicon: 图标地址</code>。（不同主题可能略有差别）</p>
+<h3 id="修改并部署后没有效果"><a href="#修改并部署后没有效果" class="headerlink" title="修改并部署后没有效果"></a>修改并部署后没有效果</h3><p>使用 <code>hexo clean</code> 清理后重新部署。</p>
+<h3 id="开启-HTTPS-后访问网站显示连接不安全？"><a href="#开启-HTTPS-后访问网站显示连接不安全？" class="headerlink" title="开启 HTTPS 后访问网站显示连接不安全？"></a>开启 HTTPS 后访问网站显示连接不安全？</h3><p>证书还未部署生效，等待一会儿，清除浏览器缓存再试。</p>
+<h3 id="Mac-安装-Hexo-报错无法安装"><a href="#Mac-安装-Hexo-报错无法安装" class="headerlink" title="Mac 安装 Hexo 报错无法安装"></a>Mac 安装 Hexo 报错无法安装</h3><p>Mac 用户需要管理员权限运行，使用 <code>sudo npm install -g hexo-cli</code> 命令安装。</p>
+<h3 id="npm-下载速度慢，甚至完全没反应"><a href="#npm-下载速度慢，甚至完全没反应" class="headerlink" title="npm 下载速度慢，甚至完全没反应"></a>npm 下载速度慢，甚至完全没反应</h3><p>使用 npm 安装程序等待很久也没反应，或者下载速度很慢，可以更换 npm 源为国内 npm 镜像。</p>
+<p>临时更换方法：在 npm 安装命令后面加上：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">--registry https://registry.npm.taobao.org </span><br></pre></td></tr></table></figure>
+<h3 id="Hexo命令报以下错误"><a href="#Hexo命令报以下错误" class="headerlink" title="Hexo命令报以下错误"></a>Hexo命令报以下错误</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.js:35 throw new TypeError(&#39;Console expects a writable stream instance&#39;);</span><br></pre></td></tr></table></figure>
+<p>该错误为nodejs的版本不够高,需要更换成最新版!</p>
+<h1 id="四、结语"><a href="#四、结语" class="headerlink" title="四、结语"></a>四、结语</h1><p>Hexo 是一种纯静态的博客，我们必须要在本地完成文章的编辑再部署到 GitHub 上，依赖于本地环境。不能像 WordPress 或 Typecho 那样的动态博客一样能直接在浏览器中完成撰文和发布。</p>
+<p>可以说是一种比较极客的写博客方式，但是优势也是明显的——免费稳定省心，比较适合爱折腾研究的用户，或者没有在线发文需求的朋友。</p>]]></content>
+      <categories>
+        <category>安装教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p><strong>动态规划</strong>（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
+<p>动态规划常常适用于有<strong>重叠子问题</strong>和<strong>最优子结构性质</strong>的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
+<p>动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。</p>
+<p>通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其<strong>记忆化存储</strong>，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈<strong>指数增长</strong>时特别有用。</p>
+<p>五大常用算法：分治、动态规划、贪心、回溯和分支界定</p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600417177/动态规划/3_d6j6rg.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600417177/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3_d6j6rg.png"></p>
+<p><a href="https://res.cloudinary.com/junpzx/image/upload/v1600417177/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3_d6j6rg.png">查看大图</a></p>
+<h1 id="二、概述"><a href="#二、概述" class="headerlink" title="二、概述"></a>二、概述</h1><p>动态规划在查找有很多<strong>重叠子问题</strong>的情况的最优解时有效。它将问题重新组合成子问题。为了避免多次解决这些子问题，它们的结果都逐渐被计算并被保存，从简单的问题直到整个问题都被解决。因此，动态规划保存<strong>递归</strong>时的结果，因而不会在解决同样的问题时花费时间。</p>
+<p>动态规划只能应用于有<strong>最优子结构</strong>的问题。最优子结构的意思是局部最优解能决定全局最优解（对有些问题这个要求并不能完全满足，故有时需要引入一定的近似）。简单地说，问题能够分解成子问题来解决。</p>
+<h1 id="三、适用情况"><a href="#三、适用情况" class="headerlink" title="三、适用情况"></a>三、适用情况</h1><ol>
+<li>最优子结构性质。如果问题的最优解所包含的子问题的解也是最优的，我们就称该问题具有最优子结构性质（即满足最优化原理）。最优子结构性质为动态规划算法解决问题提供了重要线索。</li>
+<li>无后效性。即子问题的解一旦确定，就不再改变，不受在这之后、包含它的更大的问题的求解决策影响。</li>
+<li>子问题重叠性质。子问题重叠性质是指在用递归算法自顶向下对问题进行求解时，每次产生的子问题并不总是新问题，有些子问题会被重复计算多次。动态规划算法正是利用了这种子问题的重叠性质，对每一个子问题只计算一次，然后将其计算结果保存在一个表格中，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率，降低了时间复杂度。</li>
+</ol>
+<h2 id="什么是最优子结构"><a href="#什么是最优子结构" class="headerlink" title="什么是最优子结构?"></a><strong>什么是最优子结构?</strong></h2><p>最优子结构是<strong>依赖特定问题</strong>和<strong>子问题的分割方式</strong>而成立的条件。各子问题具有最优解，就能求出整个问题的最优解，此时条件成立。</p>
+<p>比如求广州到北京的最短距离，假设这个路径必经过中间的南京，那么先把路径分割为（广州，南京）和（南京，北京）。分别求出子路径的最短距离然后再连接，就可以得到广州到北京的最短路径。</p>
+<p>因此，寻求最短路径的问题可以利用子路径的最优解获得整个问题的最优解。这样就可以证明，最短路径具有最优子结构。</p>
+<ul>
+<li>当然最长递增（LIS）</li>
+</ul>
+<p>反之，<strong>如果不能利用子问题的最优解获得整个问题的最优解，那么这种问题就不具有最优子结构。</strong></p>
+<p>很多问题的最优子结构都表现出<strong>非常直观</strong>的形式，以至于都不需要另外的证明过程。不过，遇到结构不是很直观的问题时，则需要用<strong>反证法</strong>证明（假设子问题的最优解不是整个问题的最优解 ⇒ ?）。</p>
+<h1 id="四、案例"><a href="#四、案例" class="headerlink" title="四、案例"></a>四、案例</h1><h2 id="1-最长回文子串"><a href="#1-最长回文子串" class="headerlink" title="1.最长回文子串"></a>1.最长回文子串</h2><p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: &quot;babad&quot;</span><br><span class="line">输出: &quot;bab&quot;</span><br><span class="line">注意: &quot;aba&quot; 也是一个有效答案。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: &quot;cbbd&quot;</span><br><span class="line">输出: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>「动态规划」的一个关键的步骤是想清楚「状态如何转移」。事实上，「回文」天然具有「状态转移」性质。</p>
+<p>一个回文去掉两头以后，剩下的部分依然是回文（这里暂不讨论边界情况）；<br>依然从回文串的定义展开讨论：</p>
+<p>如果一个字符串的头尾两个字符都不相等，那么这个字符串一定不是回文串；<br>如果一个字符串的头尾两个字符相等，才有必要继续判断下去。<br>如果里面的子串是回文，整体就是回文串；<br>如果里面的子串不是回文串，整体就不是回文串。<br>即：在头尾字符相等的情况下，里面子串的回文性质据定了整个子串的回文性质，这就是状态转移。因此可以把「状态」定义为原字符串的一个子串是否为回文子串。</p>
+<h4 id="第-1-步：定义状态"><a href="#第-1-步：定义状态" class="headerlink" title="第 1 步：定义状态"></a>第 1 步：定义状态</h4><p>dp[i][j]表示子串 s[i..j] 是否为回文子串，这里子串 s[i..j] 定义为左闭右闭区间，可以取到 s[i] 和 s[j]。</p>
+<h4 id="第-2-步：思考状态转移方程"><a href="#第-2-步：思考状态转移方程" class="headerlink" title="第 2 步：思考状态转移方程"></a>第 2 步：思考状态转移方程</h4><p>在这一步分类讨论（根据头尾字符是否相等），根据上面的分析得到：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dp[i][j] &#x3D; (s[i] &#x3D;&#x3D; s[j]) and dp[i + 1][j - 1]</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul>
+<li><p>「动态规划」事实上是在填一张二维表格，由于构成子串，因此 i 和 j 的关系是 i &lt;= j ，因此，只需要填这张表格对角线以上的部分。</p>
+</li>
+<li><p>看到 dp[i + 1][j - 1] 就得考虑边界情况。</p>
+</li>
+</ul>
+<p>边界条件是：表达式 [i + 1, j - 1] 不构成区间，即长度严格小于 2，即 j - 1 - (i + 1) + 1 &lt; 2 ，整理得 j - i &lt; 3。</p>
+<p>这个结论很显然：j - i &lt; 3 等价于 j - i + 1 &lt; 4，即当子串 s[i..j] 的长度等于 2 或者等于 3 的时候，其实只需要判断一下头尾两个字符是否相等就可以直接下结论了。</p>
+<p>如果子串 s[i + 1..j - 1] 只有 1 个字符，即去掉两头，剩下中间部分只有 11 个字符，显然是回文；<br>如果子串 s[i + 1..j - 1] 为空串，那么子串 s[i, j] 一定是回文子串。<br>因此，在 s[i] == s[j] 成立和 j - i &lt; 3 的前提下，直接可以下结论，dp[i][j] = true，否则才执行状态转移。</p>
+<h4 id="第-3-步：考虑初始化"><a href="#第-3-步：考虑初始化" class="headerlink" title="第 3 步：考虑初始化"></a>第 3 步：考虑初始化</h4><p>初始化的时候，单个字符一定是回文串，因此把对角线先初始化为 true，即 dp[i][i] = true 。</p>
+<p>事实上，初始化的部分都可以省去。因为只有一个字符的时候一定是回文，dp[i][i] 根本不会被其它状态值所参考。</p>
+<h4 id="第-4-步：考虑输出"><a href="#第-4-步：考虑输出" class="headerlink" title="第 4 步：考虑输出"></a>第 4 步：考虑输出</h4><p>只要一得到 dp[i][j] = true，就记录子串的长度和起始位置，没有必要截取，这是因为截取字符串也要消耗性能，记录此时的回文子串的「起始位置」和「回文长度」即可。</p>
+<h4 id="第-5-步：考虑优化空间"><a href="#第-5-步：考虑优化空间" class="headerlink" title="第 5 步：考虑优化空间"></a>第 5 步：考虑优化空间</h4><p>因为在填表的过程中，只参考了左下方的数值。事实上可以优化，但是增加了代码编写和理解的难度，丢失可读和可解释性。在这里不优化空间。</p>
+<p>注意事项：总是先得到小子串的回文判定，然后大子串才能参考小子串的判断结果，即填表顺序很重要。</p>
+<p>大家能够可以自己动手，画一下表格，相信会对「动态规划」作为一种「表格法」有一个更好的理解。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 特判</span></span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 记录最长回文串的长度</span></span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 记录最长回文串的开始下标</span></span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// dp[i][j] 表示 s[i, j] 是否是回文串</span></span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[len][len];</span><br><span class="line">        <span class="keyword">char</span>[] charArray = s.toCharArray();</span><br><span class="line">        <span class="comment">// 初始化,先将二维数组的对角线的值全部设置为true</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            dp[i][i] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; j; i++) &#123;</span><br><span class="line">                <span class="comment">// 如果两个字符串不相等,直接设为false</span></span><br><span class="line">                <span class="keyword">if</span> (charArray[i] != charArray[j]) &#123;</span><br><span class="line">                    dp[i][j] = <span class="keyword">false</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 如果相等,先判断j - i &lt; 3,就是该子串的长度是否小于3</span></span><br><span class="line">                    <span class="comment">// 如果小于3,则代表该子串内部没有子串,那么就直接设为true</span></span><br><span class="line">                    <span class="keyword">if</span> (j - i &lt; <span class="number">3</span>) &#123;</span><br><span class="line">                        dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">// 如果不小于3,则代表该子串内部还有子串,那么就去获取内部子串是否是回文子串</span></span><br><span class="line">                        dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 只要 dp[i][j] == true 成立，就表示子串 s[i..j] 是回文，此时记录回文长度和起始位置</span></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; j - i + <span class="number">1</span> &gt; maxLen) &#123;</span><br><span class="line">                    maxLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    begin = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 最后截取字符串返回</span></span><br><span class="line">        <span class="keyword">return</span> s.substring(begin, begin + maxLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h4><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600422345/动态规划/4_rhb4oe.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600422345/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4_rhb4oe.png"></p>
+<h2 id="2-正则表达式匹配"><a href="#2-正则表达式匹配" class="headerlink" title="2.正则表达式匹配"></a>2.正则表达式匹配</h2><p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持 <code>&#39;.&#39;</code> 和 <code>&#39;*&#39;</code> 的正则表达式匹配。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;.&#39; 匹配任意单个字符</span><br><span class="line">&#39;*&#39; 匹配零个或多个前面的那一个元素</span><br></pre></td></tr></table></figure>
+<p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code>s</code>的，而不是部分字符串。</p>
+<p><strong>说明:</strong></p>
+<p>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;aa&quot;</span><br><span class="line">p &#x3D; &quot;a&quot;</span><br><span class="line">输出: false</span><br><span class="line">解释: &quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;aa&quot;</span><br><span class="line">p &#x3D; &quot;a*&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: 因为 &#39;*&#39; 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 &#39;a&#39;。因此，字符串 &quot;aa&quot; 可被视为 &#39;a&#39; 重复了一次。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;ab&quot;</span><br><span class="line">p &#x3D; &quot;.*&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: &quot;.*&quot; 表示可匹配零个或多个（&#39;*&#39;）任意字符（&#39;.&#39;）。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;aab&quot;</span><br><span class="line">p &#x3D; &quot;c*a*b&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: 因为 &#39;*&#39; 表示零个或多个，这里 &#39;c&#39; 为 0 个, &#39;a&#39; 被重复一次。因此可以匹配字符串 &quot;aab&quot;。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;mississippi&quot;</span><br><span class="line">p &#x3D; &quot;mis*is*p*.&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -881,310 +1181,6 @@
       </categories>
       <tags>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue入门</title>
-    <url>/2020/09/21/Vue%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么?"></a>Vue.js是什么?</h2><p>Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p>
-<h2 id="Vue是一个渐进式框架-什么是渐进式的呢"><a href="#Vue是一个渐进式框架-什么是渐进式的呢" class="headerlink" title="Vue是一个渐进式框架,什么是渐进式的呢?"></a>Vue是一个渐进式框架,什么是渐进式的呢?</h2><ul>
-<li>渐进式意味着你可以将Vue作为你应用的一部分嵌入其中,带来更丰富的交互体验</li>
-<li>或者如果你希望将更多的业务逻辑使用Vue实现,那么Vue的核心库以及其生态系统</li>
-<li>比如Code+Vue-router+Vuex,也可以满足你各种各样的需求</li>
-</ul>
-<h2 id="Vue有很多特点和Web开发中常用的高级功能"><a href="#Vue有很多特点和Web开发中常用的高级功能" class="headerlink" title="Vue有很多特点和Web开发中常用的高级功能:"></a>Vue有很多特点和Web开发中常用的高级功能:</h2><ul>
-<li>解耦视图和数据</li>
-<li>可复用组件</li>
-<li>前端路由技术</li>
-<li>状态管理</li>
-<li>虚拟DOM</li>
-</ul>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
-<li><p>直接CDN导入(CDN会选择距离最近的服务器进行下载,会提高下载效率)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 开发环境版本,包含了有帮助的命令行警告 --&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- 生产环境版本,优化了尺寸和速度 --&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载和引入</p>
-<p>开发环境   <a href="https://vue.js.org/js/vue.js">https://vue.js.org/js/vue.js</a></p>
-<p>生产环境   <a href="https://vuejs.org/js/vue.min.js">https://vuejs.org/js/vue.min.js</a></p>
-</li>
-<li><p>npm安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="Vue的基本使用"><a href="#Vue的基本使用" class="headerlink" title="Vue的基本使用"></a>Vue的基本使用</h1><h2 id="案例一-Hello-Vue"><a href="#案例一-Hello-Vue" class="headerlink" title="案例一:Hello Vue"></a>案例一:Hello Vue</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let用于修饰变量</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;vue&quot;</span></span><br><span class="line"><span class="comment">// const用于修饰常量</span></span><br><span class="line"><span class="keyword">const</span> age = <span class="string">&quot;vue&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 编程范式: 声明式编程</span></span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>, <span class="comment">//用于挂载要管理的元素</span></span><br><span class="line">        data: &#123; <span class="comment">// 定义数据</span></span><br><span class="line">            message: <span class="string">&#x27;你好呀,pzx!&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用js的做法(编程范式: 命令式编程)</span></span><br><span class="line">    <span class="comment">//1.创建div元素,设置id属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.定义变量叫message</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.将message变量放在前面的div元素中显示</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.修改message的值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.将message的值重新赋值给div</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>以上代码的执行结果为:</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue相关/Vue入门/1_wsql5b.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/1_wsql5b.png"></p>
-<p><strong>代码做了什么事情:</strong></p>
-<ol>
-<li>首先创建了一个Vue对象</li>
-<li>创建Vue对象的时候,传入了一些options:{}<ul>
-<li>{}中包含了el属性:该属性决定了这个Vue对象挂载到哪一个元素上</li>
-<li>{}中包含了data属性:该属性通常会存储一些数据<ul>
-<li>这些数据可以是我们直接定义出来的,比如像上面那样</li>
-<li>也可能是来自网络,从服务器加载出来的</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="案例二-Vue的列表显示"><a href="#案例二-Vue的列表显示" class="headerlink" title="案例二:Vue的列表显示"></a>案例二:Vue的列表显示</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;item in tags&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            tags: [<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;JavaScript&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>以上代码的执行结果为:</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue相关/Vue入门/2_b7haeu.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/2_b7haeu.png"></p>
-<p>这个地方主要使用<strong>v-for</strong>指令,而且它还是响应式的</p>
-<ul>
-<li>也就是当数组中的数据发生变化时,界面会自动改变</li>
-</ul>
-<h2 id="案例三-计数器"><a href="#案例三-计数器" class="headerlink" title="案例三:计数器"></a>案例三:计数器</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;当前计数:&#123;&#123;counter&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;counter++&quot;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">&quot;counter-1 &lt; 0 ? counter=0 : counter--;&quot;</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>--&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;add&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;button v-on:click=<span class="string">&quot;subtraction&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;yi</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">&quot;js/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            counter: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.counter++;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;+已被点击&quot;</span>)</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            subtraction: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.counter<span class="number">-1</span> &lt; <span class="number">0</span>?<span class="built_in">this</span>.counter=<span class="number">0</span>:<span class="built_in">this</span>.counter--;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;-已被点击&quot;</span>)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>以上代码代码的执行结果为:</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue相关/Vue入门/3_dqgp6p.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/3_dqgp6p.png"></p>
-<p><strong>新的属性: methods,该属性用于在Vue对象中定义方法</strong></p>
-<p><strong>新的指令: @click(等同于v-on:click,@click为前面的语法糖),该指令用于监听某个元素的点击事件,并且需要指定当发生点击时,执行的方法(方法通常是methods中定义的方法)</strong></p>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IDEA、WebStrom最新版破解教程</title>
-    <url>/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="激活方法"><a href="#激活方法" class="headerlink" title="激活方法"></a>激活方法</h1><h2 id="1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；"><a href="#1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；" class="headerlink" title="1、下载完成后，双击 ideaIU-2020.2.exe,打开安装软件；"></a>1、下载完成后，双击 <code>ideaIU-2020.2.exe</code>,打开安装软件；</h2><blockquote>
-<p>PS: 确保电脑没有安装老版本软件，如有请卸载。</p>
-</blockquote>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/1_m4b8on.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/1_m4b8on.png"></p>
-<h2 id="2、-安装目录选择；"><a href="#2、-安装目录选择；" class="headerlink" title="2、 安装目录选择；"></a><strong>2、</strong> 安装目录选择；</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/2_juogad.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/2_juogad.png"></p>
-<h2 id="3、-按自己电脑配置勾选："><a href="#3、-按自己电脑配置勾选：" class="headerlink" title="3、 按自己电脑配置勾选："></a><strong>3、</strong> 按自己电脑配置勾选：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/3_cewijo.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/3_cewijo.png"></p>
-<h2 id="4、-点击-next-安心等待其安装完成："><a href="#4、-点击-next-安心等待其安装完成：" class="headerlink" title="4、 点击 next, 安心等待其安装完成："></a><strong>4、</strong> 点击 <code>next</code>, 安心等待其安装完成：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/4_erf7vj.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/4_erf7vj.png"></p>
-<h2 id="5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件"><a href="#5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件" class="headerlink" title="5、 安装完成后，勾选 Run IntelliJ IDEA，点击 finish 运行软件:"></a><strong>5、</strong> 安装完成后，勾选 <code>Run IntelliJ IDEA</code>，点击 <code>finish</code> 运行软件:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/5_pxaqbd.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/5_pxaqbd.png"></p>
-<h2 id="6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate"><a href="#6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate" class="headerlink" title="6、 会先弹出一个注册框，勾选 Evaluate for free, 点击 Evaluate:"></a><strong>6、</strong> 会先弹出一个注册框，勾选 <code>Evaluate for free</code>, 点击 <code>Evaluate</code>:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/6_l7v8mh.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/6_l7v8mh.png"></p>
-<h2 id="7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中"><a href="#7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中" class="headerlink" title="7、 2020 版本文件夹中的激活补丁破解补丁拖入IDEA 界面中"></a><strong>7、</strong> 2020 版本文件夹中的激活补丁<em><a href="https://api.cloudinary.com/v1_1/junpzx/raw/download?api_key=926984447943426&attachment=true&audit_context=eyJhY3Rvcl90eXBlIjoidXNlciIsImFjdG9yX2lkIjoiNGEzYTQ5NjllNDExM2U2ZmIyOWYzYTk5ZGQ2ZDE0MmMiLCJ1c2VyX2V4dGVybmFsX2lkIjoiYmQ0ZTQ4MzNhODVlOGYxZmEzNDM4MGUyMTkwMWExIiwidXNlcl9jdXN0b21faWQiOiJqdW5wenhAMTYzLmNvbSIsImNvbXBvbmVudCI6ImNvbnNvbGUifQ%3D%3D&public_id=idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B%2Fjetbrains-agent_lcbbnb.zip&signature=c996e1fd172879b3e20d03af99b186ee31587245&target_filename=jetbrains-agent_lcbbnb.zip&timestamp=1600513199&type=upload">破解补丁</a></em>拖入IDEA 界面中</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/7_o7c2z1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/7_o7c2z1.png"></p>
-<p> <strong>补丁，拖不进去，请重启 IDEA ，新建一个Java 项目，写一个空的 main 方法，再次试试</strong></p>
-<p> <strong>注意：激活补丁，拖进去之后，激活补丁的位置不要更换，不要删除。否则激活之后还会失效，</strong></p>
-<p> <strong>注意：激活补丁，拖进去，等于是程序，帮你去写一个激活补丁的位置，你换补丁jar位置，或者，删除补丁jar，就找不到激活补丁了</strong></p>
-<h2 id="8、拖入补丁后会弹框，点击-restart-重启-idea："><a href="#8、拖入补丁后会弹框，点击-restart-重启-idea：" class="headerlink" title="8、拖入补丁后会弹框，点击 restart 重启 idea："></a>8、拖入补丁后会弹框，点击 <code>restart</code> 重启 <strong>idea</strong>：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/8_ttpxq1.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/8_ttpxq1.png"></p>
-<h2 id="9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装："><a href="#9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装：" class="headerlink" title="9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 Activation Code，通过注册码来激活，点击为IDEA安装："></a>9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 <code>Activation Code</code>，通过注册码来激活，点击<code>为IDEA安装</code>：</h2><p><strong>安装参数</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGXawLB4qswPOXYG7+ItDNUR&#x2F;9UkLTUWlnHLX07hnR1USOrWIjTmbytcIKEdaI6x0RskyotuItj84xxoSBP&#x2F;iRBW2EHpOc</span><br></pre></td></tr></table></figure>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/9_fsezuf.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/9_fsezuf.png">激活破解方法, JetBrains 全家桶激活</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/10_skts9u.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/10_skts9u.png"></p>
-<h2 id="10、-点击是，重启-IDEA-即可"><a href="#10、-点击是，重启-IDEA-即可" class="headerlink" title="10、 点击是，重启 IDEA 即可"></a><strong>10、</strong> 点击<code>是</code>，重启 <strong>IDEA</strong> 即可</h2><h1 id="验证是否激活成功"><a href="#验证是否激活成功" class="headerlink" title="验证是否激活成功"></a>验证是否激活成功</h1><p>验证步骤如下：</p>
-<h2 id="1、-进入-IDEA-界面后，点击-Help-gt-Register-查看："><a href="#1、-进入-IDEA-界面后，点击-Help-gt-Register-查看：" class="headerlink" title="1、 进入 IDEA 界面后，点击 Help -&gt; Register 查看："></a><strong>1、</strong> 进入 <strong>IDEA</strong> 界面后，点击 <code>Help</code> -&gt; <code>Register</code> 查看：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/11_sbvbve.png"></p>
-<h2 id="2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新"><a href="#2、-可以看到，已经成功激活至-2089-年，为确保不失效，请勿随意更新" class="headerlink" title="2、 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新"></a><strong>2、</strong> 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/12_kl4v3h.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/12_kl4v3h.png"></p>]]></content>
-      <categories>
-        <category>安装教程</category>
-      </categories>
-      <tags>
-        <tag>IDEA</tag>
-        <tag>WebStorm</tag>
-        <tag>JetBrains</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态规划</title>
-    <url>/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p><strong>动态规划</strong>（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
-<p>动态规划常常适用于有<strong>重叠子问题</strong>和<strong>最优子结构性质</strong>的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
-<p>动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。</p>
-<p>通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其<strong>记忆化存储</strong>，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈<strong>指数增长</strong>时特别有用。</p>
-<p>五大常用算法：分治、动态规划、贪心、回溯和分支界定</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600417177/动态规划/3_d6j6rg.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600417177/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3_d6j6rg.png"></p>
-<p><a href="https://res.cloudinary.com/junpzx/image/upload/v1600417177/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3_d6j6rg.png">查看大图</a></p>
-<h1 id="二、概述"><a href="#二、概述" class="headerlink" title="二、概述"></a>二、概述</h1><p>动态规划在查找有很多<strong>重叠子问题</strong>的情况的最优解时有效。它将问题重新组合成子问题。为了避免多次解决这些子问题，它们的结果都逐渐被计算并被保存，从简单的问题直到整个问题都被解决。因此，动态规划保存<strong>递归</strong>时的结果，因而不会在解决同样的问题时花费时间。</p>
-<p>动态规划只能应用于有<strong>最优子结构</strong>的问题。最优子结构的意思是局部最优解能决定全局最优解（对有些问题这个要求并不能完全满足，故有时需要引入一定的近似）。简单地说，问题能够分解成子问题来解决。</p>
-<h1 id="三、适用情况"><a href="#三、适用情况" class="headerlink" title="三、适用情况"></a>三、适用情况</h1><ol>
-<li>最优子结构性质。如果问题的最优解所包含的子问题的解也是最优的，我们就称该问题具有最优子结构性质（即满足最优化原理）。最优子结构性质为动态规划算法解决问题提供了重要线索。</li>
-<li>无后效性。即子问题的解一旦确定，就不再改变，不受在这之后、包含它的更大的问题的求解决策影响。</li>
-<li>子问题重叠性质。子问题重叠性质是指在用递归算法自顶向下对问题进行求解时，每次产生的子问题并不总是新问题，有些子问题会被重复计算多次。动态规划算法正是利用了这种子问题的重叠性质，对每一个子问题只计算一次，然后将其计算结果保存在一个表格中，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率，降低了时间复杂度。</li>
-</ol>
-<h2 id="什么是最优子结构"><a href="#什么是最优子结构" class="headerlink" title="什么是最优子结构?"></a><strong>什么是最优子结构?</strong></h2><p>最优子结构是<strong>依赖特定问题</strong>和<strong>子问题的分割方式</strong>而成立的条件。各子问题具有最优解，就能求出整个问题的最优解，此时条件成立。</p>
-<p>比如求广州到北京的最短距离，假设这个路径必经过中间的南京，那么先把路径分割为（广州，南京）和（南京，北京）。分别求出子路径的最短距离然后再连接，就可以得到广州到北京的最短路径。</p>
-<p>因此，寻求最短路径的问题可以利用子路径的最优解获得整个问题的最优解。这样就可以证明，最短路径具有最优子结构。</p>
-<ul>
-<li>当然最长递增（LIS）</li>
-</ul>
-<p>反之，<strong>如果不能利用子问题的最优解获得整个问题的最优解，那么这种问题就不具有最优子结构。</strong></p>
-<p>很多问题的最优子结构都表现出<strong>非常直观</strong>的形式，以至于都不需要另外的证明过程。不过，遇到结构不是很直观的问题时，则需要用<strong>反证法</strong>证明（假设子问题的最优解不是整个问题的最优解 ⇒ ?）。</p>
-<h1 id="四、案例"><a href="#四、案例" class="headerlink" title="四、案例"></a>四、案例</h1><h2 id="1-最长回文子串"><a href="#1-最长回文子串" class="headerlink" title="1.最长回文子串"></a>1.最长回文子串</h2><p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: &quot;babad&quot;</span><br><span class="line">输出: &quot;bab&quot;</span><br><span class="line">注意: &quot;aba&quot; 也是一个有效答案。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: &quot;cbbd&quot;</span><br><span class="line">输出: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>「动态规划」的一个关键的步骤是想清楚「状态如何转移」。事实上，「回文」天然具有「状态转移」性质。</p>
-<p>一个回文去掉两头以后，剩下的部分依然是回文（这里暂不讨论边界情况）；<br>依然从回文串的定义展开讨论：</p>
-<p>如果一个字符串的头尾两个字符都不相等，那么这个字符串一定不是回文串；<br>如果一个字符串的头尾两个字符相等，才有必要继续判断下去。<br>如果里面的子串是回文，整体就是回文串；<br>如果里面的子串不是回文串，整体就不是回文串。<br>即：在头尾字符相等的情况下，里面子串的回文性质据定了整个子串的回文性质，这就是状态转移。因此可以把「状态」定义为原字符串的一个子串是否为回文子串。</p>
-<h4 id="第-1-步：定义状态"><a href="#第-1-步：定义状态" class="headerlink" title="第 1 步：定义状态"></a>第 1 步：定义状态</h4><p>dp[i][j]表示子串 s[i..j] 是否为回文子串，这里子串 s[i..j] 定义为左闭右闭区间，可以取到 s[i] 和 s[j]。</p>
-<h4 id="第-2-步：思考状态转移方程"><a href="#第-2-步：思考状态转移方程" class="headerlink" title="第 2 步：思考状态转移方程"></a>第 2 步：思考状态转移方程</h4><p>在这一步分类讨论（根据头尾字符是否相等），根据上面的分析得到：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dp[i][j] &#x3D; (s[i] &#x3D;&#x3D; s[j]) and dp[i + 1][j - 1]</span><br></pre></td></tr></table></figure>
-<p>说明：</p>
-<ul>
-<li><p>「动态规划」事实上是在填一张二维表格，由于构成子串，因此 i 和 j 的关系是 i &lt;= j ，因此，只需要填这张表格对角线以上的部分。</p>
-</li>
-<li><p>看到 dp[i + 1][j - 1] 就得考虑边界情况。</p>
-</li>
-</ul>
-<p>边界条件是：表达式 [i + 1, j - 1] 不构成区间，即长度严格小于 2，即 j - 1 - (i + 1) + 1 &lt; 2 ，整理得 j - i &lt; 3。</p>
-<p>这个结论很显然：j - i &lt; 3 等价于 j - i + 1 &lt; 4，即当子串 s[i..j] 的长度等于 2 或者等于 3 的时候，其实只需要判断一下头尾两个字符是否相等就可以直接下结论了。</p>
-<p>如果子串 s[i + 1..j - 1] 只有 1 个字符，即去掉两头，剩下中间部分只有 11 个字符，显然是回文；<br>如果子串 s[i + 1..j - 1] 为空串，那么子串 s[i, j] 一定是回文子串。<br>因此，在 s[i] == s[j] 成立和 j - i &lt; 3 的前提下，直接可以下结论，dp[i][j] = true，否则才执行状态转移。</p>
-<h4 id="第-3-步：考虑初始化"><a href="#第-3-步：考虑初始化" class="headerlink" title="第 3 步：考虑初始化"></a>第 3 步：考虑初始化</h4><p>初始化的时候，单个字符一定是回文串，因此把对角线先初始化为 true，即 dp[i][i] = true 。</p>
-<p>事实上，初始化的部分都可以省去。因为只有一个字符的时候一定是回文，dp[i][i] 根本不会被其它状态值所参考。</p>
-<h4 id="第-4-步：考虑输出"><a href="#第-4-步：考虑输出" class="headerlink" title="第 4 步：考虑输出"></a>第 4 步：考虑输出</h4><p>只要一得到 dp[i][j] = true，就记录子串的长度和起始位置，没有必要截取，这是因为截取字符串也要消耗性能，记录此时的回文子串的「起始位置」和「回文长度」即可。</p>
-<h4 id="第-5-步：考虑优化空间"><a href="#第-5-步：考虑优化空间" class="headerlink" title="第 5 步：考虑优化空间"></a>第 5 步：考虑优化空间</h4><p>因为在填表的过程中，只参考了左下方的数值。事实上可以优化，但是增加了代码编写和理解的难度，丢失可读和可解释性。在这里不优化空间。</p>
-<p>注意事项：总是先得到小子串的回文判定，然后大子串才能参考小子串的判断结果，即填表顺序很重要。</p>
-<p>大家能够可以自己动手，画一下表格，相信会对「动态规划」作为一种「表格法」有一个更好的理解。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 特判</span></span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 记录最长回文串的长度</span></span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 记录最长回文串的开始下标</span></span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// dp[i][j] 表示 s[i, j] 是否是回文串</span></span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[len][len];</span><br><span class="line">        <span class="keyword">char</span>[] charArray = s.toCharArray();</span><br><span class="line">        <span class="comment">// 初始化,先将二维数组的对角线的值全部设置为true</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            dp[i][i] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; j; i++) &#123;</span><br><span class="line">                <span class="comment">// 如果两个字符串不相等,直接设为false</span></span><br><span class="line">                <span class="keyword">if</span> (charArray[i] != charArray[j]) &#123;</span><br><span class="line">                    dp[i][j] = <span class="keyword">false</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 如果相等,先判断j - i &lt; 3,就是该子串的长度是否小于3</span></span><br><span class="line">                    <span class="comment">// 如果小于3,则代表该子串内部没有子串,那么就直接设为true</span></span><br><span class="line">                    <span class="keyword">if</span> (j - i &lt; <span class="number">3</span>) &#123;</span><br><span class="line">                        dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">// 如果不小于3,则代表该子串内部还有子串,那么就去获取内部子串是否是回文子串</span></span><br><span class="line">                        dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 只要 dp[i][j] == true 成立，就表示子串 s[i..j] 是回文，此时记录回文长度和起始位置</span></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; j - i + <span class="number">1</span> &gt; maxLen) &#123;</span><br><span class="line">                    maxLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    begin = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 最后截取字符串返回</span></span><br><span class="line">        <span class="keyword">return</span> s.substring(begin, begin + maxLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h4><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600422345/动态规划/4_rhb4oe.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600422345/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4_rhb4oe.png"></p>
-<h2 id="2-正则表达式匹配"><a href="#2-正则表达式匹配" class="headerlink" title="2.正则表达式匹配"></a>2.正则表达式匹配</h2><p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持 <code>&#39;.&#39;</code> 和 <code>&#39;*&#39;</code> 的正则表达式匹配。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;.&#39; 匹配任意单个字符</span><br><span class="line">&#39;*&#39; 匹配零个或多个前面的那一个元素</span><br></pre></td></tr></table></figure>
-<p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code>s</code>的，而不是部分字符串。</p>
-<p><strong>说明:</strong></p>
-<p>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;aa&quot;</span><br><span class="line">p &#x3D; &quot;a&quot;</span><br><span class="line">输出: false</span><br><span class="line">解释: &quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;aa&quot;</span><br><span class="line">p &#x3D; &quot;a*&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: 因为 &#39;*&#39; 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 &#39;a&#39;。因此，字符串 &quot;aa&quot; 可被视为 &#39;a&#39; 重复了一次。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;ab&quot;</span><br><span class="line">p &#x3D; &quot;.*&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: &quot;.*&quot; 表示可匹配零个或多个（&#39;*&#39;）任意字符（&#39;.&#39;）。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 4:</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;aab&quot;</span><br><span class="line">p &#x3D; &quot;c*a*b&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: 因为 &#39;*&#39; 表示零个或多个，这里 &#39;c&#39; 为 0 个, &#39;a&#39; 被重复一次。因此可以匹配字符串 &quot;aab&quot;。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 5:</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">s &#x3D; &quot;mississippi&quot;</span><br><span class="line">p &#x3D; &quot;mis*is*p*.&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 Hexo+GitHub 搭建个人免费博客教程</title>
-    <url>/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。</p>
-<p>虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。</p>
-<p>本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。</p>
-<p>此博客搬运至 : <a href="https://zhuanlan.zhihu.com/p/60578464">知乎-“crystal”</a></p>
-<h1 id="二、简介"><a href="#二、简介" class="headerlink" title="二、简介"></a>二、简介</h1><h2 id="GitHub-Pages-是什么？"><a href="#GitHub-Pages-是什么？" class="headerlink" title="GitHub Pages 是什么？"></a>GitHub Pages 是什么？</h2><ul>
-<li><a href="https://docs.github.com/en/github/working-with-github-pages/about-github-pages">What is GitHub Pages? - GitHub Help</a></li>
-</ul>
-<p>GitHub Pages 是由 GitHub 官方提供的一种免费的静态站点托管服务，让我们可以在 GitHub 仓库里托管和发布自己的静态网站页面。</p>
-<h2 id="Hexo-是什么？"><a href="#Hexo-是什么？" class="headerlink" title="Hexo 是什么？"></a>Hexo 是什么？</h2><ul>
-<li>官网：<a href="https://hexo.io/zh-cn/">hexo.io</a></li>
-</ul>
-<p>Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 运行，可以将我们撰写的 Markdown 文档解析渲染成静态的 HTML 网页。</p>
-<h2 id="Hexo-GitHub-文章发布原理"><a href="#Hexo-GitHub-文章发布原理" class="headerlink" title="Hexo + GitHub 文章发布原理"></a>Hexo + GitHub 文章发布原理</h2><p>在本地撰写 Markdown 格式文章后，通过 Hexo 解析文档，渲染生成具有主题样式的 HTML 静态网页，再推送到 GitHub 上完成博文的发布。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg" alt="img"></p>
-<h2 id="优点和不足"><a href="#优点和不足" class="headerlink" title="优点和不足"></a>优点和不足</h2><p><strong>优点：</strong>完全免费；静态站点，轻量快速；可按需求自由定制改造；托管在 GitHub，安全省心；迁移方便……</p>
-<p><strong>不足：</strong>发文不便，依赖于本地环境；更适合个人博客使用；GitHub 在国内访问速度有点不快。</p>
-<h1 id="三、安装教程"><a href="#三、安装教程" class="headerlink" title="三、安装教程"></a>三、安装教程</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1.准备"></a>1.准备</h2><h3 id="1-1-注意事项"><a href="#1-1-注意事项" class="headerlink" title="1.1 注意事项"></a>1.1 注意事项</h3><ul>
-<li>输入代码时，核对准确，最好切换成英文输入法；</li>
-<li>将文中的 “用户名” 和 “邮箱” 替换为自己的 GitHub 账户名和绑定的邮箱；</li>
-<li>统一使用 Git Bash 进行操作（支持 Win、Mac）；</li>
-<li>小白请严格按步骤进行，不要跳！</li>
-</ul>
-<h3 id="1-2-环境搭建"><a href="#1-2-环境搭建" class="headerlink" title="1.2 环境搭建"></a>1.2 环境搭建</h3><p>Hexo 基于 Node.js，搭建过程中还需要使用 npm（Node.js 已带） 和 git，因此先搭建本地操作环境，安装 Node.js 和 Git。</p>
-<ul>
-<li>Node.js：<a href="https://nodejs.org/zh-cn">https://nodejs.org/zh-cn</a></li>
-<li>Git：<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
-</ul>
-<p>下载 Node.js 和 Git 程序并安装，一路点 “下一步” 按默认配置完成安装。</p>
-<p>安装完成后，Win+R 输入 cmd 并打开，依次输入 <code>node -v</code>、<code>npm -v</code> 和 <code>git --version</code> 并回车，如下图出现程序版本号即可。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg" alt=""></p>
-<h2 id="2-连接-Github"><a href="#2-连接-Github" class="headerlink" title="2.连接 Github"></a>2.连接 Github</h2><p>使用邮箱注册 <a href="https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。</p>
-<p>右键 -&gt; Git Bash Here，<strong>设置用户名和邮箱</strong>：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>创建 SSH 密匙</strong>：</p>
-<p>输入 <code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code>，然后一路回车。</p>
-<p><strong>添加密匙：</strong></p>
-<p>进入 [C:\Users\用户名.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
-<p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。</p>
-<p>Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg" alt=""></p>
-<p><strong>验证连接：</strong></p>
-<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg" alt=""></p>
-<p>显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
-<h2 id="3-创建-Github-Pages-仓库"><a href="#3-创建-Github-Pages-仓库" class="headerlink" title="3.创建 Github Pages 仓库"></a>3.创建 Github Pages 仓库</h2><p>GitHub 主页右上角加号 -&gt; New repository：</p>
-<ul>
-<li>Repository name 中输入 <code>用户名.github.io</code></li>
-<li>勾选 “Initialize this repository with a README”</li>
-<li>Description 选填</li>
-</ul>
-<p>填好后点击 Create repository 创建。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg" alt=""></p>
-<p>创建后默认自动启用 HTTPS，博客地址为：<code>https://用户名.github.io</code></p>
-<h2 id="4-本地安装-Hexo-博客程序"><a href="#4-本地安装-Hexo-博客程序" class="headerlink" title="4.本地安装 Hexo 博客程序"></a>4.本地安装 Hexo 博客程序</h2><p>新建一个文件夹用来存放 Hexo 的程序文件，如 Hexo-Blog。打开该文件夹，右键 -&gt; Git Bash Here。</p>
-<h3 id="4-1-安装-Hexo"><a href="#4-1-安装-Hexo" class="headerlink" title="4.1 安装 Hexo"></a>4.1 安装 Hexo</h3><p>使用 npm 一键安装 Hexo 博客程序：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Mac 用户需要管理员权限（sudo），运行这条命令：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>安装时间有点久（真的很慢！），界面也没任何反应，<strong>耐心等待</strong>，安装完成后如下图。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg" alt=""></p>
-<h3 id="4-2-Hexo-初始化和本地预览"><a href="#4-2-Hexo-初始化和本地预览" class="headerlink" title="4.2 Hexo 初始化和本地预览"></a>4.2 Hexo 初始化和本地预览</h3><p><strong>初始化并安装所需组件：</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init      # 初始化</span><br><span class="line">npm install    # 安装组件</span><br></pre></td></tr></table></figure>
-<p>完成后依次输入下面命令，<strong>启动本地服务器进行预览</strong>：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g   # 生成页面</span><br><span class="line">hexo s   # 启动预览</span><br></pre></td></tr></table></figure>
-<p><strong>访问</strong> <code>http://localhost:4000</code><strong>，出现 Hexo 默认页面，本地博客安装成功！</strong></p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg" alt=""></p>
-<p><strong>Tips：</strong>如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号后重试。</p>
-<p>Hexo 博客文件夹目录结构如下：</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/7_sp5gdj.jpg" alt=""></p>
-<h2 id="5-部署-Hexo-到-GitHub-Pages"><a href="#5-部署-Hexo-到-GitHub-Pages" class="headerlink" title="5.部署 Hexo 到 GitHub Pages"></a>5.部署 Hexo 到 GitHub Pages</h2><p>本地博客测试成功后，就是上传到 GitHub 进行部署，使其能够在网络上访问。</p>
-<p>首先<strong>安装 hexo-deployer-git</strong>：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>然后<strong>修改 _config.yml</strong> 文件末尾的 Deployment 部分，修改成如下：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>完成后运行 <code>hexo d</code> 将网站上传部署到 GitHub Pages。</p>
-<p>完成！这时访问我们的 GitHub 域名 <code>https://用户名.github.io</code> 就可以看到 Hexo 网站了。</p>
-<h2 id="6-绑定域名（可选）"><a href="#6-绑定域名（可选）" class="headerlink" title="6.绑定域名（可选）"></a>6.绑定域名（可选）</h2><p>博客搭建完成使用的是 GitHub 的子域名（用户名.<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a>），我们可以为 Hexo 博客绑定自己的域名替换 GitHub 域名，更加个性化和专业，也利于 SEO。</p>
-<p>我们使用 <a href="https://homenew.console.aliyun.com/">阿里云</a> 进行注册,如果是新用户的话,com域名差不多50RMB左右,cn域名10RMB左右。</p>
-<h3 id="6-1-域名注册和解析"><a href="#6-1-域名注册和解析" class="headerlink" title="6.1 域名注册和解析"></a>6.1 域名注册和解析</h3><ul>
-<li>域名注册和解析教程：</li>
-</ul>
-<p>在 DNS 设置部分，删除自带的记录，然后添加 CNAME 记录将 www 域名解析指向 <code>用户名.github.io</code>。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png" alt=""></p>
-<h3 id="6-2-绑定域名到-Hexo-博客"><a href="#6-2-绑定域名到-Hexo-博客" class="headerlink" title="6.2 绑定域名到 Hexo 博客"></a>6.2 绑定域名到 Hexo 博客</h3><p>进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 <a href="http://www.example.com，保存名称为">http://www.example.com，保存名称为</a> “CNAME”，格式为 “所有文件”（无 .txt 后缀）。</p>
-<p>清除缓存等文件并重新发布网站：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo clean   # 清除缓存文件等</span><br><span class="line">hexo g       # 生成页面</span><br><span class="line">hexo s       # 启动预览</span><br></pre></td></tr></table></figure>
-<p>现在就可以使用自己的域名访问 Hexo 博客了。</p>
-<h3 id="6-3-开启-HTTPS"><a href="#6-3-开启-HTTPS" class="headerlink" title="6.3 开启 HTTPS"></a>6.3 开启 HTTPS</h3><p>配置自己的域名后，需要我们手动开启 HTTPS。打开博客所在 GitHub 仓库，Settings -&gt; 下拉找到 GitHub Pages -&gt; 勾选 Enforce HTTPS。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg" alt=""></p>
-<p>HTTPS 证书部署成功需要一定时间，等大概几分钟再访问域名，就可以看到域名前面的小绿锁了，HTTPS 配置完成！</p>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
-<p>然后 source 文件夹中会出现一个 My New Post.md 文件，就可以使用 Markdown 编辑器在该文件中撰写文章了。</p>
-<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。<strong>以后每次发布文章都是这两条命令。</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g   # 生成页面</span><br><span class="line">hexo d   # 部署发布</span><br></pre></td></tr></table></figure>
-<hr>
-<p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式 Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code> 发布。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World # 标题</span><br><span class="line">date: 2019/3/26 hh:mm:ss # 时间</span><br><span class="line">categories: # 分类</span><br><span class="line">- Diary</span><br><span class="line">tags: # 标签</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure>
-<h3 id="网站设置"><a href="#网站设置" class="headerlink" title="网站设置"></a>网站设置</h3><p>包括网站名称、描述、作者、链接样式等，全部在网站目录下的 _config.yml 文件中，参考<a href="https://link.zhihu.com/?target=https%3A//hexo.io/zh-cn/docs/configuration">官方文档</a>按需要编辑。</p>
-<p>注意：冒号后要加一个空格！</p>
-<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>在 <a href="https://hexo.io/themes/">Themes | Hexo</a> 选择一个喜欢的主题，比如 <a href="http://theme-next.iissnan.com/getting-started.html">NexT</a>，进入网站目录打开 Git Bash Here 下载主题：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>然后修改 _config.yml 中的 theme 为新主题名称 next，发布。（有的主题需要将 _config.yml 替换为主题自带的，参考主题说明。）</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo new &quot;name&quot;       # 新建文章</span><br><span class="line">hexo new page &quot;name&quot;  # 新建页面</span><br><span class="line">hexo g                # 生成页面</span><br><span class="line">hexo d                # 部署</span><br><span class="line">hexo g -d             # 生成页面并部署</span><br><span class="line">hexo s                # 本地预览</span><br><span class="line">hexo clean            # 清除缓存和已生成的静态文件</span><br><span class="line">hexo help             # 帮助</span><br></pre></td></tr></table></figure>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Hexo-设置显示文章摘要，首页不显示全文"><a href="#Hexo-设置显示文章摘要，首页不显示全文" class="headerlink" title="Hexo 设置显示文章摘要，首页不显示全文"></a>Hexo 设置显示文章摘要，首页不显示全文</h3><p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 `` 进行分段。</p>
-<p>该代码前面的内容会作为摘要显示，而后面的内容会替换为 “Read More” 隐藏起来。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg" alt=""></p>
-<h3 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h3><p>进入 themes/主题 文件夹，打开 _config.yml 配置文件，找到 favicon 修改，一般格式为：<code>favicon: 图标地址</code>。（不同主题可能略有差别）</p>
-<h3 id="修改并部署后没有效果"><a href="#修改并部署后没有效果" class="headerlink" title="修改并部署后没有效果"></a>修改并部署后没有效果</h3><p>使用 <code>hexo clean</code> 清理后重新部署。</p>
-<h3 id="开启-HTTPS-后访问网站显示连接不安全？"><a href="#开启-HTTPS-后访问网站显示连接不安全？" class="headerlink" title="开启 HTTPS 后访问网站显示连接不安全？"></a>开启 HTTPS 后访问网站显示连接不安全？</h3><p>证书还未部署生效，等待一会儿，清除浏览器缓存再试。</p>
-<h3 id="Mac-安装-Hexo-报错无法安装"><a href="#Mac-安装-Hexo-报错无法安装" class="headerlink" title="Mac 安装 Hexo 报错无法安装"></a>Mac 安装 Hexo 报错无法安装</h3><p>Mac 用户需要管理员权限运行，使用 <code>sudo npm install -g hexo-cli</code> 命令安装。</p>
-<h3 id="npm-下载速度慢，甚至完全没反应"><a href="#npm-下载速度慢，甚至完全没反应" class="headerlink" title="npm 下载速度慢，甚至完全没反应"></a>npm 下载速度慢，甚至完全没反应</h3><p>使用 npm 安装程序等待很久也没反应，或者下载速度很慢，可以更换 npm 源为国内 npm 镜像。</p>
-<p>临时更换方法：在 npm 安装命令后面加上：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">--registry https://registry.npm.taobao.org </span><br></pre></td></tr></table></figure>
-<h3 id="Hexo命令报以下错误"><a href="#Hexo命令报以下错误" class="headerlink" title="Hexo命令报以下错误"></a>Hexo命令报以下错误</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.js:35 throw new TypeError(&#39;Console expects a writable stream instance&#39;);</span><br></pre></td></tr></table></figure>
-<p>该错误为nodejs的版本不够高,需要更换成最新版!</p>
-<h1 id="四、结语"><a href="#四、结语" class="headerlink" title="四、结语"></a>四、结语</h1><p>Hexo 是一种纯静态的博客，我们必须要在本地完成文章的编辑再部署到 GitHub 上，依赖于本地环境。不能像 WordPress 或 Typecho 那样的动态博客一样能直接在浏览器中完成撰文和发布。</p>
-<p>可以说是一种比较极客的写博客方式，但是优势也是明显的——免费稳定省心，比较适合爱折腾研究的用户，或者没有在线发文需求的朋友。</p>]]></content>
-      <categories>
-        <category>安装教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
