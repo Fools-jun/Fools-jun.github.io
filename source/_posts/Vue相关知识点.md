@@ -3,7 +3,7 @@ title: Vue相关知识点
 date: 2020-09-29 14:59:24
 categories:
 - 笔记
-- 前段
+- 前端
 tags:
 - Vue
 ---
@@ -11,6 +11,8 @@ tags:
 
 
 学习Vue过程中，一些零碎的知识点
+
+![https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png](https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png)
 
 <!-- less -->
 
