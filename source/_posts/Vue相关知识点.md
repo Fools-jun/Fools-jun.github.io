@@ -1,0 +1,67 @@
+---
+title: Vue相关知识点
+date: 2020-09-29 14:59:24
+categories:
+- 笔记
+- 前段
+tags:
+- Vue
+---
+
+
+
+# 数组中哪些方法是响应式的？
+
+**注意：通过数组下标直接修改数组元素的值，界面不会发生改变，但是数组内的值已经修改**
+
+ <table>
+     <tr>
+         <td>方法名</td>
+         <td>作用</td>
+         <td>语法</td>
+         <td>是否是响应式</td>
+     </tr>
+     <tr>
+         <td>push</td>
+         <td>在数组最后追加元素</td>
+         <td>array.push(元素1,元素2...)</td>
+         <td>是</td>
+     </tr>
+     <tr>
+         <td>pop</td>
+         <td>移除数组中最后一位元素</td>
+         <td>array.pop()</td>
+         <td>是</td>
+     </tr>
+      <tr>
+         <td>shift</td>
+         <td>移除数组中第一位元素</td>
+         <td>array.shift()</td>
+         <td>是</td>
+     </tr>
+      <tr>
+         <td>unshift</td>
+         <td>在数组最前面添加元素</td>
+         <td>array.unshift(元素1,元素2...)</td>
+         <td>是</td>
+     </tr>
+      <tr>
+         <td>splice</td>
+         <td>删除元素/插入元素/替换元素</td>
+         <td>array.splice(开始下标,需要删除的数量, 添加元素1,添加元素,...)</td>
+         <td>是</td>
+     </tr>
+      <tr>
+         <td>sort</td>
+         <td>将数组进行排序</td>
+         <td>array.sort(function)</td>
+         <td>是</td>
+     </tr>
+      <tr>
+         <td>reverse</td>
+         <td>将数组内的元素进行反转</td>
+         <td>array.reverse()</td>
+         <td>是</td>
+     </tr>
+ </table>
+
