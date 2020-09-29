@@ -39,6 +39,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e665e5ba-47aa-4abc-8bf1-17f7a11af665" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/next" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/next/languages/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/languages/zh-CN.yml" afterDir="false" />
@@ -70,7 +71,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/WebstormData/LearnVue" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -83,6 +84,7 @@
       <updated>1601288988332</updated>
       <workItem from="1601288989578" duration="9000" />
       <workItem from="1601289823360" duration="190000" />
+      <workItem from="1601344069741" duration="708000" />
     </task>
     <servers />
   </component>
@@ -99,8 +101,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601345265000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601345265000" />
     <state x="552" y="248" key="Vcs.Push.Dialog.v2" timestamp="1601289999956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
