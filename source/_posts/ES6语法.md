@@ -224,3 +224,37 @@ const people = {
 //以上两种写法最后的结果是等价的
 ```
 
+
+
+
+
+# 循环语法
+
+## 普通for循环
+
+```javascript
+for (let i = 0; i < array.length; i++) {
+     console.log(array[i])
+}
+```
+
+
+
+## 使用for  in 循环
+
+```javascript
+for(let i in array){
+   console.log(array[i])
+}
+```
+
+
+
+## 使用for of循环
+
+```javascript
+for (let value of array){
+     console.log(value)
+}
+```
+
