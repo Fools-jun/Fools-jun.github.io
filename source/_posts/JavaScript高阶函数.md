@@ -9,6 +9,10 @@ tags:
 
 ---
 
+什么是函数式编程？JavaScript高阶函数
+
+<!-- less -->
+
 # 函数式编程
 
 > **函数式编程**（英语：**functional programming**）或称**函数程序设计**、**泛函编程**，是一种[编程范式](https://zh.wikipedia.org/wiki/编程范式)，它将[电脑运算](https://zh.wikipedia.org/wiki/電腦運算)视为[函数](https://zh.wikipedia.org/wiki/函数)运算，并且避免使用[程序状态](https://zh.wikipedia.org/w/index.php?title=程式状态&action=edit&redlink=1)以及[易变对象](https://zh.wikipedia.org/wiki/不可變物件)。其中，[λ演算](https://zh.wikipedia.org/wiki/Λ演算)（lambda calculus）为该语言最重要的基础。而且，λ演算的函数可以接受函数当作输入（引数）和输出（传出值）。
