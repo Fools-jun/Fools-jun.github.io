@@ -146,3 +146,54 @@ Array.filter(function(currentValue, indedx, arr), thisValue)
 当检查元素符合过滤条件时,返回true,函数内部会自动将这个元素加入新数组中
 
 当不符合条件时会返回false，函数内部会过滤掉这个元素
+
+
+
+### map
+
+**作用：**返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。
+
+**注意：**
+
+- map()不会对空数组进行检测
+
+- map()不会改变原始数组
+
+**语法：**
+
+```javascript
+array.map(function(currentValue, index, arr), thisIndex)
+```
+
+function(currentValue, index, arr)：必须为一个函数，数组中的每个元素都会执行这个函数。其中函数参数：
+
+- currentValue：必须,当前元素的的值。
+- index：可选,当前元素的索引。
+- arr：可选,当前元素属于的数组对象。
+
+- thisValue：可选。对象作为该执行回调时使用，传递给函数，用作"this"的值。
+
+
+
+### reduce
+
+**作用：**
+
+reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
+
+**注意：**
+
+- educe() 对于空数组是不会执行回调函数的和map一样。
+
+**语法：**
+
+```javascript
+array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+```
+
+function(total,currentValue, index,arr)：必需。用于执行每个数组元素的函数。函数参数:
+
+- total	必需,初始值, 或者计算结束后的返回值。
+- currentValue	必需,当前元素
+- currentIndex	可选,当前元素的索引
+- arr	可选,当前元素所属的数组对象。
