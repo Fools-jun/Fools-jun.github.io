@@ -316,10 +316,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-30 10:18:48 / 修改时间：11:44:24" itemprop="dateCreated datePublished" datetime="2020-09-30T10:18:48+08:00">2020-09-30</time>
+              <time title="创建时间：2020-09-30 10:18:48" itemprop="dateCreated datePublished" datetime="2020-09-30T10:18:48+08:00">2020-09-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-12 16:43:53" itemprop="dateModified" datetime="2020-10-12T16:43:53+08:00">2020-10-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -340,7 +346,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -359,51 +365,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><blockquote>
-<p><strong>函数式编程</strong>（英语：<strong>functional programming</strong>）或称<strong>函数程序设计</strong>、<strong>泛函编程</strong>，是一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/编程范式">编程范式</a>，它将<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/電腦運算">电脑运算</a>视为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数">函数</a>运算，并且避免使用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=程式状态&amp;action=edit&amp;redlink=1">程序状态</a>以及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/不可變物件">易变对象</a>。其中，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Λ演算">λ演算</a>（lambda calculus）为该语言最重要的基础。而且，λ演算的函数可以接受函数当作输入（引数）和输出（传出值）。</p>
-<p>比起<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/指令式編程">指令式编程</a>，函数式编程更加强调程序执行的结果而非执行的过程，倡导利用若干简单的执行单元让计算结果不断渐进，逐层推导复杂的运算，而不是设计一个复杂的执行过程。</p>
-<p>在函数式编程中，函数是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/第一类对象">第一类对象</a>，意思是说一个函数，既可以作为其它函数的参数（输入值），也可以从函数中返回（输入值），被修改或者被分配给一个变量。</p>
-</blockquote>
-<p><strong>简单来说:</strong>函数式是一种编程形式，你可以将函数作为参数传递给其他函数，并将它们作为值返回。 在函数式编程中，我们以函数的形式思考和编程。</p>
-<p>JavaScript，Haskell，Clojure，Scala 和 Erlang 是部分实现了函数式编程的语言。</p>
-<h1 id="一等函数"><a href="#一等函数" class="headerlink" title="一等函数"></a>一等函数</h1><p>如果你在学习 JavaScript，你可能听说过 JavaScript 将函数视为一等公民。 那是因为在 JavaScript 及其他函数式编程语言中，<strong>函数是对象</strong>。</p>
-<p>在 JavaScript 中，函数是一种特殊类型的对象。 它们是 Function objects。例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">sayHello();   <span class="comment">// 控制台上打印 &#x27;Hello&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>为了更进一步的证明js中的函数是对象:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sayHello.name=<span class="string">&#x27;My Name is SayHello&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(sayHello.name)   <span class="comment">// 控制台打印 &#x27;My Name is SayHello&#x27;</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong> - 虽然这在 JavaScript 中完全有效，但这被认为是 harmful 的做法。 你不应该向函数对象添加随机属性，如果不得不这样做，请使用对象。</p>
-<p>在 JavaScript 中，你对其他类型（如对象，字符串或数字）执行的所有操作都可以对函数执行。 你可以将它们作为参数传递给其他函数（回调函数），将它们分配给变量并传递它们等等。这就是 JavaScript 中的函数被称为一等函数的原因。</p>
-<h2 id="将函数赋值给变量"><a href="#将函数赋值给变量" class="headerlink" title="将函数赋值给变量"></a>将函数赋值给变量</h2><p>我们可以在 JavaScript 中将函数赋值给变量。 例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span> (<span class="params">z</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> z * z</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>))  <span class="comment">// 控制台打印 &#x27;25&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>我们也可以将该方法进行传递:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> temp = square;</span><br><span class="line"><span class="built_in">console</span>.log(temp(<span class="number">6</span>))   <span class="comment">//控制台打印36</span></span><br></pre></td></tr></table></figure>
-<h2 id="将函数作为参数传递"><a href="#将函数作为参数传递" class="headerlink" title="将函数作为参数传递"></a>将函数作为参数传递</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBye</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Bye&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">type,sayHello,sayBye</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">// 根据就近原则,此处使用的是方法参数中的sayHello</span></span><br><span class="line">        sayHello();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// 通上</span></span><br><span class="line">        sayBye();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">say(<span class="number">1</span>,sayHello,sayBye); <span class="comment">//控制台打印 &#x27;Hello&#x27;</span></span><br></pre></td></tr></table></figure>
-<h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><blockquote>
-<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/数学">数学</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/计算机科学">计算机科学</a>中，<strong>高阶函数</strong>是至少满足下列一个条件的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数">函数</a>：</p>
-<ul>
-<li>接受一个或多个函数作为输入</li>
-<li>输出一个函数</li>
-</ul>
-<p>在数学中它们也叫做<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/算子">算子</a>（运算符）或<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/泛函">泛函</a>。<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/微积分">微积分</a>中的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/导数">导数</a>就是常见的例子，因为它映射一个函数到另一个函数。</p>
-<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Lambda演算">无类型lambda演算</a>，所有函数都是高阶的；在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/有类型lambda演算">有类型lambda演算</a>（大多数<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数式编程语言">函数式编程语言</a>都从中演化而来）中，高阶函数一般是那些函数型别包含多于一个箭头的函数。在函数式编程中，返回另一个函数的高阶函数被称为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Curry化">Curry化</a>的函数。</p>
-<p>在很多函数式编程语言中能找到的<code>map</code>函数是高阶函数的一个例子。它接受一个函数<strong>f</strong>作为参数，并返回接受一个列表并应用<strong>f</strong>到它的每个元素的一个函数。</p>
-<p>高阶函数的其他例子包括<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数复合">函数复合</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/积分">积分</a>和常量函数λ<em>x</em>.λ<em>y</em>.<em>x</em>。</p>
-</blockquote>
-<p>高阶函数是对其他函数进行操作的函数，操作可以是将它们作为参数，或者是返回它们。 简单来说，高阶函数是一个接收函数作为参数或将函数作为输出返回的函数。</p>
-<p>例如，Array.prototype.map，Array.prototype.filter 和 Array.prototype.reduce 是语言中内置的一些高阶函数。</p>
-<h2 id="JavaScript内置高阶函数"><a href="#JavaScript内置高阶函数" class="headerlink" title="JavaScript内置高阶函数"></a>JavaScript内置高阶函数</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><strong>作用: </strong>filter用于对数组进行过滤。它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
-<p><strong>注意:</strong> </p>
-<ul>
-<li>filter()不会对空数组进行检测</li>
-<li>filter()不会改变原始数组</li>
-</ul>
-<p><strong>语法</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.filter(<span class="function"><span class="keyword">function</span>(<span class="params">currentValue, indedx, arr</span>), <span class="title">thisValue</span>)</span></span><br></pre></td></tr></table></figure>
-<p>第一个参数为函数</p>
-<p>这个回调函数的返回值是一个boolean值</p>
-<p>当检查元素符合过滤条件时,返回true,函数内部会自动将这个元素加入新数组中</p>
-<p>当不符合条件时会返回false，函数内部会过滤掉这个元素</p>
-
+          <p>什么是函数式编程？JavaScript高阶函数</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -446,10 +416,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-29 14:59:24 / 修改时间：16:37:54" itemprop="dateCreated datePublished" datetime="2020-09-29T14:59:24+08:00">2020-09-29</time>
+              <time title="创建时间：2020-09-29 14:59:24" itemprop="dateCreated datePublished" datetime="2020-09-29T14:59:24+08:00">2020-09-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-12 16:51:37" itemprop="dateModified" datetime="2020-10-12T16:51:37+08:00">2020-10-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -470,7 +446,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>402</span>
+              <span>416</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -489,7 +465,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>学习Vue过程中，一些零碎的知识点</p>
+          <p>学习Vue过程中，一些零碎的知识点:</p>
+<ul>
+<li>数组中哪些方法是响应式的？</li>
+</ul>
 <p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png" alt="https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png"></p>
           <!--noindex-->
             <div class="post-button">
@@ -1154,7 +1133,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 09:43:17" itemprop="dateModified" datetime="2020-09-29T09:43:17+08:00">2020-09-29</time>
+                <time title="修改时间：2020-10-12 16:50:47" itemprop="dateModified" datetime="2020-10-12T16:50:47+08:00">2020-10-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
