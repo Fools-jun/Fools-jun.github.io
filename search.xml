@@ -290,7 +290,41 @@
 <p>第一个参数为函数</p>
 <p>这个回调函数的返回值是一个boolean值</p>
 <p>当检查元素符合过滤条件时,返回true,函数内部会自动将这个元素加入新数组中</p>
-<p>当不符合条件时会返回false，函数内部会过滤掉这个元素</p>]]></content>
+<p>当不符合条件时会返回false，函数内部会过滤掉这个元素</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p><strong>作用：</strong>返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>map()不会对空数组进行检测</p>
+</li>
+<li><p>map()不会改变原始数组</p>
+</li>
+</ul>
+<p><strong>语法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">array.map(<span class="function"><span class="keyword">function</span>(<span class="params">currentValue, index, arr</span>), <span class="title">thisIndex</span>)</span></span><br></pre></td></tr></table></figure>
+<p>function(currentValue, index, arr)：必须为一个函数，数组中的每个元素都会执行这个函数。其中函数参数：</p>
+<ul>
+<li>currentValue：必须,当前元素的的值。</li>
+<li>index：可选,当前元素的索引。</li>
+<li><p>arr：可选,当前元素属于的数组对象。</p>
+</li>
+<li><p>thisValue：可选。对象作为该执行回调时使用，传递给函数，用作”this”的值。</p>
+</li>
+</ul>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p><strong>作用：</strong></p>
+<p>reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>educe() 对于空数组是不会执行回调函数的和map一样。</li>
+</ul>
+<p><strong>语法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">total, currentValue, currentIndex, arr</span>), <span class="title">initialValue</span>)</span></span><br></pre></td></tr></table></figure>
+<p>function(total,currentValue, index,arr)：必需。用于执行每个数组元素的函数。函数参数:</p>
+<ul>
+<li>total    必需,初始值, 或者计算结束后的返回值。</li>
+<li>currentValue    必需,当前元素</li>
+<li>currentIndex    可选,当前元素的索引</li>
+<li>arr    可选,当前元素所属的数组对象。</li>
+</ul>]]></content>
       <categories>
         <category>笔记</category>
         <category>前端</category>
