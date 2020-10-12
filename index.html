@@ -198,6 +198,451 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="JunPzx">
+      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="君de秘密基地">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/" class="post-title-link" itemprop="url">Http返回状态码</a>
+        </h2>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-12 16:25:53 / 修改时间：16:27:27" itemprop="dateCreated datePublished" datetime="2020-10-12T16:25:53+08:00">2020-10-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">http状态返回代码</th>
+<th style="text-align:center">返回代码</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>1xx</strong></td>
+<td style="text-align:center"><strong>临时响应</strong></td>
+<td style="text-align:center"><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">继续</td>
+<td style="text-align:center">请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。</td>
+</tr>
+<tr>
+<td style="text-align:center">101</td>
+<td style="text-align:center">切换协议</td>
+<td style="text-align:center">请求者已要求服务器切换协议，服务器已确认并准备切换。</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2xx</strong></td>
+<td style="text-align:center"><strong>成功</strong></td>
+<td style="text-align:center"><strong>表示成功处理了请求的状态代码。</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">成功</td>
+<td style="text-align:center">服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</td>
+</tr>
+<tr>
+<td style="text-align:center">201</td>
+<td style="text-align:center">已创建</td>
+<td style="text-align:center">请求成功并且服务器创建了新的资源。</td>
+</tr>
+<tr>
+<td style="text-align:center">202</td>
+<td style="text-align:center">已接受</td>
+<td style="text-align:center">服务器已接受请求，但尚未处理。</td>
+</tr>
+<tr>
+<td style="text-align:center">203</td>
+<td style="text-align:center">非授权信息</td>
+<td style="text-align:center">服务器已成功处理了请求，但返回的信息可能来自另一来源。</td>
+</tr>
+<tr>
+<td style="text-align:center">204</td>
+<td style="text-align:center">无内容</td>
+<td style="text-align:center">服务器成功处理了请求，但没有返回任何内容。</td>
+</tr>
+<tr>
+<td style="text-align:center">205</td>
+<td style="text-align:center">重置内容</td>
+<td style="text-align:center">服务器成功处理了请求，但没有返回任何内容。</td>
+</tr>
+<tr>
+<td style="text-align:center">206</td>
+<td style="text-align:center">部分内容</td>
+<td style="text-align:center">服务器成功处理了部分 GET 请求。</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3xx</strong></td>
+<td style="text-align:center"><strong>重定向</strong></td>
+<td style="text-align:center"><strong>表示要完成请求，需要进一步操作。通常，这些状态代码用来重定向。</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">300</td>
+<td style="text-align:center">多种选择</td>
+<td style="text-align:center">针对请求，服务器可执行多种操作。服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</td>
+</tr>
+<tr>
+<td style="text-align:center">301</td>
+<td style="text-align:center">永久移动</td>
+<td style="text-align:center">请求的网页已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</td>
+</tr>
+<tr>
+<td style="text-align:center">302</td>
+<td style="text-align:center">临时移动</td>
+<td style="text-align:center">服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</td>
+</tr>
+<tr>
+<td style="text-align:center">303</td>
+<td style="text-align:center">查看其他位置</td>
+<td style="text-align:center">请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</td>
+</tr>
+<tr>
+<td style="text-align:center">304</td>
+<td style="text-align:center">未修改</td>
+<td style="text-align:center">自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</td>
+</tr>
+<tr>
+<td style="text-align:center">305</td>
+<td style="text-align:center">使用代理</td>
+<td style="text-align:center">请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。</td>
+</tr>
+<tr>
+<td style="text-align:center">307</td>
+<td style="text-align:center">临时重定向</td>
+<td style="text-align:center">服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>4xx</strong></td>
+<td style="text-align:center"><strong>请求错误</strong></td>
+<td style="text-align:center"><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:center">错误请求</td>
+<td style="text-align:center">服务器不理解请求的语法。</td>
+</tr>
+<tr>
+<td style="text-align:center">401</td>
+<td style="text-align:center">未授权</td>
+<td style="text-align:center">请求要求身份验证。对于需要登录的网页，服务器可能返回此响应。</td>
+</tr>
+<tr>
+<td style="text-align:center">403</td>
+<td style="text-align:center">禁止</td>
+<td style="text-align:center">服务器拒绝请求。</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">未找到</td>
+<td style="text-align:center">服务器找不到请求的网页。</td>
+</tr>
+<tr>
+<td style="text-align:center">405</td>
+<td style="text-align:center">方法禁用</td>
+<td style="text-align:center">禁用请求中指定的方法。</td>
+</tr>
+<tr>
+<td style="text-align:center">406</td>
+<td style="text-align:center">不接受</td>
+<td style="text-align:center">无法使用请求的内容特性响应请求的网页。</td>
+</tr>
+<tr>
+<td style="text-align:center">407</td>
+<td style="text-align:center">需要代理授权</td>
+<td style="text-align:center">此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</td>
+</tr>
+<tr>
+<td style="text-align:center">408</td>
+<td style="text-align:center">请求超时</td>
+<td style="text-align:center">服务器等候请求时发生超时。</td>
+</tr>
+<tr>
+<td style="text-align:center">409</td>
+<td style="text-align:center">冲突</td>
+<td style="text-align:center">服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息。</td>
+</tr>
+<tr>
+<td style="text-align:center">410</td>
+<td style="text-align:center">已删除</td>
+<td style="text-align:center">如果请求的资源已永久删除，服务器就会返回此响应。</td>
+</tr>
+<tr>
+<td style="text-align:center">411</td>
+<td style="text-align:center">需要有效长度</td>
+<td style="text-align:center">服务器不接受不含有效内容长度标头字段的请求。</td>
+</tr>
+<tr>
+<td style="text-align:center">412</td>
+<td style="text-align:center">未满足前提条件</td>
+<td style="text-align:center">服务器未满足请求者在请求中设置的其中一个前提条件。</td>
+</tr>
+<tr>
+<td style="text-align:center">413</td>
+<td style="text-align:center">请求实体过大</td>
+<td style="text-align:center">服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</td>
+</tr>
+<tr>
+<td style="text-align:center">414</td>
+<td style="text-align:center">请求的 URI 过长</td>
+<td style="text-align:center">请求的 URI（通常为网址）过长，服务器无法处理。</td>
+</tr>
+<tr>
+<td style="text-align:center">415</td>
+<td style="text-align:center">不支持的媒体类型</td>
+<td style="text-align:center">请求的格式不受请求页面的支持。</td>
+</tr>
+<tr>
+<td style="text-align:center">416</td>
+<td style="text-align:center">请求范围不符合要求</td>
+<td style="text-align:center">如果页面无法提供请求的范围，则服务器会返回此状态代码。</td>
+</tr>
+<tr>
+<td style="text-align:center">417</td>
+<td style="text-align:center">未满足期望值</td>
+<td style="text-align:center">服务器未满足”期望”请求标头字段的要求。</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>5xx</strong></td>
+<td style="text-align:center"><strong>服务器错误</strong></td>
+<td style="text-align:center"><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:center">服务器内部错误</td>
+<td style="text-align:center">服务器遇到错误，无法完成请求。</td>
+</tr>
+<tr>
+<td style="text-align:center">501</td>
+<td style="text-align:center">尚未实施</td>
+<td style="text-align:center">服务器不具备完成请求的功能。例如，服务器无法识别请求方法时可能会返回此代码。</td>
+</tr>
+<tr>
+<td style="text-align:center">502</td>
+<td style="text-align:center">错误网关</td>
+<td style="text-align:center">服务器作为网关或代理，从上游服务器收到无效响应。</td>
+</tr>
+<tr>
+<td style="text-align:center">503</td>
+<td style="text-align:center">服务不可用</td>
+<td style="text-align:center">服务器目前无法使用（由于超载或停机维护）。通常，这只是暂时状态。</td>
+</tr>
+<tr>
+<td style="text-align:center">504</td>
+<td style="text-align:center">网关超时</td>
+<td style="text-align:center">服务器作为网关或代理，但是没有及时从上游服务器收到请求。</td>
+</tr>
+<tr>
+<td style="text-align:center">505</td>
+<td style="text-align:center">HTTP 版本不受支持</td>
+<td style="text-align:center">服务器不支持请求中所用的 HTTP 协议版本。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="JunPzx">
+      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="君de秘密基地">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">JavaScript高阶函数</a>
+        </h2>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-30 10:18:48 / 修改时间：11:44:24" itemprop="dateCreated datePublished" datetime="2020-09-30T10:18:48+08:00">2020-09-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><blockquote>
+<p><strong>函数式编程</strong>（英语：<strong>functional programming</strong>）或称<strong>函数程序设计</strong>、<strong>泛函编程</strong>，是一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/编程范式">编程范式</a>，它将<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/電腦運算">电脑运算</a>视为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数">函数</a>运算，并且避免使用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=程式状态&amp;action=edit&amp;redlink=1">程序状态</a>以及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/不可變物件">易变对象</a>。其中，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Λ演算">λ演算</a>（lambda calculus）为该语言最重要的基础。而且，λ演算的函数可以接受函数当作输入（引数）和输出（传出值）。</p>
+<p>比起<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/指令式編程">指令式编程</a>，函数式编程更加强调程序执行的结果而非执行的过程，倡导利用若干简单的执行单元让计算结果不断渐进，逐层推导复杂的运算，而不是设计一个复杂的执行过程。</p>
+<p>在函数式编程中，函数是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/第一类对象">第一类对象</a>，意思是说一个函数，既可以作为其它函数的参数（输入值），也可以从函数中返回（输入值），被修改或者被分配给一个变量。</p>
+</blockquote>
+<p><strong>简单来说:</strong>函数式是一种编程形式，你可以将函数作为参数传递给其他函数，并将它们作为值返回。 在函数式编程中，我们以函数的形式思考和编程。</p>
+<p>JavaScript，Haskell，Clojure，Scala 和 Erlang 是部分实现了函数式编程的语言。</p>
+<h1 id="一等函数"><a href="#一等函数" class="headerlink" title="一等函数"></a>一等函数</h1><p>如果你在学习 JavaScript，你可能听说过 JavaScript 将函数视为一等公民。 那是因为在 JavaScript 及其他函数式编程语言中，<strong>函数是对象</strong>。</p>
+<p>在 JavaScript 中，函数是一种特殊类型的对象。 它们是 Function objects。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">sayHello();   <span class="comment">// 控制台上打印 &#x27;Hello&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>为了更进一步的证明js中的函数是对象:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sayHello.name=<span class="string">&#x27;My Name is SayHello&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(sayHello.name)   <span class="comment">// 控制台打印 &#x27;My Name is SayHello&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> - 虽然这在 JavaScript 中完全有效，但这被认为是 harmful 的做法。 你不应该向函数对象添加随机属性，如果不得不这样做，请使用对象。</p>
+<p>在 JavaScript 中，你对其他类型（如对象，字符串或数字）执行的所有操作都可以对函数执行。 你可以将它们作为参数传递给其他函数（回调函数），将它们分配给变量并传递它们等等。这就是 JavaScript 中的函数被称为一等函数的原因。</p>
+<h2 id="将函数赋值给变量"><a href="#将函数赋值给变量" class="headerlink" title="将函数赋值给变量"></a>将函数赋值给变量</h2><p>我们可以在 JavaScript 中将函数赋值给变量。 例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span> (<span class="params">z</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> z * z</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>))  <span class="comment">// 控制台打印 &#x27;25&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>我们也可以将该方法进行传递:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> temp = square;</span><br><span class="line"><span class="built_in">console</span>.log(temp(<span class="number">6</span>))   <span class="comment">//控制台打印36</span></span><br></pre></td></tr></table></figure>
+<h2 id="将函数作为参数传递"><a href="#将函数作为参数传递" class="headerlink" title="将函数作为参数传递"></a>将函数作为参数传递</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBye</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Bye&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">type,sayHello,sayBye</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">// 根据就近原则,此处使用的是方法参数中的sayHello</span></span><br><span class="line">        sayHello();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// 通上</span></span><br><span class="line">        sayBye();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">say(<span class="number">1</span>,sayHello,sayBye); <span class="comment">//控制台打印 &#x27;Hello&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><blockquote>
+<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/数学">数学</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/计算机科学">计算机科学</a>中，<strong>高阶函数</strong>是至少满足下列一个条件的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数">函数</a>：</p>
+<ul>
+<li>接受一个或多个函数作为输入</li>
+<li>输出一个函数</li>
+</ul>
+<p>在数学中它们也叫做<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/算子">算子</a>（运算符）或<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/泛函">泛函</a>。<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/微积分">微积分</a>中的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/导数">导数</a>就是常见的例子，因为它映射一个函数到另一个函数。</p>
+<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Lambda演算">无类型lambda演算</a>，所有函数都是高阶的；在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/有类型lambda演算">有类型lambda演算</a>（大多数<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数式编程语言">函数式编程语言</a>都从中演化而来）中，高阶函数一般是那些函数型别包含多于一个箭头的函数。在函数式编程中，返回另一个函数的高阶函数被称为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Curry化">Curry化</a>的函数。</p>
+<p>在很多函数式编程语言中能找到的<code>map</code>函数是高阶函数的一个例子。它接受一个函数<strong>f</strong>作为参数，并返回接受一个列表并应用<strong>f</strong>到它的每个元素的一个函数。</p>
+<p>高阶函数的其他例子包括<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/函数复合">函数复合</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/积分">积分</a>和常量函数λ<em>x</em>.λ<em>y</em>.<em>x</em>。</p>
+</blockquote>
+<p>高阶函数是对其他函数进行操作的函数，操作可以是将它们作为参数，或者是返回它们。 简单来说，高阶函数是一个接收函数作为参数或将函数作为输出返回的函数。</p>
+<p>例如，Array.prototype.map，Array.prototype.filter 和 Array.prototype.reduce 是语言中内置的一些高阶函数。</p>
+<h2 id="JavaScript内置高阶函数"><a href="#JavaScript内置高阶函数" class="headerlink" title="JavaScript内置高阶函数"></a>JavaScript内置高阶函数</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><strong>作用: </strong>filter用于对数组进行过滤。它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
+<p><strong>注意:</strong> </p>
+<ul>
+<li>filter()不会对空数组进行检测</li>
+<li>filter()不会改变原始数组</li>
+</ul>
+<p><strong>语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.filter(<span class="function"><span class="keyword">function</span>(<span class="params">currentValue, indedx, arr</span>), <span class="title">thisValue</span>)</span></span><br></pre></td></tr></table></figure>
+<p>第一个参数为函数</p>
+<p>这个回调函数的返回值是一个boolean值</p>
+<p>当检查元素符合过滤条件时,返回true,函数内部会自动将这个元素加入新数组中</p>
+<p>当不符合条件时会返回false，函数内部会过滤掉这个元素</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -527,7 +972,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 18:17:44" itemprop="dateModified" datetime="2020-09-29T18:17:44+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 10:24:49" itemprop="dateModified" datetime="2020-09-30T10:24:49+08:00">2020-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -997,107 +1442,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="JunPzx">
-      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="君de秘密基地">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">使用 Hexo+GitHub 搭建个人免费博客教程</a>
-        </h2>
-
-        <div class="post-meta">
-	  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-17 17:05:00" itemprop="dateCreated datePublished" datetime="2020-09-17T17:05:00+08:00">2020-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 09:43:17" itemprop="dateModified" datetime="2020-09-29T09:43:17+08:00">2020-09-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">安装教程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。</p>
-<p>虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。</p>
-<p>本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。</p>
-<p>此博客搬运至 : <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">知乎-“crystal”</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1164,7 +1513,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1177,7 +1526,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1224,12 +1573,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">39k</span>
+    <span title="站点总字数">42k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">35 分钟</span>
+    <span title="站点阅读时长">38 分钟</span>
 </div>
 
 <!--

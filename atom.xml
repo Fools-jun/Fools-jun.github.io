@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-09-29T08:37:54.226Z</updated>
+  <updated>2020-10-12T08:27:27.951Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Http返回状态码</title>
+    <link href="https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/</id>
+    <published>2020-10-12T08:25:53.000Z</published>
+    <updated>2020-10-12T08:27:27.951Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;http状态返回代码&lt;/th&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="基础" scheme="https://www.junpzx.cn/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Http" scheme="https://www.junpzx.cn/tags/Http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript高阶函数</title>
+    <link href="https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    <id>https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</id>
+    <published>2020-09-30T02:18:48.000Z</published>
+    <updated>2020-09-30T03:44:24.964Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;函数式编程&quot;&gt;&lt;a href=&quot;#函数式编程&quot; class=&quot;headerlink&quot; title=&quot;函数式编程&quot;&gt;&lt;/a&gt;函数式编程&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;函数式编程&lt;/strong&gt;（英语：&lt;strong&gt;functional</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="JavaScript" scheme="https://www.junpzx.cn/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue相关知识点</title>
@@ -87,7 +147,7 @@
     <link href="https://www.junpzx.cn/2020/09/24/ES6%E8%AF%AD%E6%B3%95/"/>
     <id>https://www.junpzx.cn/2020/09/24/ES6%E8%AF%AD%E6%B3%95/</id>
     <published>2020-09-24T10:00:30.000Z</published>
-    <updated>2020-09-29T10:17:44.537Z</updated>
+    <updated>2020-09-30T02:24:49.217Z</updated>
     
     
     <summary type="html">&lt;p&gt;ES6较之前新增的语法和某些不同的语法&lt;/p&gt;</summary>
@@ -98,6 +158,8 @@
     
     <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
     
+    
+    <category term="JavaScript" scheme="https://www.junpzx.cn/tags/JavaScript/"/>
     
     <category term="ES6" scheme="https://www.junpzx.cn/tags/ES6/"/>
     
