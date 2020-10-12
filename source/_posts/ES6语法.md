@@ -5,6 +5,7 @@ categories:
 - 笔记
 - 前端
 tags:
+- JavaScript
 - ES6
 ---
 
