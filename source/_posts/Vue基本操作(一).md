@@ -899,7 +899,7 @@ const app = new Vue({
 
 ### 文本（input）
 
-```htmll
+```html
 <input v-model="message" placeholder="edit me">
 <p>Message is: {{ message }}</p>
 ```
