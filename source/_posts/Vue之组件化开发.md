@@ -6,7 +6,16 @@ categories:
 - 前端
 tags:
 - Vue
+top: 1
 ---
+
+
+
+![https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png](https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png)
+
+
+
+<!-- less -->
 
 # 什么是组件化？
 
