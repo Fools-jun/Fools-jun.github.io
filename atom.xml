@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-13T08:50:15.978Z</updated>
+  <updated>2020-10-13T10:06:32.332Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java设计模式之工厂方法模式</title>
+    <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-10-13T10:03:19.000Z</published>
+    <updated>2020-10-13T10:06:32.332Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;工厂方法模式介绍&quot;&gt;&lt;a href=&quot;#工厂方法模式介绍&quot; class=&quot;headerlink&quot; title=&quot;工厂方法模式介绍&quot;&gt;&lt;/a&gt;工厂方法模式介绍&lt;/h1&gt;&lt;p&gt;⼯⼚模式⼜称⼯⼚⽅法模式，是⼀种创建型设计模式，其在⽗类中提供⼀个创建对象的⽅法，</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java设计模式</title>
+    <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-10-13T09:26:34.000Z</published>
+    <updated>2020-10-13T10:04:34.817Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;设计模式的概念最早是由 &lt;code&gt;克⾥斯托佛·亚历⼭⼤&lt;/code&gt; 在其著作 &lt;code&gt;《建筑模式语⾔》&lt;/code&gt; 中⾸次提出的。 本书介绍 了城市设计的 “语⾔”，提供了253个描述城镇、邻⾥、住宅、花园、房间及⻄部构造的模式， ⽽此类 “语⾔” 的基本单元就是模式。后来，&lt;code&gt;埃⾥希·伽玛&lt;/code&gt; 、 &lt;code&gt;约翰·弗利赛德斯&lt;/code&gt; 、 &lt;code&gt;拉尔夫·约翰逊&lt;/code&gt; 和 &lt;code&gt;理查德·赫尔姆&lt;/code&gt; 这四位作者接受了模式的概念。 1994 年， 他们出版了 《设计模式： 可复⽤⾯向对象软件的基础》 ⼀书， 将设计模式的概念应⽤到程序开发领域中。 其实有⼀部分⼈并没有仔细阅读过设计模式的相关书籍和资料，但依旧可以编写出优秀的代码。这主要 是由于在经过众多项⽬的锤炼和对程序设计的不断追求，从⽽在多年编程历程上提炼出来的⼼得体会。 ⽽这份经验最终会与设计模式提到的内容⼏乎⼀致，同样会要求⾼内聚、低耦合、可扩展、可复⽤。你 可能也遇到类似的经历，在学习⼀些框架的源码时，发现它⾥面的某些设计和你在做开发时⼀样。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>位运算简述</title>
+    <link href="https://www.junpzx.cn/2020/10/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AE%80%E8%BF%B0/"/>
+    <id>https://www.junpzx.cn/2020/10/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AE%80%E8%BF%B0/</id>
+    <published>2020-10-13T08:54:51.000Z</published>
+    <updated>2020-10-13T09:12:24.914Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;简单介绍一下与（&amp;amp;）运算，或（|）运算，异或（^）运算,取反（not），左位移（&amp;lt;&amp;lt;），右位移（&amp;gt;&amp;gt;）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="位运算" scheme="https://www.junpzx.cn/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue之组件化开发</title>
@@ -42,7 +115,7 @@
     <link href="https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/"/>
     <id>https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/</id>
     <published>2020-10-12T08:25:53.000Z</published>
-    <updated>2020-10-12T08:31:39.126Z</updated>
+    <updated>2020-10-13T09:16:56.638Z</updated>
     
     
     <summary type="html">&lt;p&gt;http请求返回的状态码及其对应的说明&lt;/p&gt;</summary>
