@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-14T05:32:59.031Z</updated>
+  <updated>2020-10-14T07:33:38.881Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -17,14 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java之动态代理</title>
+    <link href="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
+    <id>https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
+    <published>2020-10-14T06:11:16.000Z</published>
+    <updated>2020-10-14T07:33:38.881Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;代理模式&quot;&gt;&lt;a href=&quot;#代理模式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java报错整理</title>
     <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/"/>
     <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/</id>
     <published>2020-10-14T03:21:10.000Z</published>
-    <updated>2020-10-14T05:32:59.031Z</updated>
+    <updated>2020-10-14T05:35:53.461Z</updated>
     
     
-    <summary type="html">&lt;p&gt;整理在Java中遇到过的问题，可能该问题的场景有多种，此地只记录我遇到过的解决方案，仅供大家参考&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;整理在Java中遇到过的问题，可能该问题的场景有多种，此处只记录我遇到过的问题的正确解决方案，仅供大家参考&lt;/p&gt;</summary>
     
     
     
@@ -65,7 +92,7 @@
     <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-10-13T09:26:34.000Z</published>
-    <updated>2020-10-13T10:04:34.817Z</updated>
+    <updated>2020-10-14T06:38:06.185Z</updated>
     
     
     <summary type="html">&lt;p&gt;设计模式的概念最早是由 &lt;code&gt;克⾥斯托佛·亚历⼭⼤&lt;/code&gt; 在其著作 &lt;code&gt;《建筑模式语⾔》&lt;/code&gt; 中⾸次提出的。 本书介绍 了城市设计的 “语⾔”，提供了253个描述城镇、邻⾥、住宅、花园、房间及⻄部构造的模式， ⽽此类 “语⾔” 的基本单元就是模式。后来，&lt;code&gt;埃⾥希·伽玛&lt;/code&gt; 、 &lt;code&gt;约翰·弗利赛德斯&lt;/code&gt; 、 &lt;code&gt;拉尔夫·约翰逊&lt;/code&gt; 和 &lt;code&gt;理查德·赫尔姆&lt;/code&gt; 这四位作者接受了模式的概念。 1994 年， 他们出版了 《设计模式： 可复⽤⾯向对象软件的基础》 ⼀书， 将设计模式的概念应⽤到程序开发领域中。 其实有⼀部分⼈并没有仔细阅读过设计模式的相关书籍和资料，但依旧可以编写出优秀的代码。这主要 是由于在经过众多项⽬的锤炼和对程序设计的不断追求，从⽽在多年编程历程上提炼出来的⼼得体会。 ⽽这份经验最终会与设计模式提到的内容⼏乎⼀致，同样会要求⾼内聚、低耦合、可扩展、可复⽤。你 可能也遇到类似的经历，在学习⼀些框架的源码时，发现它⾥面的某些设计和你在做开发时⼀样。&lt;/p&gt;</summary>
