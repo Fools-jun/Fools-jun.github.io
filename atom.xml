@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-14T03:34:54.389Z</updated>
+  <updated>2020-10-14T05:32:59.031Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,10 @@
     <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/"/>
     <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/</id>
     <published>2020-10-14T03:21:10.000Z</published>
-    <updated>2020-10-14T03:34:54.389Z</updated>
+    <updated>2020-10-14T05:32:59.031Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;资源包报错&quot;&gt;&lt;a href=&quot;#资源包报错&quot; class=&quot;headerlink&quot; title=&quot;资源包报错&quot;&gt;&lt;/a&gt;资源包报错&lt;/h1&gt;&lt;h2 id=&quot;使用Junit4-12时报错&quot;&gt;&lt;a href=&quot;#使用Junit4-12时报错&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;整理在Java中遇到过的问题，可能该问题的场景有多种，此地只记录我遇到过的解决方案，仅供大家参考&lt;/p&gt;</summary>
     
     
     
@@ -48,16 +42,10 @@
     <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-10-13T10:03:19.000Z</published>
-    <updated>2020-10-13T10:06:32.332Z</updated>
+    <updated>2020-10-14T05:33:26.398Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;工厂方法模式介绍&quot;&gt;&lt;a href=&quot;#工厂方法模式介绍&quot; class=&quot;headerlink&quot; title=&quot;工厂方法模式介绍&quot;&gt;&lt;/a&gt;工厂方法模式介绍&lt;/h1&gt;&lt;p&gt;⼯⼚模式⼜称⼯⼚⽅法模式，是⼀种创建型设计模式，其在⽗类中提供⼀个创建对象的⽅法，</summary>
-        
-      
+    <summary type="html">&lt;p&gt;⼯⼚模式⼜称⼯⼚⽅法模式，是⼀种创建型设计模式，其在⽗类中提供⼀个创建对象的⽅法， 允许⼦类 决定实例化对象的类型。 这种设计模式也是 Java 开发中最常⻅的⼀种模式，它的主要意图是定义⼀个创建对象的接⼝，让其⼦类⾃⼰决定实例化哪⼀个⼯⼚类，⼯⼚模式使其创建过程延迟到⼦类进⾏。 简单说就是为了提供代码结构的扩展性，屏蔽每⼀个功能类中的具体实现逻辑。让外部可以更加简单的只是知道调⽤即可，同时，这也是去掉众多 ifelse 的⽅式。当然这可能也有⼀些缺点，⽐如需要实现的类⾮常多，如何去维护，怎样减低开发成本。但这些问题都可以在后续的设计模式结合使⽤中，逐步降低。&lt;/p&gt;</summary>
     
     
     
