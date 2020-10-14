@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-13T10:06:32.332Z</updated>
+  <updated>2020-10-14T03:34:54.389Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java报错整理</title>
+    <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/"/>
+    <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/</id>
+    <published>2020-10-14T03:21:10.000Z</published>
+    <updated>2020-10-14T03:34:54.389Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;资源包报错&quot;&gt;&lt;a href=&quot;#资源包报错&quot; class=&quot;headerlink&quot; title=&quot;资源包报错&quot;&gt;&lt;/a&gt;资源包报错&lt;/h1&gt;&lt;h2 id=&quot;使用Junit4-12时报错&quot;&gt;&lt;a href=&quot;#使用Junit4-12时报错&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java设计模式之工厂方法模式</title>
