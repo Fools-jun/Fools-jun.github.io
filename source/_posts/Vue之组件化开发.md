@@ -1,6 +1,7 @@
 ---
 title: Vue之组件化开发
 date: 2020-10-13 11:25:10
+copyright: true
 categories:
 - 笔记
 - 前端
@@ -11,7 +12,7 @@ top: 1
 
 
 
-![https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png](https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png)
 
 
 
@@ -29,7 +30,7 @@ top: 1
 
     - 任何应用都会被抽象成一颗组件树
 
-        ![components](https://gitee.com/junpzx/blog-img/raw/master//img/20201013141918.png)
+        ![Vue组件思想](https://gitee.com/junpzx/blog-img/raw/master//img/20201013141918.png)
 
 - 组件化思想的应用：
     - 有了组件化的思想，我们在之后的开发中就要充分的利用它。

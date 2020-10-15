@@ -6,11 +6,12 @@ categories:
 - 前端
 tags:
 - Vue
+copyright: true
 ---
 
 简单介绍一下vue是什么,和vue的几种安装方式,vue的简单使用 
 
-![https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png](https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png)
+![](https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png)
 
 <!-- less -->
 
@@ -105,7 +106,7 @@ const age = "vue"
 
 **以上代码的执行结果为:**
 
-![https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/1_wsql5b.png](https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue相关/Vue入门/1_wsql5b.png)
+![运行结果](https://res.cloudinary.com/junpzx/image/upload/v1600669908/Vue相关/Vue入门/1_wsql5b.png)
 
 **代码做了什么事情:**
 
@@ -144,7 +145,7 @@ const age = "vue"
 
 **以上代码的执行结果为:**
 
-![https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/2_b7haeu.png](https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue相关/Vue入门/2_b7haeu.png)
+![运行结果](https://res.cloudinary.com/junpzx/image/upload/v1600671118/Vue相关/Vue入门/2_b7haeu.png)
 
 这个地方主要使用**v-for**指令,而且它还是响应式的
 
@@ -191,7 +192,7 @@ const age = "vue"
 
 **以上代码代码的执行结果为:**
 
-![https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/3_dqgp6p.png](https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue相关/Vue入门/3_dqgp6p.png)
+![运行结果](https://res.cloudinary.com/junpzx/image/upload/v1600674786/Vue相关/Vue入门/3_dqgp6p.png)
 
 
 

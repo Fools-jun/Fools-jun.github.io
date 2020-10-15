@@ -54,7 +54,7 @@ Hexo 是一个快速、简洁且高效的静态博客框架，它基于 Node.js 
 
 在本地撰写 Markdown 格式文章后，通过 Hexo 解析文档，渲染生成具有主题样式的 HTML 静态网页，再推送到 GitHub 上完成博文的发布。
 
-![img](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg)
+![Hexo+GitHub Pages发文流程](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/1_sfumsc.jpg)
 
 
 
@@ -90,7 +90,7 @@ Hexo 基于 Node.js，搭建过程中还需要使用 npm（Node.js 已带） 和
 
 安装完成后，Win+R 输入 cmd 并打开，依次输入 `node -v`、`npm -v` 和 `git --version` 并回车，如下图出现程序版本号即可。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg)
+![查看版本信息](https://res.cloudinary.com/junpzx/image/upload/v1600399124/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/10_wlxyrv.jpg)
 
 ## 2.连接 Github
 
@@ -119,7 +119,7 @@ git config --global user.email "GitHub 邮箱"
 
 Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg)
+![设置SSH keys](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/2_xkmsjc.jpg)
 
 
 
@@ -127,7 +127,7 @@ Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击
 
 打开 Git Bash，输入 `ssh -T git@github.com` 出现 “Are you sure……”，输入 yes 回车确认。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg)
+![验证连接](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/3_npv1ub.jpg)
 
 显示 “Hi xxx! You've successfully……” 即连接成功。
 
@@ -143,7 +143,7 @@ GitHub 主页右上角加号 -> New repository：
 
 填好后点击 Create repository 创建。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg)
+![创建仓库](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/4_vzys4g.jpg)
 
 创建后默认自动启用 HTTPS，博客地址为：`https://用户名.github.io`
 
@@ -167,7 +167,7 @@ sudo npm install -g hexo-cli
 
 安装时间有点久（真的很慢！），界面也没任何反应，**耐心等待**，安装完成后如下图。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg)
+![安装Hexo命令](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/5_bjyr9t.jpg)
 
 
 
@@ -189,7 +189,7 @@ hexo s   # 启动预览
 
 **访问** `http://localhost:4000`**，出现 Hexo 默认页面，本地博客安装成功！**
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg)
+![预览](https://res.cloudinary.com/junpzx/image/upload/v1600398980/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/6_q9rdks.jpg)
 
 **Tips：**如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行 `hexo server -p 5000` 更改端口号后重试。
 
@@ -262,7 +262,7 @@ hexo s       # 启动预览
 
 配置自己的域名后，需要我们手动开启 HTTPS。打开博客所在 GitHub 仓库，Settings -> 下拉找到 GitHub Pages -> 勾选 Enforce HTTPS。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg)
+![开启Https](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/8_udy9jz.jpg)
 
 HTTPS 证书部署成功需要一定时间，等大概几分钟再访问域名，就可以看到域名前面的小绿锁了，HTTPS 配置完成！
 
@@ -352,7 +352,7 @@ Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可
 
 该代码前面的内容会作为摘要显示，而后面的内容会替换为 “Read More” 隐藏起来。
 
-![](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg)
+![查看更多](https://res.cloudinary.com/junpzx/image/upload/v1600398979/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/9_vgrnk5.jpg)
 
 
 

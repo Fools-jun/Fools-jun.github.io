@@ -6,6 +6,7 @@ categories:
 - 后端
 tags:
 - Java
+copyright: true
 ---
 
 # 代理模式
@@ -19,7 +20,7 @@ tags:
 
 ## 静态代理
 
-![2020-10-14_15-15-41](https://gitee.com/junpzx/blog-img/raw/master//img/20201014151602.png)
+![静态代理类图](https://gitee.com/junpzx/blog-img/raw/master//img/20201014151602.png)
 
 
 
@@ -31,7 +32,7 @@ tags:
 
 
 
-![2020-10-14_15-19-18](https://gitee.com/junpzx/blog-img/raw/master//img/20201014151934.png)
+![动态代理类图](https://gitee.com/junpzx/blog-img/raw/master//img/20201014151934.png)
 
 
 

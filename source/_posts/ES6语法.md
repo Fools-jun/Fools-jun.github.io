@@ -7,6 +7,7 @@ categories:
 tags:
 - JavaScript
 - ES6
+copyright: true
 ---
 
 ES6较之前新增的语法和某些不同的语法
@@ -50,7 +51,7 @@ ES6较之前新增的语法和某些不同的语法
 
 ### **运行结果**
 
-![2020-09-25_10-34-09](https://gitee.com/junpzx/blog-img/raw/master/img/20200925103505.png)
+![运行结果](https://gitee.com/junpzx/blog-img/raw/master/img/20200925103505.png)
 
 ### 问题
 
@@ -96,7 +97,7 @@ ES6较之前新增的语法和某些不同的语法
 
 ##### 运行结果
 
-![2020-09-25_10-50-41](https://gitee.com/junpzx/blog-img/raw/master/img/20200925105049.png)
+![运行结果](https://gitee.com/junpzx/blog-img/raw/master/img/20200925105049.png)
 
 ##### 分析
 
@@ -126,7 +127,7 @@ ES6较之前新增的语法和某些不同的语法
 
 ##### 运行结果
 
-![2020-09-25_11-15-24](https://gitee.com/junpzx/blog-img/raw/master/img/20200925111537.png)
+![运行结果](https://gitee.com/junpzx/blog-img/raw/master/img/20200925111537.png)
 
 ##### 分析
 

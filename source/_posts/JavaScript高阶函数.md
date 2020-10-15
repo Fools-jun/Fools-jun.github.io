@@ -6,7 +6,7 @@ categories:
 - 前端
 tags:
 - JavaScript
-
+copyright: true
 ---
 
 什么是函数式编程？JavaScript高阶函数

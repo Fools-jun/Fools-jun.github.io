@@ -7,6 +7,7 @@ categories:
 - 前端
 tags:
 - JavaScript
+copyright: true
 ---
 
 JavaScript的常用事件
