@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-14T07:33:38.881Z</updated>
+  <updated>2020-10-15T03:22:19.798Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
     <id>https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
     <published>2020-10-14T06:11:16.000Z</published>
-    <updated>2020-10-14T07:33:38.881Z</updated>
+    <updated>2020-10-15T03:22:19.798Z</updated>
     
     
       
@@ -48,7 +48,7 @@
     <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/"/>
     <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/</id>
     <published>2020-10-14T03:21:10.000Z</published>
-    <updated>2020-10-14T05:35:53.461Z</updated>
+    <updated>2020-10-15T03:21:48.027Z</updated>
     
     
     <summary type="html">&lt;p&gt;整理在Java中遇到过的问题，可能该问题的场景有多种，此处只记录我遇到过的问题的正确解决方案，仅供大家参考&lt;/p&gt;</summary>
@@ -69,7 +69,7 @@
     <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-10-13T10:03:19.000Z</published>
-    <updated>2020-10-14T05:33:26.398Z</updated>
+    <updated>2020-10-15T03:21:55.863Z</updated>
     
     
     <summary type="html">&lt;p&gt;⼯⼚模式⼜称⼯⼚⽅法模式，是⼀种创建型设计模式，其在⽗类中提供⼀个创建对象的⽅法， 允许⼦类 决定实例化对象的类型。 这种设计模式也是 Java 开发中最常⻅的⼀种模式，它的主要意图是定义⼀个创建对象的接⼝，让其⼦类⾃⼰决定实例化哪⼀个⼯⼚类，⼯⼚模式使其创建过程延迟到⼦类进⾏。 简单说就是为了提供代码结构的扩展性，屏蔽每⼀个功能类中的具体实现逻辑。让外部可以更加简单的只是知道调⽤即可，同时，这也是去掉众多 ifelse 的⽅式。当然这可能也有⼀些缺点，⽐如需要实现的类⾮常多，如何去维护，怎样减低开发成本。但这些问题都可以在后续的设计模式结合使⽤中，逐步降低。&lt;/p&gt;</summary>
@@ -92,7 +92,7 @@
     <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-10-13T09:26:34.000Z</published>
-    <updated>2020-10-14T06:38:06.185Z</updated>
+    <updated>2020-10-15T03:21:51.541Z</updated>
     
     
     <summary type="html">&lt;p&gt;设计模式的概念最早是由 &lt;code&gt;克⾥斯托佛·亚历⼭⼤&lt;/code&gt; 在其著作 &lt;code&gt;《建筑模式语⾔》&lt;/code&gt; 中⾸次提出的。 本书介绍 了城市设计的 “语⾔”，提供了253个描述城镇、邻⾥、住宅、花园、房间及⻄部构造的模式， ⽽此类 “语⾔” 的基本单元就是模式。后来，&lt;code&gt;埃⾥希·伽玛&lt;/code&gt; 、 &lt;code&gt;约翰·弗利赛德斯&lt;/code&gt; 、 &lt;code&gt;拉尔夫·约翰逊&lt;/code&gt; 和 &lt;code&gt;理查德·赫尔姆&lt;/code&gt; 这四位作者接受了模式的概念。 1994 年， 他们出版了 《设计模式： 可复⽤⾯向对象软件的基础》 ⼀书， 将设计模式的概念应⽤到程序开发领域中。 其实有⼀部分⼈并没有仔细阅读过设计模式的相关书籍和资料，但依旧可以编写出优秀的代码。这主要 是由于在经过众多项⽬的锤炼和对程序设计的不断追求，从⽽在多年编程历程上提炼出来的⼼得体会。 ⽽这份经验最终会与设计模式提到的内容⼏乎⼀致，同样会要求⾼内聚、低耦合、可扩展、可复⽤。你 可能也遇到类似的经历，在学习⼀些框架的源码时，发现它⾥面的某些设计和你在做开发时⼀样。&lt;/p&gt;</summary>
@@ -115,7 +115,7 @@
     <link href="https://www.junpzx.cn/2020/10/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AE%80%E8%BF%B0/"/>
     <id>https://www.junpzx.cn/2020/10/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AE%80%E8%BF%B0/</id>
     <published>2020-10-13T08:54:51.000Z</published>
-    <updated>2020-10-13T09:12:24.914Z</updated>
+    <updated>2020-10-15T03:19:50.414Z</updated>
     
     
     <summary type="html">&lt;p&gt;简单介绍一下与（&amp;amp;）运算，或（|）运算，异或（^）运算,取反（not），左位移（&amp;lt;&amp;lt;），右位移（&amp;gt;&amp;gt;）&lt;/p&gt;</summary>
@@ -136,10 +136,10 @@
     <link href="https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/"/>
     <id>https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</id>
     <published>2020-10-13T03:25:10.000Z</published>
-    <updated>2020-10-15T01:41:33.619Z</updated>
+    <updated>2020-10-15T03:25:36.061Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -157,7 +157,7 @@
     <link href="https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/"/>
     <id>https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/</id>
     <published>2020-10-12T08:25:53.000Z</published>
-    <updated>2020-10-13T09:16:56.638Z</updated>
+    <updated>2020-10-15T03:21:09.069Z</updated>
     
     
     <summary type="html">&lt;p&gt;http请求返回的状态码及其对应的说明&lt;/p&gt;</summary>
@@ -178,7 +178,7 @@
     <link href="https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
     <id>https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</id>
     <published>2020-09-30T02:18:48.000Z</published>
-    <updated>2020-10-13T02:11:01.957Z</updated>
+    <updated>2020-10-15T03:22:31.105Z</updated>
     
     
     <summary type="html">&lt;p&gt;什么是函数式编程？JavaScript高阶函数&lt;/p&gt;</summary>
@@ -199,14 +199,14 @@
     <link href="https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
     <published>2020-09-29T06:59:24.000Z</published>
-    <updated>2020-10-12T08:51:37.478Z</updated>
+    <updated>2020-10-15T03:27:30.347Z</updated>
     
     
     <summary type="html">&lt;p&gt;学习Vue过程中，一些零碎的知识点:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;数组中哪些方法是响应式的？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -224,12 +224,12 @@
     <link href="https://www.junpzx.cn/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/"/>
     <id>https://www.junpzx.cn/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/</id>
     <published>2020-09-28T09:36:38.000Z</published>
-    <updated>2020-09-29T10:12:00.610Z</updated>
+    <updated>2020-10-15T03:23:15.886Z</updated>
     
     
     <summary type="html">&lt;p&gt;Vue的条件判断的介绍和使用&lt;/p&gt;
 &lt;p&gt;Vue的循环遍历的介绍和使用&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -247,7 +247,7 @@
     <link href="https://www.junpzx.cn/2020/09/28/JavaScript%E4%BA%8B%E4%BB%B6/"/>
     <id>https://www.junpzx.cn/2020/09/28/JavaScript%E4%BA%8B%E4%BB%B6/</id>
     <published>2020-09-28T09:02:46.000Z</published>
-    <updated>2020-09-29T01:43:17.274Z</updated>
+    <updated>2020-10-15T03:22:34.352Z</updated>
     
     
     <summary type="html">&lt;p&gt;JavaScript的常用事件&lt;/p&gt;</summary>
@@ -268,7 +268,7 @@
     <link href="https://www.junpzx.cn/2020/09/24/ES6%E8%AF%AD%E6%B3%95/"/>
     <id>https://www.junpzx.cn/2020/09/24/ES6%E8%AF%AD%E6%B3%95/</id>
     <published>2020-09-24T10:00:30.000Z</published>
-    <updated>2020-09-30T02:24:49.217Z</updated>
+    <updated>2020-10-15T03:21:05.754Z</updated>
     
     
     <summary type="html">&lt;p&gt;ES6较之前新增的语法和某些不同的语法&lt;/p&gt;</summary>
@@ -291,7 +291,7 @@
     <link href="https://www.junpzx.cn/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%B8%80)/"/>
     <id>https://www.junpzx.cn/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%B8%80)/</id>
     <published>2020-09-21T09:01:41.000Z</published>
-    <updated>2020-10-13T03:21:13.166Z</updated>
+    <updated>2020-10-15T03:24:39.225Z</updated>
     
     
     <summary type="html">&lt;p&gt;插值操作的介绍和使用&lt;/p&gt;
@@ -299,7 +299,7 @@
 &lt;p&gt;计算属性的介绍和使用&lt;/p&gt;
 &lt;p&gt;事件监听的介绍和使用&lt;/p&gt;
 &lt;p&gt;表单输入绑定（v-model）的介绍和使用&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -317,11 +317,11 @@
     <link href="https://www.junpzx.cn/2020/09/21/Vue%E5%85%A5%E9%97%A8/"/>
     <id>https://www.junpzx.cn/2020/09/21/Vue%E5%85%A5%E9%97%A8/</id>
     <published>2020-09-21T05:20:27.000Z</published>
-    <updated>2020-09-29T01:43:17.275Z</updated>
+    <updated>2020-10-15T03:25:47.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;简单介绍一下vue是什么,和vue的几种安装方式,vue的简单使用 &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue%E7%9B%B8%E5%85%B3/Vue%E5%85%A5%E9%97%A8/logo_j4jkbw.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -339,7 +339,7 @@
     <link href="https://www.junpzx.cn/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/"/>
     <id>https://www.junpzx.cn/2020/09/19/IDEA%E3%80%81WebStrom%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</id>
     <published>2020-09-19T10:49:30.000Z</published>
-    <updated>2020-09-29T01:43:17.272Z</updated>
+    <updated>2020-10-15T03:21:44.198Z</updated>
     
     
     <summary type="html">&lt;p&gt;以下以idea为例,WebStorm 2020.2.2 x64版本我也试过,可以正常破解,但是以下破解可能会导致IDEA比较卡,如果是学生的话直接去申请免费套餐就好了,如果可以的话也就是去tb上买个一年全家桶的使用资格,价格的话在二十块左右!&lt;/p&gt;
@@ -364,7 +364,7 @@
     <link href="https://www.junpzx.cn/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     <id>https://www.junpzx.cn/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</id>
     <published>2020-09-18T05:58:42.000Z</published>
-    <updated>2020-10-12T08:50:47.820Z</updated>
+    <updated>2020-10-15T03:16:51.688Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;动态规划&lt;/strong&gt;（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。&lt;/p&gt;
@@ -388,7 +388,7 @@
     <link href="https://www.junpzx.cn/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     <id>https://www.junpzx.cn/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</id>
     <published>2020-09-17T09:05:00.000Z</published>
-    <updated>2020-09-29T01:43:17.280Z</updated>
+    <updated>2020-10-15T03:19:45.833Z</updated>
     
     
     <summary type="html">&lt;p&gt;近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。&lt;/p&gt;
