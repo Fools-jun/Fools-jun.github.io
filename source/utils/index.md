@@ -11,5 +11,7 @@ date: 2020-09-27 17:25:00
 
 [cloudinary](https://cloudinary.com/): 一个媒体服务器，感觉挺好用的，唯一不好的就是PicGo不支持自动上传该图床。
 
-[亿图图示](https://www.edrawmax.cn/online/):画图的一个网站，支持流程图，思维导图，组织架构图等，使用起来感觉还行。
+[亿图图示](https://www.edrawmax.cn/online/)：画图的一个网站，支持流程图，思维导图，组织架构图等，使用起来感觉还行。
+
+[visualgo](https://visualgo.net/zh)：一个以动态展示算法的流程和数据结构的网站。
 

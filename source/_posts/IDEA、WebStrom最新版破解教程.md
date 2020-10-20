@@ -59,7 +59,11 @@ copyright: true
 
  
 
-## **7、** 2020 版本文件夹中的激活补丁*<a href="https://api.cloudinary.com/v1_1/junpzx/raw/download?api_key=926984447943426&attachment=true&audit_context=eyJhY3Rvcl90eXBlIjoidXNlciIsImFjdG9yX2lkIjoiNGEzYTQ5NjllNDExM2U2ZmIyOWYzYTk5ZGQ2ZDE0MmMiLCJ1c2VyX2V4dGVybmFsX2lkIjoiYmQ0ZTQ4MzNhODVlOGYxZmEzNDM4MGUyMTkwMWExIiwidXNlcl9jdXN0b21faWQiOiJqdW5wenhAMTYzLmNvbSIsImNvbXBvbmVudCI6ImNvbnNvbGUifQ%3D%3D&public_id=idea%E3%80%81webstorm%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B%2Fjetbrains-agent_lcbbnb.zip&signature=c996e1fd172879b3e20d03af99b186ee31587245&target_filename=jetbrains-agent_lcbbnb.zip&timestamp=1600513199&type=upload">破解补丁</a>*拖入IDEA 界面中
+## **7、** 2020 版本文件夹中的激活补丁*<a href="https://pan.baidu.com/s/1uFKQ9au7mGENR2IguG9NHg">破解补丁</a>*拖入IDEA 界面中
+
+下载链接：https://pan.baidu.com/s/1uFKQ9au7mGENR2IguG9NHg
+
+提取码：0000
 
 ![](https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/7_o7c2z1.png)
 
@@ -79,15 +83,11 @@ copyright: true
 
 ## 9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 `Activation Code`，通过注册码来激活，点击`为IDEA安装`：
 
- 
-
 **安装参数**
 
 ```
 LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGXawLB4qswPOXYG7+ItDNUR/9UkLTUWlnHLX07hnR1USOrWIjTmbytcIKEdaI6x0RskyotuItj84xxoSBP/iRBW2EHpOc
 ```
-
-![](https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/9_fsezuf.png)激活破解方法, JetBrains 全家桶激活
 
 ![](https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/10_skts9u.png)
 
@@ -103,8 +103,4 @@ LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGX
 
 ![](https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png)
 
- 
 
-## **2、** 可以看到，已经成功激活至 2089 年，为确保不失效，请勿随意更新
-
-![](https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/12_kl4v3h.png)
