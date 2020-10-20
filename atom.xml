@@ -38,11 +38,11 @@
   </entry>
   
   <entry>
-    <title>Java报错整理</title>
-    <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/"/>
-    <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86/</id>
+    <title>Java报错整理（持续更新）</title>
+    <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</id>
     <published>2020-10-14T03:21:10.000Z</published>
-    <updated>2020-10-15T03:21:48.027Z</updated>
+    <updated>2020-10-20T05:32:18.986Z</updated>
     
     
     <summary type="html">&lt;p&gt;整理在Java中遇到过的问题，可能该问题的场景有多种，此处只记录我遇到过的问题的正确解决方案，仅供大家参考&lt;/p&gt;</summary>
@@ -82,11 +82,11 @@
   </entry>
   
   <entry>
-    <title>Java设计模式</title>
+    <title>Java设计模式简介及分类</title>
     <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-10-13T09:26:34.000Z</published>
-    <updated>2020-10-15T03:21:51.541Z</updated>
+    <updated>2020-10-20T05:33:43.871Z</updated>
     
     
     <summary type="html">&lt;p&gt;设计模式的概念最早是由 &lt;code&gt;克⾥斯托佛·亚历⼭⼤&lt;/code&gt; 在其著作 &lt;code&gt;《建筑模式语⾔》&lt;/code&gt; 中⾸次提出的。 本书介绍 了城市设计的 “语⾔”，提供了253个描述城镇、邻⾥、住宅、花园、房间及⻄部构造的模式， ⽽此类 “语⾔” 的基本单元就是模式。后来，&lt;code&gt;埃⾥希·伽玛&lt;/code&gt; 、 &lt;code&gt;约翰·弗利赛德斯&lt;/code&gt; 、 &lt;code&gt;拉尔夫·约翰逊&lt;/code&gt; 和 &lt;code&gt;理查德·赫尔姆&lt;/code&gt; 这四位作者接受了模式的概念。 1994 年， 他们出版了 《设计模式： 可复⽤⾯向对象软件的基础》 ⼀书， 将设计模式的概念应⽤到程序开发领域中。 其实有⼀部分⼈并没有仔细阅读过设计模式的相关书籍和资料，但依旧可以编写出优秀的代码。这主要 是由于在经过众多项⽬的锤炼和对程序设计的不断追求，从⽽在多年编程历程上提炼出来的⼼得体会。 ⽽这份经验最终会与设计模式提到的内容⼏乎⼀致，同样会要求⾼内聚、低耦合、可扩展、可复⽤。你 可能也遇到类似的经历，在学习⼀些框架的源码时，发现它⾥面的某些设计和你在做开发时⼀样。&lt;/p&gt;</summary>
@@ -127,10 +127,10 @@
   
   <entry>
     <title>Vue之组件化开发</title>
-    <link href="https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-writing/"/>
-    <id>https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-writing/</id>
+    <link href="https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/"/>
+    <id>https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</id>
     <published>2020-10-13T03:25:10.000Z</published>
-    <updated>2020-10-20T02:31:21.097Z</updated>
+    <updated>2020-10-20T05:40:18.109Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -358,7 +358,7 @@
     <link href="https://www.junpzx.cn/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     <id>https://www.junpzx.cn/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</id>
     <published>2020-09-18T05:58:42.000Z</published>
-    <updated>2020-10-15T03:16:51.688Z</updated>
+    <updated>2020-10-20T05:32:51.594Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;动态规划&lt;/strong&gt;（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。&lt;/p&gt;
