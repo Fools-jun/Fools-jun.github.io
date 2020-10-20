@@ -1,5 +1,5 @@
 ---
-title: Java报错整理
+title: Java报错整理（持续更新）
 date: 2020-10-14 11:21:10
 categories:
 - 笔记
