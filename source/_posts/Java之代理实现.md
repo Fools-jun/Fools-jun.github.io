@@ -154,6 +154,10 @@ public class Test {
 
 ### JDK动态代理
 
+JDK是通过反射生成一个实现代理接口的匿名类，调用InvocationHandler来处理。
+
+
+
 #### 代码
 
 ##### 抽象接口
@@ -272,7 +276,7 @@ import java.lang.reflect.Proxy;
 /***
  * @author Pzx
  * @date 2020/10/20 14:44
- * @desc
+ * @desc 测试类
  */
 public class Test {
     public static void main(String[] args) {
@@ -282,6 +286,9 @@ public class Test {
         System.out.println("--------------testB start--------------");
         testB();
         System.out.println("--------------testB end--------------");
+        System.out.println("--------------testC start--------------");
+        testC();
+        System.out.println("--------------testC end--------------");
     }
 
 
@@ -305,6 +312,20 @@ public class Test {
         Subject subject = (Subject) proxyXiaoXinCompany.getProxy();
         subject.saleCosmetics();
     }
+    
+    
+    public static void testC(){
+        Subject subject = (Subject) Proxy.newProxyInstance(BaiQueLingCompany.class.getClassLoader(), new Class[]{Subject.class}, (proxy, method, args) -> {
+            System.out.println("前置增强");
+            try {
+                return method.invoke(new BaiQueLingCompany(),args);
+            }finally {
+                System.out.println("后置增强");
+            }
+        });
+        subject.saleCosmetics();
+    }
+    
 }
 ```
 
@@ -323,6 +344,11 @@ public class Test {
 百雀羚化妆品公司卖化妆品
 小鑫代理公司售后服务
 --------------testB end--------------
+--------------testC start--------------
+前置增强
+百雀羚化妆品公司卖化妆品
+后置增强
+--------------testC end--------------
 ```
 
 
@@ -348,8 +374,9 @@ public static Object newProxyInstance(ClassLoader loader,
     {
     	// 判断InvocationHandler的实现类是否为null，为null则抛出NullPointerException
         Objects.requireNonNull(h);
-		
+		// 克隆出接口类
         final Class<?>[] intfs = interfaces.clone();
+    	// 获取Java安全管理器
         final SecurityManager sm = System.getSecurityManager();
         if (sm != null) {
             // 检查创建代理类所需的权限
@@ -363,9 +390,10 @@ public static Object newProxyInstance(ClassLoader loader,
             if (sm != null) {
                 checkNewProxyPermission(Reflection.getCallerClass(), cl);
             }
-			// 调用代理对象的构造函数（也就是$Proxy0(InvocationHandler h)）
+			// 调用代理对象的构造函数（也就是$Proxy0(InvocationHandler h))
             final Constructor<?> cons = cl.getConstructor(constructorParams);
             final InvocationHandler ih = h;
+            // 判断生成的代理类的访问修饰符是否为public
             if (!Modifier.isPublic(cl.getModifiers())) {
                 AccessController.doPrivileged(new PrivilegedAction<Void>() {
                     public Void run() {
