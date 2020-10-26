@@ -4,7 +4,9 @@ copyright: true
 mathjax: true
 date: 2020-10-26 15:36:52
 categories:
+- 安装教程
 tags:
+- 科学上网
 ---
 
 使用vultr科学上网
