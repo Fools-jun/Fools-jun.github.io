@@ -11,9 +11,9 @@ tags:
 
 <!--less-->
 
-# 一.准备
+# 一、准备
 
-## 注册账号
+## 1.1.注册账号
 
 <a href="https://www.vultr.com/?ref=8321130">vultr注册地址</a>
 
@@ -27,11 +27,11 @@ tags:
 
 ![](https://gitee.com/junpzx/blog-img/raw/master//img/20201026175830.png)
 
-## 充值
+## 1.1.2.充值
 
 ![](https://gitee.com/junpzx/blog-img/raw/master//img/20201026180004.png)
 
-# 二.购买服务器
+# 二、购买服务器
 
 1. 选择左边栏的Products
 2. 服务器类型选择Cloud Compute
@@ -55,7 +55,7 @@ tags:
 
 
 
-# 三.配置服务器
+# 三、配置服务器
 
 1. 首先下载安装xshell（xshell，一个远程连接命令行工具）
 2. 查看刚刚创建完成的服务器
@@ -119,7 +119,7 @@ tags:
 
 
 
-# 四.使用梯子
+# 四、使用梯子
 
 - 下载连接客户端
 
