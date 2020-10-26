@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-26T10:03:23.782Z</updated>
+  <updated>2020-10-26T10:07:01.993Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,13 +21,17 @@
     <link href="https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/"/>
     <id>https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/</id>
     <published>2020-10-26T07:36:52.000Z</published>
-    <updated>2020-10-26T10:03:23.782Z</updated>
+    <updated>2020-10-26T10:07:01.993Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用vultr科学上网&lt;/p&gt;</summary>
     
     
     
+    <category term="安装教程" scheme="https://www.junpzx.cn/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="科学上网" scheme="https://www.junpzx.cn/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
