@@ -20,25 +20,40 @@
     var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。 本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实">
+  <meta name="description" content="使用vultr科学上网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java安全模型">
-<meta property="og:url" content="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="科学上网（Vultr）">
+<meta property="og:url" content="https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/index.html">
 <meta property="og:site_name" content="君de秘密基地">
-<meta property="og:description" content="作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。 本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实">
+<meta property="og:description" content="使用vultr科学上网">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141605.gif">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141713.gif">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141918.gif">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201023142038.gif">
-<meta property="article:published_time" content="2020-10-23T06:12:32.000Z">
-<meta property="article:modified_time" content="2020-10-26T02:22:33.102Z">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175337.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175821.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175830.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026180004.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026154313.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026154320.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160433.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160713.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026162251.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026162359.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026163106.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026164840.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026165302.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026165552.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026170139.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173236.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173537.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173633.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173747.png">
+<meta property="article:published_time" content="2020-10-26T07:36:52.000Z">
+<meta property="article:modified_time" content="2020-10-26T10:00:24.378Z">
 <meta property="article:author" content="JunPzx">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java,学习笔记,Python,Mysql,Oracle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141605.gif">
+<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175337.png">
 
-<link rel="canonical" href="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/">
+<link rel="canonical" href="https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -51,7 +66,7 @@
   };
 </script>
 
-  <title>Java安全模型 | 君de秘密基地</title>
+  <title>科学上网（Vultr） | 君de秘密基地</title>
   
 
 
@@ -207,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -220,7 +235,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java安全模型
+          科学上网（Vultr）
         </h1>
 
         <div class="post-meta">
@@ -230,28 +245,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-10-23 14:12:32" itemprop="dateCreated datePublished" datetime="2020-10-23T14:12:32+08:00">2020-10-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-26 10:22:33" itemprop="dateModified" datetime="2020-10-26T10:22:33+08:00">2020-10-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
+              <time title="创建时间：2020-10-26 15:36:52 / 修改时间：18:00:24" itemprop="dateCreated datePublished" datetime="2020-10-26T15:36:52+08:00">2020-10-26</time>
             </span>
 
           <br>
@@ -260,14 +256,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>928</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -279,33 +275,111 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。</p>
-<p>本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实现一些特定目的。</p>
-<h1 id="Java中的安全模型"><a href="#Java中的安全模型" class="headerlink" title="Java中的安全模型"></a>Java中的安全模型</h1><p>在 Java 中将执行程序分成本地和远程两种，本地代码默认视为可信任的，而远程代码则被看作是不受信的。对于授信的本地代码，可以访问一切本地资源。而对于非授信的远程代码在早期的 Java 实现中，安全依赖于沙箱 (Sandbox) 机制。沙箱机制就是将 Java 代码限定在虚拟机 (JVM) 特定的运行范围中，并且严格限制代码对本地系统的资源访问，通过这样的措施来保证对远程代码的有效隔离，防止对本地系统造成破坏。如图 1 所示</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141605.gif" alt="图1.JDK1.0 安全模型"></p>
-<p>但如此严格的安全机制也给程序的功能扩展带来障碍，比如当用户希望远程代码访问本地系统的文件时候，就无法实现。因此在后续的 Java1.1 版本中，针对安全机制做了改进，增加了安全策略，允许用户指定代码对本地资源的访问权限。如图 2 所示</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141713.gif" alt="图2.JDK1.1 安全模型"></p>
-<p>在 Java1.2 版本中，再次改进了安全机制，增加了代码签名。不论本地代码或是远程代码，都会按照用户的安全策略设定，由类加载器加载到虚拟机中权限不同的运行空间，来实现差异化的代码执行权限控制。如图 3 所示</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141918.gif" alt="图3.JDK1.2安全模型"></p>
-<p>当前最新的安全机制实现，则引入了域 (Domain) 的概念。虚拟机会把所有代码加载到不同的系统域和应用域，系统域部分专门负责与关键资源进行交互，而各个应用域部分则通过系统域的部分代理来对各种需要的资源进行访问。虚拟机中不同的受保护域 (Protected Domain)，对应不一样的权限 (Permission)。存在于不同域中的类文件就具有了当前域的全部权限，如图 4 所示：</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201023142038.gif" alt="图4.最新安全模型"></p>
-<p>以上提到的都是基本的 Java 安全模型概念，在应用开发中还有一些关于安全的复杂用法，其中最常用到的 API 就是 <code>doPrivileged</code>。<code>doPrivileged</code>方法能够使一段受信任代码获得更大的权限，甚至比调用它的应用程序还要多，可做到临时访问更多的资源。有时候这是非常必要的，可以应付一些特殊的应用场景。例如，应用程序可能无法直接访问某些系统资源，但这样的应用程序必须得到这些资源才能够完成功能。针对这种情况，Java SDK 给域提供了 <code>doPrivileged</code>方法，让程序突破当前域权限限制，临时扩大访问权限。下面内容会详细讲解一下安全相关的方法使用。</p>
-<h1 id="Java安全控制实现"><a href="#Java安全控制实现" class="headerlink" title="Java安全控制实现"></a>Java安全控制实现</h1><p>Java SDK 中与安全相关的类和接口都放在 <code>java.security</code> 包中，其中既包括访问控制配置及细粒度访问控制框架的实现，还包括签名和加解密的实现。本文中涉及到的安全访问控制主要与安全包中访问控制框架相关，这里面最常用的就是 <code>AccessController</code>类。通过以下的描述，您可以了解 ACC(Access Contorller) 机制是如何运作的。</p>
-<p>在某一个线程的调用栈中，当 <code>AccessController</code> 的 <code>checkPermission</code>方法被最近的调用程序（例如 A 类中的方法）调用时，对于程序要求的所有访问权限，ACC 决定是否授权的基本算法如下：</p>
+        <h1 id="一-准备"><a href="#一-准备" class="headerlink" title="一.准备"></a>一.准备</h1><h2 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h2><p><a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8321130">vultr注册地址</a></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175337.png" alt=""></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175821.png" alt=""></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026175830.png" alt=""></p>
+<h2 id="充值"><a href="#充值" class="headerlink" title="充值"></a>充值</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026180004.png" alt=""></p>
+<h1 id="二-购买服务器"><a href="#二-购买服务器" class="headerlink" title="二.购买服务器"></a>二.购买服务器</h1><ol>
+<li>选择左边栏的Products</li>
+<li>服务器类型选择Cloud Compute</li>
+<li>服务器地址选择日本（日本的服务器节点网速还行，不容易被墙，也可以选择美国的）</li>
+<li>系统选择CentOS7</li>
+<li>收费就选择5$每月的（如果也就平常查找资料，看一下新闻和视频的话，选择5刀的够用了，如果使用一段时间后，感觉不够用，也可以升级的）</li>
+<li>下面的配置都不用管，直接点击Deploy Now</li>
+<li>等待安装完成</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026154313.png" alt="1,2,3步骤"></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026154320.png" alt="4,5步骤"></p>
+<h1 id="三-配置服务器"><a href="#三-配置服务器" class="headerlink" title="三.配置服务器"></a>三.配置服务器</h1><ol>
+<li>首先下载安装xshell（xshell，一个远程连接命令行工具）</li>
+<li>查看刚刚创建完成的服务器</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160433.png" alt="查看所有服务器"></p>
 <ol>
-<li><p>如果调用链中的某个调用程序没有所需的权限，将抛出 <code>AccessControlException</code>；</p>
+<li>查看具体服务器的ip等信息</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160713.png" alt="查看服务器信息"></p>
+<ol>
+<li><p>连接xshell</p>
+<ol>
+<li><p>点击左上角的的文件-&gt;新建</p>
 </li>
-<li><p>若是满足以下情况即被授予权限：</p>
-<p> a. 调用程序访问另一个有该权限域里程序的方法，并且此方法标记为有访问”特权”；</p>
-<p> b. 调用程序所调用（直接或间接）的后续对象都有上述权限。</p>
+<li><p>名称随便输入（尽量设置为该服务的ip）</p>
+</li>
+<li><p>协议选择默认的SSH</p>
+</li>
+<li><p>主机输入服务器的ip地址（也就是上图中的IP Address）</p>
+</li>
+<li><p>端口不用改，默认为22</p>
+</li>
+<li><p>点击左侧的<code>用户身份验证</code></p>
+<p> <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026162251.png" alt=""></p>
+</li>
+<li><p>设置登录账号和密码（用户名：服务器详情图片中的Username，密码为服务器详情图片中的Password）</p>
+<p>​    <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026162359.png" alt="xshell配置2"></p>
+<p>​    </p>
+</li>
+<li><p>配置完后，点击连接</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026163106.png" alt="连接成功"></p>
 </li>
 </ol>
-<p>假定 E 域和 F 域不具备 X 权限 (permission)，而在 C.class 对应的 G 域具有 X 权限，同时 C 使用 X 权限的对外接口 Y 方法是通过 <code>doPrivilege</code> 方式实现。那么，B.class A.class 调用 Y 方法就都具备 X 权限。如果 Y 方法没有标注 <code>doPrivilege</code>，那么对 Y 方法的调用就不具备 X 权限。</p>
-<p>还有一种特殊的情况，就是访问控制上下文的继承问题。当一个线程创建另一个新线程时，会同时创建新的堆栈。如果创建新线程时没有保留当前的安全上下文，也就是线程相关的安全信息，则新线程调用<code>AccessController.checkPermission</code> 检验权限时，安全访问控制机制只会根据新线程的上下文来决定安全性问题，而不会考虑其父线程的相应权限。这个清除堆栈的做法本身并不会给系统带来安全隐患，但它会使源代码，尤其是系统代码的编写容易出现错误。例如，对安全框架实现不熟悉编程人员可能会很自然地认为，子线程执行的信任代码继承了父线程执行的不可信任代码的安全限制特性。当从子线程内访问受控制的资源时，如果父线程的安全上下文信息并未保存，就会导致意外的安全漏洞。因为丢失的父线程中安全限制数据会使子线程将资源传递给一些不可信任的代码。因此，在创建新线程时，必须确保利用父线程创建，或利用其他形式创建代码。总之，要保证让子线程自动继承父线程的安全性上下文，这样子线程中的后续 <code>AccessController.checkPermission</code>调用就会考虑所继承的父线程的安全特性。</p>
-<p>需要注意是 <code>AccessController</code>类的 <code>checkPermission</code> 方法将在当前执行线程的上下文，包括继承的上下文中进行安全检查。当这种安全检查只能在不同的上下文中进行时就会出现问题。意即，本应在一个线程上下文内部进行的安全检查，有时却需要在不同上下文中进行。例如，当一个线程将某个事件传给另一个线程时，如果所请求的事件服务要求访问某种安全受控资源，则为其请求事件服务的第二个线程将没有事件产生源线程相应的上下文来完成所需的访问控制决策。为解决这样的问题，Java 在 <code>AccessController</code> 类中提供了 <code>getContext</code> 方法和 <code>AccessControlContext</code>对象。通过 <code>getContext</code>方法可获取当前调用上下文的”快照 (snapshot)”，然后将其存放到返回的<code>AccessControlContext</code> 对象中。调用的样例程序如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AccessControlContext acc = AccessController.getContext();</span><br></pre></td></tr></table></figure>
-<p><code>getContext</code>方法将当前上下文的快照信息捕获，然后执行程序就可以通过检查前后不同上下文中的信息，即比较快照上下文信息与本上下文信息，然后来做出对受控资源访问控制的决策。上面问题就可以如下方式来解决，当前一个线程把某个请求事件传给第二个线程时，同时捕获其上下文信息并将这些信息提供给后一个线程。略有不同的是，<code>AccessControlContext</code> 类本身的 <code>checkPermission</code> 方法可根据它自身携带的上下文信息来决定访问控制，而不是根据当前正在执行的线程上下文。因此必要时，后一个线程可直接通过调用前一个线程上下文快照本身的权限检查方法来执行相应的安全检查。如下，<code>acc.checkPermission(permission)</code>，上述方法调用等同于在前一个线程的上下文中执行相同的安全检查，尽管访问控制检查实际上是在后一个线程中完成的。</p>
-<h1 id="安全控制使用的代码案例"><a href="#安全控制使用的代码案例" class="headerlink" title="安全控制使用的代码案例"></a>安全控制使用的代码案例</h1>
+</li>
+</ol>
+<ol>
+<li><p>配置服务器ssr</p>
+<ul>
+<li><p>接下来根据大神们建好的轮子来进行梯子搭建</p>
+</li>
+<li><p>依次输入以下命令</p>
+<ul>
+<li><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</code></li>
+<li><code>chmod +x shadowsocks.sh</code></li>
+<li><code>./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</code></li>
+</ul>
+</li>
+<li><p>然后根据提示输入信息</p>
+<ul>
+<li>Default password: teddysun.com：梯子密码</li>
+<li>Default port: 16846：梯子连接端口</li>
+<li><p>Please select stream cipher for shadowsocks-python: 选择加密方式</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026164840.png" alt="梯子设置"></p>
+</li>
+</ul>
+</li>
+<li><p>然后按下回车，等待设置完成</p>
+</li>
+<li><p>设置完成后，会出现以下图</p>
+<p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026165302.png" alt="设置完成"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="四-使用梯子"><a href="#四-使用梯子" class="headerlink" title="四.使用梯子"></a>四.使用梯子</h1><ul>
+<li><p>下载连接客户端</p>
+<ul>
+<li><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows/releases">https://github.com/shadowsocks/shadowsocks-windows/releases</a></p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026165552.png" alt="下载客户端"></p>
+</li>
+</ul>
+</li>
+<li><p>解压下载好的zip文件</p>
+</li>
+<li><p>运行根目录中的.exe文件</p>
+<p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026170139.png" alt="客户端"></p>
+</li>
+<li><p>对客户端进行配置</p>
+<p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173236.png" alt=""></p>
+<p>  ​                                        </p>
+<p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173537.png" alt=""></p>
+<p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173633.png" alt=""></p>
+</li>
+<li><p>测试是否可以使用</p>
+<p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026173747.png" alt="测试"></p>
+</li>
+<li><p>ok，配置成功</p>
+</li>
+</ul>
     </div>
 
     
@@ -320,11 +394,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/">Java安全模型</a></p>
+  <p><span>本文标题:</span><a href="/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/">科学上网（Vultr）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2020年10月23日 14:10:00</p>
-  <p><span>原始链接:</span><a href="/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/" title="Java安全模型">https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年10月26日 15:10:00</p>
+  <p><span>原始链接:</span><a href="/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/" title="科学上网（Vultr）">https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
 </div>
@@ -345,9 +419,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-          </div>
 
         
 
@@ -355,13 +426,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/" rel="prev" title="Java之代理实现">
-      <i class="fa fa-chevron-left"></i> Java之代理实现
+    <a href="/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/" rel="prev" title="Java安全模型">
+      <i class="fa fa-chevron-left"></i> Java安全模型
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/" rel="next" title="科学上网（Vultr）">
-      科学上网（Vultr） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -420,7 +488,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E4%B8%AD%E7%9A%84%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B"><span class="nav-text">Java中的安全模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%AE%89%E5%85%A8%E6%8E%A7%E5%88%B6%E5%AE%9E%E7%8E%B0"><span class="nav-text">Java安全控制实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%8E%A7%E5%88%B6%E4%BD%BF%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B"><span class="nav-text">安全控制使用的代码案例</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E5%87%86%E5%A4%87"><span class="nav-text">一.准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7"><span class="nav-text">注册账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%85%E5%80%BC"><span class="nav-text">充值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E8%B4%AD%E4%B9%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">二.购买服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">三.配置服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E4%BD%BF%E7%94%A8%E6%A2%AF%E5%AD%90"><span class="nav-text">四.使用梯子</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

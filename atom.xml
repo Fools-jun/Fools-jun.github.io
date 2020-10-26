@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-26T02:22:33.102Z</updated>
+  <updated>2020-10-26T10:00:24.378Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>科学上网（Vultr）</title>
+    <link href="https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/"/>
+    <id>https://www.junpzx.cn/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/</id>
+    <published>2020-10-26T07:36:52.000Z</published>
+    <updated>2020-10-26T10:00:24.378Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用vultr科学上网&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Java安全模型</title>
@@ -152,7 +167,7 @@
     <link href="https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/"/>
     <id>https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</id>
     <published>2020-10-13T03:25:10.000Z</published>
-    <updated>2020-10-26T02:16:32.272Z</updated>
+    <updated>2020-10-26T02:34:33.447Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
