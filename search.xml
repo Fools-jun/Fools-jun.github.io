@@ -19,18 +19,10 @@
 </ol>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026154313.png" alt="1,2,3步骤"></p>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026154320.png" alt="4,5步骤"></p>
-<h1 id="三、配置服务器"><a href="#三、配置服务器" class="headerlink" title="三、配置服务器"></a>三、配置服务器</h1><ol>
-<li>首先下载安装xshell（xshell，一个远程连接命令行工具）</li>
-<li>查看刚刚创建完成的服务器</li>
-</ol>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160433.png" alt="查看所有服务器"></p>
-<ol>
-<li>查看具体服务器的ip等信息</li>
-</ol>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160713.png" alt="查看服务器信息"></p>
-<ol>
-<li><p>连接xshell</p>
-<ol>
+<h1 id="三、配置服务器"><a href="#三、配置服务器" class="headerlink" title="三、配置服务器"></a>三、配置服务器</h1><h2 id="1-安装xshell"><a href="#1-安装xshell" class="headerlink" title="1.安装xshell"></a>1.安装xshell</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">下载链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1t4COsweV0evZIfCmZrZYVw</span><br><span class="line">提取码：0000</span><br></pre></td></tr></table></figure>
+<h2 id="2-查看刚刚创建完成的服务器"><a href="#2-查看刚刚创建完成的服务器" class="headerlink" title="2. 查看刚刚创建完成的服务器"></a>2. 查看刚刚创建完成的服务器</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160433.png" alt="查看所有服务器"></p>
+<h2 id="3-查看具体服务器的ip等信息"><a href="#3-查看具体服务器的ip等信息" class="headerlink" title="3.查看具体服务器的ip等信息"></a>3.查看具体服务器的ip等信息</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026160713.png" alt="查看服务器信息"></p>
+<h2 id="4-连接xshell"><a href="#4-连接xshell" class="headerlink" title="4.连接xshell"></a>4.连接xshell</h2><ol>
 <li><p>点击左上角的的文件-&gt;新建</p>
 </li>
 <li><p>名称随便输入（尽量设置为该服务的ip）</p>
@@ -45,18 +37,15 @@
 <p> <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026162251.png" alt=""></p>
 </li>
 <li><p>设置登录账号和密码（用户名：服务器详情图片中的Username，密码为服务器详情图片中的Password）</p>
+</li>
+</ol>
 <p>​    <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026162359.png" alt="xshell配置2"></p>
 <p>​    </p>
-</li>
-<li><p>配置完后，点击连接</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026163106.png" alt="连接成功"></p>
-</li>
-</ol>
-</li>
-</ol>
 <ol>
-<li><p>配置服务器ssr</p>
-<ul>
+<li>配置完后，点击连接</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026163106.png" alt="连接成功"></p>
+<h2 id="5-配置服务器ssr"><a href="#5-配置服务器ssr" class="headerlink" title="5.配置服务器ssr"></a>5.配置服务器ssr</h2><ul>
 <li><p>接下来根据大神们建好的轮子来进行梯子搭建</p>
 </li>
 <li><p>依次输入以下命令</p>
@@ -81,8 +70,6 @@
 <p>  <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201026165302.png" alt="设置完成"></p>
 </li>
 </ul>
-</li>
-</ol>
 <h1 id="四、使用梯子"><a href="#四、使用梯子" class="headerlink" title="四、使用梯子"></a>四、使用梯子</h1><ul>
 <li><p>下载连接客户端</p>
 <ul>
