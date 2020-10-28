@@ -161,9 +161,273 @@ InfluxDB 和传统数据库（如：MySQL）的一些区别
 
 # 三、influxDB安装
 
+## 3.1.Linux上安装
+
+```
+wget https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3.x86_64.rpm
+
+sudo yum localinstall influxdb-1.8.3.x86_64.rpm
+```
 
 
 
+## 3.2.Windows上安装
+
+[下载地址](https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip):https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip
 
 
+
+## 3.3.docker上安装
+
+```
+docker pull influxdb
+```
+
+
+
+# 四、influxDB基本使用（以Windows为例）
+
+## 4.1.启动influxDB
+
+1. 打开cmd界面
+
+2. 进入到influxDB的文件夹目录
+
+3. 输入:
+
+    ```
+    influxd.exe -config influxdb.conf
+    ```
+
+## 4.2.打开客户端
+
+```
+influx.exe -port 8081
+```
+
+如果说没有更改过influx的config中的端口的话，后面的-port不用加，如果修改过端口，则需要后面指定监听端口启动
+
+
+
+## 4.3.显示用户
+
+```mysql
+show users
+```
+
+
+
+## 4.4.创建用户
+
+```mysql
+create user "username" with password 'password'
+```
+
+
+
+## 4.5.赋予管理员权限
+
+```mysql
+grant all privileges to username
+```
+
+
+
+## 4.6.创建管理员权限用户
+
+```mysql
+create user "username" with password 'password' with all privileges
+```
+
+
+
+## 4.7.修改用户密码
+
+```mysql
+set password for username = "password"
+```
+
+
+
+## 4.8.取消权限
+
+```mysql
+revoke all on mydb from username
+```
+
+
+
+## 4.9.查看权限
+
+```mysql
+show grants for username
+```
+
+
+
+## 4.10.删除用户
+
+```mysql
+drop user "username"
+```
+
+
+
+## 4.11.登录账号
+
+**认证策略需要在配置文件中打开[http]下的auth-enabled = true**
+
+```mysql
+auth
+然后输入账号密码
+```
+
+
+
+## 4.12.查看数据库
+
+```mysql
+show databases
+```
+
+
+
+## 4.13.创建数据库
+
+```mysql
+create database "testDB"
+```
+
+
+
+## 4.14.使用数据库
+
+```mysql
+use testDB
+```
+
+
+
+## 4.15.插入数据
+
+```mysql
+insert weather,altitude=5000,area=北 humidity=3,temperature=23 1599630284710054000
+```
+
+- measurement(表名): weather
+- tags（类似索引）: altitude、area。是String类型
+- fields: temperature、humidity。是字符串、数字类型
+- influx默认时间是纳秒（ns），即19位时间戳
+
+
+
+## 4.16.查看表名
+
+```mysql
+show measurements
+```
+
+
+
+## 4.17.查看数据
+
+```mysql
+# 操作与mysql类似
+select * from weather where time >=1599630284710ms
+
+select * from weather where time >= '2018-11-23 14:30:39' and time <= '2018-11-23 14:32:32' tz('Asia/Shanghai')
+
+# 涉及时间查询使用时间戳，避免时区问题
+```
+
+
+
+## 4.18.查看策略
+
+```mysql
+show retention policies on 'weather'
+```
+
+
+
+## 4.19.创建策略
+
+```mysql
+create retention policy "rp_test" on "testDB" duration 30d replication 1 default
+```
+
+- rp_test: 策略名
+
+- testDB：数据库名
+
+- 30d：数据保存时间，30天之前的数据将被删除
+
+- replication 1: 副本个数
+
+- default: 设为默认策略
+
+| **duration**          | **shardGroupDuration** |
+| --------------------- | ---------------------- |
+| <2days                | 1hour                  |
+| >=2days and <=6months | 1day                   |
+| >6months              | 7days                  |
+
+
+
+## 4.20.修改策略
+
+```mysql
+alter retention policy "rp_test" on "testDB" duration 1d replication 1
+```
+
+
+
+## 4.21.删除策略
+
+```mysql
+drop retention policy " rp_test" on " testDB"
+```
+
+
+
+## 4.22.查询连续查询
+
+```mysql 
+SHOW CONTINUOUS QUERIES 
+```
+
+- 这条命令得在命令行下输入，在web管理界面不能显示。
+- QUERIES需要大写
+
+
+
+## 4.23.创建新的Continuous Queries
+
+```mysql
+create continuous query cq_30m on testDB begin select mean(temperature) into weather30m from weather group by time(30m) end
+```
+
+- cq_30m：连续查询的名字
+
+- testDB：具体的数据库名
+
+- mean(temperature): 算平均温度
+
+- weather： 当前表名
+
+- weather30m： 存新数据的表名
+
+- 30m：时间间隔为30分钟
+
+
+
+## 4.24.删除Continuous Queries
+
+```mysql
+DROP CONTINUOUS QUERY <cq_name> ON <database_name>
+```
+
+
+
+ 
 
