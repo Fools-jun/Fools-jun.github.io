@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-28T09:32:38.481Z</updated>
+  <updated>2020-10-28T09:36:10.556Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/"/>
     <id>https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/</id>
     <published>2020-10-28T07:06:18.000Z</published>
-    <updated>2020-10-28T09:32:38.481Z</updated>
+    <updated>2020-10-28T09:36:10.556Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;h2 id=&quot;1-1-什么是时序数据库&quot;&gt;&lt;a href=&quot;#1-1-什么是时序数据库&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;​        时序数据是基于时间的一系列的数据。在有时间的坐标中将这些数据点连成线，往过去看可以做成多纬度报表，揭示其趋势性、规律性、异常性;往未来看可以做大数据分析，机器学习，实现预测和预警。&lt;/p&gt;
+&lt;p&gt;​        时序数据库就是存放时序数据的数据库，并且需要支持时序数据的快速写入、持久化、多纬度的聚合查询等基本功能。&lt;/p&gt;
+&lt;p&gt;​        对比传统数据库仅仅记录了数据的当前值，时序数据库则记录了所有的历史数据。同时时序数据的查询也总是会带上时间作为过滤条件。&lt;/p&gt;</summary>
     
     
     
