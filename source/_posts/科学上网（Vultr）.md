@@ -59,65 +59,76 @@ tags:
 
 # 三、配置服务器
 
-1. 首先下载安装xshell（xshell，一个远程连接命令行工具）
-2. 查看刚刚创建完成的服务器
+## 1.安装xshell
+
+```
+下载链接：https://pan.baidu.com/s/1t4COsweV0evZIfCmZrZYVw
+提取码：0000
+```
+
+
+
+## 2. 查看刚刚创建完成的服务器
 
 ![查看所有服务器](https://gitee.com/junpzx/blog-img/raw/master//img/20201026160433.png)
 
-3. 查看具体服务器的ip等信息
+
+
+## 3.查看具体服务器的ip等信息
 
 ![查看服务器信息](https://gitee.com/junpzx/blog-img/raw/master//img/20201026160713.png)
 
-4. 连接xshell
-    1. 点击左上角的的文件->新建
+## 4.连接xshell
+
+1. 点击左上角的的文件->新建
+
+2. 名称随便输入（尽量设置为该服务的ip）
+
+3. 协议选择默认的SSH
+
+4. 主机输入服务器的ip地址（也就是上图中的IP Address）
+
+5. 端口不用改，默认为22
+
+6. 点击左侧的`用户身份验证`
+
+    ![](https://gitee.com/junpzx/blog-img/raw/master//img/20201026162251.png)
     
-    2. 名称随便输入（尽量设置为该服务的ip）
-    
-    3. 协议选择默认的SSH
-    
-    4. 主机输入服务器的ip地址（也就是上图中的IP Address）
-    
-    5. 端口不用改，默认为22
-    
-    6. 点击左侧的`用户身份验证`
-    
-        ![](https://gitee.com/junpzx/blog-img/raw/master//img/20201026162251.png)
-        
-    7. 设置登录账号和密码（用户名：服务器详情图片中的Username，密码为服务器详情图片中的Password）
-    
-    ​	![xshell配置2](https://gitee.com/junpzx/blog-img/raw/master//img/20201026162359.png)
-    
-    ​	
-    
-    8. 配置完后，点击连接
-    
-    ![连接成功](https://gitee.com/junpzx/blog-img/raw/master//img/20201026163106.png)
+7. 设置登录账号和密码（用户名：服务器详情图片中的Username，密码为服务器详情图片中的Password）
+
+​	![xshell配置2](https://gitee.com/junpzx/blog-img/raw/master//img/20201026162359.png)
+
+​	
+
+8. 配置完后，点击连接
+
+![连接成功](https://gitee.com/junpzx/blog-img/raw/master//img/20201026163106.png)
 
 
 
-5. 配置服务器ssr
+## 5.配置服务器ssr
 
-    - 接下来根据大神们建好的轮子来进行梯子搭建
+- 接下来根据大神们建好的轮子来进行梯子搭建
 
-    - 依次输入以下命令
+- 依次输入以下命令
 
-        - `wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh`
-        - `chmod +x shadowsocks.sh`
-        - `./shadowsocks.sh 2>&1 | tee shadowsocks.log`
+    - `wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh`
+    - `chmod +x shadowsocks.sh`
+    - `./shadowsocks.sh 2>&1 | tee shadowsocks.log`
 
-    - 然后根据提示输入信息
+- 然后根据提示输入信息
 
-        - Default password: teddysun.com：梯子密码
-        - Default port: 16846：梯子连接端口
-        - Please select stream cipher for shadowsocks-python: 选择加密方式
+    - Default password: teddysun.com：梯子密码
+    - Default port: 16846：梯子连接端口
+    - Please select stream cipher for shadowsocks-python: 选择加密方式
 
-        ![梯子设置](https://gitee.com/junpzx/blog-img/raw/master//img/20201026164840.png)
+    ![梯子设置](https://gitee.com/junpzx/blog-img/raw/master//img/20201026164840.png)
 
-    - 然后按下回车，等待设置完成
+- 然后按下回车，等待设置完成
 
-    - 设置完成后，会出现以下图
+- 设置完成后，会出现以下图
 
-        ![设置完成](https://gitee.com/junpzx/blog-img/raw/master//img/20201026165302.png)
+    ![设置完成](https://gitee.com/junpzx/blog-img/raw/master//img/20201026165302.png)
 
 
 
