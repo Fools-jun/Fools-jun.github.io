@@ -21,9 +21,9 @@
   </script>
 
   <meta name="description" content="作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。 本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Java安全模型">
-<meta property="og:url" content="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:url" content="https://www.junpzx.cn/writing/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B.html">
 <meta property="og:site_name" content="君de秘密基地">
 <meta property="og:description" content="作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。 本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实">
 <meta property="og:locale" content="zh_CN">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141605.gif">
 
-<link rel="canonical" href="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/">
+<link rel="canonical" href="https://www.junpzx.cn/writing/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B">
 
 
 <script id="page-configurations">
@@ -46,12 +46,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Java安全模型 | 君de秘密基地</title>
+  <title>Java安全模型 | 君de秘密基地
+</title>
   
 
 
@@ -199,87 +200,33 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="JunPzx">
-      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="君de秘密基地">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Java安全模型
-        </h1>
 
-        <div class="post-meta">
-	  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+<h1 class="post-title" itemprop="name headline">Java安全模型
+</h1>
 
-              <time title="创建时间：2020-10-23 14:12:32" itemprop="dateCreated datePublished" datetime="2020-10-23T14:12:32+08:00">2020-10-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-26 10:22:33" itemprop="dateModified" datetime="2020-10-26T10:22:33+08:00">2020-10-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-            </span>
+<div class="post-meta">
+  
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。</p>
+      
+      
+      <div class="post-body">
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。</p>
 <p>本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实现一些特定目的。</p>
 <h1 id="Java中的安全模型"><a href="#Java中的安全模型" class="headerlink" title="Java中的安全模型"></a>Java中的安全模型</h1><p>在 Java 中将执行程序分成本地和远程两种，本地代码默认视为可信任的，而远程代码则被看作是不受信的。对于授信的本地代码，可以访问一切本地资源。而对于非授信的远程代码在早期的 Java 实现中，安全依赖于沙箱 (Sandbox) 机制。沙箱机制就是将 Java 代码限定在虚拟机 (JVM) 特定的运行范围中，并且严格限制代码对本地系统的资源访问，通过这样的措施来保证对远程代码的有效隔离，防止对本地系统造成破坏。如图 1 所示</p>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201023141605.gif" alt="图1.JDK1.0 安全模型"></p>
@@ -306,70 +253,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AccessControlContext acc = AccessController.getContext();</span><br></pre></td></tr></table></figure>
 <p><code>getContext</code>方法将当前上下文的快照信息捕获，然后执行程序就可以通过检查前后不同上下文中的信息，即比较快照上下文信息与本上下文信息，然后来做出对受控资源访问控制的决策。上面问题就可以如下方式来解决，当前一个线程把某个请求事件传给第二个线程时，同时捕获其上下文信息并将这些信息提供给后一个线程。略有不同的是，<code>AccessControlContext</code> 类本身的 <code>checkPermission</code> 方法可根据它自身携带的上下文信息来决定访问控制，而不是根据当前正在执行的线程上下文。因此必要时，后一个线程可直接通过调用前一个线程上下文快照本身的权限检查方法来执行相应的安全检查。如下，<code>acc.checkPermission(permission)</code>，上述方法调用等同于在前一个线程的上下文中执行相同的安全检查，尽管访问控制检查实际上是在后一个线程中完成的。</p>
 <h1 id="安全控制使用的代码案例"><a href="#安全控制使用的代码案例" class="headerlink" title="安全控制使用的代码案例"></a>安全控制使用的代码案例</h1>
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-    
-	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
-	 
-<div class="post-copyright-information">
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-  <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/">Java安全模型</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2020年10月23日 14:10:00</p>
-  <p><span>原始链接:</span><a href="/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/" title="Java安全模型">https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/"  aria-label="复制成功！"></i></span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
-</div>
-<script>
-    var clipboard = new Clipboard('.fa-clipboard');
-      $(".fa-clipboard").click(function(){
-      clipboard.on('success', function(){
-        swal({   
-          title: "",   
-          text: '复制成功',
-          icon: "success",
-          showConfirmButton: true
-          });
-        });
-    });  
-</script>
-
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/" rel="prev" title="Java之代理实现">
-      <i class="fa fa-chevron-left"></i> Java之代理实现
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/10/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%88Vultr%EF%BC%89/" rel="next" title="科学上网（Vultr）">
-      科学上网（Vultr） <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>
@@ -436,14 +329,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -496,12 +389,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">73k</span>
+    <span title="站点总字数">56k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:07</span>
+    <span title="站点阅读时长">51 分钟</span>
 </div>
 
 <!--

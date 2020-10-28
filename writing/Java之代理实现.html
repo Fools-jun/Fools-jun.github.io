@@ -21,9 +21,9 @@
   </script>
 
   <meta name="description" content="深入浅出分析代理模式（未完）">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Java之代理实现">
-<meta property="og:url" content="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:url" content="https://www.junpzx.cn/writing/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0.html">
 <meta property="og:site_name" content="君de秘密基地">
 <meta property="og:description" content="深入浅出分析代理模式（未完）">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201014151602.png">
 
-<link rel="canonical" href="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/">
+<link rel="canonical" href="https://www.junpzx.cn/writing/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0">
 
 
 <script id="page-configurations">
@@ -44,12 +44,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Java之代理实现 | 君de秘密基地</title>
+  <title>Java之代理实现 | 君de秘密基地
+</title>
   
 
 
@@ -197,87 +198,33 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="JunPzx">
-      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="君de秘密基地">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Java之代理实现
-        </h1>
 
-        <div class="post-meta">
-	  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+<h1 class="post-title" itemprop="name headline">Java之代理实现
+</h1>
 
-              <time title="创建时间：2020-10-14 14:11:16" itemprop="dateCreated datePublished" datetime="2020-10-14T14:11:16+08:00">2020-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-23 10:45:58" itemprop="dateModified" datetime="2020-10-23T10:45:58+08:00">2020-10-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-            </span>
+<div class="post-meta">
+  
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>9.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><ul>
+      
+      
+      <div class="post-body">
+          <h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><ul>
 <li><strong>定义：</strong>给目标对象提供一个代理对象，并由代理对象控制对目标对象的引用。</li>
 <li><strong>目的：</strong><ol>
 <li>通过引入代理对象的方式来间接访问目标对象，防止直接访问目标对象个系统带来的不必要复杂性；</li>
@@ -347,70 +294,16 @@
 <h3 id="3-Java-Proxy-cglib-Aspectj-instrumentation的相同点和不同点"><a href="#3-Java-Proxy-cglib-Aspectj-instrumentation的相同点和不同点" class="headerlink" title="3.Java Proxy,cglib,Aspectj,instrumentation的相同点和不同点"></a>3.Java Proxy,cglib,Aspectj,instrumentation的相同点和不同点</h3><ul>
 <li>其本质都是对字节码的修改，其区别就是从哪里切入修改字节码</li>
 </ul>
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-    
-	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
-	 
-<div class="post-copyright-information">
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-  <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/">Java之代理实现</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2020年10月14日 14:10:00</p>
-  <p><span>原始链接:</span><a href="/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/" title="Java之代理实现">https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/"  aria-label="复制成功！"></i></span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
-</div>
-<script>
-    var clipboard = new Clipboard('.fa-clipboard');
-      $(".fa-clipboard").click(function(){
-      clipboard.on('success', function(){
-        swal({   
-          title: "",   
-          text: '复制成功',
-          icon: "success",
-          showConfirmButton: true
-          });
-        });
-    });  
-</script>
-
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" rel="prev" title="Java报错整理（持续更新）">
-      <i class="fa fa-chevron-left"></i> Java报错整理（持续更新）
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/" rel="next" title="Java安全模型">
-      Java安全模型 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>
@@ -477,14 +370,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -537,12 +430,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">73k</span>
+    <span title="站点总字数">56k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:07</span>
+    <span title="站点阅读时长">51 分钟</span>
 </div>
 
 <!--

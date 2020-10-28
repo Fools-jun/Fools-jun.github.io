@@ -36,49 +36,6 @@
   </entry>
   
   <entry>
-    <title>Java安全模型</title>
-    <link href="https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://www.junpzx.cn/2020/10/23/Java%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B/</id>
-    <published>2020-10-23T06:12:32.000Z</published>
-    <updated>2020-10-26T02:22:33.102Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;作为一种诞生于互联网兴起时代的语言，Java 从一开始就带有安全上的考虑，如何保证通过互联网下载到本地的 Java 程序是安全的，如何对 Java 程序访问本地资源权限进行有限授权，这些安全角度的考虑一开始就影响到 Java 语言的设计与实现。可以说 Java 在这些方面的探索与经验，对后来的一些语言与产品都带来了积极影响。&lt;/p&gt;
-&lt;p&gt;本篇文章中将介绍 Java 中安全模型，以及如何利用安全访问控制机制来实现一些特定目的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java之代理实现</title>
-    <link href="https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://www.junpzx.cn/2020/10/14/Java%E4%B9%8B%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/</id>
-    <published>2020-10-14T06:11:16.000Z</published>
-    <updated>2020-10-23T02:45:58.386Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;深入浅出分析代理模式（未完）&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java报错整理（持续更新）</title>
     <link href="https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
     <id>https://www.junpzx.cn/2020/10/14/Java%E6%8A%A5%E9%94%99%E6%95%B4%E7%90%86%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</id>
@@ -100,32 +57,9 @@
   </entry>
   
   <entry>
-    <title>Java设计模式之工厂方法模式</title>
-    <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
-    <published>2020-10-13T10:03:19.000Z</published>
-    <updated>2020-10-15T03:21:55.863Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;⼯⼚模式⼜称⼯⼚⽅法模式，是⼀种创建型设计模式，其在⽗类中提供⼀个创建对象的⽅法， 允许⼦类 决定实例化对象的类型。 这种设计模式也是 Java 开发中最常⻅的⼀种模式，它的主要意图是定义⼀个创建对象的接⼝，让其⼦类⾃⼰决定实例化哪⼀个⼯⼚类，⼯⼚模式使其创建过程延迟到⼦类进⾏。 简单说就是为了提供代码结构的扩展性，屏蔽每⼀个功能类中的具体实现逻辑。让外部可以更加简单的只是知道调⽤即可，同时，这也是去掉众多 ifelse 的⽅式。当然这可能也有⼀些缺点，⽐如需要实现的类⾮常多，如何去维护，怎样减低开发成本。但这些问题都可以在后续的设计模式结合使⽤中，逐步降低。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java设计模式简介及分类</title>
-    <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
+    <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/"/>
+    <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/</id>
     <published>2020-10-13T09:26:34.000Z</published>
     <updated>2020-10-20T05:50:54.920Z</updated>
     
@@ -171,7 +105,7 @@
     <link href="https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/"/>
     <id>https://www.junpzx.cn/2020/10/13/Vue%E4%B9%8B%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</id>
     <published>2020-10-13T03:25:10.000Z</published>
-    <updated>2020-10-26T02:34:33.447Z</updated>
+    <updated>2020-10-28T08:00:11.114Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -230,11 +164,11 @@
   </entry>
   
   <entry>
-    <title>Vue相关知识点</title>
+    <title>Vue相关知识点（持续更新）</title>
     <link href="https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
     <published>2020-09-29T06:59:24.000Z</published>
-    <updated>2020-10-15T03:27:30.347Z</updated>
+    <updated>2020-10-28T08:00:02.720Z</updated>
     
     
     <summary type="html">&lt;p&gt;学习Vue过程中，一些零碎的知识点:&lt;/p&gt;
@@ -299,14 +233,14 @@
   </entry>
   
   <entry>
-    <title>ES语法</title>
+    <title>ES语法(持续更新)</title>
     <link href="https://www.junpzx.cn/2020/09/24/ES6%E8%AF%AD%E6%B3%95/"/>
     <id>https://www.junpzx.cn/2020/09/24/ES6%E8%AF%AD%E6%B3%95/</id>
     <published>2020-09-24T10:00:30.000Z</published>
-    <updated>2020-10-15T03:36:05.393Z</updated>
+    <updated>2020-10-28T07:58:32.174Z</updated>
     
     
-    <summary type="html">&lt;p&gt;ES6较之前新增的语法和某些不同的语法&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;记录学习或者使用过程中，ES6较之前新增的语法和某些不同的语法&lt;/p&gt;</summary>
     
     
     
@@ -391,30 +325,6 @@
     <category term="WebStorm" scheme="https://www.junpzx.cn/tags/WebStorm/"/>
     
     <category term="JetBrains" scheme="https://www.junpzx.cn/tags/JetBrains/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态规划</title>
-    <link href="https://www.junpzx.cn/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    <id>https://www.junpzx.cn/2020/09/18/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</id>
-    <published>2020-09-18T05:58:42.000Z</published>
-    <updated>2020-10-20T05:32:51.594Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;动态规划&lt;/strong&gt;（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。&lt;/p&gt;
-&lt;p&gt;动态规划常常适用于有&lt;strong&gt;重叠子问题&lt;/strong&gt;和&lt;strong&gt;最优子结构性质&lt;/strong&gt;的问题，动态规划方法所耗时间往往远少于朴素解法。&lt;/p&gt;
-&lt;p&gt;动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。&lt;/p&gt;
-&lt;p&gt;通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其&lt;strong&gt;记忆化存储&lt;/strong&gt;，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈&lt;strong&gt;指数增长&lt;/strong&gt;时特别有用。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="算法" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
     
   </entry>
   
