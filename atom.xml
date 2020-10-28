@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-28T07:01:40.236Z</updated>
+  <updated>2020-10-28T09:32:38.481Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>时序数据库（TSDB）- influxdb</title>
+    <link href="https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/"/>
+    <id>https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/</id>
+    <published>2020-10-28T07:06:18.000Z</published>
+    <updated>2020-10-28T09:32:38.481Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;h2 id=&quot;1-1-什么是时序数据库&quot;&gt;&lt;a href=&quot;#1-1-什么是时序数据库&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="时序数据库" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="influxDB" scheme="https://www.junpzx.cn/tags/influxDB/"/>
+    
+  </entry>
   
   <entry>
     <title>科学上网（Vultr）</title>
