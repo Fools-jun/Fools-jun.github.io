@@ -24,11 +24,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="时序数据库（TSDB）- influxdb">
 <meta property="og:url" content="https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/index.html">
-<meta property="og:site_name" content="君de秘密基地">
+<meta property="og:site_name" content="星辰大海">
 <meta property="og:description" content="​        时序数据是基于时间的一系列的数据。在有时间的坐标中将这些数据点连成线，往过去看可以做成多纬度报表，揭示其趋势性、规律性、异常性;往未来看可以做大数据分析，机器学习，实现预测和预警。 ​        时序数据库就是存放时序数据的数据库，并且需要支持时序数据的快速写入、持久化、多纬度的聚合查询等基本功能。 ​        对比传统数据库仅仅记录了数据的当前值，时序数据库则记录了所">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-28T07:06:18.000Z">
-<meta property="article:modified_time" content="2020-10-28T09:36:10.556Z">
+<meta property="article:modified_time" content="2020-10-29T02:19:36.885Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="influxDB">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>时序数据库（TSDB）- influxdb | 君de秘密基地</title>
+  <title>时序数据库（TSDB）- influxdb | 星辰大海</title>
   
 
 
@@ -77,7 +77,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="君de秘密基地" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -98,10 +98,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">君de秘密基地</h1>
+      <h1 class="site-title">星辰大海</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">君de小小博客</p>
+      <p class="site-subtitle" itemprop="description">Starry Sea</p>
   </div>
 
   <div class="site-nav-right">
@@ -144,6 +144,11 @@
         <li class="menu-item menu-item-util">
 
     <a href="/utils/" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站</a>
+
+  </li>
+        <li class="menu-item menu-item-book">
+
+    <a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>book</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -211,7 +216,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="君de秘密基地">
+      <meta itemprop="name" content="星辰大海">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -225,10 +230,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-10-28 15:06:18 / 修改时间：17:36:10" itemprop="dateCreated datePublished" datetime="2020-10-28T15:06:18+08:00">2020-10-28</time>
+              <time title="创建时间：2020-10-28 15:06:18" itemprop="dateCreated datePublished" datetime="2020-10-28T15:06:18+08:00">2020-10-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-29 10:19:36" itemprop="dateModified" datetime="2020-10-29T10:19:36+08:00">2020-10-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +260,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.7k</span>
+              <span>5.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -397,31 +408,14 @@
 <h1 id="三、influxDB安装"><a href="#三、influxDB安装" class="headerlink" title="三、influxDB安装"></a>三、influxDB安装</h1><h2 id="3-1-Linux上安装"><a href="#3-1-Linux上安装" class="headerlink" title="3.1.Linux上安装"></a>3.1.Linux上安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;dl.influxdata.com&#x2F;influxdb&#x2F;releases&#x2F;influxdb-1.8.3.x86_64.rpm</span><br><span class="line"></span><br><span class="line">sudo yum localinstall influxdb-1.8.3.x86_64.rpm</span><br></pre></td></tr></table></figure>
 <h2 id="3-2-Windows上安装"><a href="#3-2-Windows上安装" class="headerlink" title="3.2.Windows上安装"></a>3.2.Windows上安装</h2><p><a target="_blank" rel="noopener" href="https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip">下载地址</a>:<a target="_blank" rel="noopener" href="https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip">https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip</a></p>
 <h2 id="3-3-docker上安装"><a href="#3-3-docker上安装" class="headerlink" title="3.3.docker上安装"></a>3.3.docker上安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull influxdb</span><br></pre></td></tr></table></figure>
-<h1 id="四、influxDB基本使用（以Windows为例）"><a href="#四、influxDB基本使用（以Windows为例）" class="headerlink" title="四、influxDB基本使用（以Windows为例）"></a>四、influxDB基本使用（以Windows为例）</h1><h2 id="4-1-启动influxDB"><a href="#4-1-启动influxDB" class="headerlink" title="4.1.启动influxDB"></a>4.1.启动influxDB</h2><ol>
-<li><p>打开cmd界面</p>
-</li>
-<li><p>进入到influxDB的文件夹目录</p>
-</li>
-<li><p>输入:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">influxd.exe -config influxdb.conf</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="4-2-打开客户端"><a href="#4-2-打开客户端" class="headerlink" title="4.2.打开客户端"></a>4.2.打开客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">influx.exe -port 8081</span><br></pre></td></tr></table></figure>
-<p>如果说没有更改过influx的config中的端口的话，后面的-port不用加，如果修改过端口，则需要后面指定监听端口启动</p>
-<h2 id="4-3-显示用户"><a href="#4-3-显示用户" class="headerlink" title="4.3.显示用户"></a>4.3.显示用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show users</span><br></pre></td></tr></table></figure>
-<h2 id="4-4-创建用户"><a href="#4-4-创建用户" class="headerlink" title="4.4.创建用户"></a>4.4.创建用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user &quot;username&quot; with password &#39;password&#39;</span><br></pre></td></tr></table></figure>
-<h2 id="4-5-赋予管理员权限"><a href="#4-5-赋予管理员权限" class="headerlink" title="4.5.赋予管理员权限"></a>4.5.赋予管理员权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges to username</span><br></pre></td></tr></table></figure>
-<h2 id="4-6-创建管理员权限用户"><a href="#4-6-创建管理员权限用户" class="headerlink" title="4.6.创建管理员权限用户"></a>4.6.创建管理员权限用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user &quot;username&quot; with password &#39;password&#39; with all privileges</span><br></pre></td></tr></table></figure>
-<h2 id="4-7-修改用户密码"><a href="#4-7-修改用户密码" class="headerlink" title="4.7.修改用户密码"></a>4.7.修改用户密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for username &#x3D; &quot;password&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="4-8-取消权限"><a href="#4-8-取消权限" class="headerlink" title="4.8.取消权限"></a>4.8.取消权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revoke all on mydb from username</span><br></pre></td></tr></table></figure>
-<h2 id="4-9-查看权限"><a href="#4-9-查看权限" class="headerlink" title="4.9.查看权限"></a>4.9.查看权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show grants for username</span><br></pre></td></tr></table></figure>
-<h2 id="4-10-删除用户"><a href="#4-10-删除用户" class="headerlink" title="4.10.删除用户"></a>4.10.删除用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user &quot;username&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="4-11-登录账号"><a href="#4-11-登录账号" class="headerlink" title="4.11.登录账号"></a>4.11.登录账号</h2><p><strong>认证策略需要在配置文件中打开[http]下的auth-enabled = true</strong></p>
+<h1 id="四、influxDB基本使用（以Windows为例）"><a href="#四、influxDB基本使用（以Windows为例）" class="headerlink" title="四、influxDB基本使用（以Windows为例）"></a>四、influxDB基本使用（以Windows为例）</h1><h2 id="4-1-启动"><a href="#4-1-启动" class="headerlink" title="4.1.启动"></a>4.1.启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 在cmd中进入到influxDB目录输入以下命令启动influxDB</span><br><span class="line">influxd.exe -config influxdb.conf</span><br><span class="line"></span><br><span class="line"># 启动客户端，如果没有修改过conf文件，那么则不用在后面指定端口</span><br><span class="line">influx.exe -port 8081</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-用户"><a href="#4-2-用户" class="headerlink" title="4.2.用户"></a>4.2.用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#显示所有用户</span><br><span class="line">show users</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user &quot;username&quot; with password &#39;password&#39;</span><br><span class="line"></span><br><span class="line">#创建管理员权限用户</span><br><span class="line">create user &quot;username&quot; with password &#39;password&#39; with all privileges</span><br><span class="line"></span><br><span class="line">#修改用户密码</span><br><span class="line">set password for username &#x3D; &quot;password&quot;</span><br><span class="line"></span><br><span class="line">#删除用户</span><br><span class="line">drop user &quot;username&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-权限"><a href="#4-3-权限" class="headerlink" title="4.3.权限"></a>4.3.权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看权限</span><br><span class="line">show grants for username</span><br><span class="line"></span><br><span class="line">#赋予管理员权限</span><br><span class="line">grant all privileges to username</span><br><span class="line"></span><br><span class="line">#取消权限</span><br><span class="line">revoke all on mydb from username</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-登录账号"><a href="#4-4-登录账号" class="headerlink" title="4.4.登录账号"></a>4.4.登录账号</h2><p><strong>认证策略需要在配置文件中打开[http]下的auth-enabled = true</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auth</span><br><span class="line">然后输入账号密码</span><br></pre></td></tr></table></figure>
-<h2 id="4-12-查看数据库"><a href="#4-12-查看数据库" class="headerlink" title="4.12.查看数据库"></a>4.12.查看数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases</span><br></pre></td></tr></table></figure>
-<h2 id="4-13-创建数据库"><a href="#4-13-创建数据库" class="headerlink" title="4.13.创建数据库"></a>4.13.创建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database &quot;testDB&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="4-14-使用数据库"><a href="#4-14-使用数据库" class="headerlink" title="4.14.使用数据库"></a>4.14.使用数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use testDB</span><br></pre></td></tr></table></figure>
-<h2 id="4-15-插入数据"><a href="#4-15-插入数据" class="headerlink" title="4.15.插入数据"></a>4.15.插入数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert weather,altitude&#x3D;5000,area&#x3D;北 humidity&#x3D;3,temperature&#x3D;23 1599630284710054000</span><br></pre></td></tr></table></figure>
+<h2 id="4-5-数据库操作"><a href="#4-5-数据库操作" class="headerlink" title="4.5.数据库操作"></a>4.5.数据库操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看所有数据库</span><br><span class="line">show databases</span><br><span class="line"></span><br><span class="line">#创建数据库</span><br><span class="line">create database &quot;testDB&quot;</span><br><span class="line"></span><br><span class="line">#使用数据库</span><br><span class="line">use testDB</span><br></pre></td></tr></table></figure>
+<h2 id="4-6-表"><a href="#4-6-表" class="headerlink" title="4.6.表"></a>4.6.表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#显示所有表</span><br><span class="line">show measurements</span><br><span class="line"></span><br><span class="line">#创建表</span><br><span class="line">insert test,host&#x3D;127.0.0.1,monitor_name&#x3D;test count&#x3D;1</span><br><span class="line"></span><br><span class="line">#删除表</span><br><span class="line">drop measurement &quot;measurement_name&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4-7插入数据"><a href="#4-7插入数据" class="headerlink" title="4.7插入数据"></a>4.7插入数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert weather,altitude&#x3D;5000,area&#x3D;北 humidity&#x3D;3,temperature&#x3D;23 1599630284710054000</span><br></pre></td></tr></table></figure>
 <ul>
 <li>measurement(表名): weather</li>
 <li>tags（类似索引）: altitude、area。是String类型</li>
@@ -602,7 +596,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.1.什么是时序数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">1.2.时序数据库的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5"><span class="nav-text">数据写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-text">数据查询和分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="nav-text">数据存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%82%E5%90%88%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">1.3.时序数据库适合的场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-text">1.4.时序数据库的数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.5.时序数据库的基本概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81influxDB%E7%AE%80%E4%BB%8B"><span class="nav-text">二、influxDB简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-influxDB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">2.1.influxDB是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-influxDB%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">2.2.influxDB的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-influxDB%E7%9A%84%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-text">2.3.influxDB的关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%9C%89%E6%A6%82%E5%BF%B5"><span class="nav-text">特有概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-influxDB%E7%AB%AF%E5%8F%A3"><span class="nav-text">2.4.influxDB端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81influxDB%E5%AE%89%E8%A3%85"><span class="nav-text">三、influxDB安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Linux%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.1.Linux上安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Windows%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.2.Windows上安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-docker%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.3.docker上安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81influxDB%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BB%A5Windows%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-text">四、influxDB基本使用（以Windows为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E5%90%AF%E5%8A%A8influxDB"><span class="nav-text">4.1.启动influxDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E6%89%93%E5%BC%80%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text">4.2.打开客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7"><span class="nav-text">4.3.显示用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="nav-text">4.4.创建用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E8%B5%8B%E4%BA%88%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90"><span class="nav-text">4.5.赋予管理员权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-%E5%88%9B%E5%BB%BA%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%94%A8%E6%88%B7"><span class="nav-text">4.6.创建管理员权限用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="nav-text">4.7.修改用户密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-%E5%8F%96%E6%B6%88%E6%9D%83%E9%99%90"><span class="nav-text">4.8.取消权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90"><span class="nav-text">4.9.查看权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="nav-text">4.10.删除用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11-%E7%99%BB%E5%BD%95%E8%B4%A6%E5%8F%B7"><span class="nav-text">4.11.登录账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-12-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">4.12.查看数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-13-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">4.13.创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-14-%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">4.14.使用数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-15-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-text">4.15.插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-16-%E6%9F%A5%E7%9C%8B%E8%A1%A8%E5%90%8D"><span class="nav-text">4.16.查看表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-17-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE"><span class="nav-text">4.17.查看数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-18-%E6%9F%A5%E7%9C%8B%E7%AD%96%E7%95%A5"><span class="nav-text">4.18.查看策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-19-%E5%88%9B%E5%BB%BA%E7%AD%96%E7%95%A5"><span class="nav-text">4.19.创建策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-20-%E4%BF%AE%E6%94%B9%E7%AD%96%E7%95%A5"><span class="nav-text">4.20.修改策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-21-%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5"><span class="nav-text">4.21.删除策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-22-%E6%9F%A5%E8%AF%A2%E8%BF%9E%E7%BB%AD%E6%9F%A5%E8%AF%A2"><span class="nav-text">4.22.查询连续查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-23-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84Continuous-Queries"><span class="nav-text">4.23.创建新的Continuous Queries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-24-%E5%88%A0%E9%99%A4Continuous-Queries"><span class="nav-text">4.24.删除Continuous Queries</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.1.什么是时序数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">1.2.时序数据库的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5"><span class="nav-text">数据写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-text">数据查询和分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="nav-text">数据存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%82%E5%90%88%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">1.3.时序数据库适合的场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-text">1.4.时序数据库的数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.5.时序数据库的基本概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81influxDB%E7%AE%80%E4%BB%8B"><span class="nav-text">二、influxDB简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-influxDB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">2.1.influxDB是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-influxDB%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">2.2.influxDB的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-influxDB%E7%9A%84%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-text">2.3.influxDB的关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%9C%89%E6%A6%82%E5%BF%B5"><span class="nav-text">特有概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-influxDB%E7%AB%AF%E5%8F%A3"><span class="nav-text">2.4.influxDB端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81influxDB%E5%AE%89%E8%A3%85"><span class="nav-text">三、influxDB安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Linux%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.1.Linux上安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Windows%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.2.Windows上安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-docker%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.3.docker上安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81influxDB%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BB%A5Windows%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-text">四、influxDB基本使用（以Windows为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E5%90%AF%E5%8A%A8"><span class="nav-text">4.1.启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E7%94%A8%E6%88%B7"><span class="nav-text">4.2.用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E6%9D%83%E9%99%90"><span class="nav-text">4.3.权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E7%99%BB%E5%BD%95%E8%B4%A6%E5%8F%B7"><span class="nav-text">4.4.登录账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">4.5.数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-%E8%A1%A8"><span class="nav-text">4.6.表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-text">4.7插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-16-%E6%9F%A5%E7%9C%8B%E8%A1%A8%E5%90%8D"><span class="nav-text">4.16.查看表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-17-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE"><span class="nav-text">4.17.查看数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-18-%E6%9F%A5%E7%9C%8B%E7%AD%96%E7%95%A5"><span class="nav-text">4.18.查看策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-19-%E5%88%9B%E5%BB%BA%E7%AD%96%E7%95%A5"><span class="nav-text">4.19.创建策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-20-%E4%BF%AE%E6%94%B9%E7%AD%96%E7%95%A5"><span class="nav-text">4.20.修改策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-21-%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5"><span class="nav-text">4.21.删除策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-22-%E6%9F%A5%E8%AF%A2%E8%BF%9E%E7%BB%AD%E6%9F%A5%E8%AF%A2"><span class="nav-text">4.22.查询连续查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-23-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84Continuous-Queries"><span class="nav-text">4.23.创建新的Continuous Queries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-24-%E5%88%A0%E9%99%A4Continuous-Queries"><span class="nav-text">4.24.删除Continuous Queries</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -683,7 +677,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">49 分钟</span>
+    <span title="站点阅读时长">50 分钟</span>
 </div>
 
 <!--
@@ -722,8 +716,6 @@
 <script src="/js/next-boot.js"></script>
 
 
-  <script defer src="[object Object]"></script>
-    <script defer src="/lib/three/canvas_lines.min.js"></script>
 
 
   

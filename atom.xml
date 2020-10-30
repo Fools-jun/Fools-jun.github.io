@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>君de秘密基地</title>
+  <title>星辰大海</title>
   <icon>https://www.junpzx.cn/icon.png</icon>
-  <subtitle>君de小小博客</subtitle>
+  <subtitle>Starry Sea</subtitle>
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-10-28T09:36:10.556Z</updated>
+  <updated>2020-10-29T02:19:36.885Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/"/>
     <id>https://www.junpzx.cn/2020/10/28/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88TSDB%EF%BC%89-influxdb/</id>
     <published>2020-10-28T07:06:18.000Z</published>
-    <updated>2020-10-28T09:36:10.556Z</updated>
+    <updated>2020-10-29T02:19:36.885Z</updated>
     
     
     <summary type="html">&lt;p&gt;​        时序数据是基于时间的一系列的数据。在有时间的坐标中将这些数据点连成线，往过去看可以做成多纬度报表，揭示其趋势性、规律性、异常性;往未来看可以做大数据分析，机器学习，实现预测和预警。&lt;/p&gt;
