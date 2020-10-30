@@ -199,93 +199,55 @@ docker pull influxdb
 
 # 四、influxDB基本使用（以Windows为例）
 
-## 4.1.启动influxDB
-
-1. 打开cmd界面
-
-2. 进入到influxDB的文件夹目录
-
-3. 输入:
-
-    ```
-    influxd.exe -config influxdb.conf
-    ```
-
-## 4.2.打开客户端
+## 4.1.启动
 
 ```
+# 在cmd中进入到influxDB目录输入以下命令启动influxDB
+influxd.exe -config influxdb.conf
+
+# 启动客户端，如果没有修改过conf文件，那么则不用在后面指定端口
 influx.exe -port 8081
 ```
 
-如果说没有更改过influx的config中的端口的话，后面的-port不用加，如果修改过端口，则需要后面指定监听端口启动
 
 
-
-## 4.3.显示用户
+## 4.2.用户
 
 ```mysql
+#显示所有用户
 show users
-```
 
-
-
-## 4.4.创建用户
-
-```mysql
+#创建用户
 create user "username" with password 'password'
-```
 
-
-
-## 4.5.赋予管理员权限
-
-```mysql
-grant all privileges to username
-```
-
-
-
-## 4.6.创建管理员权限用户
-
-```mysql
+#创建管理员权限用户
 create user "username" with password 'password' with all privileges
-```
 
-
-
-## 4.7.修改用户密码
-
-```mysql
+#修改用户密码
 set password for username = "password"
-```
 
-
-
-## 4.8.取消权限
-
-```mysql
-revoke all on mydb from username
-```
-
-
-
-## 4.9.查看权限
-
-```mysql
-show grants for username
-```
-
-
-
-## 4.10.删除用户
-
-```mysql
+#删除用户
 drop user "username"
 ```
 
 
 
-## 4.11.登录账号
+## 4.3.权限
+
+```mysql
+#查看权限
+show grants for username
+
+#赋予管理员权限
+grant all privileges to username
+
+#取消权限
+revoke all on mydb from username
+```
+
+
+
+## 4.4.登录账号
 
 **认证策略需要在配置文件中打开[http]下的auth-enabled = true**
 
@@ -296,31 +258,41 @@ auth
 
 
 
-## 4.12.查看数据库
+## 4.5.数据库操作
 
 ```mysql
+#查看所有数据库
 show databases
-```
 
-
-
-## 4.13.创建数据库
-
-```mysql
+#创建数据库
 create database "testDB"
-```
 
-
-
-## 4.14.使用数据库
-
-```mysql
+#使用数据库
 use testDB
 ```
 
 
 
-## 4.15.插入数据
+## 4.6.表
+
+```mysql
+#显示所有表
+show measurements
+
+#创建表
+insert test,host=127.0.0.1,monitor_name=test count=1
+
+#删除表
+drop measurement "measurement_name"
+```
+
+
+
+
+
+
+
+## 4.7插入数据
 
 ```mysql
 insert weather,altitude=5000,area=北 humidity=3,temperature=23 1599630284710054000
