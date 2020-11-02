@@ -8,7 +8,14 @@ categories:
 - 配置
 tags:
 - Maven
+
 ---
+
+
+
+maven的pom配置文件中，各个标签配置的作用
+
+<!-- less -->
 
 ```html
 <project xmlns="http://maven.apache.org/POM/4.0.0"
