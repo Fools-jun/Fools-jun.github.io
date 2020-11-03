@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-11-03T02:51:11.547Z</updated>
+  <updated>2020-11-03T05:49:22.224Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="https://www.junpzx.cn/2020/11/03/Windows%E5%AE%89%E8%A3%85Kafka-%E5%90%ABzookeeper/"/>
     <id>https://www.junpzx.cn/2020/11/03/Windows%E5%AE%89%E8%A3%85Kafka-%E5%90%ABzookeeper/</id>
     <published>2020-11-03T02:13:02.000Z</published>
-    <updated>2020-11-03T02:51:11.547Z</updated>
+    <updated>2020-11-03T05:49:22.224Z</updated>
     
     
     <summary type="html">&lt;p&gt;windows环境下安装kafka和zookeeper教程&lt;/p&gt;</summary>
     
     
     
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="安装教程" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <category term="安装教程" scheme="https://www.junpzx.cn/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     
     
     <category term="Kafka" scheme="https://www.junpzx.cn/tags/Kafka/"/>
