@@ -79,10 +79,10 @@ maven的pom配置文件中，各个标签配置的作用
         <!-- 该元素描述了项目相关的所有邮件列表 . 自动产生的网站引用这些信息 .  -->
         <mailingList>
             <name>XMail</name><!-- 邮件的名称 -->
-            <post>xingxbz@163.com</post><!-- 发送邮件的地址或链接 , 如果是邮件地址 , 创建文档时 , mailto: 链接会被自动创建 -->
-            <subscribe>xingxbz@163.com</subscribe><!-- 订阅邮件的地址或链接 , 如果是邮件地址 , 创建文档时 , mailto: 链接会被自动创建 -->
-            <unsubscribe>xingxbz@163.com</unsubscribe><!-- 取消订阅邮件的地址或链接 , 如果是邮件地址 , 创建文档时 , mailto: 链接会被自动创建 -->
-            <archive>http:/xingmail.com/demo/mail/</archive><!-- 你可以浏览邮件信息的URL -->
+            <post>junpzx@163.com</post><!-- 发送邮件的地址或链接 , 如果是邮件地址 , 创建文档时 , mailto: 链接会被自动创建 -->
+            <subscribe>junpzx@163.com</subscribe><!-- 订阅邮件的地址或链接 , 如果是邮件地址 , 创建文档时 , mailto: 链接会被自动创建 -->
+            <unsubscribe>junpzx@163.com</unsubscribe><!-- 取消订阅邮件的地址或链接 , 如果是邮件地址 , 创建文档时 , mailto: 链接会被自动创建 -->
+            <archive>http:/junpzx.com/demo/mail/</archive><!-- 你可以浏览邮件信息的URL -->
         </mailingList>
     </mailingLists>
  
@@ -91,9 +91,9 @@ maven的pom配置文件中，各个标签配置的作用
         <!-- 某个项目开发者的信息 -->
         <developer>
             <id>DEV 001</id><!-- SCM里项目开发者的唯一标识符 -->
-            <name>Xingbz</name><!-- 项目开发者的全名 -->
-            <email>xingxbz@163.com</email><!-- 项目开发者的email -->
-            <url>https://blog.csdn.net/xingbaozhen1210</url><!-- 项目开发者的主页的URL -->
+            <name>Pengzx</name><!-- 项目开发者的全名 -->
+            <email>junpzx@163.com</email><!-- 项目开发者的email -->
+            <url>https://www.junpzx.cn</url><!-- 项目开发者的主页的URL -->
  
             <!-- 项目开发者在项目中扮演的角色 , 角色元素描述了各种角色 -->
             <roles>
@@ -104,7 +104,7 @@ maven的pom配置文件中，各个标签配置的作用
  
             <organization>xbz</organization><!-- 项目开发者所属组织 -->
  
-            <organizationUrl>https://blog.csdn.net/xingbaozhen1210</organizationUrl><!-- 项目开发者所属组织的URL -->
+            <organizationUrl>https://www.junpzx.cn</organizationUrl><!-- 项目开发者所属组织的URL -->
  
             <!-- 项目开发者属性 , 如即时消息如何处理等 -->
             <properties>
