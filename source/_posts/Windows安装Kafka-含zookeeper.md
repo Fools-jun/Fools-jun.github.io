@@ -4,7 +4,6 @@ copyright: true
 mathjax: true
 date: 2020-11-03 10:13:02
 categories:
-- 笔记
 - 安装教程
 tags:
 - Kafka
