@@ -33,7 +33,7 @@
 <p>  <strong>注意：如果启动时报<code>输入行太长，命令语法不正确</code>，可能是因为上述的配置文件没有修改，也可能是kafka文件夹的目录太深，可以直接放在D盘下试一下</strong></p>
 </li>
 </ul>
-<h1 id="4-测试Kafka"><a href="#4-测试Kafka" class="headerlink" title="4.测试Kafka"></a>4.测试Kafka</h1><ul>
+<h2 id="4-测试Kafka"><a href="#4-测试Kafka" class="headerlink" title="4.测试Kafka"></a>4.测试Kafka</h2><ul>
 <li><p>创建一个主题:</p>
 <p>  <code>kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-topic</code></p>
 </li>
