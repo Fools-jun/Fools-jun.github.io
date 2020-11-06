@@ -15,8 +15,6 @@ windows环境下安装kafka和zookeeper教程
 
 <!-- less -->
 
-
-
 ## 1.下载Kafka
 
 - 打开 [下载地址](http://kafka.apache.org/downloads.html)
