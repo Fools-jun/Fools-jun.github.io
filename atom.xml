@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-12-22T05:44:36.017Z</updated>
+  <updated>2020-12-22T06:14:20.002Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,10 +21,11 @@
     <link href="https://www.junpzx.cn/2020/12/22/Java-transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%BF%E7%94%A8/"/>
     <id>https://www.junpzx.cn/2020/12/22/Java-transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%BF%E7%94%A8/</id>
     <published>2020-12-22T03:11:53.000Z</published>
-    <updated>2020-12-22T05:44:36.017Z</updated>
+    <updated>2020-12-22T06:14:20.002Z</updated>
     
     
-    <summary type="html">&lt;p&gt;​        哎，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201222141414.gif&quot; alt=&quot;小可爱&quot;&gt;&lt;/p&gt;
+&lt;p&gt;唉，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势&lt;/p&gt;</summary>
     
     
     
