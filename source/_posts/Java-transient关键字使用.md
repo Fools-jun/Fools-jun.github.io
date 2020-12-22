@@ -10,7 +10,9 @@ tags:
 - 关键字
 ---
 
-​		哎，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势
+![小可爱](https://gitee.com/junpzx/blog-img/raw/master//img/20201222141414.gif)
+
+唉，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势
 
 
 
