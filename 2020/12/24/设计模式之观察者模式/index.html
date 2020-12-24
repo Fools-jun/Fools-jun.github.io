@@ -20,12 +20,10 @@
     var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="行为型模式之观察者模式:speech_balloon:意图观察者模式是一种行为设计模式， 允许你定义一种订阅机制， 可在对象事件发生时通知多个 “观察” 该对象的其他对象。  :disappointed:问题假如你有两种类型的对象：顾客和 商店 。 顾客对某个特定品牌的产品非常感兴趣 （例如最新型号的 iPhone 手机）， 而该产品很快将会在商店里出售。 顾客可以每天来商店看看产品是否到货。 但">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之观察者模式">
 <meta property="og:url" content="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="星辰大海">
-<meta property="og:description" content="行为型模式之观察者模式:speech_balloon:意图观察者模式是一种行为设计模式， 允许你定义一种订阅机制， 可在对象事件发生时通知多个 “观察” 该对象的其他对象。  :disappointed:问题假如你有两种类型的对象：顾客和 商店 。 顾客对某个特定品牌的产品非常感兴趣 （例如最新型号的 iPhone 手机）， 而该产品很快将会在商店里出售。 顾客可以每天来商店看看产品是否到货。 但">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145144.png">
@@ -34,7 +32,7 @@
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145738.png">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224170657.jpg">
 <meta property="article:published_time" content="2020-12-24T06:22:39.000Z">
-<meta property="article:modified_time" content="2020-12-24T09:34:20.823Z">
+<meta property="article:modified_time" content="2020-12-24T09:42:56.533Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -239,7 +237,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-24 14:22:39 / 修改时间：17:34:20" itemprop="dateCreated datePublished" datetime="2020-12-24T14:22:39+08:00">2020-12-24</time>
+              <time title="创建时间：2020-12-24 14:22:39 / 修改时间：17:42:56" itemprop="dateCreated datePublished" datetime="2020-12-24T14:22:39+08:00">2020-12-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -280,12 +278,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="行为型模式之观察者模式"><a href="#行为型模式之观察者模式" class="headerlink" title="行为型模式之观察者模式"></a>行为型模式之观察者模式</h1><h1 id="speech-balloon-意图"><a href="#speech-balloon-意图" class="headerlink" title=":speech_balloon:意图"></a>:speech_balloon:意图</h1><p><strong>观察者模式</strong>是一种行为设计模式， 允许你定义一种订阅机制， 可在对象事件发生时通知多个 “观察” 该对象的其他对象。</p>
+        <h1 id="行为型模式之观察者模式"><a href="#行为型模式之观察者模式" class="headerlink" title="行为型模式之观察者模式"></a>行为型模式之观察者模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>观察者模式</strong>是一种行为设计模式， 允许你定义一种订阅机制， 可在对象事件发生时通知多个 “观察” 该对象的其他对象。</p>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png" alt=""></p>
-<h1 id="disappointed-问题"><a href="#disappointed-问题" class="headerlink" title=":disappointed:问题"></a>:disappointed:问题</h1><p>假如你有两种类型的对象：<code>顾客</code>和 <code>商店</code> 。 顾客对某个特定品牌的产品非常感兴趣 （例如最新型号的 iPhone 手机）， 而该产品很快将会在商店里出售。</p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假如你有两种类型的对象：<code>顾客</code>和 <code>商店</code> 。 顾客对某个特定品牌的产品非常感兴趣 （例如最新型号的 iPhone 手机）， 而该产品很快将会在商店里出售。</p>
 <p>顾客可以每天来商店看看产品是否到货。 但如果商品尚未到货时， 绝大多数来到商店的顾客都会空手而归。</p>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145144.png" alt="前往商店和发送垃圾邮件"></p>
-<h1 id="happy-解决方案"><a href="#happy-解决方案" class="headerlink" title=":happy:解决方案"></a>:happy:解决方案</h1><p>拥有一些值得关注的状态的对象通常被称为<em>目标</em>， 由于它要将自身的状态改变通知给其他对象， 我们也将其称为<strong>发布者</strong> （publisher）。 所有希望关注发布者状态变化的其他对象被称为<strong>订阅者</strong> （subscribers）。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>拥有一些值得关注的状态的对象通常被称为<em>目标</em>， 由于它要将自身的状态改变通知给其他对象， 我们也将其称为<strong>发布者</strong> （publisher）。 所有希望关注发布者状态变化的其他对象被称为<strong>订阅者</strong> （subscribers）。</p>
 <p>观察者模式建议你为发布者类添加订阅机制， 让每个对象都能订阅或取消订阅发布者事件流。 不要害怕！ 这并不像听上去那么复杂。 实际上， 该机制包括：</p>
 <ol>
 <li>一个用于存储订阅者对象引用的列表成员变量； </li>
@@ -297,11 +295,11 @@
 <p>因此， 所有订阅者都必须实现同样的接口， 发布者仅通过该接口与订阅者交互。 接口中必须声明通知方法及其参数， 这样发布者在发出通知时还能传递一些上下文数据。</p>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145554.png" alt="发布者调用订阅者对象中的特定通知方法来通知订阅者"></p>
 <p>如果你的应用中有多个不同类型的发布者， 且希望订阅者可兼容所有发布者， 那么你甚至可以进一步让所有订阅者遵循同样的接口。 该接口仅需描述几个订阅方法即可。 这样订阅者就能在不与具体发布者类耦合的情况下通过接口观察发布者的状态。</p>
-<h1 id="newspaper-真实世界类比"><a href="#newspaper-真实世界类比" class="headerlink" title=":newspaper:真实世界类比"></a>:newspaper:真实世界类比</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145738.png" alt="杂志和报纸订阅"></p>
+<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145738.png" alt="杂志和报纸订阅"></p>
 <p>如果你订阅了一份杂志或报纸， 那就不需要再去报摊查询新出版的刊物了。 出版社 （即应用中的 “发布者”） 会在刊物出版后 （甚至提前） 直接将最新一期寄送至你的邮箱中。</p>
 <p>出版社负责维护订阅者列表， 了解订阅者对哪些刊物感兴趣。 当订阅者希望出版社停止寄送新一期的杂志时， 他们可随时从该列表中退出。</p>
-<h1 id="thinking-观察者模式结构"><a href="#thinking-观察者模式结构" class="headerlink" title=":thinking: 观察者模式结构"></a>:thinking: 观察者模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224170657.jpg" alt="观察者模型结构"></p>
-<h1 id="bulb-观察者模式适合应用场景"><a href="#bulb-观察者模式适合应用场景" class="headerlink" title=":bulb:观察者模式适合应用场景"></a>:bulb:观察者模式适合应用场景</h1><p>:mrs_claus: 当一个对象状态的改变需要改变其他对象， 或实际对象是事先未知的或动态变化的时， 可使用观察者模式。</p>
+<h1 id="🤔-观察者模式结构"><a href="#🤔-观察者模式结构" class="headerlink" title="🤔 观察者模式结构"></a>🤔 观察者模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224170657.jpg" alt="观察者模型结构"></p>
+<h1 id="💡观察者模式适合应用场景"><a href="#💡观察者模式适合应用场景" class="headerlink" title="💡观察者模式适合应用场景"></a>💡观察者模式适合应用场景</h1><p>:mrs_claus: 当一个对象状态的改变需要改变其他对象， 或实际对象是事先未知的或动态变化的时， 可使用观察者模式。</p>
 <p>:santa: 当你使用图形用户界面类时通常会遇到一个问题。 比如， 你创建了自定义按钮类并允许客户端在按钮中注入自定义代码， 这样当用户按下按钮时就会触发这些代码。</p>
 <p>:mrs_claus:观察者模式允许任何实现了订阅者接口的对象订阅发布者对象的事件通知。 你可在按钮中添加订阅机制， 允许客户端通过自定义订阅类注入自定义代码。</p>
 <p> :santa: 当应用中的一些对象必须观察其他对象时， 可使用该模式。 但仅能在有限时间内或特定情况下使用。</p>
@@ -343,7 +341,6 @@
 <p>  假设有一个程序， 其所有的组件都变成了发布者， 它们之间可以相互建立动态连接。 这样程序中就没有中心化的中介者对象， 而只有一些分布式的观察者。</p>
 </li>
 </ul>
-
     </div>
 
     
@@ -455,7 +452,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">行为型模式之观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#speech-balloon-%E6%84%8F%E5%9B%BE"><span class="nav-text">:speech_balloon:意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#disappointed-%E9%97%AE%E9%A2%98"><span class="nav-text">:disappointed:问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#happy-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">:happy:解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#newspaper-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%B1%BB%E6%AF%94"><span class="nav-text">:newspaper:真实世界类比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#thinking-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">:thinking: 观察者模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bulb-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">:bulb:观察者模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔  实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️观察者模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">:🔱与其他模式的关系</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">行为型模式之观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%B0%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%B1%BB%E6%AF%94"><span class="nav-text">📰真实世界类比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔 观察者模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡观察者模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔  实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️观察者模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">:🔱与其他模式的关系</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
