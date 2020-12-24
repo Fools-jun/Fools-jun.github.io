@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Activiti进阶一、流程实例什么是流程实例流程实例（ProcessInstance）代表流程定义的执行实例。 一个流程实例包括了所有的运行节点。我们可以利用这个对象来了解当前流程实例的进度等信息。 例如：用户或程序按照流程定义内容发起一个流程，这就是一个流程实例。 流程定义和流程实例的图解：  启动流程实例 并添加Businesskey（业务标识）流程定义部署在activiti后，就可以在系统">
+  <meta name="description" content="工作流引擎是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。 例如开发一个系统最关键的部分不是系统的界面，也不是和数据库之间的信息交换，而是如何根据业务逻辑开发出符合实际需要的程序逻辑并确保其稳定性、易维护性（模块化和结构化）和弹性（容易根据实际业务逻辑的变化作出程序上的变动，例如决策权的改变、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Activiti进阶">
 <meta property="og:url" content="https://www.junpzx.cn/2020/12/24/Activiti%E8%BF%9B%E9%98%B6/index.html">
 <meta property="og:site_name" content="星辰大海">
-<meta property="og:description" content="Activiti进阶一、流程实例什么是流程实例流程实例（ProcessInstance）代表流程定义的执行实例。 一个流程实例包括了所有的运行节点。我们可以利用这个对象来了解当前流程实例的进度等信息。 例如：用户或程序按照流程定义内容发起一个流程，这就是一个流程实例。 流程定义和流程实例的图解：  启动流程实例 并添加Businesskey（业务标识）流程定义部署在activiti后，就可以在系统">
+<meta property="og:description" content="工作流引擎是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。 例如开发一个系统最关键的部分不是系统的界面，也不是和数据库之间的信息交换，而是如何根据业务逻辑开发出符合实际需要的程序逻辑并确保其稳定性、易维护性（模块化和结构化）和弹性（容易根据实际业务逻辑的变化作出程序上的变动，例如决策权的改变、">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224140542.png">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224140543.png">
@@ -77,7 +77,7 @@
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224140628.png">
 <meta property="og:image" content="https://www.junpzx.cn/2020/12/24/Activiti%E8%BF%9B%E9%98%B6/assets/1586694673.png">
 <meta property="article:published_time" content="2020-12-24T05:36:14.000Z">
-<meta property="article:modified_time" content="2020-12-24T06:06:30.653Z">
+<meta property="article:modified_time" content="2020-12-24T06:11:33.574Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="工作流引擎">
 <meta property="article:tag" content="Activiti">
@@ -283,7 +283,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-24 13:36:14 / 修改时间：14:06:30" itemprop="dateCreated datePublished" datetime="2020-12-24T13:36:14+08:00">2020-12-24</time>
+              <time title="创建时间：2020-12-24 13:36:14 / 修改时间：14:11:33" itemprop="dateCreated datePublished" datetime="2020-12-24T13:36:14+08:00">2020-12-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,7 +312,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>26 分钟</span>
+              <span>27 分钟</span>
             </span>
 
         </div>
@@ -324,7 +324,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Activiti进阶"><a href="#Activiti进阶" class="headerlink" title="Activiti进阶"></a>Activiti进阶</h1><h2 id="一、流程实例"><a href="#一、流程实例" class="headerlink" title="一、流程实例"></a>一、流程实例</h2><h3 id="什么是流程实例"><a href="#什么是流程实例" class="headerlink" title="什么是流程实例"></a>什么是流程实例</h3><p><strong>流程实例</strong>（ProcessInstance）代表流程定义的执行实例。</p>
+        <p><strong>工作流引擎</strong>是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。</p>
+<p>例如开发一个系统最关键的部分不是系统的界面，也不是和数据库之间的信息交换，而是如何根据业务逻辑开发出符合实际需要的程序逻辑并确保其稳定性、易维护性（模块化和结构化）和弹性（容易根据实际业务逻辑的变化作出程序上的变动，例如决策权的改变、组织结构的变动和由于业务方向的变化产生的全新业务逻辑等等）。 Workflow 引擎解决的就是这个问题：如果应用程序缺乏强大的逻辑层，势必变得容易出错（信息的路由错误、死循环等等）。</p>
+<p>就好比一辆汽车，外表做得再漂亮，如果发动机有问题就只是一个摆设。应用系统的弹性就好比引擎转速方面的性能，加速到100 公里需要1 个小时（业务流程发生变动需要进行半年的程序修改）还能叫好车吗？引擎动不动就熄火（程序因为逻辑的问题陷入死循环）的车还敢开吗？</p>
+<p>Workflow 关注的是如何缩短流程闲置时间，从而提高企业的业务处理能力并使企业能够关注于真正对企业有意义的增值业务上。从建立企业神经系统的角度也许更能理解两者的区别。传统软件不能解决工作流的问题，例如ERP关注的是企业的资源配置，但不可能解决资源传输过程中的损耗和降低传输（流程）的成本；同样workflow也不能完全解决传统管理软件所能解决的问题，例如对生产管理的MRP 系统所能解决的生产过程控制通过workflow很难实现。但一个好的传统软件如果希望能自动化地在整个企业中应用起来，必须有一个强大的逻辑层，用以解决信息传递的逻辑判断和自动流转，这个时候就需要workflow的平台。</p>
+<p>今天的很多优秀的工作流解决方案集成了短信息、页面服务、目标管理、文件管理和其他一些操作系统才提供的服务。</p>
+<h1 id="Activiti进阶"><a href="#Activiti进阶" class="headerlink" title="Activiti进阶"></a>Activiti进阶</h1><h2 id="一、流程实例"><a href="#一、流程实例" class="headerlink" title="一、流程实例"></a>一、流程实例</h2><h3 id="什么是流程实例"><a href="#什么是流程实例" class="headerlink" title="什么是流程实例"></a>什么是流程实例</h3><p><strong>流程实例</strong>（ProcessInstance）代表流程定义的执行实例。</p>
 <p>一个流程实例包括了所有的运行节点。我们可以利用这个对象来了解当前流程实例的进度等信息。</p>
 <p>例如：用户或程序按照流程定义内容发起一个流程，这就是一个流程实例。</p>
 <p>流程定义和流程实例的图解：</p>
@@ -847,12 +852,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">181k</span>
+    <span title="站点总字数">182k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:45</span>
+    <span title="站点阅读时长">2:46</span>
 </div>
 
 <!--
