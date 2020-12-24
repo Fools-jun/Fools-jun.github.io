@@ -1,11 +1,10 @@
 ---
-title: Java设计模式简介及分类
+title: 设计模式简介及分类
 date: 2020-10-13 17:26:34
 categories:
 - 笔记
-- 后端
+- 基础
 tags:
-- Java
 - 设计模式
 copyright: true
 ---
