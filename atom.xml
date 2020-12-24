@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-12-22T06:14:20.002Z</updated>
+  <updated>2020-12-23T01:28:22.685Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,11 +21,10 @@
     <link href="https://www.junpzx.cn/2020/12/22/Java-transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%BF%E7%94%A8/"/>
     <id>https://www.junpzx.cn/2020/12/22/Java-transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%BF%E7%94%A8/</id>
     <published>2020-12-22T03:11:53.000Z</published>
-    <updated>2020-12-22T06:14:20.002Z</updated>
+    <updated>2020-12-23T01:28:22.685Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201222141414.gif&quot; alt=&quot;小可爱&quot;&gt;&lt;/p&gt;
-&lt;p&gt;唉，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;唉，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势&lt;/p&gt;</summary>
     
     
     
@@ -425,13 +424,12 @@
     <link href="https://www.junpzx.cn/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     <id>https://www.junpzx.cn/2020/09/17/%E4%BD%BF%E7%94%A8%20Hexo+GitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</id>
     <published>2020-09-17T09:05:00.000Z</published>
-    <updated>2020-10-15T03:19:45.833Z</updated>
+    <updated>2020-12-23T01:27:43.308Z</updated>
     
     
     <summary type="html">&lt;p&gt;近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。&lt;/p&gt;
 &lt;p&gt;虽然搭建时比较麻烦，有点折腾，但是配置完成后，基本不需要操心维护的事，甚至放了几年都忘记了，打开来看文章依然还在。&lt;/p&gt;
-&lt;p&gt;本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。&lt;/p&gt;
-&lt;p&gt;此博客搬运至 : &lt;a href=&quot;https://zhuanlan.zhihu.com/p/60578464&quot;&gt;知乎-“crystal”&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。&lt;/p&gt;</summary>
     
     
     
