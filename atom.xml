@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-12-24T05:49:23.959Z</updated>
+  <updated>2020-12-24T06:13:30.281Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.junpzx.cn/2020/12/24/Activiti%E5%9F%BA%E7%A1%80/"/>
     <id>https://www.junpzx.cn/2020/12/24/Activiti%E5%9F%BA%E7%A1%80/</id>
     <published>2020-12-24T05:36:26.000Z</published>
-    <updated>2020-12-24T05:49:23.959Z</updated>
+    <updated>2020-12-24T06:13:30.281Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;工作流引擎&lt;/strong&gt;是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。&lt;/p&gt;
@@ -34,10 +34,8 @@
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="教程" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E6%95%99%E7%A8%8B/"/>
+    <category term="工作流引擎" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
     
-    
-    <category term="工作流引擎" scheme="https://www.junpzx.cn/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
     
     <category term="Activiti" scheme="https://www.junpzx.cn/tags/Activiti/"/>
     
@@ -48,7 +46,7 @@
     <link href="https://www.junpzx.cn/2020/12/24/Activiti%E8%BF%9B%E9%98%B6/"/>
     <id>https://www.junpzx.cn/2020/12/24/Activiti%E8%BF%9B%E9%98%B6/</id>
     <published>2020-12-24T05:36:14.000Z</published>
-    <updated>2020-12-24T06:11:33.574Z</updated>
+    <updated>2020-12-24T06:13:33.489Z</updated>
     
     
       
@@ -64,10 +62,8 @@
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="教程" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E6%95%99%E7%A8%8B/"/>
+    <category term="工作流引擎" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
     
-    
-    <category term="工作流引擎" scheme="https://www.junpzx.cn/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
     
     <category term="Activiti" scheme="https://www.junpzx.cn/tags/Activiti/"/>
     
@@ -78,7 +74,7 @@
     <link href="https://www.junpzx.cn/2020/12/24/Activiti%E6%95%B4%E5%90%88/"/>
     <id>https://www.junpzx.cn/2020/12/24/Activiti%E6%95%B4%E5%90%88/</id>
     <published>2020-12-24T05:35:58.000Z</published>
-    <updated>2020-12-24T06:11:39.006Z</updated>
+    <updated>2020-12-24T06:13:36.313Z</updated>
     
     
       
@@ -94,10 +90,8 @@
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="教程" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E6%95%99%E7%A8%8B/"/>
+    <category term="工作流引擎" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
     
-    
-    <category term="工作流引擎" scheme="https://www.junpzx.cn/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
     
     <category term="Activiti" scheme="https://www.junpzx.cn/tags/Activiti/"/>
     
@@ -108,19 +102,19 @@
     <link href="https://www.junpzx.cn/2020/12/22/Java-transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%BF%E7%94%A8/"/>
     <id>https://www.junpzx.cn/2020/12/22/Java-transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%BF%E7%94%A8/</id>
     <published>2020-12-22T03:11:53.000Z</published>
-    <updated>2020-12-23T01:28:22.685Z</updated>
+    <updated>2020-12-24T06:12:51.297Z</updated>
     
     
     <summary type="html">&lt;p&gt;唉，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势&lt;/p&gt;</summary>
     
     
     
-    <category term="Java" scheme="https://www.junpzx.cn/categories/Java/"/>
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="基础" scheme="https://www.junpzx.cn/categories/Java/%E5%9F%BA%E7%A1%80/"/>
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
     
     
-    <category term="关键字" scheme="https://www.junpzx.cn/tags/%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <category term="Java关键字" scheme="https://www.junpzx.cn/tags/Java%E5%85%B3%E9%94%AE%E5%AD%97/"/>
     
   </entry>
   
