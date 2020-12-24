@@ -14,8 +14,6 @@ copyright: true
 
 本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。
 
-此博客搬运至 : [知乎-"crystal"](https://zhuanlan.zhihu.com/p/60578464)
-
 <!-- less -->
 
 
@@ -28,7 +26,7 @@ copyright: true
 
 本文就详细介绍下如何使用 Hexo + GitHub 搭建免费个人博客网站的教程。
 
-此博客搬运至 : [知乎-"crystal"](https://zhuanlan.zhihu.com/p/60578464)
+此博客转载至 : [知乎-"crystal"](https://zhuanlan.zhihu.com/p/60578464)
 
 
 
