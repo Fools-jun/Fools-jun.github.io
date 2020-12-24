@@ -15,3 +15,5 @@ date: 2020-09-27 17:25:00
 
 [visualgo](https://visualgo.net/zh)：一个以动态展示算法的流程和数据结构的网站。
 
+[emoji](https://emojixd.com/)：一个emoji的表情网站，内有各种emoji表情。
+
