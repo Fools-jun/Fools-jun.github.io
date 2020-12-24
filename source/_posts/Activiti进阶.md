@@ -5,9 +5,8 @@ mathjax: true
 date: 2020-12-24 13:36:14
 categories:
 - 笔记
-- 教程
-tags:
 - 工作流引擎
+tags:
 - Activiti
 ---
 

@@ -4,10 +4,10 @@ copyright: true
 mathjax: true
 date: 2020-12-22 11:11:53
 categories:
-- Java
+- 笔记
 - 基础
 tags:
-- 关键字
+- Java关键字
 ---
 
 唉，虽然自己最熟的是Java，但很多Java基础知识都不知道，比如transient关键字以前都没用到过，所以不知道它的作用是什么,今天在观看Java EventObject类的源码时,发现它其中的source字段使用transient关键字修饰,所以记录一下transient关键字的使用，涨下姿势
