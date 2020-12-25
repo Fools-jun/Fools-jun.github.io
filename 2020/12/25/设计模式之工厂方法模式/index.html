@@ -21,24 +21,24 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之观察者模式">
-<meta property="og:url" content="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:title" content="设计模式之工厂方法模式">
+<meta property="og:url" content="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="星辰大海">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145144.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145419.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145554.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145738.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224170657.jpg">
-<meta property="article:published_time" content="2020-12-24T06:22:39.000Z">
-<meta property="article:modified_time" content="2020-12-25T07:37:49.834Z">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152431.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152710.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152825.png">
+<meta property="og:image" content="e:%5CDesktop%5Csolution3-zh.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152939.png">
+<meta property="article:published_time" content="2020-12-25T07:11:25.000Z">
+<meta property="article:modified_time" content="2020-12-25T07:37:59.248Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png">
+<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png">
 
-<link rel="canonical" href="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
+<link rel="canonical" href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>设计模式之观察者模式 | 星辰大海</title>
+  <title>设计模式之工厂方法模式 | 星辰大海</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          设计模式之观察者模式
+          设计模式之工厂方法模式
         </h1>
 
         <div class="post-meta">
@@ -225,16 +225,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-12-24 14:22:39" itemprop="dateCreated datePublished" datetime="2020-12-24T14:22:39+08:00">2020-12-24</time>
+              <time title="创建时间：2020-12-25 15:11:25 / 修改时间：15:37:59" itemprop="dateCreated datePublished" datetime="2020-12-25T15:11:25+08:00">2020-12-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-25 15:37:49" itemprop="dateModified" datetime="2020-12-25T15:37:49+08:00">2020-12-25</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +243,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">行为型设计模式</span></a>
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">创建型设计模式</span></a>
                 </span>
             </span>
 
@@ -259,7 +253,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,69 +272,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="行为型模式之观察者模式"><a href="#行为型模式之观察者模式" class="headerlink" title="行为型模式之观察者模式"></a>行为型模式之观察者模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>观察者模式</strong>是一种行为设计模式， 允许你定义一种订阅机制， 可在对象事件发生时通知多个 “观察” 该对象的其他对象。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png" alt=""></p>
-<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假如你有两种类型的对象：<code>顾客</code>和 <code>商店</code> 。 顾客对某个特定品牌的产品非常感兴趣 （例如最新型号的 iPhone 手机）， 而该产品很快将会在商店里出售。</p>
-<p>顾客可以每天来商店看看产品是否到货。 但如果商品尚未到货时， 绝大多数来到商店的顾客都会空手而归。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145144.png" alt="前往商店和发送垃圾邮件"></p>
-<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>拥有一些值得关注的状态的对象通常被称为<em>目标</em>， 由于它要将自身的状态改变通知给其他对象， 我们也将其称为<strong>发布者</strong> （publisher）。 所有希望关注发布者状态变化的其他对象被称为<strong>订阅者</strong> （subscribers）。</p>
-<p>观察者模式建议你为发布者类添加订阅机制， 让每个对象都能订阅或取消订阅发布者事件流。 不要害怕！ 这并不像听上去那么复杂。 实际上， 该机制包括：</p>
+        <h1 id="设计模式之工厂方法模式"><a href="#设计模式之工厂方法模式" class="headerlink" title="设计模式之工厂方法模式"></a>设计模式之工厂方法模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png" alt="工厂方法模式"></p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假设你正在开发一款物流管理应用。 最初版本只能处理卡车运输， 因此大部分代码都在位于名为 <code>卡车</code>的类中。</p>
+<p>一段时间后， 这款应用变得极受欢迎。 你每天都能收到十几次来自海运公司的请求， 希望应用能够支持海上物流功能。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152431.png" alt="如果代码其余部分与现有类已经存在耦合关系， 那么向程序中添加新类其实并没有那么容易"></p>
+<p>这可是个好消息。 但是代码问题该如何处理呢？ 目前， 大部分代码都与 <code>卡车</code>类相关。 在程序中添加 <code>轮船</code>类需要修改全部代码。 更糟糕的是， 如果你以后需要在程序中支持另外一种运输方式， 很可能需要再次对这些代码进行大幅修改。</p>
+<p>最后， 你将不得不编写繁复的代码， 根据不同的运输对象类， 在应用中进行不同的处理。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>工厂方法模式建议使用特殊的<em>工厂</em>方法代替对于对象构造函数的直接调用 （即使用 <code>new</code>运算符）。 不用担心， 对象仍将通过 <code>new</code>运算符创建， 只是该运算符改在工厂方法中调用罢了。 工厂方法返回的对象通常被称作 “产品”。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152710.png" alt="子类可以修改工厂方法返回的对象类型"></p>
+<p>乍看之下， 这种更改可能毫无意义： 我们只是改变了程序中调用构造函数的位置而已。 但是， 仔细想一下， 现在你可以在子类中重写工厂方法， 从而改变其创建产品的类型。</p>
+<p>但有一点需要注意:仅当这些产品具有共同的基类或者接口时， 子类才能返回不同类型的产品， 同时基类中的工厂方法还应将其返回类型声明为这一共有接口。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152825.png" alt="所有产品都必须使用同一接口"></p>
+<p>举例来说，  <code>卡车</code>Truck和 <code>轮船</code>Ship类都必须实现 <code>运输</code>Transport接口， 该接口声明了一个名为 <code>deliver</code>交付的方法。 每个类都将以不同的方式实现该方法： 卡车走陆路交付货物， 轮船走海路交付货物。  <code>陆路运输</code>Road­Logistics类中的工厂方法返回卡车对象， 而 <code>海路运输</code>Sea­Logistics类则返回轮船对象。</p>
+<p><img src="E:%5CDesktop%5Csolution3-zh.png" alt="只要产品类实现一个共同的接口， 你就可以将其对象传递给客户代码， 而无需提供额外数据"></p>
+<p>调用工厂方法的代码 （通常被称为<em>客户端</em>代码） 无需了解不同子类返回实际对象之间的差别。 客户端将所有产品视为抽象的 <code>运输</code> 。 客户端知道所有运输对象都提供 <code>交付</code>方法， 但是并不关心其具体实现方式。</p>
+<h1 id="🤔-工厂方法模式结构"><a href="#🤔-工厂方法模式结构" class="headerlink" title="🤔 工厂方法模式结构"></a>🤔 工厂方法模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152939.png" alt="工厂方法模式结构"></p>
 <ol>
-<li>一个用于存储订阅者对象引用的列表成员变量； </li>
-<li>几个用于添加或删除该列表中订阅者的公有方法。</li>
-</ol>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145419.png" alt="订阅机制允许对象订阅事件通知"></p>
-<p>现在， 无论何时发生了重要的发布者事件， 它都要遍历订阅者并调用其对象的特定通知方法。</p>
-<p>实际应用中可能会有十几个不同的订阅者类跟踪着同一个发布者类的事件， 你不会希望发布者与所有这些类相耦合的。 此外如果他人会使用发布者类， 那么你甚至可能会对其中的一些类一无所知。</p>
-<p>因此， 所有订阅者都必须实现同样的接口， 发布者仅通过该接口与订阅者交互。 接口中必须声明通知方法及其参数， 这样发布者在发出通知时还能传递一些上下文数据。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145554.png" alt="发布者调用订阅者对象中的特定通知方法来通知订阅者"></p>
-<p>如果你的应用中有多个不同类型的发布者， 且希望订阅者可兼容所有发布者， 那么你甚至可以进一步让所有订阅者遵循同样的接口。 该接口仅需描述几个订阅方法即可。 这样订阅者就能在不与具体发布者类耦合的情况下通过接口观察发布者的状态。</p>
-<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224145738.png" alt="杂志和报纸订阅"></p>
-<p>如果你订阅了一份杂志或报纸， 那就不需要再去报摊查询新出版的刊物了。 出版社 （即应用中的 “发布者”） 会在刊物出版后 （甚至提前） 直接将最新一期寄送至你的邮箱中。</p>
-<p>出版社负责维护订阅者列表， 了解订阅者对哪些刊物感兴趣。 当订阅者希望出版社停止寄送新一期的杂志时， 他们可随时从该列表中退出。</p>
-<h1 id="🤔-观察者模式结构"><a href="#🤔-观察者模式结构" class="headerlink" title="🤔 观察者模式结构"></a>🤔 观察者模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201224170657.jpg" alt="观察者模型结构"></p>
-<h1 id="💡观察者模式适合应用场景"><a href="#💡观察者模式适合应用场景" class="headerlink" title="💡观察者模式适合应用场景"></a>💡观察者模式适合应用场景</h1><p>🏮当一个对象状态的改变需要改变其他对象， 或实际对象是事先未知的或动态变化的时， 可使用观察者模式。</p>
-<p>🧨当你使用图形用户界面类时通常会遇到一个问题。 比如， 你创建了自定义按钮类并允许客户端在按钮中注入          自定义代码， 这样当用户按下按钮时就会触发这些代码。</p>
-<p>🏮观察者模式允许任何实现了订阅者接口的对象订阅发布者对象的事件通知。 你可在按钮中添加订阅机制， 允许     客户端通过自定义订阅类注入自定义代码。</p>
-<p>🧨 当应用中的一些对象必须观察其他对象时， 可使用该模式。 但仅能在有限时间内或特定情况下使用。</p>
-<pre><code>  订阅列表是动态的， 因此订阅者可随时加入或离开该列表。
-</code></pre><h1 id="📔-实现方式"><a href="#📔-实现方式" class="headerlink" title="📔  实现方式"></a>📔  实现方式</h1><ol>
-<li><p>仔细检查你的业务逻辑， 试着将其拆分为两个部分： 独立于其他代码的核心功能将作为发布者； 其他代码则将转化为一组订阅类。</p>
+<li><p><strong>产品</strong> （Product） 将会对接口进行声明。 对于所有由创建者及其子类构建的对象， 这些接口都是通用的。</p>
 </li>
-<li><p>声明订阅者接口。 该接口至少应声明一个 <code>update</code>方法。</p>
+<li><p><strong>具体产品</strong> （Concrete Products） 是产品接口的不同实现。</p>
 </li>
-<li><p>声明发布者接口并定义一些接口来在列表中添加和删除订阅对象。 记住发布者必须仅通过订阅者接口与它们进行交互。</p>
+<li><p><strong>创建者</strong> （Creator） 类声明返回产品对象的工厂方法。 该方法的返回对象类型必须与产品接口相匹配。</p>
+<p> 你可以将工厂方法声明为抽象方法， 强制要求每个子类以不同方式实现该方法。 或者， 你也可以在基础工厂方法中返回默认产品类型。</p>
+<p> 注意， 尽管它的名字是创建者， 但他最主要的职责并<strong>不是</strong>创建产品。 一般来说， 创建者类包含一些与产品相关的核心业务逻辑。 工厂方法将这些逻辑处理从具体产品类中分离出来。 打个比方， 大型软件开发公司拥有程序员培训部门。 但是， 这些公司的主要工作还是编写代码， 而非生产程序员。</p>
 </li>
-<li><p>确定存放实际订阅列表的位置并实现订阅方法。 通常所有类型的发布者代码看上去都一样， 因此将列表放置在直接扩展自发布者接口的抽象类中是显而易见的。 具体发布者会扩展该类从而继承所有的订阅行为。</p>
-<p> 但是， 如果你需要在现有的类层次结构中应用该模式， 则可以考虑使用组合的方式： 将订阅逻辑放入一个独立的对象， 然后让所有实际订阅者使用该对象。</p>
-</li>
-<li><p>创建具体发布者类。 每次发布者发生了重要事件时都必须通知所有的订阅者。</p>
-</li>
-<li><p>在具体订阅者类中实现通知更新的方法。 绝大部分订阅者需要一些与事件相关的上下文数据。 这些数据可作为通知方法的参数来传递。</p>
-<p> 但还有另一种选择。 订阅者接收到通知后直接从通知中获取所有数据。 在这种情况下， 发布者必须通过更新方法将自身传递出去。 另一种不太灵活的方式是通过构造函数将发布者与订阅者永久性地连接起来。</p>
-</li>
-<li><p>客户端必须生成所需的全部订阅者， 并在相应的发布者处完成注册工作。</p>
+<li><p><strong>具体创建者</strong> （Concrete Creators） 将会重写基础工厂方法， 使其返回不同类型的产品。</p>
+<p> 注意， 并不一定每次调用工厂方法都会<strong>创建</strong>新的实例。 工厂方法也可以返回缓存、 对象池或其他来源的已有对象。</p>
 </li>
 </ol>
-<h1 id="⚖️观察者模式优缺点"><a href="#⚖️观察者模式优缺点" class="headerlink" title="⚖️观察者模式优缺点"></a>⚖️观察者模式优缺点</h1><p>✔️<em>开闭原则</em>。 你无需修改发布者代码就能引入新的订阅者类 （如果是发布者接口则可轻松引入发布者类）。</p>
-<p>✔️你可以在运行时建立对象之间的联系。</p>
-<p>❌订阅者的通知顺序是随机的。</p>
-<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
-<li><p>责任链模式、 命令模式、 中介者模式和观察者模式用于处理请求发送者和接收者之间的不同连接方式：</p>
-<ul>
-<li><em>责任链</em>按照顺序将请求动态传递给一系列的潜在接收者， 直至其中一名接收者对请求进行处理。</li>
-<li><em>命令</em>在发送者和请求者之间建立单向连接。</li>
-<li><em>中介者</em>清除了发送者和请求者之间的直接连接， 强制它们通过一个中介对象进行间接沟通。</li>
-<li><em>观察者</em>允许接收者动态地订阅或取消接收请求。</li>
-</ul>
-</li>
-<li><p>中介者和观察者之间的区别往往很难记住。 在大部分情况下， 你可以使用其中一种模式， 而有时可以同时使用。 让我们来看看如何做到这一点。</p>
-<p>  <em>中介者</em>的主要目标是消除一系列系统组件之间的相互依赖。 这些组件将依赖于同一个中介者对象。 <em>观察者</em>的目标是在对象之间建立动态的单向连接， 使得部分对象可作为其他对象的附属发挥作用。</p>
-<p>  有一种流行的中介者模式实现方式依赖于<em>观察者</em>。 中介者对象担当发布者的角色， 其他组件则作为订阅者， 可以订阅中介者的事件或取消订阅。 当<em>中介者</em>以这种方式实现时， 它可能看上去与<em>观察者</em>非常相似。</p>
-<p>  当你感到疑惑时， 记住可以采用其他方式来实现中介者。 例如， 你可永久性地将所有组件链接到同一个中介者对象。 这种实现方式和<em>观察者</em>并不相同， 但这仍是一种中介者模式。</p>
-<p>  假设有一个程序， 其所有的组件都变成了发布者， 它们之间可以相互建立动态连接。 这样程序中就没有中心化的中介者对象， 而只有一些分布式的观察者。</p>
-</li>
-</ul>
+<h1 id="💡工厂方法模式适合应用场景"><a href="#💡工厂方法模式适合应用场景" class="headerlink" title="💡工厂方法模式适合应用场景"></a>💡工厂方法模式适合应用场景</h1><p>🧨当你在编写代码的过程中， 如果无法预知对象确切类别及其依赖关系时， 可使用工厂方法。</p>
+<p>🏮工厂方法将创建产品的代码与实际使用产品的代码分离， 从而能在不影响其他代码的情况下扩展产品创建部分       代码。</p>
+<p>​     例如， 如果需要向应用中添加一种新产品， 你只需要开发新的创建者子类， 然后重写其工厂方法即可。</p>
+<p>🧨如果你希望用户能扩展你软件库或框架的内部组件， 可使用工厂方法。</p>
+<p>🏮继承可能是扩展软件库或框架默认行为的最简单方法。 但是当你使用子类替代标准组件时， 框架如何辨识出该     子类？</p>
+<p>​     解决方案是将各框架中构造组件的代码集中到单个工厂方法中， 并在继承该组件之外允许任何人对该方法进行     重写。</p>
+<p>​     让我们看看具体是如何实现的。 假设你使用开源 UI 框架编写自己的应用。 你希望在应用中使用圆形按钮， 但     是原框架仅支持矩形按钮。 你可以使用 <code>圆形按钮</code>Round­Button子类来继承标准的 <code>按钮</code>Button类。 但是， 你     需要告诉 <code>UI框架</code>UIFramework类使用新的子类按钮代替默认按钮。</p>
+<p>​     为了实现这个功能， 你可以根据基础框架类开发子类 <code>圆形按钮 UI</code>UIWith­Round­Buttons ， 并且重写其                 <code>create­Button</code>创建按钮方法。 基类中的该方法返回 <code>按钮</code>对象， 而你开发的子类返回 <code>圆形按钮</code>对象。 现在，      你就可以使用 <code>圆形按钮 UI</code>类代替 <code>UI框架</code>类。 就是这么简单！</p>
+<p>🧨如果你希望复用现有对象来节省系统资源， 而不是每次都重新创建对象， 可使用工厂方法。</p>
+<p>🏮在处理大型资源密集型对象 （比如数据库连接、 文件系统和网络资源） 时， 你会经常碰到这种资源需求。</p>
+<p>​     让我们思考复用现有对象的方法：</p>
+<p>​        1.首先， 你需要创建存储空间来存放所有已经创建的对象。</p>
+<p>​        2.当他人请求一个对象时， 程序将在对象池中搜索可用对象。</p>
+<p>​        3.…然后将其返回给客户端代码。</p>
+<p>​        4.如果没有可用对象， 程序则创建一个新对象 （并将其添加到对象池中）。</p>
+<p>​     这些代码可不少！ 而且它们必须位于同一处， 这样才能确保重复代码不会污染程序。</p>
+<p>​     可能最显而易见， 也是最方便的方式， 就是将这些代码放置在我们试图重用的对象类的构造函数中。 但是从     定义上来讲， 构造函数始终返回的是<strong>新对象</strong>， 其无法返回现有实例。</p>
+<p>​     因此， 你需要有一个既能够创建新对象， 又可以重用现有对象的普通方法。 这听上去和工厂方法非常相像。</p>
     </div>
 
     
@@ -355,11 +333,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">设计模式之观察者模式</a></p>
+  <p><span>本文标题:</span><a href="/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">设计模式之工厂方法模式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2020年12月24日 14:12:00</p>
-  <p><span>原始链接:</span><a href="/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" title="设计模式之观察者模式">https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年12月25日 15:12:00</p>
+  <p><span>原始链接:</span><a href="/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" title="设计模式之工厂方法模式">https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
 </div>
@@ -390,13 +368,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/24/Activiti%E5%9F%BA%E7%A1%80/" rel="prev" title="Activiti基础">
-      <i class="fa fa-chevron-left"></i> Activiti基础
+    <a href="/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之观察者模式">
+      <i class="fa fa-chevron-left"></i> 设计模式之观察者模式
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之工厂方法模式">
-      设计模式之工厂方法模式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -455,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">行为型模式之观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%B0%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%B1%BB%E6%AF%94"><span class="nav-text">📰真实世界类比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔 观察者模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡观察者模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔  实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️观察者模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之工厂方法模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94-%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔 工厂方法模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡工厂方法模式适合应用场景</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

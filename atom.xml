@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-12-24T09:46:06.411Z</updated>
+  <updated>2020-12-25T07:37:59.248Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>设计模式之工厂方法模式</title>
+    <link href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-12-25T07:11:25.000Z</published>
+    <updated>2020-12-25T07:37:59.248Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png&quot; alt=&quot;工厂方法模式&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="创建型设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>设计模式之观察者模式</title>
     <link href="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-24T06:22:39.000Z</published>
-    <updated>2020-12-24T09:46:06.411Z</updated>
+    <updated>2020-12-25T07:37:49.834Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -30,7 +53,9 @@
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="行为型设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
     <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
@@ -266,10 +291,10 @@
   
   <entry>
     <title>设计模式简介及分类</title>
-    <link href="https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/"/>
-    <id>https://www.junpzx.cn/2020/10/13/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/</id>
+    <link href="https://www.junpzx.cn/2020/10/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/"/>
+    <id>https://www.junpzx.cn/2020/10/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/</id>
     <published>2020-10-13T09:26:34.000Z</published>
-    <updated>2020-12-24T06:23:55.626Z</updated>
+    <updated>2020-12-25T07:23:42.777Z</updated>
     
     
     <summary type="html">&lt;p&gt;设计模式的概念最早是由 &lt;code&gt;克⾥斯托佛·亚历⼭⼤&lt;/code&gt; 在其著作 &lt;code&gt;《建筑模式语⾔》&lt;/code&gt; 中⾸次提出的。 本书介绍 了城市设计的 “语⾔”，提供了253个描述城镇、邻⾥、住宅、花园、房间及⻄部构造的模式， ⽽此类 “语⾔” 的基本单元就是模式。后来，&lt;code&gt;埃⾥希·伽玛&lt;/code&gt; 、 &lt;code&gt;约翰·弗利赛德斯&lt;/code&gt; 、 &lt;code&gt;拉尔夫·约翰逊&lt;/code&gt; 和 &lt;code&gt;理查德·赫尔姆&lt;/code&gt; 这四位作者接受了模式的概念。 1994 年， 他们出版了 《设计模式： 可复⽤⾯向对象软件的基础》 ⼀书， 将设计模式的概念应⽤到程序开发领域中。 其实有⼀部分⼈并没有仔细阅读过设计模式的相关书籍和资料，但依旧可以编写出优秀的代码。这主要 是由于在经过众多项⽬的锤炼和对程序设计的不断追求，从⽽在多年编程历程上提炼出来的⼼得体会。 ⽽这份经验最终会与设计模式提到的内容⼏乎⼀致，同样会要求⾼内聚、低耦合、可扩展、可复⽤。你 可能也遇到类似的经历，在学习⼀些框架的源码时，发现它⾥面的某些设计和你在做开发时⼀样。&lt;/p&gt;</summary>
@@ -278,7 +303,9 @@
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="设计模式简介及分类" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB/"/>
     
     
     <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
@@ -437,32 +464,6 @@
     <category term="JavaScript" scheme="https://www.junpzx.cn/tags/JavaScript/"/>
     
     <category term="ES6" scheme="https://www.junpzx.cn/tags/ES6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue基本操作(一)</title>
-    <link href="https://www.junpzx.cn/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%B8%80)/"/>
-    <id>https://www.junpzx.cn/2020/09/21/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%B8%80)/</id>
-    <published>2020-09-21T09:01:41.000Z</published>
-    <updated>2020-10-15T03:24:39.225Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;插值操作的介绍和使用&lt;/p&gt;
-&lt;p&gt;绑定属性的介绍和使用&lt;/p&gt;
-&lt;p&gt;计算属性的介绍和使用&lt;/p&gt;
-&lt;p&gt;事件监听的介绍和使用&lt;/p&gt;
-&lt;p&gt;表单输入绑定（v-model）的介绍和使用&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="Vue" scheme="https://www.junpzx.cn/tags/Vue/"/>
     
   </entry>
   
