@@ -59,23 +59,6 @@
       </tags>
   </entry>
   <entry>
-    <title>设计模式模板</title>
-    <url>/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="XX型模式之XXX模式"><a href="#XX型模式之XXX模式" class="headerlink" title="XX型模式之XXX模式"></a>XX型模式之XXX模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><h1 id="🤔-XXX模式结构"><a href="#🤔-XXX模式结构" class="headerlink" title="🤔 XXX模式结构"></a>🤔 XXX模式结构</h1><h1 id="💡XXX模式适合应用场景"><a href="#💡XXX模式适合应用场景" class="headerlink" title="💡XXX模式适合应用场景"></a>💡XXX模式适合应用场景</h1><p>🧨</p>
-<p>🏮</p>
-<h1 id="📔-实现方式"><a href="#📔-实现方式" class="headerlink" title="📔  实现方式"></a>📔  实现方式</h1><h1 id="⚖️XXX模式优缺点"><a href="#⚖️XXX模式优缺点" class="headerlink" title="⚖️XXX模式优缺点"></a>⚖️XXX模式优缺点</h1><p>✔️</p>
-<p>❌</p>
-<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>设计模式</category>
-        <category>行为型设计模式</category>
-      </categories>
-      <tags>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>设计模式之工厂方法模式</title>
     <url>/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="设计模式之工厂方法模式"><a href="#设计模式之工厂方法模式" class="headerlink" title="设计模式之工厂方法模式"></a>设计模式之工厂方法模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。</p>
