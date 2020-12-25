@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>设计模式之抽象工厂模式</title>
+    <url>/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="创建型模式之抽象工厂模式"><a href="#创建型模式之抽象工厂模式" class="headerlink" title="创建型模式之抽象工厂模式"></a>创建型模式之抽象工厂模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>抽象工厂模式</strong>是一种创建型设计模式， 它能创建一系列相关的对象， 而无需指定其具体类。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225160358.png" alt=""></p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假设你正在开发一款家具商店模拟器。 你的代码中包括一些类， 用于表示：</p>
+<ol>
+<li>一系列相关产品， 例如 <code>椅子</code>Chair 、  <code>沙发</code>Sofa和 <code>咖啡桌</code>Coffee­Table 。</li>
+<li>系列产品的不同变体。 例如， 你可以使用 <code>现代</code>Modern 、  <code>维多利亚</code>Victorian 、  <code>装饰风艺术</code>Art­Deco等风格生成 <code>椅子</code> 、  <code>沙发</code>和 <code>咖啡桌</code> 。</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225160502.png" alt="系列产品及其不同变体"></p>
+<p>你需要设法单独生成每件家具对象， 这样才能确保其风格一致。 如果顾客收到的家具风格不一样， 他们可不会开心。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225160602.png" alt="现代风格的沙发和维多利亚风格的椅子不搭"></p>
+<p>此外， 你也不希望在添加新产品或新风格时修改已有代码。 家具供应商对于产品目录的更新非常频繁， 你不会想在每次更新时都去修改核心代码的。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>首先， 抽象工厂模式建议为系列中的每件产品明确声明接口 （例如椅子、 沙发或咖啡桌）。 然后， 确保所有产品变体都继承这些接口。 例如， 所有风格的椅子都实现 <code>椅子</code>接口； 所有风格的咖啡桌都实现 <code>咖啡桌</code>接口， 以此类推。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225160638.png" alt="同一对象的所有变体都必须放置在同一个类层次结构之中"></p>
+<p>接下来， 我们需要声明<em>抽象工厂</em>——包含系列中所有产品构造方法的接口。 例如 <code>create­Chair</code>创建椅子 、  <code>create­Sofa</code>创建沙发和 <code>create­Coffee­Table</code>创建咖啡桌 。 这些方法必须返回<strong>抽象</strong>产品类型， 即我们之前抽取的那些接口：  <code>椅子</code> ，  <code>沙发</code>和 <code>咖啡桌</code>等等。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225160700.png" alt="每个具体工厂类都对应一个特定的产品变体"></p>
+<p>那么该如何处理产品变体呢？ 对于系列产品的每个变体， 我们都将基于 <code>抽象工厂</code>接口创建不同的工厂类。 每个工厂类都只能返回特定类别的产品， 例如，  <code>现代家具工厂</code>Modern­Furniture­Factory只能创建 <code>现代椅子</code>Modern­Chair 、  <code>现代沙发</code>Modern­Sofa和 <code>现代咖啡桌</code>Modern­Coffee­Table对象。</p>
+<p>客户端代码可以通过相应的抽象接口调用工厂和产品类。 你无需修改实际客户端代码， 就能更改传递给客户端的工厂类， 也能更改客户端代码接收的产品变体。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225160733.png" alt="客户端无需了解其所调用工厂的具体类信息"></p>
+<p>假设客户端想要工厂创建一把椅子。 客户端无需了解工厂类， 也不用管工厂类创建出的椅子类型。 无论是现代风格， 还是维多利亚风格的椅子， 对于客户端来说没有分别， 它只需调用抽象 <code>椅子</code>接口就可以了。 这样一来， 客户端只需知道椅子以某种方式实现了 <code>sit­On</code>坐下方法就足够了。 此外， 无论工厂返回的是何种椅子变体， 它都会和由同一工厂对象创建的沙发或咖啡桌风格一致。</p>
+<p>最后一点说明： 如果客户端仅接触抽象接口， 那么谁来创建实际的工厂对象呢？ 一般情况下， 应用程序会在初始化阶段创建具体工厂对象。 而在此之前， 应用程序必须根据配置文件或环境设定选择工厂类别。</p>
+<h1 id="🤔-抽象工厂模式结构"><a href="#🤔-抽象工厂模式结构" class="headerlink" title="🤔 抽象工厂模式结构"></a>🤔 抽象工厂模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225161121.png" alt="抽象工厂模式结构"></p>
+<h1 id="💡抽象工厂模式适合应用场景"><a href="#💡抽象工厂模式适合应用场景" class="headerlink" title="💡抽象工厂模式适合应用场景"></a>💡抽象工厂模式适合应用场景</h1><p><strong>🧨如果代码需要与多个不同系列的相关产品交互，但是由于无法提前获取相关信息，或者出于对未来扩展性的考虑，你不希望代码基于产品的具体类进行构建，在这种情况下，你可以使用抽象工厂。</strong></p>
+<p>🏮抽象工厂为你提供了一个接口， 可用于创建每个系列产品的对象。 只要代码通过该接口创建对象， 那么你就不会生成与应用程序已生成的产品类型不一致的产品。</p>
+<p><strong>🧨如果你有一个基于一组抽象方法的类，且其主要功能因此变得不明确，那么在这种情况下可以考虑使用抽象工厂模式。</strong></p>
+<p>🏮在设计良好的程序中， <em>每个类仅负责一件事</em>。 如果一个类与多种类型产品交互， 就可以考虑将工厂方法抽取到独立的工厂类或具备完整功能的抽象工厂类中。</p>
+<h1 id="📔-实现方式"><a href="#📔-实现方式" class="headerlink" title="📔  实现方式"></a>📔  实现方式</h1><ol>
+<li>以不同的产品类型与产品变体为维度绘制矩阵。</li>
+<li>为所有产品声明抽象产品接口。 然后让所有具体产品类实现这些接口。</li>
+<li>声明抽象工厂接口， 并且在接口中为所有抽象产品提供一组构建方法。</li>
+<li>为每种产品变体实现一个具体工厂类。</li>
+<li>在应用程序中开发初始化代码。 该代码根据应用程序配置或当前环境， 对特定具体工厂类进行初始化。 然后将该工厂对象传递给所有需要创建产品的类。</li>
+<li>找出代码中所有对产品构造函数的直接调用， 将其替换为对工厂对象中相应构建方法的调用。</li>
+</ol>
+<h1 id="⚖️抽象工厂模式优缺点"><a href="#⚖️抽象工厂模式优缺点" class="headerlink" title="⚖️抽象工厂模式优缺点"></a>⚖️抽象工厂模式优缺点</h1><p>✔️你可以确保同一工厂生成的产品相互匹配。</p>
+<p>✔️你可以避免客户端和具体产品代码的耦合。</p>
+<p><strong>✔️单一职责原则</strong>。 你可以将产品生成代码抽取到同一位置， 使得代码易于维护。</p>
+<p><strong>✔️开闭原则</strong>。 向应用程序中引入新产品变体时， 你无需修改客户端代码。</p>
+<p>❌由于采用该模式需要向应用中引入众多接口和类， 代码可能会比之前更加复杂。</p>
+<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
+<li>在许多设计工作的初期都会使用工厂方法模式 （较为简单， 而且可以更方便地通过子类进行定制）， 随后演化为使用抽象工厂模式、 原型模式或生成器模式 （更灵活但更加复杂）。</li>
+<li>生成器重点关注如何分步生成复杂对象。 抽象工厂专门用于生产一系列相关对象。 <em>抽象工厂</em>会马上返回产品， <em>生成器</em>则允许你在获取产品前执行一些额外构造步骤。</li>
+<li>抽象工厂模式通常基于一组工厂方法， 但你也可以使用原型模式来生成这些类的方法。</li>
+<li>当只需对客户端代码隐藏子系统创建对象的方式时， 你可以使用抽象工厂来代替外观模式。</li>
+<li>你可以将抽象工厂和桥接模式搭配使用。 如果由<em>桥接</em>定义的抽象只能与特定实现合作， 这一模式搭配就非常有用。 在这种情况下， <em>抽象工厂</em>可以对这些关系进行封装， 并且对客户端代码隐藏其复杂性。</li>
+<li>抽象工厂、 生成器和原型都可以用单例模式来实现。</li>
+</ul>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>设计模式</category>
+        <category>创建型设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式模板</title>
+    <url>/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="XX型模式之XXX模式"><a href="#XX型模式之XXX模式" class="headerlink" title="XX型模式之XXX模式"></a>XX型模式之XXX模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><h1 id="🤔-XXX模式结构"><a href="#🤔-XXX模式结构" class="headerlink" title="🤔 XXX模式结构"></a>🤔 XXX模式结构</h1><h1 id="💡XXX模式适合应用场景"><a href="#💡XXX模式适合应用场景" class="headerlink" title="💡XXX模式适合应用场景"></a>💡XXX模式适合应用场景</h1><p>🧨</p>
+<p>🏮</p>
+<h1 id="📔-实现方式"><a href="#📔-实现方式" class="headerlink" title="📔  实现方式"></a>📔  实现方式</h1><h1 id="⚖️XXX模式优缺点"><a href="#⚖️XXX模式优缺点" class="headerlink" title="⚖️XXX模式优缺点"></a>⚖️XXX模式优缺点</h1><p>✔️</p>
+<p>❌</p>
+<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>设计模式</category>
+        <category>行为型设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式之工厂方法模式</title>
     <url>/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="设计模式之工厂方法模式"><a href="#设计模式之工厂方法模式" class="headerlink" title="设计模式之工厂方法模式"></a>设计模式之工厂方法模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。</p>
@@ -18,20 +93,7 @@
 <p>举例来说，  <code>卡车</code>Truck和 <code>轮船</code>Ship类都必须实现 <code>运输</code>Transport接口， 该接口声明了一个名为 <code>deliver</code>交付的方法。 每个类都将以不同的方式实现该方法： 卡车走陆路交付货物， 轮船走海路交付货物。  <code>陆路运输</code>Road­Logistics类中的工厂方法返回卡车对象， 而 <code>海路运输</code>Sea­Logistics类则返回轮船对象。</p>
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225154352.png" alt="只要产品类实现一个共同的接口， 你就可以将其对象传递给客户代码， 而无需提供额外数据"></p>
 <p>调用工厂方法的代码 （通常被称为<em>客户端</em>代码） 无需了解不同子类返回实际对象之间的差别。 客户端将所有产品视为抽象的 <code>运输</code> 。 客户端知道所有运输对象都提供 <code>交付</code>方法， 但是并不关心其具体实现方式。</p>
-<h1 id="🤔-工厂方法模式结构"><a href="#🤔-工厂方法模式结构" class="headerlink" title="🤔 工厂方法模式结构"></a>🤔 工厂方法模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152939.png" alt="工厂方法模式结构"></p>
-<ol>
-<li><p><strong>产品</strong> （Product） 将会对接口进行声明。 对于所有由创建者及其子类构建的对象， 这些接口都是通用的。</p>
-</li>
-<li><p><strong>具体产品</strong> （Concrete Products） 是产品接口的不同实现。</p>
-</li>
-<li><p><strong>创建者</strong> （Creator） 类声明返回产品对象的工厂方法。 该方法的返回对象类型必须与产品接口相匹配。</p>
-<p> 你可以将工厂方法声明为抽象方法， 强制要求每个子类以不同方式实现该方法。 或者， 你也可以在基础工厂方法中返回默认产品类型。</p>
-<p> 注意， 尽管它的名字是创建者， 但他最主要的职责并<strong>不是</strong>创建产品。 一般来说， 创建者类包含一些与产品相关的核心业务逻辑。 工厂方法将这些逻辑处理从具体产品类中分离出来。 打个比方， 大型软件开发公司拥有程序员培训部门。 但是， 这些公司的主要工作还是编写代码， 而非生产程序员。</p>
-</li>
-<li><p><strong>具体创建者</strong> （Concrete Creators） 将会重写基础工厂方法， 使其返回不同类型的产品。</p>
-<p> 注意， 并不一定每次调用工厂方法都会<strong>创建</strong>新的实例。 工厂方法也可以返回缓存、 对象池或其他来源的已有对象。</p>
-</li>
-</ol>
+<h1 id="🤔-工厂方法模式结构"><a href="#🤔-工厂方法模式结构" class="headerlink" title="🤔 工厂方法模式结构"></a>🤔 工厂方法模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225161224.png" alt="工厂方法模式结构"></p>
 <h1 id="💡工厂方法模式适合应用场景"><a href="#💡工厂方法模式适合应用场景" class="headerlink" title="💡工厂方法模式适合应用场景"></a>💡工厂方法模式适合应用场景</h1><p>🧨当你在编写代码的过程中， 如果无法预知对象确切类别及其依赖关系时， 可使用工厂方法。</p>
 <p>🏮工厂方法将创建产品的代码与实际使用产品的代码分离， 从而能在不影响其他代码的情况下扩展产品创建部分       代码。</p>
 <p>例如， 如果需要向应用中添加一种新产品， 你只需要开发新的创建者子类， 然后重写其工厂方法即可。</p>
