@@ -72,11 +72,11 @@ Activiti是一个工作流引擎， activiti可以将业务系统中复杂的业
 
 官方网站：<https://www.activiti.org/>
 
-![img](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134057.jpg)
+![](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134057.jpg)
 
 经历的版本:
 
-![img](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134100.jpg)
+![](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134100.jpg)
 
 目前最新版本：Activiti7.0.0.Beta
 
@@ -100,7 +100,7 @@ BPMN（Business Process Model AndNotation）- 业务流程模型和符号 是由
 
 具体发展历史如下: 
 
-![img](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134054.jpg)
+![](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134054.jpg)
 
 BPMN 是目前被各 BPM 厂商广泛接受的 BPM 标准。Activiti 就是使用 BPMN 2.0 进行流程建模、流程执行管理，它包括很多的建模符号，比如：
 
@@ -108,11 +108,11 @@ Event
 
 用一个圆圈表示，它是流程中运行过程中发生的事情。
 
-![img](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134052.jpg)
+![](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134052.jpg)
 
 活动用圆角矩形表示，一个流程由一个活动或多个活动组成
 
-![img](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134050.jpg)
+![](https://gitee.com/junpzx/blog-img/raw/master//img/20201224134050.jpg)
 
 
 
