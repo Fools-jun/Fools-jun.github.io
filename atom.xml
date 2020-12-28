@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-12-28T05:55:50.887Z</updated>
+  <updated>2020-12-28T06:21:30.656Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之单例模式</title>
+    <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-12-28T06:04:58.000Z</published>
+    <updated>2020-12-28T06:21:30.656Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228141618.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="行为型设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之原型模式</title>
+    <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-12-28T06:04:43.000Z</published>
+    <updated>2020-12-28T06:16:02.294Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="行为型设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之生成器模式</title>
@@ -44,7 +90,7 @@
     <link href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-25T08:02:14.000Z</published>
-    <updated>2020-12-25T10:21:43.145Z</updated>
+    <updated>2020-12-28T06:03:35.393Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225160358.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -67,7 +113,7 @@
     <link href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-25T07:11:25.000Z</published>
-    <updated>2020-12-25T08:20:49.609Z</updated>
+    <updated>2020-12-28T06:03:48.413Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -90,7 +136,7 @@
     <link href="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-24T06:22:39.000Z</published>
-    <updated>2020-12-25T08:21:00.617Z</updated>
+    <updated>2020-12-28T06:04:07.512Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -418,54 +464,6 @@
     
     
     <category term="JavaScript" scheme="https://www.junpzx.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue相关知识点（持续更新）</title>
-    <link href="https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>https://www.junpzx.cn/2020/09/29/Vue%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
-    <published>2020-09-29T06:59:24.000Z</published>
-    <updated>2020-10-28T08:00:02.720Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习Vue过程中，一些零碎的知识点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数组中哪些方法是响应式的？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="Vue" scheme="https://www.junpzx.cn/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue基本操作(二)</title>
-    <link href="https://www.junpzx.cn/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/"/>
-    <id>https://www.junpzx.cn/2020/09/28/Vue%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C(%E4%BA%8C)/</id>
-    <published>2020-09-28T09:36:38.000Z</published>
-    <updated>2020-10-15T03:23:15.886Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Vue的条件判断的介绍和使用&lt;/p&gt;
-&lt;p&gt;Vue的循环遍历的介绍和使用&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/junpzx/image/upload/v1600667958/Vue相关/Vue入门/logo_j4jkbw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="Vue" scheme="https://www.junpzx.cn/tags/Vue/"/>
     
   </entry>
   
