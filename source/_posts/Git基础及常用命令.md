@@ -35,7 +35,7 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
 
 
 
-### 一.创建仓库命令
+### 1.创建仓库命令
 
 ```json
 # 在当前目录新建一个Git代码库
@@ -52,7 +52,7 @@ $ git clone [url]
 
 
 
-### 二.配置命令
+### 2.配置命令
 
 Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
 
@@ -70,7 +70,7 @@ $ git config [--global] user.email "[email address]"
 
 
 
-### 三.增加/删除文件
+### 3.增加/删除文件
 
 ```json
 # 添加指定文件到暂存区
@@ -100,7 +100,7 @@ $ git mv [file-original] [file-renamed]
 
 
 
-### 四.代码提交
+### 4.代码提交
 
 ```json
 # 提交暂存区到仓库区
@@ -125,7 +125,7 @@ $ git commit --amend [file1] [file2] ...
 
 
 
-### 五.分支
+### 5.分支
 
 ```json
 # 列出所有本地分支
@@ -174,7 +174,7 @@ $ git branch -dr [remote/branch]
 
 
 
-### 六.标签
+### 6.标签
 
 ```json
 # 列出所有tag
@@ -209,7 +209,7 @@ $ git checkout -b [branch] [tag]
 
 
 
-### 七.查看信息
+### 7.查看信息
 
 ```json
 # 显示有变更的文件
@@ -278,7 +278,7 @@ $ git reflog
 
 
 
-### 八.远程同步
+### 8.远程同步
 
 ```json
 # 下载远程仓库的所有变动
@@ -297,7 +297,7 @@ $ git remote add [shortname] [url]
 $ git pull [remote] [branch]
 
 # 上传本地指定分支到远程仓库
-$ git push [remote] [branch]
+$ git push [remote] [branch]git
 
 # 强行推送当前分支到远程仓库，即使有冲突
 $ git push [remote] --force
@@ -310,7 +310,7 @@ $ git push [remote] --all
 
 
 
-### 九.撤销
+### 9.撤销
 
 ```json
 # 恢复暂存区的指定文件到工作区
@@ -348,7 +348,7 @@ $ git stash pop
 
 
 
-### 十.其他
+### 10.其他
 
 ```json
 # 生成一个可供发布的压缩包
