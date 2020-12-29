@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141735.png">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141859.png">
 <meta property="article:published_time" content="2020-12-28T06:04:58.000Z">
-<meta property="article:modified_time" content="2020-12-28T11:15:45.866Z">
+<meta property="article:modified_time" content="2020-12-29T01:31:37.688Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -222,10 +222,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-28 14:04:58 / 修改时间：19:15:45" itemprop="dateCreated datePublished" datetime="2020-12-28T14:04:58+08:00">2020-12-28</time>
+              <time title="创建时间：2020-12-28 14:04:58" itemprop="dateCreated datePublished" datetime="2020-12-28T14:04:58+08:00">2020-12-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-29 09:31:37" itemprop="dateModified" datetime="2020-12-29T09:31:37+08:00">2020-12-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -292,13 +298,13 @@
 </ul>
 <p>如果你的代码能够访问单例类， 那它就能调用单例类的静态方法。 无论何时调用该方法， 它总是会返回相同的对象。</p>
 <h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p>政府是单例模式的一个很好的示例。 一个国家只有一个官方政府。 不管组成政府的每个人的身份是什么，  “某政府” 这一称谓总是鉴别那些掌权者的全局访问节点。</p>
-<h1 id="🤔-单例模式结构"><a href="#🤔-单例模式结构" class="headerlink" title="🤔 单例模式结构"></a>🤔 单例模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141859.png" alt=""></p>
+<h1 id="🤔单例模式结构"><a href="#🤔单例模式结构" class="headerlink" title="🤔单例模式结构"></a>🤔单例模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141859.png" alt=""></p>
 <h1 id="💡单例模式适合应用场景"><a href="#💡单例模式适合应用场景" class="headerlink" title="💡单例模式适合应用场景"></a>💡单例模式适合应用场景</h1><p>🧨<strong>如果程序中的某个类对于所有客户端只有一个可用的实例，可以使用单例模式。</strong></p>
 <p>🏮单例模式禁止通过除特殊构建方法以外的任何方式来创建自身类的对象。 该方法可以创建一个新对象， 但如果该对象已经被创建， 则返回已有的对象。</p>
 <p>🧨<strong>如果你需要更加严格地控制全局变量，可以使用单例模式。</strong></p>
 <p>🏮单例模式与全局变量不同， 它保证类只存在一个实例。 除了单例类自己以外， 无法通过任何方式替换缓存的实例。</p>
 <p>请注意， 你可以随时调整限制并设定生成单例实例的数量， 只需修改 <code>获取实例</code>方法， 即 getInstance 中的代码即可实现。</p>
-<h1 id="📔-实现方式"><a href="#📔-实现方式" class="headerlink" title="📔  实现方式"></a>📔  实现方式</h1><ol>
+<h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
 <li>在类中添加一个私有静态成员变量用于保存单例实例。</li>
 <li>声明一个公有静态构建方法用于获取单例实例。</li>
 <li>在静态方法中实现”延迟初始化”。 该方法会在首次被调用时创建一个新对象， 并将其存储在静态成员变量中。 此后该方法每次被调用时都返回该实例。</li>
@@ -370,12 +376,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之原型模式">
-      <i class="fa fa-chevron-left"></i> 设计模式之原型模式
+    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之生成器模式">
+      <i class="fa fa-chevron-left"></i> 设计模式之生成器模式
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之适配器模式">
-      设计模式之适配器模式 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之桥接模式">
+      设计模式之桥接模式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -435,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%B0%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%B1%BB%E6%AF%94"><span class="nav-text">📰真实世界类比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔 单例模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡单例模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔  实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️单例模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%B0%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%B1%BB%E6%AF%94"><span class="nav-text">📰真实世界类比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔单例模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡单例模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️单例模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,7 +457,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,12 +517,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">201k</span>
+    <span title="站点总字数">197k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:03</span>
+    <span title="站点阅读时长">2:59</span>
 </div>
 
 <!--

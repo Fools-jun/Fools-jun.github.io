@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2020-12-29T01:28:53.997Z</updated>
+  <updated>2020-12-29T01:32:42.855Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,33 +21,10 @@
     <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-28T11:14:19.000Z</published>
-    <updated>2020-12-29T01:28:53.997Z</updated>
+    <updated>2020-12-29T01:32:42.855Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228191816.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="结构型设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之适配器模式</title>
-    <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</id>
-    <published>2020-12-28T10:51:28.000Z</published>
-    <updated>2020-12-28T11:07:35.854Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228185931.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -67,33 +44,10 @@
     <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-28T06:04:58.000Z</published>
-    <updated>2020-12-28T11:15:45.866Z</updated>
+    <updated>2020-12-29T01:31:37.688Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228141618.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="创建型设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之原型模式</title>
-    <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</id>
-    <published>2020-12-28T06:04:43.000Z</published>
-    <updated>2020-12-28T11:16:23.557Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -113,7 +67,7 @@
     <link href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-28T05:58:24.000Z</published>
-    <updated>2020-12-28T11:16:06.866Z</updated>
+    <updated>2020-12-29T01:34:27.188Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228134256.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -136,7 +90,7 @@
     <link href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-25T08:02:14.000Z</published>
-    <updated>2020-12-28T11:15:44.227Z</updated>
+    <updated>2020-12-29T01:31:15.606Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225160358.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -159,7 +113,7 @@
     <link href="https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-25T07:11:25.000Z</published>
-    <updated>2020-12-28T06:03:48.413Z</updated>
+    <updated>2020-12-29T01:31:58.503Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -182,7 +136,7 @@
     <link href="https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
     <id>https://www.junpzx.cn/2020/12/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-12-24T06:22:39.000Z</published>
-    <updated>2020-12-28T11:15:22.176Z</updated>
+    <updated>2020-12-29T01:32:09.447Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201224144925.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
@@ -468,6 +422,48 @@
     
     
     <category term="位运算" scheme="https://www.junpzx.cn/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Http返回状态码</title>
+    <link href="https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>https://www.junpzx.cn/2020/10/12/Http%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81/</id>
+    <published>2020-10-12T08:25:53.000Z</published>
+    <updated>2020-10-15T03:21:09.069Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;http请求返回的状态码及其对应的说明&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="Http" scheme="https://www.junpzx.cn/tags/Http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript高阶函数</title>
+    <link href="https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    <id>https://www.junpzx.cn/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</id>
+    <published>2020-09-30T02:18:48.000Z</published>
+    <updated>2020-10-15T03:22:31.105Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;什么是函数式编程？JavaScript高阶函数&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="前端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="JavaScript" scheme="https://www.junpzx.cn/tags/JavaScript/"/>
     
   </entry>
   
