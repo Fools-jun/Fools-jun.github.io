@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192654.png">
 <meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192739.png">
 <meta property="article:published_time" content="2020-12-28T11:14:19.000Z">
-<meta property="article:modified_time" content="2020-12-28T11:31:12.623Z">
+<meta property="article:modified_time" content="2020-12-29T01:28:53.997Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -225,10 +225,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-28 19:14:19 / 修改时间：19:31:12" itemprop="dateCreated datePublished" datetime="2020-12-28T19:14:19+08:00">2020-12-28</time>
+              <time title="创建时间：2020-12-28 19:14:19" itemprop="dateCreated datePublished" datetime="2020-12-28T19:14:19+08:00">2020-12-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-29 09:28:53" itemprop="dateModified" datetime="2020-12-29T09:28:53+08:00">2020-12-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -253,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,8 +308,8 @@
 <p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192654.png" alt="创建跨平台应用程序的一种方法"></p>
 <p>抽象对象控制程序的外观， 并将真实工作委派给连入的实现对象。 不同的实现只要遵循相同的接口就可以互换， 使同一 GUI 可在 Windows 和 Linux 下运行。</p>
 <p>最后的结果是： 你无需改动与 API 相关的类就可以修改 GUI 类。 此外如果想支持一个新的操作系统， 只需在实现部分层次中创建一个子类即可。</p>
-<h1 id="🤔-XXX模式结构"><a href="#🤔-XXX模式结构" class="headerlink" title="🤔 XXX模式结构"></a>🤔 XXX模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192739.png" alt=""></p>
-<h1 id="💡XXX模式适合应用场景"><a href="#💡XXX模式适合应用场景" class="headerlink" title="💡XXX模式适合应用场景"></a>💡XXX模式适合应用场景</h1><p>🧨<strong>如果你想要拆分或重组一个具有多重功能的庞杂类（例如能与多个数据库服务器进行交互的类），可以使用桥接模式。</strong></p>
+<h1 id="🤔-桥接模式结构"><a href="#🤔-桥接模式结构" class="headerlink" title="🤔 桥接模式结构"></a>🤔 桥接模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192739.png" alt=""></p>
+<h1 id="💡桥接模式适合应用场景"><a href="#💡桥接模式适合应用场景" class="headerlink" title="💡桥接模式适合应用场景"></a>💡桥接模式适合应用场景</h1><p>🧨<strong>如果你想要拆分或重组一个具有多重功能的庞杂类（例如能与多个数据库服务器进行交互的类），可以使用桥接模式。</strong></p>
 <p>🏮类的代码行数越多， 弄清其运作方式就越困难， 对其进行修改所花费的时间就越长。 一个功能上的变化可能需要在整个类范围内进行修改， 而且常常会产生错误， 甚至还会有一些严重的副作用。</p>
 <p>桥接模式可以将庞杂类拆分为几个类层次结构。 此后， 你可以修改任意一个类层次结构而不会影响到其他类层次结构。 这种方法可以简化代码的维护工作， 并将修改已有代码的风险降到最低。</p>
 <p>🧨<strong>如果你希望在几个独立维度上扩展一个类，可使用该模式。</strong></p>
@@ -320,7 +326,7 @@
 <li>如果你的高层逻辑有多个变体， 则可通过扩展抽象基类为每个变体创建一个精确抽象。</li>
 <li>客户端代码必须将实现对象传递给抽象部分的构造函数才能使其能够相互关联。 此后， 客户端只需与抽象对象进行交互， 无需和实现对象打交道。</li>
 </ol>
-<h1 id="⚖️XXX模式优缺点"><a href="#⚖️XXX模式优缺点" class="headerlink" title="⚖️XXX模式优缺点"></a>⚖️XXX模式优缺点</h1><p>✔️ 你可以创建与平台无关的类和程序。</p>
+<h1 id="⚖️桥接模式优缺点"><a href="#⚖️桥接模式优缺点" class="headerlink" title="⚖️桥接模式优缺点"></a>⚖️桥接模式优缺点</h1><p>✔️ 你可以创建与平台无关的类和程序。</p>
 <p>✔️客户端代码仅与高层抽象部分进行互动， 不会接触到平台的详细信息。</p>
 <p>✔️<strong>开闭原则</strong>。 你可以新增抽象部分和实现部分， 且它们之间不会相互影响。</p>
 <p>✔️<strong>单一职责原则</strong>。 抽象部分专注于处理高层逻辑， 实现部分处理平台细节。</p>
@@ -442,7 +448,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之桥接模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E9%83%A8%E5%88%86%E5%92%8C%E5%AE%9E%E7%8E%B0%E9%83%A8%E5%88%86"><span class="nav-text">抽象部分和实现部分</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94-XXX%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔 XXX模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1XXX%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡XXX模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔  实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8FXXX%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️XXX模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之桥接模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E9%83%A8%E5%88%86%E5%92%8C%E5%AE%9E%E7%8E%B0%E9%83%A8%E5%88%86"><span class="nav-text">抽象部分和实现部分</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔 桥接模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡桥接模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔  实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️桥接模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
