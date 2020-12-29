@@ -21,24 +21,24 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之桥接模式">
-<meta property="og:url" content="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:title" content="设计模式之原型模式">
+<meta property="og:url" content="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="星辰大海">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228191816.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192451.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192521.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192638.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192654.png">
-<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192739.png">
-<meta property="article:published_time" content="2020-12-28T11:14:19.000Z">
-<meta property="article:modified_time" content="2020-12-29T01:32:42.855Z">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140859.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140937.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141009.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141125.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141221.png">
+<meta property="article:published_time" content="2020-12-28T06:04:43.796Z">
+<meta property="article:modified_time" content="2020-12-29T01:35:41.348Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228191816.png">
+<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png">
 
-<link rel="canonical" href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
+<link rel="canonical" href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>设计模式之桥接模式 | 星辰大海</title>
+  <title>设计模式之原型模式 | 星辰大海</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          设计模式之桥接模式
+          设计模式之原型模式
         </h1>
 
         <div class="post-meta">
@@ -226,14 +226,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-28 19:14:19" itemprop="dateCreated datePublished" datetime="2020-12-28T19:14:19+08:00">2020-12-28</time>
+              <time title="创建时间：2020-12-28 14:04:43" itemprop="dateCreated datePublished" datetime="2020-12-28T14:04:43+08:00">2020-12-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-29 09:32:42" itemprop="dateModified" datetime="2020-12-29T09:32:42+08:00">2020-12-29</time>
+                <time title="修改时间：2020-12-29 09:35:41" itemprop="dateModified" datetime="2020-12-29T09:35:41+08:00">2020-12-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,7 +249,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">结构型设计模式</span></a>
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">创建型设计模式</span></a>
                 </span>
             </span>
 
@@ -259,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,64 +278,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="设计模式之桥接模式"><a href="#设计模式之桥接模式" class="headerlink" title="设计模式之桥接模式"></a>设计模式之桥接模式</h1><h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>桥接模式</strong>是一种结构型设计模式， 可将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228191816.png" alt=""></p>
-<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>抽象？ 实现？ 听上去挺吓人？ 让我们慢慢来， 先考虑一个简单的例子。</p>
-<p>假如你有一个几何 <code>形状</code>Shape类， 从它能扩展出两个子类：  <code>圆形</code>Circle和 <code>方形</code>Square 。 你希望对这样的类层次结构进行扩展以使其包含颜色， 所以你打算创建名为 <code>红色</code>Red和 <code>蓝色</code>Blue的形状子类。 但是， 由于你已有两个子类， 所以总共需要创建四个类才能覆盖所有组合， 例如 <code>蓝色圆形</code>Blue­Circle和 <code>红色方形</code>Red­Square 。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192451.png" alt="所有组合类的数量将以几何级数增长"></p>
-<p>在层次结构中新增形状和颜色将导致代码复杂程度指数增长。 例如添加三角形状， 你需要新增两个子类， 也就是每种颜色一个； 此后新增一种新颜色需要新增三个子类， 即每种形状一个。 如此以往， 情况会越来越糟糕。</p>
-<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>问题的根本原因是我们试图在两个独立的维度——形状与颜色——上扩展形状类。 这在处理类继承时是很常见的问题。</p>
-<p>桥接模式通过将继承改为组合的方式来解决这个问题。 具体来说， 就是抽取其中一个维度并使之成为独立的类层次， 这样就可以在初始类中引用这个新层次的对象， 从而使得一个类不必拥有所有的状态和行为。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192521.png" alt="将一个类层次转化为多个相关的类层次， 避免单个类层次的失控"></p>
-<p>根据该方法， 我们可以将颜色相关的代码抽取到拥有 <code>红色</code>和 <code>蓝色</code>两个子类的颜色类中， 然后在 <code>形状</code>类中添加一个指向某一颜色对象的引用成员变量。 现在， 形状类可以将所有与颜色相关的工作委派给连入的颜色对象。 这样的引用就成为了 <code>形状</code>和 <code>颜色</code>之间的桥梁。 此后， 新增颜色将不再需要修改形状的类层次， 反之亦然。</p>
-<h2 id="抽象部分和实现部分"><a href="#抽象部分和实现部分" class="headerlink" title="抽象部分和实现部分"></a>抽象部分和实现部分</h2><p>设计模式四人组的著作 在桥接定义中提出了<em>抽象部分</em>和<em>实现部分</em>两个术语。 我觉得这些术语过于学术了， 反而让模式看上去比实际情况更加复杂。 在介绍过形状和颜色的简单例子后， 我们来看看四人组著作中让人望而生畏的词语的含义。</p>
-<p><em>抽象部分</em> （也被称为<em>接口</em>） 是一些实体的高阶控制层。 该层自身不完成任何具体的工作， 它需要将工作委派给<em>实现部分</em>层 （也被称为<em>平台</em>）。</p>
-<p>注意， 这里提到的内容与编程语言中的<em>接口</em>或<em>抽象类</em>无关。 它们并不是一回事。</p>
-<p>在实际的程序中， 抽象部分是图形用户界面 （GUI）， 而实现部分则是底层操作系统代码 （API）， GUI 层调用 API 层来对用户的各种操作做出响应。</p>
-<p>一般来说， 你可以在两个独立方向上扩展这种应用：</p>
-<ul>
-<li>开发多个不同的 GUI （例如面向普通用户和管理员进行分别配置）</li>
-<li>支持多个不同的 API （例如， 能够在 Windows、 Linux 和 macOS 上运行该程序）。</li>
-</ul>
-<p>在最糟糕的情况下， 程序可能会是一团乱麻， 其中包含数百种条件语句， 连接着代码各处不同种类的 GUI 和各种 API。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192638.png" alt="在庞杂的代码中， 即使是很小的改动都非常难以完成， 因为你必须要在整体上对代码有充分的理解。 而在较小且定义明确的模块中， 进行修改则要容易得多"></p>
-<p>你可以将特定接口-平台的组合代码抽取到独立的类中， 以在混乱中建立一些秩序。 但是， 你很快会发现这种类的数量<em>很多</em>。 类层次将以指数形式增长， 因为每次添加一个新的 GUI 或支持一种新的 API 都需要创建更多的类。</p>
-<p>让我们试着用桥接模式来解决这个问题。 该模式建议将类拆分为两个类层次结构：</p>
-<ul>
-<li>抽象部分： 程序的 GUI 层。</li>
-<li>实现部分： 操作系统的 API。</li>
-</ul>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192654.png" alt="创建跨平台应用程序的一种方法"></p>
-<p>抽象对象控制程序的外观， 并将真实工作委派给连入的实现对象。 不同的实现只要遵循相同的接口就可以互换， 使同一 GUI 可在 Windows 和 Linux 下运行。</p>
-<p>最后的结果是： 你无需改动与 API 相关的类就可以修改 GUI 类。 此外如果想支持一个新的操作系统， 只需在实现部分层次中创建一个子类即可。</p>
-<h1 id="🤔桥接模式结构"><a href="#🤔桥接模式结构" class="headerlink" title="🤔桥接模式结构"></a>🤔桥接模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228192739.png" alt=""></p>
-<h1 id="💡桥接模式适合应用场景"><a href="#💡桥接模式适合应用场景" class="headerlink" title="💡桥接模式适合应用场景"></a>💡桥接模式适合应用场景</h1><p>🧨<strong>如果你想要拆分或重组一个具有多重功能的庞杂类（例如能与多个数据库服务器进行交互的类），可以使用桥接模式。</strong></p>
-<p>🏮类的代码行数越多， 弄清其运作方式就越困难， 对其进行修改所花费的时间就越长。 一个功能上的变化可能需要在整个类范围内进行修改， 而且常常会产生错误， 甚至还会有一些严重的副作用。</p>
-<p>桥接模式可以将庞杂类拆分为几个类层次结构。 此后， 你可以修改任意一个类层次结构而不会影响到其他类层次结构。 这种方法可以简化代码的维护工作， 并将修改已有代码的风险降到最低。</p>
-<p>🧨<strong>如果你希望在几个独立维度上扩展一个类，可使用该模式。</strong></p>
-<p>🏮桥接建议将每个维度抽取为独立的类层次。 初始类将相关工作委派给属于对应类层次的对象， 无需自己完成所有工作。</p>
-<p>🧨<strong>如果你需要在运行时切换不同实现方法，可使用桥接模式。</strong></p>
-<p>🏮当然并不是说一定要实现这一点， 桥接模式可替换抽象部分中的实现对象， 具体操作就和给成员变量赋新值一样简单。</p>
-<p>顺便提一句， 最后一点是很多人混淆桥接模式和策略模式的主要原因。 记住， 设计模式并不仅是一种对类进行组织的方式， 它还能用于沟通意图和解决问题。</p>
+        <h1 id="设计模式之原型模式"><a href="#设计模式之原型模式" class="headerlink" title="设计模式之原型模式"></a>设计模式之原型模式</h1><p><strong>亦称：</strong>克隆、Clone、Prototype</p>
+<h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>原型模式</strong>是一种创建型设计模式，使你能够复制已有对象，而又无需使代码依赖它们所属的类。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png" alt=""></p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>如果你有一个对象，并希望生成与其完全相同的一个复制品，你该如何实现呢？首先，你必须新建一个属于相同类的对象。然后，你必须遍历原始对象的所有成员变量，并将成员变量值复制到新对象中。</p>
+<p>不错！但有个小问题。并非所有对象都能通过这种方式进行复制，因为有些对象可能拥有私有成员变量，它们在对象本身以外是不可见的。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140859.png" alt="“从外部”复制对象并非总是可行"></p>
+<p>直接复制还有另外一个问题。因为你必须知道对象所属的类才能创建复制品，所以代码必须依赖该类。即使你可以接受额外的依赖性，那还有另外一个问题：有时你只知道对象所实现的接口，而不知道其所属的具体类，比如可向方法的某个参数传入实现了某个接口的任何对象。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>原型模式将克隆过程委派给被克隆的实际对象。模式为所有支持克隆的对象声明了一个通用接口，该接口让你能够克隆对象，同时又无需将代码和对象所属类耦合。通常情况下，这样的接口中仅包含一个<code>克隆</code>方法。</p>
+<p>所有的类对<code>克隆</code>方法的实现都非常相似。该方法会创建一个当前类的对象，然后将原始对象所有的成员变量值复制到新建的类中。你甚至可以复制私有成员变量，因为绝大部分编程语言都允许对象访问其同类对象的私有成员变量。</p>
+<p>支持克隆的对象即为<em>原型</em>。当你的对象有几十个成员变量和几百种类型时，对其进行克隆甚至可以代替子类的构造。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140937.png" alt="预生成原型可以代替子类的构造"></p>
+<p>其运作方式如下：创建一系列不同类型的对象并不同的方式对其进行配置。如果所需对象与预先配置的对象相同，那么你只需克隆原型即可，无需新建一个对象。</p>
+<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p>现实生活中，产品在得到大规模生产前会使用原型进行各种测试。但在这种情况下，原型只是一种被动的工具，不参与任何真正的生产活动。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141009.png" alt="一个细胞的分裂"></p>
+<p>由于工业原型并不是真正意义上的自我复制，因此细胞有丝分裂（还记得生物学知识吗？）或许是更恰当的类比。有丝分裂会产生一对完全相同的细胞。原始细胞就是一个原型，它在复制体的生成过程中起到了推动作用。</p>
+<h1 id="🤔原型模式结构"><a href="#🤔原型模式结构" class="headerlink" title="🤔原型模式结构"></a>🤔原型模式结构</h1><h2 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141125.png" alt=""></p>
+<h2 id="原型注册表实现"><a href="#原型注册表实现" class="headerlink" title="原型注册表实现"></a>原型注册表实现</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141221.png" alt=""></p>
+<h1 id="💡原型模式适合应用场景"><a href="#💡原型模式适合应用场景" class="headerlink" title="💡原型模式适合应用场景"></a>💡原型模式适合应用场景</h1><p>🧨<strong>如果你需要复制一些对象，同时又希望代码独立于这些对象所属的具体类，可以使用原型模式。</strong></p>
+<p>🏮这一点考量通常出现在代码需要处理第三方代码通过接口传递过来的对象时。即使不考虑代码耦合的情况，你的代码也不能依赖这些对象所属的具体类，因为你不知道它们的具体信息。</p>
+<p>原型模式为客户端代码提供一个通用接口，客户端代码可通过这一接口与所有实现了克隆的对象进行交互，它也使得客户端代码与其所克隆的对象具体类独立开来。</p>
+<p>🧨<strong>如果子类的区别仅在于其对象的初始化方式，那么你可以使用该模式来减少子类的数量。别人创建这些子类的目的可能是为了创建特定类型的对象。</strong></p>
+<p>🏮在原型模式中，你可以使用一系列预生成的、各种类型的对象作为原型。</p>
+<p>客户端不必根据需求对子类进行实例化，只需找到合适的原型并对其进行克隆即可。</p>
 <h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
-<li>明确类中独立的维度。 独立的概念可能是： 抽象/平台， 域/基础设施， 前端/后端或接口/实现。</li>
-<li>了解客户端的业务需求， 并在抽象基类中定义它们。</li>
-<li>确定在所有平台上都可执行的业务。 并在通用实现接口中声明抽象部分所需的业务。</li>
-<li>为你域内的所有平台创建实现类， 但需确保它们遵循实现部分的接口。</li>
-<li>在抽象类中添加指向实现类型的引用成员变量。 抽象部分会将大部分工作委派给该成员变量所指向的实现对象。</li>
-<li>如果你的高层逻辑有多个变体， 则可通过扩展抽象基类为每个变体创建一个精确抽象。</li>
-<li>客户端代码必须将实现对象传递给抽象部分的构造函数才能使其能够相互关联。 此后， 客户端只需与抽象对象进行交互， 无需和实现对象打交道。</li>
+<li><p>创建原型接口，并在其中声明<code>克隆</code>方法。如果你已有类层次结构，则只需在其所有类中添加该方法即可。</p>
+</li>
+<li><p>原型类必须另行定义一个以该类对象为参数的构造函数。构造函数必须复制参数对象中的所有成员变量值到新建实体中。如果你需要修改子类，则必须调用父类构造函数，让父类复制其私有成员变量值。</p>
+<p> 如果编程语言不支持方法重载，那么你可能需要定义一个特殊方法来复制对象数据。在构造函数中进行此类处理比较方便，因为它在调用<code>new</code>运算符后会马上返回结果对象。</p>
+</li>
+<li><p>克隆方法通常只有一行代码：使用<code>new</code>运算符调用原型版本的构造函数。注意，每个类都必须显式重写克隆方法并使用自身类名调用<code>new</code>运算符。否则，克隆方法可能会生成父类的对象。</p>
+</li>
+<li><p>你还可以创建一个中心化原型注册表，用于存储常用原型。</p>
+<p> 你可以新建一个工厂类来实现注册表，或者在原型基类中添加一个获取原型的静态方法。该方法必须能够根据客户端代码设定的条件进行搜索。搜索条件可以是简单的字符串，或者是一组复杂的搜索参数。找到合适的原型后，注册表应对原型进行克隆，并将复制生成的对象返回给客户端。</p>
+<p> 最后还要将对子类构造函数的直接调用替换为对原型注册表工厂方法的调用。</p>
+</li>
 </ol>
-<h1 id="⚖️桥接模式优缺点"><a href="#⚖️桥接模式优缺点" class="headerlink" title="⚖️桥接模式优缺点"></a>⚖️桥接模式优缺点</h1><p>✔️ 你可以创建与平台无关的类和程序。</p>
-<p>✔️客户端代码仅与高层抽象部分进行互动， 不会接触到平台的详细信息。</p>
-<p>✔️<strong>开闭原则</strong>。 你可以新增抽象部分和实现部分， 且它们之间不会相互影响。</p>
-<p>✔️<strong>单一职责原则</strong>。 抽象部分专注于处理高层逻辑， 实现部分处理平台细节。</p>
-<p>❌对高内聚的类使用该模式可能会让代码更加复杂。</p>
+<h1 id="⚖️原型模式优缺点"><a href="#⚖️原型模式优缺点" class="headerlink" title="⚖️原型模式优缺点"></a>⚖️原型模式优缺点</h1><p>✔️你可以克隆对象，而无需与它们所属的具体类相耦合。</p>
+<p>✔️你可以克隆预生成原型，避免反复运行初始化代码。</p>
+<p>✔️你可以更方便地生成复杂对象。</p>
+<p>✔️你可以用继承以外的方式来处理复杂对象的不同配置。</p>
+<p>❌克隆包含循环引用的复杂对象可能会非常麻烦。</p>
 <h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
-<li>桥接模式通常会于开发前期进行设计， 使你能够将程序的各个部分独立开来以便开发。 另一方面， 适配器模式通常在已有程序中使用， 让相互不兼容的类能很好地合作。</li>
-<li>桥接、 状态模式和策略模式 （在某种程度上包括适配器） 模式的接口非常相似。 实际上， 它们都基于组合模式——即将工作委派给其他对象， 不过也各自解决了不同的问题。 模式并不只是以特定方式组织代码的配方， 你还可以使用它们来和其他开发者讨论模式所解决的问题。</li>
-<li>你可以将抽象工厂模式和桥接搭配使用。 如果由<em>桥接</em>定义的抽象只能与特定实现合作， 这一模式搭配就非常有用。 在这种情况下， <em>抽象工厂</em>可以对这些关系进行封装， 并且对客户端代码隐藏其复杂性。</li>
-<li>你可以结合使用生成器模式和桥接模式： <em>主管</em>类负责抽象工作， 各种不同的<em>生成器</em>负责<em>实现</em>工作。</li>
+<li>在许多设计工作的初期都会使用工厂方法模式（较为简单，而且可以更方便地通过子类进行定制），随后演化为使用抽象工厂模式、原型模式或生成器模式（更灵活但更加复杂）。</li>
+<li>抽象工厂模式通常基于一组工厂方法，但你也可以使用原型模式来生成这些类的方法。</li>
+<li>原型可用于保存命令模式的历史记录。</li>
+<li>大量使用组合模式和装饰模式的设计通常可从对于原型的使用中获益。你可以通过该模式来复制复杂结构，而非从零开始重新构造。</li>
+<li>原型并不基于继承，因此没有继承的缺点。另一方面，<em>原型</em>需要对被复制对象进行复杂的初始化。工厂方法基于继承，但是它不需要初始化步骤。</li>
+<li>有时候原型可以作为备忘录模式的一个简化版本，其条件是你需要在历史记录中存储的对象的状态比较简单，不需要链接其他外部资源，或者链接可以方便地重建。</li>
+<li>抽象工厂、生成器和原型都可以用单例模式来实现。</li>
 </ul>
     </div>
 
@@ -351,11 +342,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">设计模式之桥接模式</a></p>
+  <p><span>本文标题:</span><a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">设计模式之原型模式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2020年12月28日 19:12:00</p>
-  <p><span>原始链接:</span><a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="设计模式之桥接模式">https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年12月28日 14:12:79</p>
+  <p><span>原始链接:</span><a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" title="设计模式之原型模式">https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
 </div>
@@ -386,10 +377,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之适配器模式">
-      <i class="fa fa-chevron-left"></i> 设计模式之适配器模式
+    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式之生成器模式">
+      <i class="fa fa-chevron-left"></i> 设计模式之生成器模式
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之单例模式">
+      设计模式之单例模式 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -448,7 +442,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之桥接模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E9%83%A8%E5%88%86%E5%92%8C%E5%AE%9E%E7%8E%B0%E9%83%A8%E5%88%86"><span class="nav-text">抽象部分和实现部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔桥接模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡桥接模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️桥接模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之原型模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%B0%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%B1%BB%E6%AF%94"><span class="nav-text">📰真实世界类比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔原型模式结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0"><span class="nav-text">基本实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E6%B3%A8%E5%86%8C%E8%A1%A8%E5%AE%9E%E7%8E%B0"><span class="nav-text">原型注册表实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡原型模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️原型模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
