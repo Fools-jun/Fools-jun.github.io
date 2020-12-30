@@ -463,7 +463,7 @@
     <link href="https://www.junpzx.cn/2020/11/02/maven%E9%85%8D%E7%BD%AEPOM%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"/>
     <id>https://www.junpzx.cn/2020/11/02/maven%E9%85%8D%E7%BD%AEPOM%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</id>
     <published>2020-11-02T01:45:43.000Z</published>
-    <updated>2020-11-02T02:44:24.774Z</updated>
+    <updated>2020-12-30T02:38:52.596Z</updated>
     
     
     <summary type="html">&lt;p&gt;maven的pom配置文件中，各个标签配置的作用&lt;/p&gt;</summary>
@@ -472,7 +472,7 @@
     
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="配置" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E9%85%8D%E7%BD%AE/"/>
+    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
     
     
     <category term="Maven" scheme="https://www.junpzx.cn/tags/Maven/"/>
