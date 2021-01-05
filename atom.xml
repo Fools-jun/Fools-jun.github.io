@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-05T05:57:54.208Z</updated>
+  <updated>2021-01-05T06:37:00.506Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://www.junpzx.cn/2021/01/04/Idea%E6%8F%92%E4%BB%B6%E4%B9%8BJrebel%E6%BF%80%E6%B4%BB/"/>
     <id>https://www.junpzx.cn/2021/01/04/Idea%E6%8F%92%E4%BB%B6%E4%B9%8BJrebel%E6%BF%80%E6%B4%BB/</id>
     <published>2021-01-04T08:29:52.000Z</published>
-    <updated>2021-01-05T05:57:54.208Z</updated>
+    <updated>2021-01-05T06:37:00.506Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Idea插件之Jrebel激活&quot;&gt;&lt;a href=&quot;#Idea插件之Jrebel激活&quot; class=&quot;headerlink&quot; title=&quot;Idea插件之Jrebel激活&quot;&gt;&lt;/a&gt;Idea插件之Jrebel激活&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">&lt;p&gt;Rebel是一款JVM插件，它使得Java代码修改后不用重启系统，立即生效。IDEA上原生是不支持热部署的，一般更新了 Java 文件后要手动重启 Tomcat 服务器，才能生效，浪费时间浪费生命。&lt;/p&gt;
+&lt;p&gt;目前对于idea热部署最好的解决方案就是安装JRebel插件。&lt;/p&gt;
+&lt;p&gt;下面介绍一下JRebel的激活步骤！&lt;/p&gt;</summary>
     
     
     
