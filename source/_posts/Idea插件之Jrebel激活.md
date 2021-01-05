@@ -11,6 +11,16 @@ tags:
 - XRebel
 ---
 
+Rebel是一款JVM插件，它使得Java代码修改后不用重启系统，立即生效。IDEA上原生是不支持热部署的，一般更新了 Java 文件后要手动重启 Tomcat 服务器，才能生效，浪费时间浪费生命。
+
+目前对于idea热部署最好的解决方案就是安装JRebel插件。
+
+下面介绍一下JRebel的激活步骤！
+
+<!-- less -->
+
+
+
 # Idea插件之Jrebel激活
 
 ## 前言
