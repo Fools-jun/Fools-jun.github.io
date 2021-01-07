@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>接口文档工具之ShowDoc简单使用</title>
+    <url>/2021/01/07/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7%E4%B9%8BShowDoc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>使用说明</category>
+      </categories>
+      <tags>
+        <tag>ShowDoc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Idea插件之Jrebel激活</title>
     <url>/2021/01/04/Idea%E6%8F%92%E4%BB%B6%E4%B9%8BJrebel%E6%BF%80%E6%B4%BB/</url>
     <content><![CDATA[<h1 id="Idea插件之Jrebel激活"><a href="#Idea插件之Jrebel激活" class="headerlink" title="Idea插件之Jrebel激活"></a>Idea插件之Jrebel激活</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Rebel是一款JVM插件，它使得Java代码修改后不用重启系统，立即生效。IDEA上原生是不支持热部署的，一般更新了 Java 文件后要手动重启 Tomcat 服务器，才能生效，浪费时间浪费生命。</p>
@@ -86,73 +97,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设计模式之原型模式</title>
-    <url>/2021/01/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="设计模式之原型模式"><a href="#设计模式之原型模式" class="headerlink" title="设计模式之原型模式"></a>设计模式之原型模式</h1><p><strong>亦称：</strong>克隆、Clone、Prototype</p>
-<h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>原型模式</strong>是一种创建型设计模式，使你能够复制已有对象，而又无需使代码依赖它们所属的类。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png" alt=""></p>
-<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>如果你有一个对象，并希望生成与其完全相同的一个复制品，你该如何实现呢？首先，你必须新建一个属于相同类的对象。然后，你必须遍历原始对象的所有成员变量，并将成员变量值复制到新对象中。</p>
-<p>不错！但有个小问题。并非所有对象都能通过这种方式进行复制，因为有些对象可能拥有私有成员变量，它们在对象本身以外是不可见的。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140859.png" alt="“从外部”复制对象并非总是可行"></p>
-<p>直接复制还有另外一个问题。因为你必须知道对象所属的类才能创建复制品，所以代码必须依赖该类。即使你可以接受额外的依赖性，那还有另外一个问题：有时你只知道对象所实现的接口，而不知道其所属的具体类，比如可向方法的某个参数传入实现了某个接口的任何对象。</p>
-<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>原型模式将克隆过程委派给被克隆的实际对象。模式为所有支持克隆的对象声明了一个通用接口，该接口让你能够克隆对象，同时又无需将代码和对象所属类耦合。通常情况下，这样的接口中仅包含一个<code>克隆</code>方法。</p>
-<p>所有的类对<code>克隆</code>方法的实现都非常相似。该方法会创建一个当前类的对象，然后将原始对象所有的成员变量值复制到新建的类中。你甚至可以复制私有成员变量，因为绝大部分编程语言都允许对象访问其同类对象的私有成员变量。</p>
-<p>支持克隆的对象即为<em>原型</em>。当你的对象有几十个成员变量和几百种类型时，对其进行克隆甚至可以代替子类的构造。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140937.png" alt="预生成原型可以代替子类的构造"></p>
-<p>其运作方式如下：创建一系列不同类型的对象并不同的方式对其进行配置。如果所需对象与预先配置的对象相同，那么你只需克隆原型即可，无需新建一个对象。</p>
-<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p>现实生活中，产品在得到大规模生产前会使用原型进行各种测试。但在这种情况下，原型只是一种被动的工具，不参与任何真正的生产活动。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141009.png" alt="一个细胞的分裂"></p>
-<p>由于工业原型并不是真正意义上的自我复制，因此细胞有丝分裂（还记得生物学知识吗？）或许是更恰当的类比。有丝分裂会产生一对完全相同的细胞。原始细胞就是一个原型，它在复制体的生成过程中起到了推动作用。</p>
-<h1 id="🤔原型模式结构"><a href="#🤔原型模式结构" class="headerlink" title="🤔原型模式结构"></a>🤔原型模式结构</h1><h2 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141125.png" alt=""></p>
-<h2 id="原型注册表实现"><a href="#原型注册表实现" class="headerlink" title="原型注册表实现"></a>原型注册表实现</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141221.png" alt=""></p>
-<h1 id="💡原型模式适合应用场景"><a href="#💡原型模式适合应用场景" class="headerlink" title="💡原型模式适合应用场景"></a>💡原型模式适合应用场景</h1><p>🧨<strong>如果你需要复制一些对象，同时又希望代码独立于这些对象所属的具体类，可以使用原型模式。</strong></p>
-<p>🏮这一点考量通常出现在代码需要处理第三方代码通过接口传递过来的对象时。即使不考虑代码耦合的情况，你的代码也不能依赖这些对象所属的具体类，因为你不知道它们的具体信息。</p>
-<p>原型模式为客户端代码提供一个通用接口，客户端代码可通过这一接口与所有实现了克隆的对象进行交互，它也使得客户端代码与其所克隆的对象具体类独立开来。</p>
-<p>🧨<strong>如果子类的区别仅在于其对象的初始化方式，那么你可以使用该模式来减少子类的数量。别人创建这些子类的目的可能是为了创建特定类型的对象。</strong></p>
-<p>🏮在原型模式中，你可以使用一系列预生成的、各种类型的对象作为原型。</p>
-<p>客户端不必根据需求对子类进行实例化，只需找到合适的原型并对其进行克隆即可。</p>
-<h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
-<li><p>创建原型接口，并在其中声明<code>克隆</code>方法。如果你已有类层次结构，则只需在其所有类中添加该方法即可。</p>
-</li>
-<li><p>原型类必须另行定义一个以该类对象为参数的构造函数。构造函数必须复制参数对象中的所有成员变量值到新建实体中。如果你需要修改子类，则必须调用父类构造函数，让父类复制其私有成员变量值。</p>
-<p> 如果编程语言不支持方法重载，那么你可能需要定义一个特殊方法来复制对象数据。在构造函数中进行此类处理比较方便，因为它在调用<code>new</code>运算符后会马上返回结果对象。</p>
-</li>
-<li><p>克隆方法通常只有一行代码：使用<code>new</code>运算符调用原型版本的构造函数。注意，每个类都必须显式重写克隆方法并使用自身类名调用<code>new</code>运算符。否则，克隆方法可能会生成父类的对象。</p>
-</li>
-<li><p>你还可以创建一个中心化原型注册表，用于存储常用原型。</p>
-<p> 你可以新建一个工厂类来实现注册表，或者在原型基类中添加一个获取原型的静态方法。该方法必须能够根据客户端代码设定的条件进行搜索。搜索条件可以是简单的字符串，或者是一组复杂的搜索参数。找到合适的原型后，注册表应对原型进行克隆，并将复制生成的对象返回给客户端。</p>
-<p> 最后还要将对子类构造函数的直接调用替换为对原型注册表工厂方法的调用。</p>
-</li>
-</ol>
-<h1 id="⚖️原型模式优缺点"><a href="#⚖️原型模式优缺点" class="headerlink" title="⚖️原型模式优缺点"></a>⚖️原型模式优缺点</h1><p>✔️你可以克隆对象，而无需与它们所属的具体类相耦合。</p>
-<p>✔️你可以克隆预生成原型，避免反复运行初始化代码。</p>
-<p>✔️你可以更方便地生成复杂对象。</p>
-<p>✔️你可以用继承以外的方式来处理复杂对象的不同配置。</p>
-<p>❌克隆包含循环引用的复杂对象可能会非常麻烦。</p>
-<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
-<li>在许多设计工作的初期都会使用工厂方法模式（较为简单，而且可以更方便地通过子类进行定制），随后演化为使用抽象工厂模式、原型模式或生成器模式（更灵活但更加复杂）。</li>
-<li>抽象工厂模式通常基于一组工厂方法，但你也可以使用原型模式来生成这些类的方法。</li>
-<li>原型可用于保存命令模式的历史记录。</li>
-<li>大量使用组合模式和装饰模式的设计通常可从对于原型的使用中获益。你可以通过该模式来复制复杂结构，而非从零开始重新构造。</li>
-<li>原型并不基于继承，因此没有继承的缺点。另一方面，<em>原型</em>需要对被复制对象进行复杂的初始化。工厂方法基于继承，但是它不需要初始化步骤。</li>
-<li>有时候原型可以作为备忘录模式的一个简化版本，其条件是你需要在历史记录中存储的对象的状态比较简单，不需要链接其他外部资源，或者链接可以方便地重建。</li>
-<li>抽象工厂、生成器和原型都可以用单例模式来实现。</li>
-</ul>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>设计模式</category>
-        <category>创建型设计模式</category>
-      </categories>
-      <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -206,11 +155,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -271,11 +220,73 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式之享元模式</title>
+    <url>/2020/12/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="设计模式之原型模式"><a href="#设计模式之原型模式" class="headerlink" title="设计模式之原型模式"></a>设计模式之原型模式</h1><p><strong>亦称：</strong>克隆、Clone、Prototype</p>
+<h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>原型模式</strong>是一种创建型设计模式，使你能够复制已有对象，而又无需使代码依赖它们所属的类。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png" alt=""></p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>如果你有一个对象，并希望生成与其完全相同的一个复制品，你该如何实现呢？首先，你必须新建一个属于相同类的对象。然后，你必须遍历原始对象的所有成员变量，并将成员变量值复制到新对象中。</p>
+<p>不错！但有个小问题。并非所有对象都能通过这种方式进行复制，因为有些对象可能拥有私有成员变量，它们在对象本身以外是不可见的。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140859.png" alt="“从外部”复制对象并非总是可行"></p>
+<p>直接复制还有另外一个问题。因为你必须知道对象所属的类才能创建复制品，所以代码必须依赖该类。即使你可以接受额外的依赖性，那还有另外一个问题：有时你只知道对象所实现的接口，而不知道其所属的具体类，比如可向方法的某个参数传入实现了某个接口的任何对象。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>原型模式将克隆过程委派给被克隆的实际对象。模式为所有支持克隆的对象声明了一个通用接口，该接口让你能够克隆对象，同时又无需将代码和对象所属类耦合。通常情况下，这样的接口中仅包含一个<code>克隆</code>方法。</p>
+<p>所有的类对<code>克隆</code>方法的实现都非常相似。该方法会创建一个当前类的对象，然后将原始对象所有的成员变量值复制到新建的类中。你甚至可以复制私有成员变量，因为绝大部分编程语言都允许对象访问其同类对象的私有成员变量。</p>
+<p>支持克隆的对象即为<em>原型</em>。当你的对象有几十个成员变量和几百种类型时，对其进行克隆甚至可以代替子类的构造。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228140937.png" alt="预生成原型可以代替子类的构造"></p>
+<p>其运作方式如下：创建一系列不同类型的对象并不同的方式对其进行配置。如果所需对象与预先配置的对象相同，那么你只需克隆原型即可，无需新建一个对象。</p>
+<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p>现实生活中，产品在得到大规模生产前会使用原型进行各种测试。但在这种情况下，原型只是一种被动的工具，不参与任何真正的生产活动。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141009.png" alt="一个细胞的分裂"></p>
+<p>由于工业原型并不是真正意义上的自我复制，因此细胞有丝分裂（还记得生物学知识吗？）或许是更恰当的类比。有丝分裂会产生一对完全相同的细胞。原始细胞就是一个原型，它在复制体的生成过程中起到了推动作用。</p>
+<h1 id="🤔原型模式结构"><a href="#🤔原型模式结构" class="headerlink" title="🤔原型模式结构"></a>🤔原型模式结构</h1><h2 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141125.png" alt=""></p>
+<h2 id="原型注册表实现"><a href="#原型注册表实现" class="headerlink" title="原型注册表实现"></a>原型注册表实现</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228141221.png" alt=""></p>
+<h1 id="💡原型模式适合应用场景"><a href="#💡原型模式适合应用场景" class="headerlink" title="💡原型模式适合应用场景"></a>💡原型模式适合应用场景</h1><p>🧨<strong>如果你需要复制一些对象，同时又希望代码独立于这些对象所属的具体类，可以使用原型模式。</strong></p>
+<p>🏮这一点考量通常出现在代码需要处理第三方代码通过接口传递过来的对象时。即使不考虑代码耦合的情况，你的代码也不能依赖这些对象所属的具体类，因为你不知道它们的具体信息。</p>
+<p>原型模式为客户端代码提供一个通用接口，客户端代码可通过这一接口与所有实现了克隆的对象进行交互，它也使得客户端代码与其所克隆的对象具体类独立开来。</p>
+<p>🧨<strong>如果子类的区别仅在于其对象的初始化方式，那么你可以使用该模式来减少子类的数量。别人创建这些子类的目的可能是为了创建特定类型的对象。</strong></p>
+<p>🏮在原型模式中，你可以使用一系列预生成的、各种类型的对象作为原型。</p>
+<p>客户端不必根据需求对子类进行实例化，只需找到合适的原型并对其进行克隆即可。</p>
+<h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
+<li><p>创建原型接口，并在其中声明<code>克隆</code>方法。如果你已有类层次结构，则只需在其所有类中添加该方法即可。</p>
+</li>
+<li><p>原型类必须另行定义一个以该类对象为参数的构造函数。构造函数必须复制参数对象中的所有成员变量值到新建实体中。如果你需要修改子类，则必须调用父类构造函数，让父类复制其私有成员变量值。</p>
+<p> 如果编程语言不支持方法重载，那么你可能需要定义一个特殊方法来复制对象数据。在构造函数中进行此类处理比较方便，因为它在调用<code>new</code>运算符后会马上返回结果对象。</p>
+</li>
+<li><p>克隆方法通常只有一行代码：使用<code>new</code>运算符调用原型版本的构造函数。注意，每个类都必须显式重写克隆方法并使用自身类名调用<code>new</code>运算符。否则，克隆方法可能会生成父类的对象。</p>
+</li>
+<li><p>你还可以创建一个中心化原型注册表，用于存储常用原型。</p>
+<p> 你可以新建一个工厂类来实现注册表，或者在原型基类中添加一个获取原型的静态方法。该方法必须能够根据客户端代码设定的条件进行搜索。搜索条件可以是简单的字符串，或者是一组复杂的搜索参数。找到合适的原型后，注册表应对原型进行克隆，并将复制生成的对象返回给客户端。</p>
+<p> 最后还要将对子类构造函数的直接调用替换为对原型注册表工厂方法的调用。</p>
+</li>
+</ol>
+<h1 id="⚖️原型模式优缺点"><a href="#⚖️原型模式优缺点" class="headerlink" title="⚖️原型模式优缺点"></a>⚖️原型模式优缺点</h1><p>✔️你可以克隆对象，而无需与它们所属的具体类相耦合。</p>
+<p>✔️你可以克隆预生成原型，避免反复运行初始化代码。</p>
+<p>✔️你可以更方便地生成复杂对象。</p>
+<p>✔️你可以用继承以外的方式来处理复杂对象的不同配置。</p>
+<p>❌克隆包含循环引用的复杂对象可能会非常麻烦。</p>
+<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
+<li>在许多设计工作的初期都会使用工厂方法模式（较为简单，而且可以更方便地通过子类进行定制），随后演化为使用抽象工厂模式、原型模式或生成器模式（更灵活但更加复杂）。</li>
+<li>抽象工厂模式通常基于一组工厂方法，但你也可以使用原型模式来生成这些类的方法。</li>
+<li>原型可用于保存命令模式的历史记录。</li>
+<li>大量使用组合模式和装饰模式的设计通常可从对于原型的使用中获益。你可以通过该模式来复制复杂结构，而非从零开始重新构造。</li>
+<li>原型并不基于继承，因此没有继承的缺点。另一方面，<em>原型</em>需要对被复制对象进行复杂的初始化。工厂方法基于继承，但是它不需要初始化步骤。</li>
+<li>有时候原型可以作为备忘录模式的一个简化版本，其条件是你需要在历史记录中存储的对象的状态比较简单，不需要链接其他外部资源，或者链接可以方便地重建。</li>
+<li>抽象工厂、生成器和原型都可以用单例模式来实现。</li>
+</ul>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -319,11 +330,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -403,11 +414,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -471,11 +482,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -542,11 +553,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>结构型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -606,11 +617,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>创建型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>创建型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -676,11 +687,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>创建型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>创建型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -735,11 +746,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>创建型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>创建型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -810,11 +821,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>创建型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>创建型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -886,11 +897,11 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>行为型设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>行为型设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -1834,10 +1845,10 @@
 <p>​        我们知道在Java中，对象的序列化可以通过实现两种接口来实现，若实现的是Serializable接口，则所有的序列化将会自动进行，若实现的是Externalizable接口，则没有任何东西可以自动序列化，需要在writeExternal方法中进行手工指定所要序列化的变量，这与是否被transient修饰无关。因此第二个例子输出的是变量content初始化的内容，而不是null。</p>]]></content>
       <categories>
         <category>笔记</category>
-        <category>基础</category>
+        <category>后端</category>
       </categories>
       <tags>
-        <tag>Java关键字</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1857,8 +1868,7 @@
 <h3 id="9-撤销"><a href="#9-撤销" class="headerlink" title="9.撤销"></a>9.撤销</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"># 恢复暂存区的指定文件到工作区</span><br><span class="line">$ git checkout [file]</span><br><span class="line"></span><br><span class="line"># 恢复某个commit的指定文件到暂存区和工作区</span><br><span class="line">$ git checkout [commit] [file]</span><br><span class="line"></span><br><span class="line"># 恢复暂存区的所有文件到工作区</span><br><span class="line">$ git checkout .</span><br><span class="line"></span><br><span class="line"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span><br><span class="line">$ git reset [file]</span><br><span class="line"></span><br><span class="line"># 重置暂存区与工作区，与上一次commit保持一致</span><br><span class="line">$ git reset --hard</span><br><span class="line"></span><br><span class="line"># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span><br><span class="line">$ git reset [commit]</span><br><span class="line"></span><br><span class="line"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span><br><span class="line">$ git reset --hard [commit]</span><br><span class="line"></span><br><span class="line"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span><br><span class="line">$ git reset --keep [commit]</span><br><span class="line"></span><br><span class="line"># 新建一个commit，用来撤销指定commit</span><br><span class="line"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span><br><span class="line">$ git revert [commit]</span><br><span class="line"></span><br><span class="line"># 暂时将未提交的变化移除，稍后再移入</span><br><span class="line">$ git stash</span><br><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
 <h3 id="10-其他"><a href="#10-其他" class="headerlink" title="10.其他"></a>10.其他</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"># 生成一个可供发布的压缩包</span><br><span class="line">$ git archive</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>笔记</category>
-        <category>基础</category>
+        <category>使用说明</category>
       </categories>
       <tags>
         <tag>Git</tag>
@@ -2149,10 +2159,6 @@
 </li>
 </ul>
 <h2 id="4-24-删除Continuous-Queries"><a href="#4-24-删除Continuous-Queries" class="headerlink" title="4.24.删除Continuous Queries"></a>4.24.删除Continuous Queries</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DROP CONTINUOUS QUERY &lt;cq_name&gt; ON &lt;database_name&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>时序数据库</category>
-      </categories>
       <tags>
         <tag>influxDB</tag>
       </tags>
@@ -2281,6 +2287,7 @@
       </categories>
       <tags>
         <tag>Java</tag>
+        <tag>Maven</tag>
       </tags>
   </entry>
   <entry>
@@ -2329,8 +2336,8 @@
 </ul>]]></content>
       <categories>
         <category>笔记</category>
+        <category>基础</category>
         <category>设计模式</category>
-        <category>设计模式简介及分类</category>
       </categories>
       <tags>
         <tag>设计模式</tag>
@@ -2704,7 +2711,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>ECMAScript</tag>
       </tags>
   </entry>
   <entry>
@@ -3405,7 +3412,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>ECMAScript</tag>
       </tags>
   </entry>
   <entry>
@@ -3461,8 +3468,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
-        <tag>ES6</tag>
+        <tag>ECMAScript</tag>
       </tags>
   </entry>
   <entry>
@@ -3736,10 +3742,10 @@
 <h2 id="10、-点击是，重启-IDEA-即可"><a href="#10、-点击是，重启-IDEA-即可" class="headerlink" title="10、 点击是，重启 IDEA 即可"></a><strong>10、</strong> 点击<code>是</code>，重启 <strong>IDEA</strong> 即可</h2><h1 id="验证是否激活成功"><a href="#验证是否激活成功" class="headerlink" title="验证是否激活成功"></a>验证是否激活成功</h1><p>验证步骤如下：</p>
 <h2 id="1、-进入-IDEA-界面后，点击-Help-gt-Register-查看："><a href="#1、-进入-IDEA-界面后，点击-Help-gt-Register-查看：" class="headerlink" title="1、 进入 IDEA 界面后，点击 Help -&gt; Register 查看："></a><strong>1、</strong> 进入 <strong>IDEA</strong> 界面后，点击 <code>Help</code> -&gt; <code>Register</code> 查看：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png" alt=""></p>]]></content>
       <categories>
-        <category>安装教程</category>
+        <category>激活教程</category>
       </categories>
       <tags>
-        <tag>IDEA</tag>
+        <tag>Idea</tag>
         <tag>WebStorm</tag>
         <tag>JetBrains</tag>
       </tags>
