@@ -3,7 +3,112 @@
   <entry>
     <title>接口文档工具之ShowDoc简单使用</title>
     <url>/2021/01/07/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7%E4%B9%8BShowDoc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="接口文档工具之ShowDoc简单使用"><a href="#接口文档工具之ShowDoc简单使用" class="headerlink" title="接口文档工具之ShowDoc简单使用"></a>接口文档工具之ShowDoc简单使用</h2><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>对于写API文档这件事，虽然说文本编辑软件或者接口管理软件能在某种程度上提高我们的效率，但我们依然可以试图借助技术的力量，更自动化地生成API文档，释放自己的生产力。<br>为此，showdoc官方提供了一种自动化解决方案。在代码里编写特定格式的程序注释，然后showdoc通过读取这些注释来自动生成文档。由于这种方式不跟特定的语言耦合，因此它的使用范围相当广泛，可以支持c++、java、php、node等等常见的主流语言。<br>采用这种方式，尽管我们在第一次填写注释的时候可能会有些繁琐，但是它后期带来的可维护性是非常高的。代码变动后，不需要再额外登录showdoc，直接在代码里修改注释即可。同时自动化的脚本也可以加入持续集成或者某些自动化工程里，让“写API文档”这件事如”单元测试”般纳入工程工作流里面。</p>
+<h2 id="自动生成API文档"><a href="#自动生成API文档" class="headerlink" title="自动生成API文档"></a>自动生成API文档</h2><h3 id="windows下使用"><a href="#windows下使用" class="headerlink" title="windows下使用"></a>windows下使用</h3><ol>
+<li><p>如果你的电脑无法运行.sh后缀的文件,那么请安装前置环境</p>
+<p>推荐下载git for windows：<a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> 下载后直接双击安装即可。<br>如果从官网下载比较慢，可用考虑下载由第三方开发者维护的国内版(showdoc官方不保证其长期稳定)：<br><a href="https://npm.taobao.org/mirrors/git-for-windows/v2.17.0.windows.1/Git-2.17.0-64-bit.exe">https://npm.taobao.org/mirrors/git-for-windows/v2.17.0.windows.1/Git-2.17.0-64-bit.exe</a></p>
+</li>
+<li><p>下载ShowDoc官方脚本<a href="https://www.showdoc.cc/script/showdoc_api.sh">https://www.showdoc.cc/script/showdoc_api.sh</a></p>
+</li>
+<li><p>下载后，将showdoc_api.sh放在你的项目目录下。右击，选择编辑。</p>
+<ul>
+<li>修改文件开头的三个变量值<ul>
+<li>api_key : 需要登录showdoc进入某个项目的设置，点击开放API，便可以看到说明</li>
+<li>api_token : 需要登录showdoc进入某个项目的设置，点击开放API，便可以看到说明</li>
+<li>url : 如果是使用www.showdoc.cc ，则不需要修改。如果是使用开源版showdoc，则需要将地址改为<a href="http://xx.com/server/index.php?s=/api/open/fromComments">http://xx.com/server/index.php?s=/api/open/fromComments</a> ，其中，别忘记了url里含server目录。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>填写完毕，保存。然后直接双击运行，脚本会自动递归扫描本目录和子目录的所有文本代码文件，并生成API文档。</p>
+</li>
+</ol>
+<h3 id="Linux-Mac下使用"><a href="#Linux-Mac下使用" class="headerlink" title="Linux/Mac下使用"></a>Linux/Mac下使用</h3><ol>
+<li><p>先cd进入你的项目目录，命令行模式下输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.showdoc.cc&#x2F;script&#x2F;showdoc_api.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑下载完成的文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi showdoc_api.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改文件开头的三个变量值</p>
+<ul>
+<li>api_key : 需要登录showdoc进入某个项目的设置，点击开放API，便可以看到说明</li>
+<li>api_token : 需要登录showdoc进入某个项目的设置，点击开放API，便可以看到说明</li>
+<li>url : 如果是使用www.showdoc.cc ，则不需要修改。如果是使用开源版showdoc，则需要将地址改为<a href="http://xx.com/server/index.php?s=/api/open/fromComments">http://xx.com/server/index.php?s=/api/open/fromComments</a> ，其中，别忘记了url里含server目录。</li>
+</ul>
+</li>
+<li><p>保存文件后。执行以下命令，脚本会自动递归扫描本目录和子目录的所有文本代码文件，并生成API文档。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> chmod +x showdoc_api.sh</span><br><span class="line">.&#x2F;showdoc_api.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="语法说明"><a href="#语法说明" class="headerlink" title="语法说明"></a>语法说明</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * showdoc</span><br><span class="line">    * @catalog 测试文档&#x2F;用户相关</span><br><span class="line">    * @title 用户登录</span><br><span class="line">    * @description 用户登录的接口</span><br><span class="line">    * @method get</span><br><span class="line">    * @url https:&#x2F;&#x2F;www.showdoc.cc&#x2F;home&#x2F;user&#x2F;login</span><br><span class="line">    * @header token 可选 string 设备token </span><br><span class="line">    * @param username 必选 string 用户名 </span><br><span class="line">    * @param password 必选 string 密码  </span><br><span class="line">    * @param name 可选 string 用户昵称  </span><br><span class="line">    * @return &#123;&quot;error_code&quot;:0,&quot;data&quot;:&#123;&quot;uid&quot;:&quot;1&quot;,&quot;username&quot;:&quot;12154545&quot;,&quot;name&quot;:&quot;吴系挂&quot;,&quot;groupid&quot;:2,&quot;reg_time&quot;:&quot;1436864169&quot;,&quot;last_login_time&quot;:&quot;0&quot;&#125;&#125;</span><br><span class="line">    * @return_param groupid int 用户组id</span><br><span class="line">    * @return_param name string 用户昵称</span><br><span class="line">    * @remark 这里是备注信息</span><br><span class="line">    * @number 99</span><br><span class="line">    *&#x2F;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@catalog</code></td>
+<td>生成文档要放到哪个目录。如果只是二级目录，则直接写目录名字。如果是三级目录，而需要写二级目录/三级目录，即用<code>/</code>隔开。如”一层/二层/三层”</td>
+</tr>
+<tr>
+<td><code>@title</code></td>
+<td>表示生成的文档标题</td>
+</tr>
+<tr>
+<td><code>@description</code></td>
+<td>是文档内容中对接口的描述信息</td>
+</tr>
+<tr>
+<td><code>@method</code></td>
+<td>接口请求方式。一般是get或者post</td>
+</tr>
+<tr>
+<td><code>@url</code></td>
+<td>接口URL。不要在URL中使用&amp;符号来传递参数。传递参数请写在参数表格中</td>
+</tr>
+<tr>
+<td><code>@header</code></td>
+<td>可选。header说明。一行注释对应着表格的一行。用空格或者tab符号来隔开每一列信息。</td>
+</tr>
+<tr>
+<td><code>@param</code></td>
+<td>参数表格说明。一行注释对应着表格的一行。用空格或者tab符号来隔开每一列信息。</td>
+</tr>
+<tr>
+<td><code>@json_param</code></td>
+<td>可选。当请求参数是json的时候，可增加此标签。请把json内容压缩在同一行内。</td>
+</tr>
+<tr>
+<td><code>@return</code></td>
+<td>返回内容。请把返回内容压缩在同一行内。如果是json，程序会自动进行格式化展示。 如果是非json内容，则原样展示。</td>
+</tr>
+<tr>
+<td><code>@return_param</code></td>
+<td>返回参数的表格说明。一行注释对应着表格的一行。用空格或者tab符号来隔开每一列信息。</td>
+</tr>
+<tr>
+<td><code>@remark</code></td>
+<td>备注信息</td>
+</tr>
+<tr>
+<td><code>@number</code></td>
+<td>可选。文档的序号。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="其它信息"><a href="#其它信息" class="headerlink" title="其它信息"></a>其它信息</h3><p>官方文档:</p>
+<blockquote>
+<p>请严格按照我们的语法来填写程序注释。如果格式不对，则可能引发未知的解析错误。</p>
+<p>出于数据安全考虑，showdoc不允许直接通过代码删除文档。只能新增或者修改。所以，如果你要删除文档，请登录showdoc网页端完成。</p>
+<p>本脚本只能通过特定的程序注释来生成文档，使用范围有限。如果你是想通过其他方式自由地生成文档，如通过word、通过博客软件等，请参考我们更自由的开放API：<a href="https://www.showdoc.cc/page/102098">https://www.showdoc.cc/page/102098</a></p>
+<p>如果你的项目下太多文件，则可能导致脚本扫描很慢。推荐把脚本放到需要生成注释的那个目录里。一般来讲，一个项目不会所有目录都需要生成文档的</p>
+</blockquote>]]></content>
       <categories>
         <category>使用说明</category>
       </categories>
@@ -2371,6 +2476,7 @@
       <categories>
         <category>笔记</category>
         <category>基础</category>
+        <category>其它</category>
       </categories>
       <tags>
         <tag>位运算</tag>
@@ -2615,14 +2721,15 @@
       <categories>
         <category>笔记</category>
         <category>基础</category>
+        <category>其它</category>
       </categories>
       <tags>
         <tag>Http</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaScript高阶函数</title>
-    <url>/2020/09/30/JavaScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
+    <title>ECMAScript高阶函数</title>
+    <url>/2020/09/30/ECMAScript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><blockquote>
 <p><strong>函数式编程</strong>（英语：<strong>functional programming</strong>）或称<strong>函数程序设计</strong>、<strong>泛函编程</strong>，是一种<a href="https://zh.wikipedia.org/wiki/编程范式">编程范式</a>，它将<a href="https://zh.wikipedia.org/wiki/電腦運算">电脑运算</a>视为<a href="https://zh.wikipedia.org/wiki/函数">函数</a>运算，并且避免使用<a href="https://zh.wikipedia.org/w/index.php?title=程式状态&amp;action=edit&amp;redlink=1">程序状态</a>以及<a href="https://zh.wikipedia.org/wiki/不可變物件">易变对象</a>。其中，<a href="https://zh.wikipedia.org/wiki/Λ演算">λ演算</a>（lambda calculus）为该语言最重要的基础。而且，λ演算的函数可以接受函数当作输入（引数）和输出（传出值）。</p>
 <p>比起<a href="https://zh.wikipedia.org/wiki/指令式編程">指令式编程</a>，函数式编程更加强调程序执行的结果而非执行的过程，倡导利用若干简单的执行单元让计算结果不断渐进，逐层推导复杂的运算，而不是设计一个复杂的执行过程。</p>
@@ -2840,8 +2947,8 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript事件</title>
-    <url>/2020/09/28/JavaScript%E4%BA%8B%E4%BB%B6/</url>
+    <title>ECMAScript事件</title>
+    <url>/2020/09/28/ECMAScript%E4%BA%8B%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="常见类别"><a href="#常见类别" class="headerlink" title="常见类别"></a>常见类别</h1><h2 id="资源事件"><a href="#资源事件" class="headerlink" title="资源事件"></a>资源事件</h2><div class="table-container">
 <table>
 <thead>
