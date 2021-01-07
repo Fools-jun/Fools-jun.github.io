@@ -3,9 +3,9 @@ title: IDEA、WebStrom最新版破解教程
 date: 2020-09-19 18:49:30
 mathjax: true
 categories:
-- 安装教程
+- 激活教程
 tags:
-- IDEA
+- Idea
 - WebStorm
 - JetBrains
 copyright: true

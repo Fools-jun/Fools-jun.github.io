@@ -3,8 +3,9 @@ title: 时序数据库（TSDB）- influxdb
 copyright: true
 mathjax: true
 date: 2020-10-28 15:06:18
-categories:
+cegories:
 - 笔记
+- 数据库
 - 时序数据库
 tags:
 - influxDB

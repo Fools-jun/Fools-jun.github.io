@@ -4,8 +4,7 @@ copyright: true
 mathjax: true
 date: 2020-12-21 11:16:52
 categories:
-- 笔记
-- 基础
+- 使用说明
 tags:
 - Git
 ---

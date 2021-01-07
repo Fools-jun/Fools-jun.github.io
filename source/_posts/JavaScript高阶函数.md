@@ -5,7 +5,7 @@ categories:
 - 笔记
 - 前端
 tags:
-- JavaScript
+- ECMAScript
 copyright: true
 ---
 
