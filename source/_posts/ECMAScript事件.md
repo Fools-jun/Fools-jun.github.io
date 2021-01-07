@@ -1,5 +1,5 @@
 ---
-title: JavaScript事件
+title: ECMAScript事件
 date: 2020-09-28 17:02:46
 categories:
 - 笔记
@@ -9,7 +9,7 @@ tags:
 copyright: true
 ---
 
-JavaScript的常用事件
+ECMAScript的常用事件
 
 <!-- less -->
 

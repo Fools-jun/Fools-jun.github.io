@@ -1,5 +1,5 @@
 ---
-title: JavaScript高阶函数
+title: ECMAScript高阶函数
 date: 2020-09-30 10:18:48
 categories:
 - 笔记
@@ -9,7 +9,9 @@ tags:
 copyright: true
 ---
 
-什么是函数式编程？JavaScript高阶函数
+什么是函数式编程？
+
+ECMAScript 高阶函数
 
 <!-- less -->
 
