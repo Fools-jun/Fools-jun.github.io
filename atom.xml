@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-11T07:30:20.996Z</updated>
+  <updated>2021-01-13T07:59:56.028Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Idea常用快捷键整理</title>
+    <link href="https://www.junpzx.cn/2021/01/13/Idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%95%B4%E7%90%86/"/>
+    <id>https://www.junpzx.cn/2021/01/13/Idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%95%B4%E7%90%86/</id>
+    <published>2021-01-13T07:30:56.000Z</published>
+    <updated>2021-01-13T07:59:56.028Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;整理学习和工作过程中经常使用的一些快捷键&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="使用说明" scheme="https://www.junpzx.cn/categories/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    
+    
+    <category term="Idea" scheme="https://www.junpzx.cn/tags/Idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown语法</title>
     <link href="https://www.junpzx.cn/2021/01/11/markdown%E8%AF%AD%E6%B3%95/"/>
     <id>https://www.junpzx.cn/2021/01/11/markdown%E8%AF%AD%E6%B3%95/</id>
     <published>2021-01-11T06:14:03.000Z</published>
-    <updated>2021-01-11T07:30:20.996Z</updated>
+    <updated>2021-01-11T08:16:19.193Z</updated>
     
     
     <summary type="html">&lt;p&gt;.md即markdown文件的基本常用编写语法,是一种快速标记、快速排版语言，现在很多前段项目中的说明文件readme等都是用.md文件编写的，而且很多企业也在在鼓励使用这种编辑方式，下面大致介绍一下其语法。&lt;/p&gt;</summary>
@@ -431,31 +450,6 @@
     <id>https://www.junpzx.cn/2020/12/24/Activiti%E8%BF%9B%E9%98%B6/</id>
     <published>2020-12-24T05:36:14.000Z</published>
     <updated>2021-01-07T07:49:05.849Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;工作流引擎&lt;/strong&gt;是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。&lt;/p&gt;
-&lt;p&gt;例如开发一个系统最关键的部分不是系统的界面，也不是和数据库之间的信息交换，而是如何根据业务逻辑开发出符合实际需要的程序逻辑并确保其稳定性、易维护性（模块化和结构化）和弹性（容易根据实际业务逻辑的变化作出程序上的变动，例如决策权的改变、组织结构的变动和由于业务方向的变化产生的全新业务逻辑等等）。 Workflow 引擎解决的就是这个问题：如果应用程序缺乏强大的逻辑层，势必变得容易出错（信息的路由错误、死循环等等）。&lt;/p&gt;
-&lt;p&gt;就好比一辆汽车，外表做得再漂亮，如果发动机有问题就只是一个摆设。应用系统的弹性就好比引擎转速方面的性能，加速到100 公里需要1 个小时（业务流程发生变动需要进行半年的程序修改）还能叫好车吗？引擎动不动就熄火（程序因为逻辑的问题陷入死循环）的车还敢开吗？&lt;/p&gt;
-&lt;p&gt;Workflow 关注的是如何缩短流程闲置时间，从而提高企业的业务处理能力并使企业能够关注于真正对企业有意义的增值业务上。从建立企业神经系统的角度也许更能理解两者的区别。传统软件不能解决工作流的问题，例如ERP关注的是企业的资源配置，但不可能解决资源传输过程中的损耗和降低传输（流程）的成本；同样workflow也不能完全解决传统管理软件所能解决的问题，例如对生产管理的MRP 系统所能解决的生产过程控制通过workflow很难实现。但一个好的传统软件如果希望能自动化地在整个企业中应用起来，必须有一个强大的逻辑层，用以解决信息传递的逻辑判断和自动流转，这个时候就需要workflow的平台。&lt;/p&gt;
-&lt;p&gt;今天的很多优秀的工作流解决方案集成了短信息、页面服务、目标管理、文件管理和其他一些操作系统才提供的服务。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="工作流引擎" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E/"/>
-    
-    
-    <category term="Activiti" scheme="https://www.junpzx.cn/tags/Activiti/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Activiti整合</title>
-    <link href="https://www.junpzx.cn/2020/12/24/Activiti%E6%95%B4%E5%90%88/"/>
-    <id>https://www.junpzx.cn/2020/12/24/Activiti%E6%95%B4%E5%90%88/</id>
-    <published>2020-12-24T05:35:58.000Z</published>
-    <updated>2021-01-07T07:49:18.394Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;工作流引擎&lt;/strong&gt;是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。&lt;/p&gt;
