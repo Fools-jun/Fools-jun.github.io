@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-14T02:14:38.037Z</updated>
+  <updated>2021-01-14T02:50:22.262Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -17,15 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JDK8新特性之Stream用法</title>
-    <link href="https://www.junpzx.cn/2021/01/14/JDK8%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8BStream%E7%94%A8%E6%B3%95/"/>
-    <id>https://www.junpzx.cn/2021/01/14/JDK8%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8BStream%E7%94%A8%E6%B3%95/</id>
+    <title>Java8新特性之Stream用法</title>
+    <link href="https://www.junpzx.cn/2021/01/14/Java8%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8BStream%E7%94%A8%E6%B3%95/"/>
+    <id>https://www.junpzx.cn/2021/01/14/Java8%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8BStream%E7%94%A8%E6%B3%95/</id>
     <published>2021-01-14T02:14:11.000Z</published>
-    <updated>2021-01-14T02:14:38.037Z</updated>
+    <updated>2021-01-14T02:50:22.262Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用Stream API 对集合数据进行操作，就类似于使用 SQL 执行的数据库查询。也可以使用 Stream API 来并行执行操作。简而言之，Stream API 提供了一种高效且易于使用的处理数据的方式。&lt;/p&gt;</summary>
     
     
     
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
+    <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+    <category term="JDK8" scheme="https://www.junpzx.cn/tags/JDK8/"/>
     
   </entry>
   
