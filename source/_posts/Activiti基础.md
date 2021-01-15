@@ -2,12 +2,13 @@
 title: Activiti基础
 copyright: true
 mathjax: true
-date: 2020-12-24 13:36:26
 categories:
-- 笔记
-- 工作流引擎
+  - 笔记
+  - 工作流引擎
 tags:
-- Activiti
+  - Activiti
+abbrlink: 36373
+date: 2020-12-24 13:36:26
 ---
 
 **工作流引擎**是指workflow（工作流）作为应用系统的一部分，并为之提供对各应用系统有决定作用的根据角色、分工和条件的不同决定信息传递路由、内容等级等核心解决方案。

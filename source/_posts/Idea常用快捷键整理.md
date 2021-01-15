@@ -2,11 +2,12 @@
 title: Idea常用快捷键整理
 copyright: true
 mathjax: true
-date: 2021-01-13 15:30:56
 categories:
-- 使用说明
+  - 使用说明
 tags:
-- Idea
+  - Idea
+abbrlink: 28406
+date: 2021-01-13 15:30:56
 ---
 
 整理学习和工作过程中经常使用的一些快捷键

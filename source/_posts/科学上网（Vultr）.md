@@ -2,11 +2,12 @@
 title: 科学上网（Vultr）
 copyright: true
 mathjax: true
-date: 2020-10-26 15:36:52
 categories:
-- 安装教程
+  - 安装教程
 tags:
-- 科学上网
+  - 科学上网
+abbrlink: 9623
+date: 2020-10-26 15:36:52
 ---
 
 使用vultr科学上网

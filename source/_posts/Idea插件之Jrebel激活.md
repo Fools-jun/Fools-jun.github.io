@@ -2,13 +2,14 @@
 title: Idea插件之Jrebel激活
 copyright: true
 mathjax: true
-date: 2021-01-04 16:29:52
 categories:
-- 激活教程
+  - 激活教程
 tags:
-- Idea
-- JRebel
-- XRebel
+  - Idea
+  - JRebel
+  - XRebel
+abbrlink: 17262
+date: 2021-01-04 16:29:52
 ---
 
 Rebel是一款JVM插件，它使得Java代码修改后不用重启系统，立即生效。IDEA上原生是不支持热部署的，一般更新了 Java 文件后要手动重启 Tomcat 服务器，才能生效，浪费时间浪费生命。

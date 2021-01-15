@@ -1,14 +1,15 @@
 ---
 title: IDEA、WebStrom最新版破解教程
-date: 2020-09-19 18:49:30
 mathjax: true
 categories:
-- 激活教程
+  - 激活教程
 tags:
-- Idea
-- WebStorm
-- JetBrains
+  - Idea
+  - WebStorm
+  - JetBrains
 copyright: true
+abbrlink: 58324
+date: 2020-09-19 18:49:30
 ---
 
 以下以idea为例,WebStorm 2020.2.2 x64版本我也试过,可以正常破解,但是以下破解可能会导致IDEA比较卡,如果是学生的话直接去申请免费套餐就好了,如果可以的话也就是去tb上买个一年全家桶的使用资格,价格的话在二十块左右!

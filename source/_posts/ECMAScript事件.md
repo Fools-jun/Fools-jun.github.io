@@ -1,12 +1,13 @@
 ---
 title: ECMAScript事件
-date: 2020-09-28 17:02:46
 categories:
-- 笔记
-- 前端
+  - 笔记
+  - 前端
 tags:
-- ECMAScript
+  - ECMAScript
 copyright: true
+abbrlink: 9585
+date: 2020-09-28 17:02:46
 ---
 
 ECMAScript的常用事件

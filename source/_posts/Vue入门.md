@@ -1,12 +1,13 @@
 ---
 title: Vue入门
-date: 2020-09-21 13:20:27
 categories:
-- 笔记
-- 前端
+  - 笔记
+  - 前端
 tags:
-- Vue
+  - Vue
 copyright: true
+abbrlink: 58210
+date: 2020-09-21 13:20:27
 ---
 
 简单介绍一下vue是什么,和vue的几种安装方式,vue的简单使用 

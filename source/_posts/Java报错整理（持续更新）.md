@@ -1,13 +1,14 @@
 ---
 title: Java报错整理（持续更新）
-date: 2020-10-14 11:21:10
 categories:
-- 笔记
-- 后端
+  - 笔记
+  - 后端
 tags:
-- Java
-- Maven
+  - Java
+  - Maven
 copyright: true
+abbrlink: 7376
+date: 2020-10-14 11:21:10
 ---
 
 整理在Java中遇到过的问题，可能该问题的场景有多种，此处只记录我遇到过的问题的正确解决方案，仅供大家参考

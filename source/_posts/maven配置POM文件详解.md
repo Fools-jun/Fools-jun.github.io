@@ -2,13 +2,13 @@
 title: maven配置POM文件详解
 copyright: true
 mathjax: true
-date: 2020-11-02 09:45:43
 categories:
-- 笔记
-- 后端
+  - 笔记
+  - 后端
 tags:
-- Maven
-
+  - Maven
+abbrlink: 20676
+date: 2020-11-02 09:45:43
 ---
 
 

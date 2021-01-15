@@ -1,12 +1,13 @@
 ---
 title: Vue基本操作(一)
-date: 2020-09-21 17:01:41
 categories:
-- 笔记
-- 前端
+  - 笔记
+  - 前端
 tags:
-- Vue
+  - Vue
 copyright: true
+abbrlink: 18110
+date: 2020-09-21 17:01:41
 ---
 
 插值操作的介绍和使用

@@ -1,12 +1,13 @@
 ---
 title: ES语法(持续更新)
-date: 2020-09-24 18:00:30
 categories:
-- 笔记
-- 前端
+  - 笔记
+  - 前端
 tags:
-- ECMAScript
+  - ECMAScript
 copyright: true
+abbrlink: 28374
+date: 2020-09-24 18:00:30
 ---
 
 记录学习或者使用过程中，ES6较之前新增的语法和某些不同的语法

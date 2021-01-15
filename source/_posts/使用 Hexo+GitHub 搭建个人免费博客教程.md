@@ -1,11 +1,12 @@
 ---
 title: 使用 Hexo+GitHub 搭建个人免费博客教程
-date: 2020-09-17 17:05:00 
-categories: 
-- 安装教程
+categories:
+  - 安装教程
 tags:
-- hexo
+  - hexo
 copyright: true
+abbrlink: 14253
+date: 2020-09-17 17:05:00
 ---
 
 近些年来很多用户都喜欢使用 GitHub Pages 来搭建 Hexo 静态博客网站，其最吸引人的莫过于完全免费使用，并且非常稳定。

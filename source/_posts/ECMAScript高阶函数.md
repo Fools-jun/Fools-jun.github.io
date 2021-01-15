@@ -1,12 +1,13 @@
 ---
 title: ECMAScript高阶函数
-date: 2020-09-30 10:18:48
 categories:
-- 笔记
-- 前端
+  - 笔记
+  - 前端
 tags:
-- ECMAScript
+  - ECMAScript
 copyright: true
+abbrlink: 39448
+date: 2020-09-30 10:18:48
 ---
 
 什么是函数式编程？

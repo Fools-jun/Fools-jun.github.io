@@ -2,12 +2,13 @@
 title: Jackson的简单使用
 copyright: true
 mathjax: true
-date: 2021-01-11 11:35:56
 categories:
-- 笔记
-- 后端
+  - 笔记
+  - 后端
 tags:
-- Jackson
+  - Jackson
+abbrlink: 4168
+date: 2021-01-11 11:35:56
 ---
 
 Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象ObjectMapper类是Jackson库的主要类。它称ObjectMapper的原因是因为它将JSON映射到Java对象（反序列化），或将Java对象映射到JSON（序列化）。它使用JsonParser和JsonGenerator的实例实现JSON实际的读/写。

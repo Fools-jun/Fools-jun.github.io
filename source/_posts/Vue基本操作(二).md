@@ -1,12 +1,13 @@
 ---
 title: Vue基本操作(二)
-date: 2020-09-28 17:36:38
 categories:
-- 笔记
-- 前端
+  - 笔记
+  - 前端
 tags:
-- Vue
+  - Vue
 copyright: true
+abbrlink: 34330
+date: 2020-09-28 17:36:38
 ---
 
 Vue的条件判断的介绍和使用

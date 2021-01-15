@@ -2,11 +2,12 @@
 title: markdown语法
 copyright: true
 mathjax: true
-date: 2021-01-11 14:14:03
 categories:
-- 使用说明
+  - 使用说明
 tags:
-- markdown
+  - markdown
+abbrlink: 47193
+date: 2021-01-11 14:14:03
 ---
 
 .md即markdown文件的基本常用编写语法,是一种快速标记、快速排版语言，现在很多前段项目中的说明文件readme等都是用.md文件编写的，而且很多企业也在在鼓励使用这种编辑方式，下面大致介绍一下其语法。

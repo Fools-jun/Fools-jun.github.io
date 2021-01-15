@@ -2,13 +2,14 @@
 title: Windows安装Kafka(含zookeeper)
 copyright: true
 mathjax: true
-date: 2020-11-03 10:13:02
 categories:
-- 安装教程
+  - 安装教程
 tags:
-- Kafka
-- zookeeper
-- windows
+  - Kafka
+  - zookeeper
+  - windows
+abbrlink: 62369
+date: 2020-11-03 10:13:02
 ---
 
 windows环境下安装kafka和zookeeper教程
