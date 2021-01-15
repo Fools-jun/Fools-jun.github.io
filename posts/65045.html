@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之工厂方法模式">
+<meta property="og:url" content="https://www.junpzx.cn/posts/65045.html">
+<meta property="og:site_name" content="星辰大海">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152431.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152710.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152825.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225154352.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225161224.png">
+<meta property="article:published_time" content="2020-12-25T07:11:25.000Z">
+<meta property="article:modified_time" content="2021-01-14T02:57:38.818Z">
+<meta property="article:author" content="JunPzx">
+<meta property="article:tag" content="创建型设计模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png">
+
+<link rel="canonical" href="https://www.junpzx.cn/posts/65045.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>设计模式之工厂方法模式 | 星辰大海</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">星辰大海</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Starry Sea</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-util">
+
+    <a href="/utils/" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/65045.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="JunPzx">
+      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="星辰大海">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式之工厂方法模式
+        </h1>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-25 15:11:25" itemprop="dateCreated datePublished" datetime="2020-12-25T15:11:25+08:00">2020-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-14 10:57:38" itemprop="dateModified" datetime="2021-01-14T10:57:38+08:00">2021-01-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="设计模式之工厂方法模式"><a href="#设计模式之工厂方法模式" class="headerlink" title="设计模式之工厂方法模式"></a>设计模式之工厂方法模式</h1><p><strong>亦称：</strong> 虚拟构造函数、Virtual Constructor、Factory Method</p>
+<h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png" alt="工厂方法模式"></p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假设你正在开发一款物流管理应用。 最初版本只能处理卡车运输， 因此大部分代码都在位于名为 <code>卡车</code>的类中。</p>
+<p>一段时间后， 这款应用变得极受欢迎。 你每天都能收到十几次来自海运公司的请求， 希望应用能够支持海上物流功能。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152431.png" alt="如果代码其余部分与现有类已经存在耦合关系， 那么向程序中添加新类其实并没有那么容易"></p>
+<p>这可是个好消息。 但是代码问题该如何处理呢？ 目前， 大部分代码都与 <code>卡车</code>类相关。 在程序中添加 <code>轮船</code>类需要修改全部代码。 更糟糕的是， 如果你以后需要在程序中支持另外一种运输方式， 很可能需要再次对这些代码进行大幅修改。</p>
+<p>最后， 你将不得不编写繁复的代码， 根据不同的运输对象类， 在应用中进行不同的处理。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>工厂方法模式建议使用特殊的<em>工厂</em>方法代替对于对象构造函数的直接调用 （即使用 <code>new</code>运算符）。 不用担心， 对象仍将通过 <code>new</code>运算符创建， 只是该运算符改在工厂方法中调用罢了。 工厂方法返回的对象通常被称作 “产品”。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152710.png" alt="子类可以修改工厂方法返回的对象类型"></p>
+<p>乍看之下， 这种更改可能毫无意义： 我们只是改变了程序中调用构造函数的位置而已。 但是， 仔细想一下， 现在你可以在子类中重写工厂方法， 从而改变其创建产品的类型。</p>
+<p>但有一点需要注意:仅当这些产品具有共同的基类或者接口时， 子类才能返回不同类型的产品， 同时基类中的工厂方法还应将其返回类型声明为这一共有接口。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225152825.png" alt="所有产品都必须使用同一接口"></p>
+<p>举例来说，  <code>卡车</code>Truck和 <code>轮船</code>Ship类都必须实现 <code>运输</code>Transport接口， 该接口声明了一个名为 <code>deliver</code>交付的方法。 每个类都将以不同的方式实现该方法： 卡车走陆路交付货物， 轮船走海路交付货物。  <code>陆路运输</code>Road­Logistics类中的工厂方法返回卡车对象， 而 <code>海路运输</code>Sea­Logistics类则返回轮船对象。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225154352.png" alt="只要产品类实现一个共同的接口， 你就可以将其对象传递给客户代码， 而无需提供额外数据"></p>
+<p>调用工厂方法的代码 （通常被称为<em>客户端</em>代码） 无需了解不同子类返回实际对象之间的差别。 客户端将所有产品视为抽象的 <code>运输</code> 。 客户端知道所有运输对象都提供 <code>交付</code>方法， 但是并不关心其具体实现方式。</p>
+<h1 id="🤔工厂方法模式结构"><a href="#🤔工厂方法模式结构" class="headerlink" title="🤔工厂方法模式结构"></a>🤔工厂方法模式结构</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201225161224.png" alt="工厂方法模式结构"></p>
+<h1 id="💡工厂方法模式适合应用场景"><a href="#💡工厂方法模式适合应用场景" class="headerlink" title="💡工厂方法模式适合应用场景"></a>💡工厂方法模式适合应用场景</h1><p>🧨当你在编写代码的过程中， 如果无法预知对象确切类别及其依赖关系时， 可使用工厂方法。</p>
+<p>🏮工厂方法将创建产品的代码与实际使用产品的代码分离， 从而能在不影响其他代码的情况下扩展产品创建部分       代码。</p>
+<p>例如， 如果需要向应用中添加一种新产品， 你只需要开发新的创建者子类， 然后重写其工厂方法即可。</p>
+<p>🧨如果你希望用户能扩展你软件库或框架的内部组件， 可使用工厂方法。</p>
+<p>🏮继承可能是扩展软件库或框架默认行为的最简单方法。 但是当你使用子类替代标准组件时， 框架如何辨识出该     子类？</p>
+<p>解决方案是将各框架中构造组件的代码集中到单个工厂方法中， 并在继承该组件之外允许任何人对该方法进行     重写。</p>
+<p>让我们看看具体是如何实现的。 假设你使用开源 UI 框架编写自己的应用。 你希望在应用中使用圆形按钮， 但     是原框架仅支持矩形按钮。 你可以使用 <code>圆形按钮</code>Round­Button子类来继承标准的 <code>按钮</code>Button类。 但是， 你     需要告诉 <code>UI框架</code>UIFramework类使用新的子类按钮代替默认按钮。</p>
+<p>为了实现这个功能， 你可以根据基础框架类开发子类 <code>圆形按钮 UI</code>UIWith­Round­Buttons ， 并且重写其                 <code>create­Button</code>创建按钮方法。 基类中的该方法返回 <code>按钮</code>对象， 而你开发的子类返回 <code>圆形按钮</code>对象。 现在，      你就可以使用 <code>圆形按钮 UI</code>类代替 <code>UI框架</code>类。 就是这么简单！</p>
+<p>🧨如果你希望复用现有对象来节省系统资源， 而不是每次都重新创建对象， 可使用工厂方法。</p>
+<p>🏮在处理大型资源密集型对象 （比如数据库连接、 文件系统和网络资源） 时， 你会经常碰到这种资源需求。让我们思考复用现有对象的方法：</p>
+<ol>
+<li>首先， 你需要创建存储空间来存放所有已经创建的对象。</li>
+<li>当他人请求一个对象时， 程序将在对象池中搜索可用对象。</li>
+<li>…然后将其返回给客户端代码。</li>
+<li>如果没有可用对象， 程序则创建一个新对象 （并将其添加到对象池中）。</li>
+</ol>
+<p>这些代码可不少！ 而且它们必须位于同一处， 这样才能确保重复代码不会污染程序。</p>
+<p>可能最显而易见， 也是最方便的方式， 就是将这些代码放置在我们试图重用的对象类的构造函数中。 但是从     定义上来讲， 构造函数始终返回的是<strong>新对象</strong>， 其无法返回现有实例。</p>
+<p>因此， 你需要有一个既能够创建新对象， 又可以重用现有对象的普通方法。 这听上去和工厂方法非常相像。</p>
+<h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
+<li><p>让所有产品都遵循同一接口。 该接口必须声明对所有产品都有意义的方法。</p>
+</li>
+<li><p>在创建类中添加一个空的工厂方法。 该方法的返回类型必须遵循通用的产品接口。</p>
+</li>
+<li><p>在创建者代码中找到对于产品构造函数的所有引用。 将它们依次替换为对于工厂方法的调用， 同时将创建产品的代码移入工厂方法。 你可能需要在工厂方法中添加临时参数来控制返回的产品类型。</p>
+<p> 工厂方法的代码看上去可能非常糟糕。 其中可能会有复杂的 <code>switch</code>分支运算符， 用于选择各种需要实例化的产品类。 但是不要担心， 我们很快就会修复这个问题。</p>
+</li>
+<li><p>现在， 为工厂方法中的每种产品编写一个创建者子类， 然后在子类中重写工厂方法， 并将基本方法中的相关创建代码移动到工厂方法中。</p>
+</li>
+<li><p>如果应用中的产品类型太多， 那么为每个产品创建子类并无太大必要， 这时你也可以在子类中复用基类中的控制参数。</p>
+<p> 例如， 设想你有以下一些层次结构的类。 基类 <code>邮件</code>及其子类 <code>航空邮件</code>和 <code>陆路邮件</code> ；  <code>运输</code>及其子类 <code>飞机</code>, <code>卡车</code>和 <code>火车</code> 。  <code>航空邮件</code>仅使用 <code>飞机</code>对象， 而 <code>陆路邮件</code>则会同时使用 <code>卡车</code>和 <code>火车</code>对象。 你可以编写一个新的子类 （例如 <code>火车邮件</code> ） 来处理这两种情况， 但是还有其他可选的方案。 客户端代码可以给 <code>陆路邮件</code>类传递一个参数， 用于控制其希望获得的产品。</p>
+</li>
+<li><p>如果代码经过上述移动后， 基础工厂方法中已经没有任何代码， 你可以将其转变为抽象类。 如果基础工厂方法中还有其他语句， 你可以将其设置为该方法的默认行为。</p>
+</li>
+</ol>
+<h1 id="⚖️工厂方法模式优缺点"><a href="#⚖️工厂方法模式优缺点" class="headerlink" title="⚖️工厂方法模式优缺点"></a>⚖️工厂方法模式优缺点</h1><p>✔️你可以避免创建者和具体产品之间的紧密耦合。</p>
+<p>✔️<strong>单一职责原则</strong>。 你可以将产品创建代码放在程序的单一位置， 从而使得代码更容易维护。</p>
+<p>✔️<strong>开闭原则</strong>。 无需更改现有客户端代码， 你就可以在程序中引入新的产品类型。</p>
+<p>❌应用工厂方法模式需要引入许多新的子类， 代码可能会因此变得更复杂。 最好的情况是将该模式引入创建者类     的现有层次结构中。</p>
+<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
+<li>在许多设计工作的初期都会使用工厂方法模式 （较为简单， 而且可以更方便地通过子类进行定制）， 随后演化为使用抽象工厂模式、 原型模式或生成器模式 （更灵活但更加复杂）。</li>
+<li>抽象工厂模式通常基于一组工厂方法， 但你也可以使用原型模式来生成这些类的方法。</li>
+<li>你可以同时使用工厂方法和迭代器模式来让子类集合返回不同类型的迭代器， 并使得迭代器与集合相匹配。</li>
+<li>原型并不基于继承， 因此没有继承的缺点。 另一方面， <em>原型</em>需要对被复制对象进行复杂的初始化。 工厂方法基于继承， 但是它不需要初始化步骤。</li>
+<li>工厂方法是模板方法模式的一种特殊形式。 同时， <em>工厂方法</em>可以作为一个大型<em>模板方法</em>中的一个步骤。</li>
+</ul>
+    </div>
+
+    
+    
+    
+    
+	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+	 
+<div class="post-copyright-information">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/posts/65045.html">设计模式之工厂方法模式</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
+  <p><span>发布时间:</span>2020年12月25日 15:12:00</p>
+  <p><span>原始链接:</span><a href="/posts/65045.html" title="设计模式之工厂方法模式">https://www.junpzx.cn/posts/65045.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/65045.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 创建型设计模式</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/63625.html" rel="prev" title="设计模式之观察者模式">
+      <i class="fa fa-chevron-left"></i> 设计模式之观察者模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/23356.html" rel="next" title="设计模式之抽象工厂模式">
+      设计模式之抽象工厂模式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F"><span class="nav-text">设计模式之工厂方法模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E6%84%8F%E5%9B%BE"><span class="nav-text">💬意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%98%B9%EF%B8%8F%E9%97%AE%E9%A2%98"><span class="nav-text">☹️问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%98%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">😃解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%94%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">🤔工厂方法模式结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E9%80%82%E5%90%88%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">💡工厂方法模式适合应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%94%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">📔实现方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%96%EF%B8%8F%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">⚖️工厂方法模式优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%B1%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">🔱与其他模式的关系</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JunPzx"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">JunPzx</p>
+  <div class="site-description" itemprop="description">记录日常学习中,问题的解决方案和学习笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Fools-jun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Fools-jun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junpzx@163.com" title="E-Mail → mailto:junpzx@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JunPzx</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">246k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:43</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+-->
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

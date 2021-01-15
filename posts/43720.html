@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="​        时序数据是基于时间的一系列的数据。在有时间的坐标中将这些数据点连成线，往过去看可以做成多纬度报表，揭示其趋势性、规律性、异常性;往未来看可以做大数据分析，机器学习，实现预测和预警。 ​        时序数据库就是存放时序数据的数据库，并且需要支持时序数据的快速写入、持久化、多纬度的聚合查询等基本功能。 ​        对比传统数据库仅仅记录了数据的当前值，时序数据库则记录了所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时序数据库（TSDB）- influxdb">
+<meta property="og:url" content="https://www.junpzx.cn/posts/43720.html">
+<meta property="og:site_name" content="星辰大海">
+<meta property="og:description" content="​        时序数据是基于时间的一系列的数据。在有时间的坐标中将这些数据点连成线，往过去看可以做成多纬度报表，揭示其趋势性、规律性、异常性;往未来看可以做大数据分析，机器学习，实现预测和预警。 ​        时序数据库就是存放时序数据的数据库，并且需要支持时序数据的快速写入、持久化、多纬度的聚合查询等基本功能。 ​        对比传统数据库仅仅记录了数据的当前值，时序数据库则记录了所">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-28T07:06:18.000Z">
+<meta property="article:modified_time" content="2021-01-14T02:57:38.813Z">
+<meta property="article:author" content="JunPzx">
+<meta property="article:tag" content="influxDB">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.junpzx.cn/posts/43720.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>时序数据库（TSDB）- influxdb | 星辰大海</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">星辰大海</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Starry Sea</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-util">
+
+    <a href="/utils/" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/43720.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="JunPzx">
+      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="星辰大海">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          时序数据库（TSDB）- influxdb
+        </h1>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-28 15:06:18" itemprop="dateCreated datePublished" datetime="2020-10-28T15:06:18+08:00">2020-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-14 10:57:38" itemprop="dateModified" datetime="2021-01-14T10:57:38+08:00">2021-01-14</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><h2 id="1-1-什么是时序数据库"><a href="#1-1-什么是时序数据库" class="headerlink" title="1.1.什么是时序数据库"></a>1.1.什么是时序数据库</h2><p>​        首先介绍一下什么是时序数据，时序数据是基于时间的一系列的数据。在有时间的坐标中将这些数据点连成线，往过去看可以做成多纬度报表，揭示其趋势性、规律性、异常性;往未来看可以做大数据分析，机器学习，实现预测和预警。</p>
+<p>​        时序数据库就是存放时序数据的数据库，并且需要支持时序数据的快速写入、持久化、多纬度的聚合查询等基本功能。</p>
+<p>​        对比传统数据库仅仅记录了数据的当前值，时序数据库则记录了所有的历史数据。同时时序数据的查询也总是会带上时间作为过滤条件。</p>
+<h2 id="1-2-时序数据库的特点"><a href="#1-2-时序数据库的特点" class="headerlink" title="1.2.时序数据库的特点"></a>1.2.时序数据库的特点</h2><h3 id="数据写入"><a href="#数据写入" class="headerlink" title="数据写入"></a>数据写入</h3><ul>
+<li>写入平稳、持续、高并发高吞吐：时序数据的写入是比较平稳的，这点与应用数据不同，应用数据通常与应用的访问量成正比，而应用的访问量通常存在波峰波谷。时序数据的产生通常是以一个固定的时间频率产生，不会受其他因素的制约，其数据生成的速度是相对比较平稳的。</li>
+<li>写多读少：时序数据上95%-99%的操作都是写操作，是典型的写多读少的数据。这与其数据特性相关，例如监控数据，你的监控项可能很多，但是你真正去读的可能比较少，通常只会关心几个特定的关键指标或者在特定的场景下才会去读数据。</li>
+<li>实时写入最近生成的数据，无更新：时序数据的写入是实时的，且每次写入都是最近生成的数据，这与其数据生成的特点相关，因为其数据生成是随着时间推进的，而新生成的数据会实时的进行写入。数据写入无更新，在时间这个维度上，随着时间的推进，每次数据都是新数据，不会存在旧数据的更新，不过不排除人为的对数据做订正。</li>
+</ul>
+<h3 id="数据查询和分析"><a href="#数据查询和分析" class="headerlink" title="数据查询和分析"></a>数据查询和分析</h3><ul>
+<li>按时间范围读取：通常来说，你不会去关心某个特定点的数据，而是一段时间的数据。</li>
+<li>最近的数据被读取的概率高</li>
+<li>历史数据粗粒度查询的概率搞</li>
+<li>多种精度查询</li>
+<li>多维度分析</li>
+</ul>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><ul>
+<li><p>数据量大：拿监控数据来举例，如果我们采集的监控数据的时间间隔是1s，那一个监控项每天会产生86400个数据点，若有10000个监控项，则一天就会产生864000000个数据点。在物联网场景下，这个数字会更大。整个数据的规模，是TB甚至是PB级的。</p>
+</li>
+<li><p>冷热分明：时序数据有非常典型的冷热特征，越是历史的数据，被查询和分析的概率越低。</p>
+</li>
+<li><p>具有时效性：时序数据具有时效性，数据通常会有一个保存周期，超过这个保存周期的数据可以认为是失效的，可以被回收。一方面是因为越是历史的数据，可利用的价值越低；另一方面是为了节省存储成本，低价值的数据可以被清理。</p>
+</li>
+<li><p>多精度数据存储：在查询的特点里提到时序数据出于存储成本和查询效率的考虑，会需要一个多精度的查询，同样也需要一个多精度数据的存储。</p>
+</li>
+</ul>
+<h2 id="1-3-时序数据库适合的场景"><a href="#1-3-时序数据库适合的场景" class="headerlink" title="1.3.时序数据库适合的场景"></a>1.3.时序数据库适合的场景</h2><p>​        所有有时序数据产生，并且需要展现其历史趋势、周期规律、异常性的，进一步对未来做出预测分析的，都是时序数据库适合的场景。</p>
+<h2 id="1-4-时序数据库的数据模型"><a href="#1-4-时序数据库的数据模型" class="headerlink" title="1.4.时序数据库的数据模型"></a>1.4.时序数据库的数据模型</h2><p>时间序列数据可以分成两部分：</p>
+<ul>
+<li>序列 ：就是标识符（维度），主要的目的是方便进行搜索和筛选</li>
+<li><p>数据点：时间戳和数值构成的数组</p>
+<ul>
+<li>行存：一个数组包含多个点，如 [{t: 2017-09-03-21:24:44, v: 0.1002}, {t: 2017-09-03-21:24:45, v: 0.1012}]</li>
+<li>列存：两个数组，一个存时间戳，一个存数值，如[ 2017-09-03-21:24:44, 2017-09-03-21:24:45], [0.1002,  0.1012]</li>
+</ul>
+<p><strong>一般情况下：列存能有更好的压缩率和查询性能</strong></p>
+</li>
+</ul>
+<h2 id="1-5-时序数据库的基本概念"><a href="#1-5-时序数据库的基本概念" class="headerlink" title="1.5.时序数据库的基本概念"></a>1.5.时序数据库的基本概念</h2><p><strong>metric</strong>：度量，相当于关系型数据库中的table。</p>
+<p><strong>data point:</strong> 数据点，相当于关系型数据库中的row。</p>
+<p><strong>timestamp</strong>：时间戳，代表数据点产生的时间。</p>
+<p><strong>field</strong>: 度量下的不同字段。比如位置这个度量具有经度和纬度两个field。一般情况下存放的是会随着时间戳的变化而变化的数据。</p>
+<p><strong>tag</strong>: 标签，或者附加信息。一般存放的是并不随着时间戳变化的属性信息。timestamp加上所有的tags可以认为是table的primary key。</p>
+<h1 id="二、influxDB简介"><a href="#二、influxDB简介" class="headerlink" title="二、influxDB简介"></a>二、influxDB简介</h1><p>influxDB在Github上的地址：<a target="_blank" rel="noopener" href="https://github.com/influxdata/influxdb">https://github.com/influxdata/influxdb</a></p>
+<h2 id="2-1-influxDB是什么"><a href="#2-1-influxDB是什么" class="headerlink" title="2.1.influxDB是什么"></a>2.1.influxDB是什么</h2><p>​        <strong>InfluxDB</strong>是一个由<a target="_blank" rel="noopener" href="https://www.influxdata.com/">InfluxData</a>开发的开源时序型数据库。它由Go写成，着力于高性能地查询与存储时序型数据。InfluxDB被广泛应用于存储系统的监控数据，IoT(物联网)行业的实时数据等场景。</p>
+<h2 id="2-2-influxDB的特点"><a href="#2-2-influxDB的特点" class="headerlink" title="2.2.influxDB的特点"></a>2.2.influxDB的特点</h2><ul>
+<li>InfluxDB在技术实现上充分利用了Go语言的特性，无需任何外部依赖即可独立部署。</li>
+<li>InfluxDB提供了一个类似于SQL的查询语言并且一系列内置函数方便用户进行数据查询。</li>
+<li>InfluxDB存储的数据从逻辑上由 <strong>Measurement</strong>, <strong>tag组</strong>以及 <strong>field组</strong>以及一个<strong>时间戳</strong>组成的：<ul>
+<li>Measurement： 由一个字符串表示该条记录对应的含义。比如它可以是监控数据”cpu_load”，也可以是测量数据”average_temperature”</li>
+<li>tag组： 由一组键值对组成，表示的是该条记录的一系列属性信息。同样的measurement数据所拥有的tag组不一定相同，它是无模式的(Schema-free)。tag信息是默认被索引的。</li>
+<li>field组：也是由一组键值对组成，表示的是该条记录具体的value信息(有名称)。field组中可定义的value类型包括：64位整型，64位浮点型，字符串以及布尔型。Field信息是无法被索引的。</li>
+<li>时间戳：就是该条记录的时间属性。如果插入数据时没有明确指定时间戳，则默认存储在数据库中的时间戳则为该条记录的入库时间。</li>
+</ul>
+</li>
+<li>InfluxDB支持基于HTTP的数据插入与查询。同时也接受直接基于TCP或UDP协议的连接。</li>
+<li>InfluxDB允许用户定义数据保存策略(Retention Policies)来实现对存储超过指定时间的数据进行删除或者降采样。</li>
+</ul>
+<h2 id="2-3-influxDB的关键概念"><a href="#2-3-influxDB的关键概念" class="headerlink" title="2.3.influxDB的关键概念"></a>2.3.influxDB的关键概念</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>InfluxDB 和传统数据库（如：MySQL）的一些区别</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">InfluxDB</th>
+<th style="text-align:center">传统数据库中的概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">database</td>
+<td style="text-align:center">数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">measurement</td>
+<td style="text-align:center">数据库中的表</td>
+</tr>
+<tr>
+<td style="text-align:center">points</td>
+<td style="text-align:center">表里面的一行数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="特有概念"><a href="#特有概念" class="headerlink" title="特有概念"></a>特有概念</h3><ol>
+<li><p>tag–标签，在 InfluxDB 中，tag 是一个非常重要的部分，表名+tag 一起作为数据库的索引，是“key-value”的形式</p>
+</li>
+<li><p>field–数据，field 主要是用来存放数据的部分，也是“key-value”的形式</p>
+</li>
+<li><p>timestamp–时间戳，作为时序型数据库，时间戳是 InfluxDB 中最重要的部分，在插入数据时可以自己指定也可留空让系统指定</p>
+<p> <strong>说明：在插入新数据时，tag、field 和 timestamp 之间用空格分隔</strong></p>
+</li>
+<li><p>series–序列，所有在数据库中的数据，都需要通过图表来展示，而这个 series 表示这个表里面的数据，可以在图表上画成几条线。具体可以通过 <code>SHOW SERIES FROM &quot;表名&quot;</code> 进行查询</p>
+</li>
+<li><p>Retention policy–数据保留策略，可以定义数据保留的时长，每个数据库可以有多个数据保留策略，但只能有一个默认策略</p>
+</li>
+<li><p>Point–点，表示每个表里某个时刻的某个条件下的一个 field 的数据，因为体现在图表上就是一个点，于是将其称为 point。Point 由时间戳（time）、数据（field）、标签（tags）组成</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Point 属性</th>
+<th style="text-align:center">传统数据库中的概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">time</td>
+<td style="text-align:center">每个数据记录时间，是数据库中的主索引 (会自动生成)</td>
+</tr>
+<tr>
+<td style="text-align:center">fields</td>
+<td style="text-align:center">表中的列（没有索引的属性）也就是记录的值：温度， 湿度</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">表中的索引：地区，海拔</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-4-influxDB端口"><a href="#2-4-influxDB端口" class="headerlink" title="2.4.influxDB端口"></a>2.4.influxDB端口</h2><ul>
+<li>8083：Web admin 管理服务的端口, <a target="_blank" rel="noopener" href="http://localhost:8083/">http://localhost:8083</a></li>
+<li>8086：HTTP API 的端口</li>
+<li>8088：集群端口</li>
+</ul>
+<h1 id="三、influxDB安装"><a href="#三、influxDB安装" class="headerlink" title="三、influxDB安装"></a>三、influxDB安装</h1><h2 id="3-1-Linux上安装"><a href="#3-1-Linux上安装" class="headerlink" title="3.1.Linux上安装"></a>3.1.Linux上安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;dl.influxdata.com&#x2F;influxdb&#x2F;releases&#x2F;influxdb-1.8.3.x86_64.rpm</span><br><span class="line"></span><br><span class="line">sudo yum localinstall influxdb-1.8.3.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-Windows上安装"><a href="#3-2-Windows上安装" class="headerlink" title="3.2.Windows上安装"></a>3.2.Windows上安装</h2><p><a target="_blank" rel="noopener" href="https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip">下载地址</a>:<a target="_blank" rel="noopener" href="https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip">https://dl.influxdata.com/influxdb/releases/influxdb-1.8.3_windows_amd64.zip</a></p>
+<h2 id="3-3-docker上安装"><a href="#3-3-docker上安装" class="headerlink" title="3.3.docker上安装"></a>3.3.docker上安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull influxdb</span><br></pre></td></tr></table></figure>
+<h1 id="四、influxDB基本使用（以Windows为例）"><a href="#四、influxDB基本使用（以Windows为例）" class="headerlink" title="四、influxDB基本使用（以Windows为例）"></a>四、influxDB基本使用（以Windows为例）</h1><h2 id="4-1-启动"><a href="#4-1-启动" class="headerlink" title="4.1.启动"></a>4.1.启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 在cmd中进入到influxDB目录输入以下命令启动influxDB</span><br><span class="line">influxd.exe -config influxdb.conf</span><br><span class="line"></span><br><span class="line"># 启动客户端，如果没有修改过conf文件，那么则不用在后面指定端口</span><br><span class="line">influx.exe -port 8081</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-用户"><a href="#4-2-用户" class="headerlink" title="4.2.用户"></a>4.2.用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#显示所有用户</span><br><span class="line">show users</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user &quot;username&quot; with password &#39;password&#39;</span><br><span class="line"></span><br><span class="line">#创建管理员权限用户</span><br><span class="line">create user &quot;username&quot; with password &#39;password&#39; with all privileges</span><br><span class="line"></span><br><span class="line">#修改用户密码</span><br><span class="line">set password for username &#x3D; &quot;password&quot;</span><br><span class="line"></span><br><span class="line">#删除用户</span><br><span class="line">drop user &quot;username&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-权限"><a href="#4-3-权限" class="headerlink" title="4.3.权限"></a>4.3.权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看权限</span><br><span class="line">show grants for username</span><br><span class="line"></span><br><span class="line">#赋予管理员权限</span><br><span class="line">grant all privileges to username</span><br><span class="line"></span><br><span class="line">#取消权限</span><br><span class="line">revoke all on mydb from username</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-登录账号"><a href="#4-4-登录账号" class="headerlink" title="4.4.登录账号"></a>4.4.登录账号</h2><p><strong>认证策略需要在配置文件中打开[http]下的auth-enabled = true</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auth</span><br><span class="line">然后输入账号密码</span><br></pre></td></tr></table></figure>
+<h2 id="4-5-数据库操作"><a href="#4-5-数据库操作" class="headerlink" title="4.5.数据库操作"></a>4.5.数据库操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看所有数据库</span><br><span class="line">show databases</span><br><span class="line"></span><br><span class="line">#创建数据库</span><br><span class="line">create database &quot;testDB&quot;</span><br><span class="line"></span><br><span class="line">#使用数据库</span><br><span class="line">use testDB</span><br></pre></td></tr></table></figure>
+<h2 id="4-6-表"><a href="#4-6-表" class="headerlink" title="4.6.表"></a>4.6.表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#显示所有表</span><br><span class="line">show measurements</span><br><span class="line"></span><br><span class="line">#创建表</span><br><span class="line">insert test,host&#x3D;127.0.0.1,monitor_name&#x3D;test count&#x3D;1</span><br><span class="line"></span><br><span class="line">#删除表</span><br><span class="line">drop measurement &quot;measurement_name&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4-7插入数据"><a href="#4-7插入数据" class="headerlink" title="4.7插入数据"></a>4.7插入数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert weather,altitude&#x3D;5000,area&#x3D;北 humidity&#x3D;3,temperature&#x3D;23 1599630284710054000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>measurement(表名): weather</li>
+<li>tags（类似索引）: altitude、area。是String类型</li>
+<li>fields: temperature、humidity。是字符串、数字类型</li>
+<li>influx默认时间是纳秒（ns），即19位时间戳</li>
+</ul>
+<h2 id="4-16-查看表名"><a href="#4-16-查看表名" class="headerlink" title="4.16.查看表名"></a>4.16.查看表名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show measurements</span><br></pre></td></tr></table></figure>
+<h2 id="4-17-查看数据"><a href="#4-17-查看数据" class="headerlink" title="4.17.查看数据"></a>4.17.查看数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 操作与mysql类似</span><br><span class="line">select * from weather where time &gt;&#x3D;1599630284710ms</span><br><span class="line"></span><br><span class="line">select * from weather where time &gt;&#x3D; &#39;2018-11-23 14:30:39&#39; and time &lt;&#x3D; &#39;2018-11-23 14:32:32&#39; tz(&#39;Asia&#x2F;Shanghai&#39;)</span><br><span class="line"></span><br><span class="line"># 涉及时间查询使用时间戳，避免时区问题</span><br></pre></td></tr></table></figure>
+<h2 id="4-18-查看策略"><a href="#4-18-查看策略" class="headerlink" title="4.18.查看策略"></a>4.18.查看策略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show retention policies on &#39;weather&#39;</span><br></pre></td></tr></table></figure>
+<h2 id="4-19-创建策略"><a href="#4-19-创建策略" class="headerlink" title="4.19.创建策略"></a>4.19.创建策略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create retention policy &quot;rp_test&quot; on &quot;testDB&quot; duration 30d replication 1 default</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>rp_test: 策略名</p>
+</li>
+<li><p>testDB：数据库名</p>
+</li>
+<li><p>30d：数据保存时间，30天之前的数据将被删除</p>
+</li>
+<li><p>replication 1: 副本个数</p>
+</li>
+<li><p>default: 设为默认策略</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>duration</strong></th>
+<th><strong>shardGroupDuration</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;2days</td>
+<td>1hour</td>
+</tr>
+<tr>
+<td>&gt;=2days and &lt;=6months</td>
+<td>1day</td>
+</tr>
+<tr>
+<td>&gt;6months</td>
+<td>7days</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="4-20-修改策略"><a href="#4-20-修改策略" class="headerlink" title="4.20.修改策略"></a>4.20.修改策略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter retention policy &quot;rp_test&quot; on &quot;testDB&quot; duration 1d replication 1</span><br></pre></td></tr></table></figure>
+<h2 id="4-21-删除策略"><a href="#4-21-删除策略" class="headerlink" title="4.21.删除策略"></a>4.21.删除策略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop retention policy &quot; rp_test&quot; on &quot; testDB&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4-22-查询连续查询"><a href="#4-22-查询连续查询" class="headerlink" title="4.22.查询连续查询"></a>4.22.查询连续查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW CONTINUOUS QUERIES </span><br></pre></td></tr></table></figure>
+<ul>
+<li>这条命令得在命令行下输入，在web管理界面不能显示。</li>
+<li>QUERIES需要大写</li>
+</ul>
+<h2 id="4-23-创建新的Continuous-Queries"><a href="#4-23-创建新的Continuous-Queries" class="headerlink" title="4.23.创建新的Continuous Queries"></a>4.23.创建新的Continuous Queries</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create continuous query cq_30m on testDB begin select mean(temperature) into weather30m from weather group by time(30m) end</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>cq_30m：连续查询的名字</p>
+</li>
+<li><p>testDB：具体的数据库名</p>
+</li>
+<li><p>mean(temperature): 算平均温度</p>
+</li>
+<li><p>weather： 当前表名</p>
+</li>
+<li><p>weather30m： 存新数据的表名</p>
+</li>
+<li><p>30m：时间间隔为30分钟</p>
+</li>
+</ul>
+<h2 id="4-24-删除Continuous-Queries"><a href="#4-24-删除Continuous-Queries" class="headerlink" title="4.24.删除Continuous Queries"></a>4.24.删除Continuous Queries</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP CONTINUOUS QUERY &lt;cq_name&gt; ON &lt;database_name&gt;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+    
+	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+	 
+<div class="post-copyright-information">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/posts/43720.html">时序数据库（TSDB）- influxdb</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
+  <p><span>发布时间:</span>2020年10月28日 15:10:00</p>
+  <p><span>原始链接:</span><a href="/posts/43720.html" title="时序数据库（TSDB）- influxdb">https://www.junpzx.cn/posts/43720.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/43720.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/influxDB/" rel="tag"><i class="fa fa-tag"></i> influxDB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/9623.html" rel="prev" title="科学上网（Vultr）">
+      <i class="fa fa-chevron-left"></i> 科学上网（Vultr）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/20676.html" rel="next" title="maven配置POM文件详解">
+      maven配置POM文件详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.1.什么是时序数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">1.2.时序数据库的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5"><span class="nav-text">数据写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-text">数据查询和分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="nav-text">数据存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%82%E5%90%88%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">1.3.时序数据库适合的场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-text">1.4.时序数据库的数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.5.时序数据库的基本概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81influxDB%E7%AE%80%E4%BB%8B"><span class="nav-text">二、influxDB简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-influxDB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">2.1.influxDB是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-influxDB%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">2.2.influxDB的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-influxDB%E7%9A%84%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-text">2.3.influxDB的关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%9C%89%E6%A6%82%E5%BF%B5"><span class="nav-text">特有概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-influxDB%E7%AB%AF%E5%8F%A3"><span class="nav-text">2.4.influxDB端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81influxDB%E5%AE%89%E8%A3%85"><span class="nav-text">三、influxDB安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Linux%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.1.Linux上安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Windows%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.2.Windows上安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-docker%E4%B8%8A%E5%AE%89%E8%A3%85"><span class="nav-text">3.3.docker上安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81influxDB%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BB%A5Windows%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-text">四、influxDB基本使用（以Windows为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E5%90%AF%E5%8A%A8"><span class="nav-text">4.1.启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E7%94%A8%E6%88%B7"><span class="nav-text">4.2.用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E6%9D%83%E9%99%90"><span class="nav-text">4.3.权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E7%99%BB%E5%BD%95%E8%B4%A6%E5%8F%B7"><span class="nav-text">4.4.登录账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">4.5.数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-%E8%A1%A8"><span class="nav-text">4.6.表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-text">4.7插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-16-%E6%9F%A5%E7%9C%8B%E8%A1%A8%E5%90%8D"><span class="nav-text">4.16.查看表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-17-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE"><span class="nav-text">4.17.查看数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-18-%E6%9F%A5%E7%9C%8B%E7%AD%96%E7%95%A5"><span class="nav-text">4.18.查看策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-19-%E5%88%9B%E5%BB%BA%E7%AD%96%E7%95%A5"><span class="nav-text">4.19.创建策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-20-%E4%BF%AE%E6%94%B9%E7%AD%96%E7%95%A5"><span class="nav-text">4.20.修改策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-21-%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5"><span class="nav-text">4.21.删除策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-22-%E6%9F%A5%E8%AF%A2%E8%BF%9E%E7%BB%AD%E6%9F%A5%E8%AF%A2"><span class="nav-text">4.22.查询连续查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-23-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84Continuous-Queries"><span class="nav-text">4.23.创建新的Continuous Queries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-24-%E5%88%A0%E9%99%A4Continuous-Queries"><span class="nav-text">4.24.删除Continuous Queries</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JunPzx"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">JunPzx</p>
+  <div class="site-description" itemprop="description">记录日常学习中,问题的解决方案和学习笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Fools-jun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Fools-jun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junpzx@163.com" title="E-Mail → mailto:junpzx@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JunPzx</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">246k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:43</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+-->
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
