@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-18T03:35:36.754Z</updated>
+  <updated>2021-01-18T06:18:01.322Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://www.junpzx.cn/posts/4810.html"/>
     <id>https://www.junpzx.cn/posts/4810.html</id>
     <published>2021-01-18T02:30:09.000Z</published>
-    <updated>2021-01-18T03:35:36.754Z</updated>
+    <updated>2021-01-18T06:18:01.322Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;使用文档&quot;&gt;&lt;a href=&quot;#使用文档&quot; class=&quot;headerlink&quot; title=&quot;使用文档&quot;&gt;&lt;/a&gt;使用文档&lt;/h1&gt;&lt;h2 id=&quot;1-Maven中添加依赖&quot;&gt;&lt;a href=&quot;#1-Maven中添加依赖&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;Swagger 是一套围绕 OpenAPI 规范构建的开源工具，可以帮助您设计，构建，记录和使用 REST API。&lt;/p&gt;
+&lt;p&gt;Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。Swagger 的目标是对 REST API &lt;strong&gt;定义一个标准的和语言无关的接口&lt;/strong&gt;，可让人和计算机无需访问源码、文档或网络流量监测就可以发现和理解服务的能力。当通过 Swagger 进行正确定义，用户可以理解远程服务并使用最少实现逻辑与远程服务进行交互。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20210118102344.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -46,7 +42,7 @@
     <link href="https://www.junpzx.cn/posts/63365.html"/>
     <id>https://www.junpzx.cn/posts/63365.html</id>
     <published>2021-01-18T02:16:03.000Z</published>
-    <updated>2021-01-18T02:24:27.404Z</updated>
+    <updated>2021-01-18T06:09:46.456Z</updated>
     
     
     <summary type="html">&lt;p&gt;Swagger2中的注解及其参数的作用&lt;/p&gt;
@@ -78,9 +74,9 @@
     <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
     
     
-    <category term="JDK8" scheme="https://www.junpzx.cn/tags/JDK8/"/>
-    
     <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+    <category term="JDK8" scheme="https://www.junpzx.cn/tags/JDK8/"/>
     
   </entry>
   
