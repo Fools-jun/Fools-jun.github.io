@@ -164,10 +164,10 @@
     <link href="https://www.junpzx.cn/posts/17262.html"/>
     <id>https://www.junpzx.cn/posts/17262.html</id>
     <published>2021-01-04T08:29:52.000Z</published>
-    <updated>2021-01-14T02:57:38.803Z</updated>
+    <updated>2021-01-18T06:19:18.806Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Rebel是一款JVM插件，它使得Java代码修改后不用重启系统，立即生效。IDEA上原生是不支持热部署的，一般更新了 Java 文件后要手动重启 Tomcat 服务器，才能生效，浪费时间浪费生命。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;Jrebel是一款JVM插件，它使得Java代码修改后不用重启系统，立即生效。IDEA上原生是不支持热部署的，一般更新了 Java 文件后要手动重启 Tomcat 服务器，才能生效，浪费时间浪费生命。&lt;/p&gt;
 &lt;p&gt;目前对于idea热部署最好的解决方案就是安装JRebel插件。&lt;/p&gt;
 &lt;p&gt;下面介绍一下JRebel的激活步骤！&lt;/p&gt;</summary>
     
