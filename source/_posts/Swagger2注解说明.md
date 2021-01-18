@@ -72,7 +72,7 @@ Swagger2中的注解及其参数的作用
 |                    | responseContainer                                            | 参考ApiOperation中配置                                       |
 | @ApiImplicitParams | 用于方法上，包含一组参数说明                                 |                                                              |
 | @ApiImplicitParam  | 用于方法上，用在@ApiImplicitParams注解中，指定一个请求参数的各个方面 |                                                              |
-|                    | paramType                                                    | 参数放在哪个地方        · header 参数在request headers 里边提交（@RequestHeader）       · query 直接跟参数完成自动映射赋值（@RequestParam）       · path 用于restful接口，以地址的形式提交数据（@PathVariable）       · body 以流的形式提交 仅支持POST（@RequestBody）       · form 以form表单的形式提交 仅支持POST |
+|                    | paramType                                                    | 参数放在哪个地方:     <br />- header 参数在request headers 里边提交（@RequestHeader）<br />- query 直接跟参数完成自动映射赋值（@RequestParam）<br />- path 用于restful接口，以地址的形式提交数(@PathVariable)      <br />- body 以流的形式提交 仅支持POST(@RequestBody)<br />- form 以form表单的形式提交 仅支持POST |
 |                    | name                                                         | 参数名                                                       |
 |                    | value                                                        | 参数的汉字说明、解释                                         |
 |                    | dataType                                                     | 参数类型，默认String，其它值dataType="Integer"  ，无用       |
