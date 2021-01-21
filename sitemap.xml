@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/64715.html</loc>
+    <loc>https://www.junpzx.cn/posts/47555.html</loc>
     
     <lastmod>2021-01-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/47555.html</loc>
+    <loc>https://www.junpzx.cn/posts/64715.html</loc>
     
     <lastmod>2021-01-14</lastmod>
     
@@ -240,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/47193.html</loc>
+    <loc>https://www.junpzx.cn/posts/62369.html</loc>
     
     <lastmod>2021-01-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/62369.html</loc>
+    <loc>https://www.junpzx.cn/posts/47193.html</loc>
     
     <lastmod>2021-01-14</lastmod>
     
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/28406.html</loc>
+    <loc>https://www.junpzx.cn/posts/58324.html</loc>
     
     <lastmod>2021-01-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/58324.html</loc>
+    <loc>https://www.junpzx.cn/posts/28406.html</loc>
     
     <lastmod>2021-01-14</lastmod>
     
@@ -403,14 +403,14 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/tags/Git/</loc>
+    <loc>https://www.junpzx.cn/tags/Http/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/tags/Http/</loc>
+    <loc>https://www.junpzx.cn/tags/Git/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -459,6 +459,13 @@
   </url>
   
   <url>
+    <loc>https://www.junpzx.cn/tags/Maven/</loc>
+    <lastmod>2021-01-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.junpzx.cn/tags/JDK8/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
@@ -467,13 +474,6 @@
   
   <url>
     <loc>https://www.junpzx.cn/tags/Swagger2/</loc>
-    <lastmod>2021-01-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.junpzx.cn/tags/Maven/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -601,7 +601,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/categories/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
+    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -615,7 +615,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://www.junpzx.cn/categories/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -636,14 +636,14 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E5%85%B6%E5%AE%83/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E5%85%B6%E5%AE%83/</loc>
+    <loc>https://www.junpzx.cn/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2021-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
