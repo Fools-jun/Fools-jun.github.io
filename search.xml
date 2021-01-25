@@ -607,8 +607,8 @@
         <category>后端</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JDK8</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -4842,7 +4842,7 @@
 <li>域名注册和解析教程：</li>
 </ul>
 <p>在 DNS 设置部分，删除自带的记录，然后添加 CNAME 记录将 www 域名解析指向 <code>用户名.github.io</code>。</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600398236/%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE_hjjrkx.png" alt=""></p>
 <h3 id="6-2-绑定域名到-Hexo-博客"><a href="#6-2-绑定域名到-Hexo-博客" class="headerlink" title="6.2 绑定域名到 Hexo 博客"></a>6.2 绑定域名到 Hexo 博客</h3><p>进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 <a href="http://www.example.com，保存名称为">http://www.example.com，保存名称为</a> “CNAME”，格式为 “所有文件”（无 .txt 后缀）。</p>
 <p>清除缓存等文件并重新发布网站：</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo clean   # 清除缓存文件等</span><br><span class="line">hexo g       # 生成页面</span><br><span class="line">hexo s       # 启动预览</span><br></pre></td></tr></table></figure>
