@@ -11,7 +11,6 @@ Disallow: /tags/
 Disallow: /categories/
 Disallow: /about/
 Disallow: /books/
-Allow: /
-Allow: /_posts/
+Allow: /posts/
 Sitemap: https://www.junpzx.cn/sitemap.xml
 Sitemap: https://www.junpzx.cn/baidusitemap.xml
