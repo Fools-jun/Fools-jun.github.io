@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-18T06:18:01.322Z</updated>
+  <updated>2021-01-26T02:34:26.430Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OSI七层模型与TCP/IP四层的区别/联系</title>
+    <link href="https://www.junpzx.cn/posts/15594.html"/>
+    <id>https://www.junpzx.cn/posts/15594.html</id>
+    <published>2021-01-26T02:05:11.000Z</published>
+    <updated>2021-01-26T02:34:26.430Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是OSI&quot;&gt;&lt;a href=&quot;#什么是OSI&quot; class=&quot;headerlink&quot; title=&quot;什么是OSI&quot;&gt;&lt;/a&gt;什么是OSI&lt;/h2&gt;&lt;p&gt;OSI（Open System Interconnect），即开放式系统互联。</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="网络" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="OSI" scheme="https://www.junpzx.cn/tags/OSI/"/>
+    
+    <category term="TCP/IP" scheme="https://www.junpzx.cn/tags/TCP-IP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RPC远程调用</title>
+    <link href="https://www.junpzx.cn/posts/50885.html"/>
+    <id>https://www.junpzx.cn/posts/50885.html</id>
+    <published>2021-01-25T08:12:49.000Z</published>
+    <updated>2021-01-26T02:33:49.514Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在分布式计算&lt;strong&gt;，远程过程调用&lt;/strong&gt;（英语：Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一个地址空间（通常为一个开放网络的一台计算机）的子程序，而程序员就像调用本地程序一样，无需额外地为这个交互作用编程（无需关注细节）。RPC是一种服务器-客户端（Client/Server）模式，经典实现是一个通过&lt;strong&gt;发送请求-接受回应&lt;/strong&gt;进行信息交互的系统。&lt;/p&gt;
+&lt;p&gt;如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作&lt;strong&gt;远程调用&lt;/strong&gt;或&lt;strong&gt;远程方法调用&lt;/strong&gt;，例：Java RMI。&lt;/p&gt;
+&lt;p&gt;RPC是一种进程间通信的模式，程序分布在不同的地址空间里。如果在同一主机里，RPC可以通过不同的虚拟地址空间（即便使用相同的物理地址）进行通讯，而在不同的主机间，则通过不同的物理地址进行交互。许多技术（常常是不兼容）都是基于这种概念而实现的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="网络" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="RPC" scheme="https://www.junpzx.cn/tags/RPC/"/>
+    
+  </entry>
   
   <entry>
     <title>接口文档工具之Swagger2</title>
@@ -74,9 +130,9 @@
     <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
     
     
-    <category term="JDK8" scheme="https://www.junpzx.cn/tags/JDK8/"/>
-    
     <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
+    
+    <category term="JDK8" scheme="https://www.junpzx.cn/tags/JDK8/"/>
     
   </entry>
   
@@ -400,52 +456,6 @@
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228134256.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="创建型设计模式" scheme="https://www.junpzx.cn/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之抽象工厂模式</title>
-    <link href="https://www.junpzx.cn/posts/23356.html"/>
-    <id>https://www.junpzx.cn/posts/23356.html</id>
-    <published>2020-12-25T08:02:14.000Z</published>
-    <updated>2021-01-14T02:57:38.819Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225160358.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="创建型设计模式" scheme="https://www.junpzx.cn/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之工厂方法模式</title>
-    <link href="https://www.junpzx.cn/posts/65045.html"/>
-    <id>https://www.junpzx.cn/posts/65045.html</id>
-    <published>2020-12-25T07:11:25.000Z</published>
-    <updated>2021-01-14T02:57:38.818Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201225151240.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     

@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>OSI七层模型与TCP/IP四层的区别/联系</title>
+    <url>/posts/15594.html</url>
+    <content><![CDATA[<h2 id="什么是OSI"><a href="#什么是OSI" class="headerlink" title="什么是OSI"></a>什么是OSI</h2><p>OSI（Open System Interconnect），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。ISO为了更好的使网络应用更为普及，推出了OSI参考模型。其含义就是推荐所有公司使用这个规范来控制网络。这样所有公司都有相同的规范，就能互联了。<br>OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210126101946.png" alt="OSI七层模型及其解释"></p>
+<p>每一层实现各自的功能和协议，并完成与相邻层的接口通信。OSI的服务定义详细说明了各层所提供的服务。某一层的服务就是该层及其下各层的一种能力，它通过接口提供给更高一层。各层所提供的服务与这些服务是怎么实现的无关。</p>
+<p>众所周知，OSI参考模型是学术上和法律上的国际标准，是完整的权威的网络参考模型。而TCP/IP参考模型是事实上的国际标准，即现实生活中被广泛使用的网络参考模型。</p>
+<h2 id="OSI七层和TCP-IP四层的关系"><a href="#OSI七层和TCP-IP四层的关系" class="headerlink" title="OSI七层和TCP/IP四层的关系"></a>OSI七层和TCP/IP四层的关系</h2><p>OSI引入了服务、接口、协议、分层的概念，TCP/IP借鉴了OSI的这些概念建立TCP/IP模型。</p>
+<p>OSI先有模型，后有协议，先有标准，后进行实践；而TCP/IP则相反，先有协议和应用再提出了模型，且是参照的OSI模型。</p>
+<p>OSI是一种理论下的模型，而TCP/IP已被广泛使用，成为网络互联事实上的标准。</p>
+<ul>
+<li>TCP：transmission control protocol 传输控制协议</li>
+<li>UDP：user data protocol 用户数据报协议</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>OSI七层网络模型</th>
+<th>TCP/IP四层概念模型</th>
+<th>对应网络协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层（Application）</td>
+<td>应用层</td>
+<td><strong>HTTP</strong>、TFTP, <strong>FTP</strong>, NFS, WAIS、SMTP</td>
+</tr>
+<tr>
+<td>表示层（Presentation）</td>
+<td>应用层</td>
+<td>Telnet, Rlogin, SNMP, Gopher</td>
+</tr>
+<tr>
+<td>会话层（Session）</td>
+<td>应用层</td>
+<td><strong>SMTP</strong>, <strong>DNS</strong></td>
+</tr>
+<tr>
+<td>传输层（Transport）</td>
+<td>传输层</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td>网络层（Network）</td>
+<td>网络层</td>
+<td>IP, ICMP, ARP, RARP, AKP, UUCP</td>
+</tr>
+<tr>
+<td>数据链路层（Data Link）</td>
+<td>数据链路层</td>
+<td>FDDI, Ethernet, Arpanet, PDN, SLIP, PPP</td>
+</tr>
+<tr>
+<td>物理层（Physical）</td>
+<td>数据链路层</td>
+<td>IEEE 802.1A, IEEE 802.2到IEEE 802.11</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="OSI七层和TCP-IP的区别"><a href="#OSI七层和TCP-IP的区别" class="headerlink" title="OSI七层和TCP/IP的区别"></a>OSI七层和TCP/IP的区别</h2><ul>
+<li>TCP/IP他是一个协议簇；而OSI（开放系统互联）则是一个模型，且TCP/IP的开发时间在OSI之前。</li>
+<li>TCP/IP是由一些交互性的模块做成的分层次的协议，其中每个模块提供特定的功能；OSi则指定了哪个功能是属于哪一层的。</li>
+<li>TCP/IP是五层结构，而OSI是七层结构。OSI的最高三层在TCP中用应用层表示。</li>
+</ul>
+<p><strong>注：TCP/IP分层有两种分法，四层是把物理层和数据链路层合一起叫网络接口层， 五层是拆开了</strong></p>
+<p>附一张经典图：</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210126103224.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>OSI</tag>
+        <tag>TCP/IP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RPC远程调用</title>
+    <url>/posts/50885.html</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>以下内容摘抄至<a href="https://zh.wikipedia.org/wiki/%E9%81%A0%E7%A8%8B%E9%81%8E%E7%A8%8B%E8%AA%BF%E7%94%A8">维基百科</a></p>
+<blockquote>
+<p>在分布式计算<strong>，远程过程调用</strong>（英语：Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一个地址空间（通常为一个开放网络的一台计算机）的子程序，而程序员就像调用本地程序一样，无需额外地为这个交互作用编程（无需关注细节）。RPC是一种服务器-客户端（Client/Server）模式，经典实现是一个通过<strong>发送请求-接受回应</strong>进行信息交互的系统。</p>
+<p>如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作<strong>远程调用</strong>或<strong>远程方法调用</strong>，例：Java RMI。</p>
+<p>RPC是一种进程间通信的模式，程序分布在不同的地址空间里。如果在同一主机里，RPC可以通过不同的虚拟地址空间（即便使用相同的物理地址）进行通讯，而在不同的主机间，则通过不同的物理地址进行交互。许多技术（常常是不兼容）都是基于这种概念而实现的。</p>
+</blockquote>
+<h1 id="本地过程调用"><a href="#本地过程调用" class="headerlink" title="本地过程调用"></a>本地过程调用</h1><p>RPC就是要像调用本地的函数一样去调远程函数。在研究RPC前，我们先看看本地调用是怎么调的。假设我们要调用函数Multiply来计算lvalue * rvalue的结果:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Multiply</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> y = l * r;</span><br><span class="line">	<span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> lvalue = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> rvalue = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> l_times_r = Multiply(lvalue, rvalue);</span><br></pre></td></tr></table></figure>
+<p>那么在第8行时，我们实际上执行了以下操作：</p>
+<ol>
+<li>将 lvalue 和 rvalue 的值压栈</li>
+<li>进入Multiply函数，取出栈中的值10 和 20，将其赋予 l 和 r</li>
+<li>执行第2行代码，计算 l * r ，并将结果存在 y</li>
+<li>将 y 的值压栈，然后从Multiply返回</li>
+<li>第8行，从栈中取出返回值 200 ，并赋值给 l_times_r</li>
+</ol>
+<p>以上5步就是执行本地调用的过程。（注：以上步骤只是为了说明原理。事实上编译器经常会做优化，对于参数和返回值少的情况会直接将其存放在寄存器，而不需要压栈弹栈的过程，甚至都不需要调用call，而直接做inline操作。仅就原理来说，这5步是没有问题的。）</p>
+<h1 id="远程过程调用"><a href="#远程过程调用" class="headerlink" title="远程过程调用"></a>远程过程调用</h1><ol>
+<li>客户端调用客户端stub（client stub）。这个调用是在本地，并将调用参数push到栈（stack）中。</li>
+<li>客户端stub（client stub）将这些参数包装，并通过系统调用发送到服务端机器。打包的过程叫 marshalling。（常见方式：XML、JSON、二进制编码）</li>
+<li>客户端本地操作系统发送信息至服务器。（可通过自定义TCP协议或HTTP传输）</li>
+<li>服务器系统将信息传送至服务端stub（server stub）。</li>
+<li>服务端stub（server stub）解析信息。该过程叫 unmarshalling。</li>
+<li>服务端stub（server stub）调用程序，并通过类似的方式返回给客户端。</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210125172400.png" alt="RPC远程过程调用流程图"></p>
+<p>以左边的Client端为例，Application就是rpc的调用方，Client Stub就是我们的代理对象，其实内部是通过rpc方式来进行远程调用的代理对象，至于Client Run-time Library，则是实现远程调用的工具包，比如jdk的Socket，最后通过底层网络实现实现数据的传输。</p>
+<p>这个过程中最重要的就是<strong>序列化</strong>和<strong>反序列化</strong>了，因为数据传输的数据包必须是二进制的，你直接丢一个Java对象过去，人家可不认识，你必须把Java对象序列化为二进制格式，传给Server端，Server端接收到之后，再反序列化为Java对象。</p>
+<h2 id="远程过程调用带来的新问题"><a href="#远程过程调用带来的新问题" class="headerlink" title="远程过程调用带来的新问题"></a>远程过程调用带来的新问题</h2><p>在远程调用时，我们需要执行的函数体是在远程的机器上的，也就是说，Multiply是在另一个进程中执行的。这就带来了几个新问题：</p>
+<ol>
+<li><strong>Call ID映射</strong>。我们怎么告诉远程机器我们要调用Multiply，而不是Add或者FooBar呢？在本地调用中，函数体是直接通过函数指针来指定的，我们调用Multiply，编译器就自动帮我们调用它相应的函数指针。但是在远程调用中，函数指针是不行的，因为两个进程的地址空间是完全不一样的。所以，在RPC中，所有的函数都必须有自己的一个ID。这个ID在所有进程中都是唯一确定的。客户端在做远程过程调用时，必须附上这个ID。然后我们还需要在客户端和服务端分别维护一个 {函数 &lt;—&gt; Call ID} 的对应表。两者的表不一定需要完全相同，但相同的函数对应的Call ID必须相同。当客户端需要进行远程调用时，它就查一下这个表，找出相应的Call ID，然后把它传给服务端，服务端也通过查表，来确定客户端需要调用的函数，然后执行相应函数的代码。</li>
+<li><strong>序列化和反序列化</strong>。客户端怎么把参数值传给远程的函数呢？在本地调用中，我们只需要把参数压到栈里，然后让函数自己去栈里读就行。但是在远程过程调用时，客户端跟服务端是不同的进程，不能通过内存来传递参数。甚至有时候客户端和服务端使用的都不是同一种语言（比如服务端用C++，客户端用Java或者Python）。这时候就需要客户端把参数先转成一个字节流，传给服务端后，再把字节流转成自己能读取的格式。这个过程叫序列化和反序列化。同理，从服务端返回的值也需要序列化反序列化的过程。</li>
+<li><strong>网络传输</strong>。远程调用往往用在网络上，客户端和服务端是通过网络连接的。所有的数据都需要通过网络传输，因此就需要有一个网络传输层。网络传输层需要把Call ID和序列化后的参数字节流传给服务端，然后再把序列化后的调用结果传回客户端。只要能完成这两者的，都可以作为传输层使用。因此，它所使用的协议其实是不限的，能完成传输就行。尽管大部分RPC框架都使用TCP协议，但其实UDP也可以，而gRPC干脆就用了HTTP2。Java的Netty也属于这层的东西。</li>
+</ol>
+<h2 id="实现RPC框架"><a href="#实现RPC框架" class="headerlink" title="实现RPC框架"></a>实现RPC框架</h2><p>有了这以上三个机制，就能实现RPC了，具体过程如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client端 </span></span><br><span class="line"><span class="comment">// int l_times_r = Call(ServerAddr, Multiply, lvalue, rvalue)</span></span><br><span class="line"><span class="number">1.</span> 将这个调用映射为Call ID。这里假设用最简单的字符串当Call ID的方法</span><br><span class="line"><span class="number">2.</span> 将Call ID，lvalue和rvalue序列化。可以直接将它们的值以二进制形式打包</span><br><span class="line"><span class="number">3.</span> 把<span class="number">2</span>中得到的数据包发送给ServerAddr，这需要使用网络传输层</span><br><span class="line"><span class="number">4.</span> 等待服务器返回结果</span><br><span class="line"><span class="number">5.</span> 如果服务器调用成功，那么就将结果反序列化，并赋给l_times_r</span><br><span class="line"></span><br><span class="line"><span class="comment">// Server端</span></span><br><span class="line"><span class="number">1.</span> 在本地维护一个Call ID到函数指针的映射call_id_map，可以用map&lt;String, Method&lt;&gt;&gt;</span><br><span class="line"><span class="number">2.</span> 等待请求</span><br><span class="line"><span class="number">3.</span> 得到一个请求后，将其数据包反序列化，得到Call ID</span><br><span class="line"><span class="number">4.</span> 通过在call_id_map中查找，得到相应的函数指针</span><br><span class="line"><span class="number">5.</span> 将lvalue和rvalue反序列化后，在本地调用Multiply函数，得到结果</span><br><span class="line"><span class="number">6.</span> 将结果序列化后通过网络返回给Client</span><br></pre></td></tr></table></figure>
+<p>所以要实现一个RPC框架，其实只需要按以上流程实现就基本完成了。</p>
+<p>其中：</p>
+<ul>
+<li>Call ID映射可以直接使用函数字符串，也可以使用整数ID。映射表一般就是一个哈希表。</li>
+<li>序列化反序列化可以自己写，也可以使用Protobuf或者FlatBuffers之类的。</li>
+<li>网络传输库可以自己写socket，或者用asio，ZeroMQ，Netty之类。</li>
+</ul>
+<h1 id="API风格"><a href="#API风格" class="headerlink" title="API风格"></a>API风格</h1><ul>
+<li>RPC形式的API组织形态是类和方法，或者说领域和行为。</li>
+<li>因此API的命名往往是一个动词，比如GetUserInfo和CreateUser。</li>
+<li>因为URI会非常多而且往往没有一些约定规范，所以需要有详细的文档。</li>
+<li>也是因为无拘无束，HTTP方法基本只用GET和POST，设计起来比较简单。</li>
+</ul>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>RPC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>接口文档工具之Swagger2</title>
     <url>/posts/4810.html</url>
     <content><![CDATA[<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>相信无论是前端还是后端开发，都或多或少地被接口文档折磨过。前端经常抱怨后端给的接口文档与实际情况不一致。后端又觉得编写及维护接口文档会耗费不少精力，经常来不及更新。其实无论是前端调用后端，还是后端调用后端，都期望有一个好的接口文档。但是这个接口文档对于程序员来说，就跟注释一样，经常会抱怨别人写的代码没有写注释，然而自己写起代码起来，最讨厌的，也是写注释。所以仅仅只通过强制来规范大家是不够的，随着时间推移，版本迭代，接口文档往往很容易就跟不上代码了。</p>
@@ -607,8 +749,8 @@
         <category>后端</category>
       </categories>
       <tags>
-        <tag>JDK8</tag>
         <tag>Java</tag>
+        <tag>JDK8</tag>
       </tags>
   </entry>
   <entry>
