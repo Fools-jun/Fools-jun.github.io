@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-26T02:34:26.430Z</updated>
+  <updated>2021-01-26T02:36:52.989Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,16 +21,10 @@
     <link href="https://www.junpzx.cn/posts/15594.html"/>
     <id>https://www.junpzx.cn/posts/15594.html</id>
     <published>2021-01-26T02:05:11.000Z</published>
-    <updated>2021-01-26T02:34:26.430Z</updated>
+    <updated>2021-01-26T02:36:52.989Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是OSI&quot;&gt;&lt;a href=&quot;#什么是OSI&quot; class=&quot;headerlink&quot; title=&quot;什么是OSI&quot;&gt;&lt;/a&gt;什么是OSI&lt;/h2&gt;&lt;p&gt;OSI（Open System Interconnect），即开放式系统互联。</summary>
-        
-      
+    <summary type="html">&lt;p&gt;OSI（Open System Interconnect），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。ISO为了更好的使网络应用更为普及，推出了OSI参考模型。其含义就是推荐所有公司使用这个规范来控制网络。这样所有公司都有相同的规范，就能互联了。&lt;br&gt;OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。&lt;/p&gt;</summary>
     
     
     
