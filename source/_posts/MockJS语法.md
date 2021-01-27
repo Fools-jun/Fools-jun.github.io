@@ -21,7 +21,7 @@ mock是一个模拟数据生成器，旨在帮助前端独立于后端进行开�
 
 
 
-## 一.简介
+## 1.简介
 
 mock是一个模拟数据生成器，旨在帮助前端独立于后端进行开发，帮助编写单元测试。mock有如下功能
 
@@ -31,7 +31,7 @@ mock是一个模拟数据生成器，旨在帮助前端独立于后端进行开�
 
 
 
-## 二.下载安装
+## 2.下载安装
 
 ```
 npm install mockjs
@@ -47,7 +47,7 @@ var mcok = Mock.mock({
 
 
 
-## 三.语法
+## 3.语法
 
 mock的语法规范包含两层规范
 
@@ -56,7 +56,7 @@ mock的语法规范包含两层规范
 
 
 
-### 1,数据模板DTD
+### 1).数据模板DTD
 
 模板规则: ‘name|rule’:value
 
@@ -174,7 +174,7 @@ var data = Mock.mock({
 
 
 
-### 2.数据占位符DPD
+### 2).数据占位符DPD
 
 关于占位符，占位符只是在属性值是字符串的时候，在字符串里占个位置，并不会出现在最终的属性值中。
 占位符的格式为：
@@ -207,9 +207,9 @@ var data = Mock.mock({
 
 
 
-## 四.函数
+## 4.函数
 
-### 1.Mock.mock()
+### 1).Mock.mock()
 
 这是mock的核心方法，用于生成模拟数据，前边的例子中我们都已经见识过了。
 **Mock.mock(rurl,rtype,template|function(opt))**
@@ -229,7 +229,7 @@ var data = Mock.mock({
 
 
 
-### 2.Mock.setup(setting)
+### 2).Mock.setup(setting)
 
 配置拦截ajax请求的行为，支持的配置项有timeout。
 
@@ -246,13 +246,13 @@ Mock.setup({
 
 
 
-### 3.Mock.valid(template,data)
+### 3).Mock.valid(template,data)
 
 这个函数用来判断，数据模板和数据是否一样，
 
 
 
-### 4.Mock.toJSONShema(template)
+### 4).Mock.toJSONShema(template)
 
 ```
 var template = Mock.mock({
@@ -265,7 +265,7 @@ var tjs = Mock.toJSONSchema(tempalte);
 
 
 
-### 5.Mock.Random
+### 5).Mock.Random
 
 这是一个工具类，用于生成各种类型的数据。
 **Mock.Random的方法在模板数据中被称为占位符，之前说过的**
