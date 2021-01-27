@@ -1,6 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MockJS语法</title>
+    <url>/posts/1114.html</url>
+    <content><![CDATA[<h2 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h2><p>mock是一个模拟数据生成器，旨在帮助前端独立于后端进行开发，帮助编写单元测试。mock有如下功能</p>
+<ul>
+<li>根据数据模板生成模板数据</li>
+<li>模拟ajax请求，生成请求数据</li>
+<li>基于html模板生成模拟数据</li>
+</ul>
+<h2 id="二-下载安装"><a href="#二-下载安装" class="headerlink" title="二.下载安装"></a>二.下载安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install mockjs</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用mock</span></span><br><span class="line"><span class="keyword">var</span> Mock = <span class="built_in">require</span>(<span class="string">&#x27;mockjs&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> mcok = Mock.mock(&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="三-语法"><a href="#三-语法" class="headerlink" title="三.语法"></a>三.语法</h2><p>mock的语法规范包含两层规范</p>
+<ul>
+<li>数据模板 （DTD）</li>
+<li>数据占位符 （DPD）</li>
+</ul>
+<h3 id="1-数据模板DTD"><a href="#1-数据模板DTD" class="headerlink" title="1,数据模板DTD"></a>1,数据模板DTD</h3><p>模板规则: ‘name|rule’:value</p>
+<ul>
+<li>name：属性名</li>
+<li>rule：属性规则</li>
+<li>value：属性值</li>
+</ul>
+<p>属性名和规则之间用|隔开，规则是可以选的。<br>一共七个rule</p>
+<ol>
+<li>‘name|mix-max’:value</li>
+<li>‘name|count’:value</li>
+<li>‘name|mix-max.dmix-dmax’:value</li>
+<li>‘name|min-max.dcount’:value</li>
+<li>‘name|count.dmin-dmax’:value</li>
+<li>‘name|count.dcount’:value</li>
+<li>‘name|+step’:value</li>
+</ol>
+<p>生成规则需要根据属性值的类型才能确定<br>属性值可以含有@占位符<br>属性值还可以指定最终值的初始值和类型</p>
+<h4 id="属性值为String"><a href="#属性值为String" class="headerlink" title="属性值为String"></a>属性值为String</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name1|1-3&#x27;</span>:<span class="string">&#x27;a&#x27;</span>,       <span class="comment">//重复生成1到3个a</span></span><br><span class="line">    <span class="string">&#x27;name2|2&#x27;</span>:<span class="string">&#x27;b&#x27;</span>            <span class="comment">//生成bb</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="属性值是Number"><a href="#属性值是Number" class="headerlink" title="属性值是Number"></a>属性值是Number</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name1|+1&#x27;</span>:<span class="number">4</span>,         <span class="comment">//生成4，如果循环每次加1</span></span><br><span class="line">    ‘name2|<span class="number">1</span><span class="number">-7</span><span class="string">&#x27;:2,        //生成一个数字，1到7之间</span></span><br><span class="line"><span class="string">    &#x27;</span>name3|<span class="number">1</span><span class="number">-4.5</span><span class="number">-8</span><span class="string">&#x27;:1     </span></span><br><span class="line"><span class="string">    //生成一个小数，整数部分1到4，小数部分5到8位</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure>
+<h4 id="属性值是Boolean"><a href="#属性值是Boolean" class="headerlink" title="属性值是Boolean"></a>属性值是Boolean</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name|1&#x27;</span>:<span class="literal">true</span>,          <span class="comment">//生成一个布尔值，各一半</span></span><br><span class="line">    <span class="string">&#x27;name1|1-3&#x27;</span>:<span class="literal">true</span>        <span class="comment">//1/4是true，3/4是false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="属性值是Object"><a href="#属性值是Object" class="headerlink" title="属性值是Object"></a>属性值是Object</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">1</span>,</span><br><span class="line">    b:<span class="number">2</span>,</span><br><span class="line">    c:<span class="number">3</span>,</span><br><span class="line">    d:<span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name|1-3&#x27;</span>:obj,      <span class="comment">//随机从obj中寻找1到3个属性，新对象</span></span><br><span class="line">    <span class="string">&#x27;name|2&#x27;</span>:obj         <span class="comment">//随机从onj中找到两个属性，新对象</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="属性值是Array"><a href="#属性值是Array" class="headerlink" title="属性值是Array"></a>属性值是Array</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name1|1&#x27;</span>:arr,          <span class="comment">//从数组里随机取出1个值</span></span><br><span class="line">    <span class="string">&#x27;name2|2&#x27;</span>:arr,          <span class="comment">//数组重复count次，这里count为2</span></span><br><span class="line">    <span class="string">&#x27;name3|1-3&#x27;</span>:arr,        <span class="comment">//数组重复1到3次</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="属性值是Function"><a href="#属性值是Function" class="headerlink" title="属性值是Function"></a>属性值是Function</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:fun(<span class="number">10</span>)         <span class="comment">//返回函数的返回值20</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="属性值是RegExp"><a href="#属性值是RegExp" class="headerlink" title="属性值是RegExp"></a>属性值是RegExp</h4><p>根据正则表达式反向生成对应的字符串，用于生成自定义格式的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = Mock.mock(&#123;</span><br><span class="line">    ‘name1<span class="string">&#x27;:/[a-z][A-Z]/,</span></span><br><span class="line"><span class="string">    &#x27;</span>name2<span class="string">&#x27;:/\d&#123;1,3&#125;/</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>会根据各自的正则表达式进行适配，并且随机返回</p>
+<h3 id="2-数据占位符DPD"><a href="#2-数据占位符DPD" class="headerlink" title="2.数据占位符DPD"></a>2.数据占位符DPD</h3><p>关于占位符，占位符只是在属性值是字符串的时候，在字符串里占个位置，并不会出现在最终的属性值中。<br>占位符的格式为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@占位符</span><br></pre></td></tr></table></figure>
+<p><strong>关于占位符需要知道以下几点</strong></p>
+<ol>
+<li>用@标识符标识后面的字符串是占位符</li>
+<li>占位符的值是从Mock.Random方法中引用的</li>
+<li>可以通过Mock.Random.extend()来扩展自定义占位符</li>
+<li>占位符可以引用数据模板中的属性</li>
+<li>占位符优先引用数据模板中的属性</li>
+<li>占位符支持相对路径和决定路径</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var data &#x3D; Mock.mock(&#123;</span><br><span class="line">    name:&#123;</span><br><span class="line">        name1:&#39;@FIRST&#39;,</span><br><span class="line">        name2:&#39;@LAST&#39;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>语法大概是这样，random会重点分析的。</p>
+<h2 id="四-函数"><a href="#四-函数" class="headerlink" title="四.函数"></a>四.函数</h2><h3 id="1-Mock-mock"><a href="#1-Mock-mock" class="headerlink" title="1.Mock.mock()"></a>1.Mock.mock()</h3><p>这是mock的核心方法，用于生成模拟数据，前边的例子中我们都已经见识过了。<br><strong>Mock.mock(rurl,rtype,template|function(opt))</strong></p>
+<ul>
+<li>rurl:ajax请求的地址</li>
+<li>rtype:ajax请求的类型，如’GET’,’POST’</li>
+<li>template:数据模板，就是之前那些个例子</li>
+<li>function:生成相应数据的函数</li>
+</ul>
+<p>具体的应用情况在下边：</p>
+<ol>
+<li>Mock.mock(template)</li>
+<li>Mock.mock(rurl,template)，模拟ajax,匹配接收到url的ajax请求，把template对应的数据返回返回</li>
+<li>Mock.mock(rurl,function(opt)),模拟ajax,会把函数执行的结果作为ajax回调返回</li>
+<li>Mock.mock(rurl,rtype,template) 同上，只是对ajax的类型有要求</li>
+<li>Mock.mock(rurl,rtype,function) 同上</li>
+</ol>
+<h3 id="2-Mock-setup-setting"><a href="#2-Mock-setup-setting" class="headerlink" title="2.Mock.setup(setting)"></a>2.Mock.setup(setting)</h3><p>配置拦截ajax请求的行为，支持的配置项有timeout。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Mock.setup(&#123;</span><br><span class="line">    timeout:<span class="number">200</span></span><br><span class="line">&#125;)</span><br><span class="line">Mock.setup(&#123;</span><br><span class="line">    timeout:<span class="string">&#x27;200-500</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>这个现在仅用于配置ajax请求，以后可能会扩展</p>
+<h3 id="3-Mock-valid-template-data"><a href="#3-Mock-valid-template-data" class="headerlink" title="3.Mock.valid(template,data)"></a>3.Mock.valid(template,data)</h3><p>这个函数用来判断，数据模板和数据是否一样，</p>
+<h3 id="4-Mock-toJSONShema-template"><a href="#4-Mock-toJSONShema-template" class="headerlink" title="4.Mock.toJSONShema(template)"></a>4.Mock.toJSONShema(template)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var template &#x3D; Mock.mock(&#123;</span><br><span class="line">    &#39;name|1-3&#39;:5</span><br><span class="line">&#125;)</span><br><span class="line">var tjs &#x3D; Mock.toJSONSchema(tempalte);</span><br></pre></td></tr></table></figure>
+<p>把template风格的模板转成<a href="http://json-schema.org/">JSON Schema</a>。</p>
+<h3 id="5-Mock-Random"><a href="#5-Mock-Random" class="headerlink" title="5.Mock.Random"></a>5.Mock.Random</h3><p>这是一个工具类，用于生成各种类型的数据。<br><strong>Mock.Random的方法在模板数据中被称为占位符，之前说过的</strong></p>
+<p>用法示例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Random = Mock.Random;</span><br><span class="line"><span class="keyword">var</span> em1 = Mock.email();</span><br><span class="line"><span class="keyword">var</span> em2 = Mock.mock(<span class="string">&#x27;@email&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> em3 = Mock.mock(&#123;</span><br><span class="line">    email:<span class="string">&#x27;@email&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>Mock.Random提供的方法</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:center">Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td style="text-align:center">boolean natural integer float character string date datename now</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:center">date datetime time now</td>
+</tr>
+<tr>
+<td>Image</td>
+<td style="text-align:center">image dataImage</td>
+</tr>
+<tr>
+<td>Color</td>
+<td style="text-align:center">color hex rgb rgba hsl</td>
+</tr>
+<tr>
+<td>Text</td>
+<td style="text-align:center">paragraph sentence word title cparagraph csentence cword ctitle</td>
+</tr>
+<tr>
+<td>Name</td>
+<td style="text-align:center">first last name cfirst clast cname</td>
+</tr>
+<tr>
+<td>Web</td>
+<td style="text-align:center">url domain email ip tld</td>
+</tr>
+<tr>
+<td>Address</td>
+<td style="text-align:center">area region city county zip</td>
+</tr>
+<tr>
+<td>Helper</td>
+<td style="text-align:center">capitalize upper lower pick shuffle</td>
+</tr>
+<tr>
+<td>Miscellaneous</td>
+<td style="text-align:center">guid id</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h4><h5 id="Random-boolean-min-max-current"><a href="#Random-boolean-min-max-current" class="headerlink" title="Random.boolean(min,max,current)"></a>Random.boolean(min,max,current)</h5><p>随机生成布尔值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> bool1 = Random.boolean();      <span class="comment">//true false各一半</span></span><br><span class="line"><span class="keyword">var</span> bool2 = Random.boolean(<span class="number">1</span>,<span class="number">2</span>，<span class="literal">false</span>)    <span class="comment">//1/3的可能性是false 2/3是true</span></span><br></pre></td></tr></table></figure>
+<h5 id="Random-natural-min-max"><a href="#Random-natural-min-max" class="headerlink" title="Random.natural(min,max)"></a>Random.natural(min,max)</h5><p>随机生成一个自然数，什么叫自然数，就是大于等于0的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> natural1 = Random.natural();       <span class="comment">//默认值最大为 9007199254740992</span></span><br><span class="line"><span class="keyword">var</span> natural2 = Random.natural(<span class="number">4</span>);         <span class="comment">//随机出来的最小值是4</span></span><br><span class="line"><span class="keyword">var</span> natural3 = Random.natural(<span class="number">6</span>,<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-Integer-min-max"><a href="#Random-Integer-min-max" class="headerlink" title="Random.Integer(min,max)"></a>Random.Integer(min,max)</h5><p>生成一个随机的整数，可以是负数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> integer1 = Random.integer();</span><br><span class="line"><span class="keyword">var</span> integer2 = Random.integer(<span class="number">-10</span>);        <span class="comment">//随机最小值是-10</span></span><br><span class="line"><span class="keyword">var</span> integer3 = Random.integer(<span class="number">-10</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-float-min-max-dmin-dmax"><a href="#Random-float-min-max-dmin-dmax" class="headerlink" title="Random.float(min,max,dmin ,dmax)"></a>Random.float(min,max,dmin ,dmax)</h5><p>随机生成一个小数浮点数,四个参数分别为，整数部分最小值最大值，小数部分最小值最大值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> float1 = Random.float();</span><br><span class="line"><span class="keyword">var</span> float2 = Random.float(<span class="number">3</span>,<span class="number">8</span>);</span><br><span class="line"><span class="keyword">var</span> float3 = Random.float(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="Random-character-pool"><a href="#Random-character-pool" class="headerlink" title="Random.character(pool)"></a>Random.character(pool)</h5><p>随机生成一个字符,pool的值可以是：</p>
+<ul>
+<li>upper: 26个大写字母</li>
+<li>lower: 26个小写字母</li>
+<li>number: 0到9十个数字</li>
+<li>sympol: “!@#$%^&amp;*()[]”</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> character1 = Random.character();</span><br><span class="line"><span class="keyword">var</span> character2 = Random.character(<span class="string">&#x27;lower&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> character3 = Random.character(<span class="string">&#x27;upper&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> character4 = Random.character(<span class="string">&#x27;symbol&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-string-pool-min-max"><a href="#Random-string-pool-min-max" class="headerlink" title="Random.string(pool,min,max)"></a>Random.string(pool,min,max)</h5><p>随机生成一个字符串，pool的值同上边四个。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = Random.string();                <span class="comment">//长度3到7位</span></span><br><span class="line"><span class="keyword">var</span> str2 = Random.string(<span class="number">5</span>);               <span class="comment">//长度5位</span></span><br><span class="line"><span class="keyword">var</span> str3 = Random.string(<span class="string">&#x27;lower&#x27;</span>,<span class="number">7</span>);       <span class="comment">//长度7位，小写</span></span><br><span class="line"><span class="keyword">var</span> str4 = Random.string(<span class="number">4</span>,<span class="number">6</span>);             <span class="comment">//长度4到</span></span><br><span class="line"><span class="keyword">var</span> str5 = Random.string(<span class="string">&#x27;新的字符串会从这里选择4到5位&#x27;</span>,<span class="number">4</span>,<span class="number">6</span>);   <span class="comment">//从第一个参数里选择4到5位</span></span><br></pre></td></tr></table></figure>
+<h5 id="Random-range-start-stop-step"><a href="#Random-range-start-stop-step" class="headerlink" title="Random.range(start,stop,step)"></a>Random.range(start,stop,step)</h5><p>返回一个整型数组</p>
+<ul>
+<li>start,可选，数组起始值，闭区间</li>
+<li>stop,必选，数据结束值，开区间</li>
+<li>step,可选，数据每一项间隔值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> range1 = Random.range(<span class="number">10</span>);     <span class="comment">//[0,1,2,3,4,5,6,7,8,9]</span></span><br><span class="line"><span class="keyword">var</span> range2 = Random.range(<span class="number">14</span>,<span class="number">20</span>);  <span class="comment">//[14,15,16,17,18,19]</span></span><br><span class="line"><span class="keyword">var</span> range3 = Random.range(<span class="number">3</span>,<span class="number">13</span>,<span class="number">2</span>); <span class="comment">//[3,5,7,9,11]</span></span><br></pre></td></tr></table></figure>
+<h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><h5 id="Random-date-format"><a href="#Random-date-format" class="headerlink" title="Random.date(format)"></a>Random.date(format)</h5><p>返回一个随机日期的字符串<br>format的格式是‘yyyy-MM-dd’,可以随机组合</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date1 = Random.date();</span><br><span class="line"><span class="keyword">var</span> date2 = Random.date(<span class="string">&#x27;yyyy-MM-dd&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> date3 = Random.date(<span class="string">&#x27;y-M-d&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> date4 = Random.date(<span class="string">&#x27;yy-MM-dd&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-time-format"><a href="#Random-time-format" class="headerlink" title="Random.time(format)"></a>Random.time(format)</h5><p>返回时间字符串<br>format的格式是‘HH-mm-ss’</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> time1 = Random.time();</span><br><span class="line"><span class="keyword">var</span> time2 = Random.time(<span class="string">&#x27;HH-mm-ss&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> time3 = Random.time(<span class="string">&#x27;J-m-s&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-datetime-format"><a href="#Random-datetime-format" class="headerlink" title="Random.datetime(format)"></a>Random.datetime(format)</h5><p>上边两个的结合版</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dt1 = Random.datetime();</span><br><span class="line"><span class="keyword">var</span> dt2 = Random.datetime(<span class="string">&#x27;yyyy-MM-dd HH-mm-ss&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-now-unit-format"><a href="#Random-now-unit-format" class="headerlink" title="Random.now(unit,format)"></a>Random.now(unit,format)</h5><p>返回当前时间的字符串</p>
+<h4 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h4><blockquote>
+<p>一般情况下，使用dataImage更好,因为更简单，但是如果要生成高度自定义的图片，则最好用image。另外，dataImage生成的是base64编码</p>
+</blockquote>
+<h5 id="Random-image-size-background-foreground-formattext"><a href="#Random-image-size-background-foreground-formattext" class="headerlink" title="Random.image(size,background,foreground,formattext)"></a>Random.image(size,background,foreground,formattext)</h5><ul>
+<li>size 图片宽高，格式是’宽x高’</li>
+<li>background:图片的背景色，默认值#000000</li>
+<li>foreground：图片的文字前景色，默认#FFFFFF</li>
+<li>format：图片的格式，默认’.png’</li>
+<li>text:图片上的默认文字，默认值为参数size</li>
+</ul>
+<p>其中size的取值范围是</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line"><span class="string">&#x27;300x250&#x27;</span>, <span class="string">&#x27;250x250&#x27;</span>, <span class="string">&#x27;240x400&#x27;</span>, <span class="string">&#x27;336x280&#x27;</span>, </span><br><span class="line"><span class="string">&#x27;180x150&#x27;</span>, <span class="string">&#x27;720x300&#x27;</span>, <span class="string">&#x27;468x60&#x27;</span>, <span class="string">&#x27;234x60&#x27;</span>, </span><br><span class="line"><span class="string">&#x27;88x31&#x27;</span>, <span class="string">&#x27;120x90&#x27;</span>, <span class="string">&#x27;120x60&#x27;</span>, <span class="string">&#x27;120x240&#x27;</span>, </span><br><span class="line"><span class="string">&#x27;125x125&#x27;</span>, <span class="string">&#x27;728x90&#x27;</span>, <span class="string">&#x27;160x600&#x27;</span>, <span class="string">&#x27;120x600&#x27;</span>, </span><br><span class="line"><span class="string">&#x27;300x600&#x27;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>图片的格式可以选择.png .gif .jpg</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> image1 = Random.image();</span><br><span class="line"><span class="keyword">var</span> image2 = Random.image(<span class="string">&#x27;128x90&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> image3 = Random.image(<span class="string">&#x27;120x660&#x27;</span>,<span class="string">&#x27;#ccc&#x27;</span>);    <span class="comment">//前景色#ccc</span></span><br><span class="line"><span class="keyword">var</span> image4 = Random.image(<span class="string">&#x27;226x280&#x27;</span>,<span class="string">&#x27;#eee&#x27;</span>,<span class="string">&#x27;第三个参数是文字不是前景色&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> image5 = Random.image(<span class="string">&#x27;66x31&#x27;</span>,<span class="string">&#x27;#ddd&#x27;</span>,<span class="string">&#x27;#123456&#x27;</span>,<span class="string">&#x27;四个参数的时候第三个参数是前景色&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> image6 = Random.image(<span class="string">&#x27;240x400&#x27;</span>,<span class="string">&#x27;#333&#x27;</span>,<span class="string">&#x27;#1483dc&#x27;</span>,<span class="string">&#x27;.gif&#x27;</span>,<span class="string">&#x27;全部参数的情况下&#x27;</span>); </span><br></pre></td></tr></table></figure>
+<h5 id="Random-dataImage-size-text"><a href="#Random-dataImage-size-text" class="headerlink" title="Random.dataImage(size,text)"></a>Random.dataImage(size,text)</h5><p>返回一段base64编码，两个参数同上。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> di1 = Random.dataImage();</span><br><span class="line"><span class="keyword">var</span> di2 = Random.datImage(<span class="string">&#x27;300x600&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> di3 = Random.dataImage(<span class="string">&#x27;180x150&#x27;</span>,<span class="string">&#x27;hahahaha&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="Color"><a href="#Color" class="headerlink" title="Color"></a>Color</h4><h5 id="Random-color"><a href="#Random-color" class="headerlink" title="Random.color()"></a>Random.color()</h5><p>有好几个相关的方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> color = Random.color(); 格式<span class="string">&#x27;#rrggbb&#x27;</span></span><br><span class="line"><span class="keyword">var</span> hex = Random.hex();   <span class="comment">//好像和color没什么不同</span></span><br><span class="line"><span class="keyword">var</span> rgb = Random.rgb();   <span class="comment">//生成格式如rgb(133,233,244)</span></span><br><span class="line"><span class="keyword">var</span> rgba = Random.rgba(); <span class="comment">//生成个事如rgba(111,222,233,0.5)</span></span><br><span class="line"><span class="keyword">var</span> hsl = Random.hsl();   <span class="comment">//生成格式(345,82,71)</span></span><br></pre></td></tr></table></figure>
+<h4 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h4><h5 id="Random-paragraph-in-max-len"><a href="#Random-paragraph-in-max-len" class="headerlink" title="Random.paragraph(in,max,len)"></a>Random.paragraph(in,max,len)</h5><p>随机生成一段文本，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> para1 = Random.paragraph();    <span class="comment">//随机生成一短文本，范围3到7</span></span><br><span class="line"><span class="keyword">var</span> para2 = Random.paragraph(<span class="number">10</span>);  <span class="comment">//随机生成长度是10的文本</span></span><br><span class="line"><span class="keyword">var</span> para3 = Random.paragraph(<span class="number">9</span>,<span class="number">12</span>); <span class="comment">//随机生成9到11位长度的文本</span></span><br></pre></td></tr></table></figure>
+<h5 id="Random-sentence-min-max-len"><a href="#Random-sentence-min-max-len" class="headerlink" title="Random.sentence(min,max,len)"></a>Random.sentence(min,max,len)</h5><p>随机生成一个句子，第一个单词的首字母大写</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sen1 = Random.sentence();        <span class="comment">//默认长度12到18</span></span><br><span class="line"><span class="keyword">var</span> sen2 = Random.sentence(<span class="number">10</span>);      <span class="comment">//随机生成一个单词个数为10的句子</span></span><br><span class="line"><span class="keyword">var</span> sen3 = Random.sentence(<span class="number">5</span>,<span class="number">10</span>);    <span class="comment">//随机生成一个5到9单词个数的句子</span></span><br></pre></td></tr></table></figure>
+<h5 id="Random-word-min-max-len"><a href="#Random-word-min-max-len" class="headerlink" title="Random.word(min,max,len)"></a>Random.word(min,max,len)</h5><p>随机生成一个单词</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> word1 = Random.word();          <span class="comment">//默认长度3到10</span></span><br><span class="line"><span class="keyword">var</span> word2 = Random.word(<span class="number">7</span>);         <span class="comment">//随机生成长度是7的单词</span></span><br><span class="line"><span class="keyword">var</span> word3 = Random.word(<span class="number">2</span>,<span class="number">12</span>);      <span class="comment">//随机生成2到11位长度的单词</span></span><br></pre></td></tr></table></figure>
+<h5 id="Random-title-min-max-len"><a href="#Random-title-min-max-len" class="headerlink" title="Random.title(min,max,len)"></a>Random.title(min,max,len)</h5><p>随机生成一段标题，每个单词的首字母大写</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> title1 = Random.title();        <span class="comment">//title中的单词个数</span></span><br><span class="line"><span class="keyword">var</span> title2 = Random.title(<span class="number">6</span>);       <span class="comment">//title六个单词</span></span><br><span class="line"><span class="keyword">var</span> title3 = Random.title(<span class="number">7</span>,<span class="number">12</span>);    <span class="comment">//title7到11个单词</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>另外还有四个方法，四个方法前边加一个</p>
+<p>c,Random.cparagraph, 返回中文文本</p>
+<p>Random.csentence, 返回中文句子</p>
+<p>Random.cword, 返回中文文字</p>
+<p>Random.ctitle. 返回中文标题</p>
+</blockquote>
+<h4 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> first = Random.first()         随机生成常见英文名</span><br><span class="line"><span class="keyword">var</span> last = Random.last()           随机生成常见英文姓</span><br><span class="line"><span class="keyword">var</span> name = Random.name()           随机生成常见英文姓名</span><br><span class="line"><span class="keyword">var</span> cfirst = Random.cfirst()       随机生成常见中文姓</span><br><span class="line"><span class="keyword">var</span> clast = Random.clast()         随机生成常见中文名</span><br><span class="line"><span class="keyword">var</span> cname = Random.cname()         随机生成一个常见中文姓名</span><br></pre></td></tr></table></figure>
+<h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h4><h5 id="Random-url-protocol-host"><a href="#Random-url-protocol-host" class="headerlink" title="Random.url(protocol,host)"></a>Random.url(protocol,host)</h5><p>随机生成一个url<br>protocol可选参数，表示网络协议，如http。<br>host表示域名和端口号</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url1 = Random.url();</span><br><span class="line"><span class="keyword">var</span> url2 = Random.url(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> url3 = Random.url(<span class="string">&#x27;http&#x27;</span>,<span class="string">&#x27;58.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-protocol"><a href="#Random-protocol" class="headerlink" title="Random.protocol()"></a>Random.protocol()</h5><p>随机生成一个域名</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> protocol = Random.protocol()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>protocol可以选的值，’http’、’ftp’、’gopher’、’mailto’、’mid’、’cid’、’news’、’nntp’、’prospero’、’telnet’、’rlogin’、’tn3270’、’wais’。</p>
+</blockquote>
+<h5 id="Random-domin"><a href="#Random-domin" class="headerlink" title="Random.domin()"></a>Random.domin()</h5><p>随机生成一个域名</p>
+<h5 id="Random-tld"><a href="#Random-tld" class="headerlink" title="Random.tld()"></a>Random.tld()</h5><p>随机生成一个顶级域名</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> domain = Random.domain()</span><br><span class="line"><span class="keyword">var</span> tld = Random.tld()</span><br></pre></td></tr></table></figure>
+<h5 id="Random-email-domain"><a href="#Random-email-domain" class="headerlink" title="Random.email(domain)"></a>Random.email(domain)</h5><p>随机生成一个email地址，domain表示域名</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> email1 = Random.email();</span><br><span class="line"><span class="keyword">var</span> email2 = Random.email(<span class="string">&#x27;58.com&#x27;</span>)     <span class="comment">//生成xxxx@58.com</span></span><br></pre></td></tr></table></figure>
+<h5 id="Random-ip"><a href="#Random-ip" class="headerlink" title="Random.ip()"></a>Random.ip()</h5><p>随机生成一个ip地址</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ip = Random.ip()</span><br></pre></td></tr></table></figure>
+<h4 id="Address"><a href="#Address" class="headerlink" title="Address"></a>Address</h4><h5 id="Random-region"><a href="#Random-region" class="headerlink" title="Random.region()"></a>Random.region()</h5><p>随机生成一个中国的大区，如华北，西南</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> region = Random.region();</span><br></pre></td></tr></table></figure>
+<h5 id="Random-province"><a href="#Random-province" class="headerlink" title="Random.province()"></a>Random.province()</h5><p>随机生成一个中国省直辖市自治区特别行政区</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> province = Random.province()</span><br></pre></td></tr></table></figure>
+<h5 id="Random-city-prefix"><a href="#Random-city-prefix" class="headerlink" title="Random.city(prefix)"></a>Random.city(prefix)</h5><p>随机生成一个中国城市，prefix布尔值，表示是否标注所在省</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> city1 = Random.city();</span><br><span class="line"><span class="keyword">var</span> city2 = Random.city(ture);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-country-prefix"><a href="#Random-country-prefix" class="headerlink" title="Random.country(prefix)"></a>Random.country(prefix)</h5><p>随机生成一个中国县，prefix布尔值，表示是否显示所属的省市</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> county1 = Random.county();</span><br><span class="line"><span class="keyword">var</span> county2 = Random.county(ture);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-zip"><a href="#Random-zip" class="headerlink" title="Random.zip()"></a>Random.zip()</h5><p>随机生成一个六位数邮政编码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> zip = Random.zip();</span><br></pre></td></tr></table></figure>
+<h4 id="Helper"><a href="#Helper" class="headerlink" title="Helper"></a>Helper</h4><h5 id="Random-capitlize-word"><a href="#Random-capitlize-word" class="headerlink" title="Random.capitlize(word)"></a>Random.capitlize(word)</h5><p>把第一个字母转成大写</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> capitalize = Random.capitalize(<span class="string">&#x27;hello&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="Random-upper-str"><a href="#Random-upper-str" class="headerlink" title="Random.upper(str)"></a>Random.upper(str)</h5><p>转成大写</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> upper = Random.upper(<span class="string">&#x27;zhang&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-lower-str"><a href="#Random-lower-str" class="headerlink" title="Random.lower(str)"></a>Random.lower(str)</h5><p>转成小写</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lower = Random.lower(<span class="string">&#x27;JINGWEI&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-pick-arr"><a href="#Random-pick-arr" class="headerlink" title="Random.pick(arr)"></a>Random.pick(arr)</h5><p>从数组中随机选取一个元素</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> pick = Random.pick(arr);</span><br></pre></td></tr></table></figure>
+<h5 id="Random-shuffle-arr"><a href="#Random-shuffle-arr" class="headerlink" title="Random.shuffle(arr);"></a>Random.shuffle(arr);</h5><p>打乱数组的顺序并返回</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr  = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">var</span> shuffle = Random.shuffle(arr);</span><br></pre></td></tr></table></figure>
+<h4 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h4><h5 id="Random-guid"><a href="#Random-guid" class="headerlink" title="Random.guid()"></a>Random.guid()</h5><p>随机生成一个GUID</p>
+<h5 id="Random-id"><a href="#Random-id" class="headerlink" title="Random.id()"></a>Random.id()</h5><p>随机生成一个18位身份证id</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> guid = Random.guid();</span><br><span class="line"><span class="keyword">var</span> id = Random.id();</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>MockJS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OSI七层模型与TCP/IP四层的区别/联系</title>
     <url>/posts/15594.html</url>
     <content><![CDATA[<h2 id="什么是OSI"><a href="#什么是OSI" class="headerlink" title="什么是OSI"></a>什么是OSI</h2><p>OSI（Open System Interconnect），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。ISO为了更好的使网络应用更为普及，推出了OSI参考模型。其含义就是推荐所有公司使用这个规范来控制网络。这样所有公司都有相同的规范，就能互联了。<br>OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。</p>
@@ -748,8 +991,8 @@
         <category>后端</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JDK8</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
