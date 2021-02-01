@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-01-27T15:52:52.232Z</updated>
+  <updated>2021-02-01T14:23:59.000Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式语法</title>
+    <link href="https://www.junpzx.cn/posts/48428.html"/>
+    <id>https://www.junpzx.cn/posts/48428.html</id>
+    <published>2021-02-01T13:40:02.000Z</published>
+    <updated>2021-02-01T14:23:59.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;正则表达式&lt;/strong&gt;（英语：Regular Expression，常简写为regex、regexp或RE），又称&lt;strong&gt;正则表示式&lt;/strong&gt;、&lt;strong&gt;正则表示法&lt;/strong&gt;、&lt;strong&gt;规则表达式&lt;/strong&gt;、&lt;strong&gt;常规表示法&lt;/strong&gt;，是计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。在很多文本编辑器里，正则表达式通常被用来检索、替换那些匹配某个模式的文本。&lt;/p&gt;
+&lt;p&gt;许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(σ｀д′)σ这是我写过的最麻烦的一篇,Markdown语法渲染出来的东西一直不对,主要还是符号太多了,如果文章中有错漏的或者格式不正确的,麻烦在评论中告知!&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="其它" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E5%85%B6%E5%AE%83/"/>
+    
+    
+    <category term="正则表达式" scheme="https://www.junpzx.cn/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    <category term="Regex" scheme="https://www.junpzx.cn/tags/Regex/"/>
+    
+  </entry>
   
   <entry>
     <title>MockJS语法</title>
@@ -118,7 +145,7 @@
     <link href="https://www.junpzx.cn/posts/63365.html"/>
     <id>https://www.junpzx.cn/posts/63365.html</id>
     <published>2021-01-18T02:16:03.000Z</published>
-    <updated>2021-01-18T06:09:46.456Z</updated>
+    <updated>2021-02-01T13:51:15.866Z</updated>
     
     
     <summary type="html">&lt;p&gt;Swagger2中的注解及其参数的作用&lt;/p&gt;
@@ -150,9 +177,9 @@
     <category term="后端" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/"/>
     
     
-    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
-    
     <category term="JDK8" scheme="https://www.junpzx.cn/tags/JDK8/"/>
+    
+    <category term="Java" scheme="https://www.junpzx.cn/tags/Java/"/>
     
   </entry>
   
@@ -441,29 +468,6 @@
     
     
     <category term="结构型设计模式" scheme="https://www.junpzx.cn/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之单例模式</title>
-    <link href="https://www.junpzx.cn/posts/62332.html"/>
-    <id>https://www.junpzx.cn/posts/62332.html</id>
-    <published>2020-12-28T06:04:58.000Z</published>
-    <updated>2021-01-14T02:57:38.816Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228141618.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="创建型设计模式" scheme="https://www.junpzx.cn/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
