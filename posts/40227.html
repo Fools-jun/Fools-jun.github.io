@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-cG59bfS3Wi" />
+<meta name="google-site-verification" content="O_6plY-maMAjbfpX3G4tdwxyUj01j0pV3nw5Jd0_tb4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128-pzx.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-pzx.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-pzx.png">
+  <link rel="mask-icon" href="/images/logo-pzx.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="今天在看Spring源码的时候，发现其中存在一个spring.schemas文件，发现其中有很多关于xsd文件的路径，所以记录一下xsd文件到底有什么作用，以及它和其他XML文档描述文件的区别和联系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSD与DTD区别和联系">
+<meta property="og:url" content="https://www.junpzx.cn/posts/40227.html">
+<meta property="og:site_name" content="星辰大海">
+<meta property="og:description" content="今天在看Spring源码的时候，发现其中存在一个spring.schemas文件，发现其中有很多关于xsd文件的路径，所以记录一下xsd文件到底有什么作用，以及它和其他XML文档描述文件的区别和联系。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-02T01:36:41.000Z">
+<meta property="article:modified_time" content="2021-02-02T01:38:22.627Z">
+<meta property="article:author" content="JunPzx">
+<meta property="article:tag" content="DTD">
+<meta property="article:tag" content="XSD">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.junpzx.cn/posts/40227.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>XSD与DTD区别和联系 | 星辰大海</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">星辰大海</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Starry Sea</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-util">
+
+    <a href="/utils/" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/40227.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="JunPzx">
+      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="星辰大海">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          XSD与DTD区别和联系
+        </h1>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-02 09:36:41 / 修改时间：09:38:22" itemprop="dateCreated datePublished" datetime="2021-02-02T09:36:41+08:00">2021-02-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E5%85%B6%E5%AE%83/" itemprop="url" rel="index"><span itemprop="name">其它</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/40227.html" class="post-meta-item leancloud_visitors" data-flag-title="XSD与DTD区别和联系" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/posts/40227.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/40227.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>以下内容来自<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89">维基百科</a>：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML">XML</a>文件的<strong>文档类型定义</strong>（Document Type Definition）可以看成一个或者多个XML文件的模板，在这里可以定义XML文件中的元素、元素的属性、元素的排列方式、元素包含的内容等等。</p>
+<p>DTD（Document Type Definition）概念缘于SGML，每一份SGML文件，均应有相对应的DTD。对XML文件而言，DTD并非特别需要，well-formed XML就不需要有DTD。DTD有四个组成如下：</p>
+<ul>
+<li>元素（Elements）</li>
+<li>属性（Attribute）</li>
+<li>实体（Entities）</li>
+<li>注释（Comments）</li>
+</ul>
+<p>由于DTD限制较多，使用时较不方便，近来已渐被<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML_Schema">XML Schema</a>所取代。</p>
+</blockquote>
+<p>文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。</p>
+<p>DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</p>
+<h2 id="声明语法"><a href="#声明语法" class="headerlink" title="声明语法"></a>声明语法</h2><ul>
+<li>元素声明语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT 元素名称　元素內容&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>属性声明语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ATTLIST 元素名称、属性名称、属性值类型、属性的内定值&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实体声明语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY 实体名称　实体内容&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注释语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 注解內容 --&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="XSD"><a href="#XSD" class="headerlink" title="XSD"></a>XSD</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>以下内容来自<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML_Schema">维基百科</a>：</p>
+<blockquote>
+<p><strong>XSD (XML Schema Definition)</strong>是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/World_Wide_Web_Consortium">W3C</a>于2001年5月发布的推荐标准，指出如何形式描述XML文档的元素。XSD是许多<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>中的一支。XSD是首先分离于XML本身的schema语言，故获取W3C的推荐地位。</p>
+<p>像所有<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>一样，XSD用来描述一组规则──一个XML文件必须遵守这些规则，才能根据该schema‘合法（Valid）’。</p>
+<p>然而，与其他<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>不同，XSD意图设计为在确认一个文档的有效性时，将会产生满足特定<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/數據類型">数据类型</a>的一个信息集合。这种后验证的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML信息集">XML信息集</a>可用来开发XML文件处理软件。</p>
+</blockquote>
+<h2 id="XSD名称的来源"><a href="#XSD名称的来源" class="headerlink" title="XSD名称的来源"></a>XSD名称的来源</h2><p>因为有其他XML schema 语言存在，故在引用这W3C建议的语言时，使用XML Schema或W3C XML Schema，Schema永远前缀大写。</p>
+<p>“XML Schema”在2001年5月成为W3C推荐标准。由于“XML Schema”作为一种W3C的推荐标准的名字与广义的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>存在名称上的混淆，用户社区的一部分人采用了“WXS”来称呼它， 用户社区的另一部分人采用“<strong>XSD</strong>”（<strong>X</strong>ML <strong>S</strong>chema <strong>D</strong>efinition<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/首字母縮略字">首字母缩略字</a>）来称呼它。W3C发布的1.1标准采用了“<strong>XSD</strong>”作为官方称呼。</p>
+<h2 id="Schema与schema文档"><a href="#Schema与schema文档" class="headerlink" title="Schema与schema文档"></a>Schema与schema文档</h2><p>技术上说<strong>schema</strong>是元数据的一个抽象集合，包含一套<strong>schema component</strong>: 主要是元素与属性的声明、复杂与简单数据类型的定义。这些schema component通常是在处理一批<strong>schema document</strong>时被创建。schema文档包含着schema component的源语言定义。在日常使用中，一个schema文档常被称作一个schema。</p>
+<p>Schema文档通过名字空间组织起来：所有的被命名的schema component属于一个目标名字空间；这个目标名字空间是schema文档作为整体的一个属性。schema文档可以包含进来（include）使用同一名字空间的其它schema文档，也可以导入（import）使用不同名字空间的schema文档。</p>
+<p>当一个实例文档针对一个schema来验证有效性时（这一过程称为<em>assessment</em>），用来验证有效性的schema可以作为参数提供给验证器，也可以在实例文档中作为两种特殊属性之一直接提供：</p>
+<ul>
+<li><code>xsi:schemaLocation</code></li>
+<li><code>xsi:noNamespaceSchemaLocation</code>.这种机制要求客户启动验证以充分相信这个文档，知道文档对正确的schema是有效的。</li>
+</ul>
+<p>“xsi”是名字空间”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/XMLSchema-instance&quot;的传统前缀。">http://www.w3.org/2001/XMLSchema-instance&quot;的传统前缀。</a></p>
+<p>XML Schema Documents通常有<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/文件扩展名">文件扩展名</a>“.xsd”. XSD还没有专门的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/互联网媒体类型">互联网媒体类型</a>，因此按照 RFC 3023使用”application/xml”或”text/xml” .</p>
+<h2 id="Schema-component"><a href="#Schema-component" class="headerlink" title="Schema component"></a>Schema component</h2><p>主要的schema component有:</p>
+<ul>
+<li><strong>元素声明</strong>（Element declaration）, 定义了元素的性质。包括：元素名字、目标名字空间；一个非常重要的性质是元素的类型，它限制了元素包含哪些属性与子元素。在XSD 1.1标准中，可以根据属性的值来有条件定义元素类型。一个元素可以属于一个替换群（substitution group），如果元素E在元素H的替换群中，那么schema许可H出现的地方E都可以出现。元素可以有完整性（integrity）约束：唯一性（uniqueness）约束确定特定值在该元素为根的子树中是独一无二的；引用（referential）约束确定值必须匹配一些其它元素的标识符。元素声明可以是全局的或局部的，允许同一个名字被用于一个实例文档的不同部分的不相关的元素。</li>
+<li><strong>属性声明</strong>（Attribute declaration）,定义了属性的性质。包括：属性名字、目标名字空间，属性类型限制了属性可以取哪些值，也可以指出属性的缺省值或固定值（fixed value，即属性只能取这个值）。</li>
+<li><strong>简单与复杂数据类型</strong>（Simple and complex type）.详见下节</li>
+<li><strong>模型群</strong>（model group）与<strong>属性群</strong>（attribute group）定义。这实际上是宏（macro）：被命名的元素的群与属性的群，可在许多数据类型定义中被重用。</li>
+<li><strong>属性使用</strong>（attribute use）表示复杂数据类型与属性声明的关系，指出属性是必需的还是可选的，在什么时候使用这种数据类型。</li>
+<li><strong>元素粒子</strong>（element particle）类似于表示复杂类型与元素的关系，指出元素在上下文中出现的最大与最小次数。类似于元素粒子，内容模型可以包括<strong>模型群粒子</strong>，在语法上相当于非终结符：定义了允许的元素序列的选择与重复的单位。此外，<strong>通配符粒子</strong>表示了一套元素或元素序列。</li>
+</ul>
+<p>其它更专门的schema component包括annotations, assertions, notations, 以及包含了schema整体信息的<strong>schema component</strong>.</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>简单数据类型（simple type）包含了可以出现在元素或属性的文本值。这是XSD与DTD的最大区别。</p>
+<p>XSD提供了一套19个基本数据类型：</p>
+<ul>
+<li><code>anyURI</code></li>
+<li><code>base64Binary</code></li>
+<li><code>boolean</code></li>
+<li><code>date</code></li>
+<li><code>dateTime</code></li>
+<li><code>decimal</code></li>
+<li><code>double</code></li>
+<li><code>duration</code></li>
+<li><code>float</code></li>
+<li><code>hexBinary</code></li>
+<li><code>gDay</code></li>
+<li><code>gMonth</code></li>
+<li><code>gMonthDay</code></li>
+<li><code>gYear</code></li>
+<li><code>gYearMonth</code></li>
+<li><code>NOTATION</code></li>
+<li><code>QName</code></li>
+<li><code>string</code></li>
+<li><code>time</code>).</li>
+</ul>
+<p>可以从这些基本数据类型通过三种机制构建三种数据类型：</p>
+<ul>
+<li>restriction (减少值集的范围),</li>
+<li>list (允许一个值的序列),</li>
+<li>union (允许从几个数据类型中选择值).</li>
+</ul>
+<p>XSD规范定义了25个导出数据类型。用户可以在schema中进一步定义自己的导出类型。</p>
+<p>Restriction机制包括指出最大最小值、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/正则表达式">正则表达式</a>、限制字符串的长度、限制十进制数的位数等。XSD 1.1又增加了assertions, 即通过一个[XPath 2.0]]表达式给出任意约束的能力。</p>
+<p>复杂数据类型描述了一个元素的许可内容。包括这个元素、属性、子元素的许可内容。复杂类型定义由一套属性使用与一个内容模型组成。内容模型可以是：</p>
+<ul>
+<li>只有元素的内容（element-only content）, 不允许有文本（但可以有空白符或者子元素可以有文本）;</li>
+<li>简单内容（simple content）, 允许有文本，不允许有子元素;</li>
+<li>空内容（empty content）, 文本与子元素都不被允许;</li>
+<li>混合内容（mixed content）, 文本与子元素都可以有.</li>
+</ul>
+<p>复杂数据类型可以从别的复杂类型导出：</p>
+<ul>
+<li>restriction方法，不允许基类型允许的一些元素、属性或者值</li>
+<li>extension方法，允许额外的属性或元素出现。</li>
+</ul>
+<p>XSD 1.1又增加了assertion方法来约束复杂类型, 即通过一个[XPath 2.0]]表达式必须求值为真</p>
+<h2 id="Schema-既验信息集（Post-Schema-Validation-Infoset）"><a href="#Schema-既验信息集（Post-Schema-Validation-Infoset）" class="headerlink" title="Schema 既验信息集（Post-Schema-Validation Infoset）"></a>Schema 既验信息集（Post-Schema-Validation Infoset）</h2><p>基于 Schema 的验证完成后，可以按照 Schema 所隐含的数据模型来表达文档的结构与内容。XML Schema 数据模型包括：</p>
+<ul>
+<li>词汇（元素与属性名称集）</li>
+<li>内容模型（关联与结构）</li>
+<li>数据类型</li>
+</ul>
+<p>这些信息的集合即为 Schema 既验信息集（Post-Schema-Validation Infoset （PSVI））。对于有效的 XML，PSVI 给它赋以特定的“类型”，从而便于以对象方式来处理整个文档，并应用面向对象程序设计（OOP）范式。</p>
+<h2 id="XML-Schema的次要用途"><a href="#XML-Schema的次要用途" class="headerlink" title="XML Schema的次要用途"></a>XML Schema的次要用途</h2><p>XML Schema的主要用途是形式描述XML文档，然而最终的schema除了简单验证文档外还有许多其他用途。</p>
+<h3 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h3><p>Schema可用于生成代码，这称作{[tsl|en|XML Data Binding}}。这些代码允许XML文档的内容作为编程环境中的对象。</p>
+<h3 id="XML文件结构文档的生成"><a href="#XML文件结构文档的生成" class="headerlink" title="XML文件结构文档的生成"></a>XML文件结构文档的生成</h3><p>Schema可用于产生人可读的文档来描述一个XML文件的结构。这在作者利用了标记元素（annotation element）时非常有用。</p>
+<h2 id="示范"><a href="#示范" class="headerlink" title="示范"></a>示范</h2><p>一个Schema的简易示例，描述某个指定的国家，是这样的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xs:schema</span></span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:xs</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">xs:element</span> <span class="attr">name</span>=<span class="string">&quot;country&quot;</span> <span class="attr">type</span>=<span class="string">&quot;Country&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">xs:complexType</span> <span class="attr">name</span>=<span class="string">&quot;Country&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">xs:sequence</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">xs:element</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xs:string&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">xs:element</span> <span class="attr">name</span>=<span class="string">&quot;population&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xs:decimal&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">xs:sequence</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">xs:complexType</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">xs:element</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xs:schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一份遵从这个视图的XML文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">country</span></span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag"> <span class="attr">xsi:noNamespaceSchemaLocation</span>=<span class="string">&quot;country.xsd&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>France<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">population</span>&gt;</span>59.7<span class="tag">&lt;/<span class="name">population</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">country</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="DTD和XSD的区别和联系"><a href="#DTD和XSD的区别和联系" class="headerlink" title="DTD和XSD的区别和联系"></a>DTD和XSD的区别和联系</h1><p><strong>以下内容转载至知乎-<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/38843167/answer/78782017">wuxinliulei</a></strong></p>
+<p>DTD(Document Type Definition) 是一套关于标记符的语法规则。<br>它是XML1.0版规格的一部分,是XML文件的验证机制,属于XML文件组成的一部分。DTD 是一种保证XML文档格式正确的有效方法，可通过比较XML文档和DTD文件来看文档是否符合规范，元素和标签使用是否正确。XML文件提供应用程序一个 数据交换的格式,DTD正是让XML文件能成为数据交换标准,因为不同的公司只需定义好标准DTD,各公司都能依DTD建立XML文件,并且进行验证,如 此就可以轻易的建立标准和交换数据，这样满足了网络共享和数据交互。DTD文件是一个ASCII文本文件，后缀名为.dtd。</p>
+<h2 id="1-为什么需要dtd，xsd-这种xml文档定义描述？"><a href="#1-为什么需要dtd，xsd-这种xml文档定义描述？" class="headerlink" title="1.为什么需要dtd，xsd 这种xml文档定义描述？"></a>1.为什么需要dtd，xsd 这种xml文档定义描述？</h2><p>对于一个格式良好的XML文档，我们只能保证这个文档的格式符合XML规范，但是元素与元素之间的关系、元素与属性的关系，属性的取值是否正确，我们就无法得知了。对于一个格式良好的文档，如果仅仅是在有限的应用中使用，或者作为数据的存储传输，那么也能很好的满足我们的应用。但是如果要让其他用户理解你的XML文档，或者和其他的应用进行数据交换，那么就有必要提供一种机制，来保证我们所写的XML文档和别人所写的XML文档其结构是相同的，元素与元素之间的关系是正确的，属性的取值也是符合要求的。</p>
+<h2 id="2-在XML当中引入DTD有哪些方式？"><a href="#2-在XML当中引入DTD有哪些方式？" class="headerlink" title="2.在XML当中引入DTD有哪些方式？"></a><strong>2.在XML当中引入DTD有哪些方式？</strong></h2><pre><code>**我们可以直接在XML文档中定义DTD，也可以通过URI引用外部的DTD文件，或者同时采用这两种方式。**
+ ### ①XML文档中内部定义DTD
+  内部的 DOCTYPE 声明，通过下面的语法包装在一个 DOCTYPE 声明中： 
+</code></pre><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE 根元素 [元素声明]&gt; 　</span><br></pre></td></tr></table></figure>
+<p>　　带有 DTD 的 XML 文档实例 　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt; 　</span><br><span class="line">&lt;!DOCTYPE note [ 　</span><br><span class="line">　&lt;!ELEMENT note (to,from,heading,body)&gt; 　</span><br><span class="line">　&lt;!ELEMENT to (#PCDATA)&gt; 　</span><br><span class="line">　&lt;!ELEMENT from (#PCDATA)&gt; 　</span><br><span class="line">　&lt;!ELEMENT heading (#PCDATA)&gt; 　</span><br><span class="line">　&lt;!ELEMENT body (#PCDATA)&gt; 　　</span><br><span class="line">]&gt; 　</span><br><span class="line"></span><br><span class="line">&lt;note&gt;</span><br><span class="line">     &lt;to&gt;Tove&lt;&#x2F;to&gt; 　　</span><br><span class="line">     &lt;from&gt;Jani&lt;&#x2F;from&gt; 　</span><br><span class="line">   　&lt;heading&gt;Reminder&lt;&#x2F;heading&gt; 　</span><br><span class="line">   　&lt;body&gt;Don&#39;t forget me this weekend&lt;&#x2F;body&gt; 　</span><br><span class="line">&lt;&#x2F;note&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上 DTD 解释如下：</strong></p>
+<p>!DOCTYPE note (第二行)定义此文档是 note 类型的文档。 　<br>!ELEMENT note (第三行)定义 note 元素有四个元素：”to、from、heading,、body” 　<br>!ELEMENT to (第四行)定义 to 元素为 “#PCDATA” 类型 　　<br>!ELEMENT from (第五行)定义 from 元素为 “#PCDATA” 类型 　<br>!ELEMENT heading (第六行)定义 heading 元素为 “#PCDATA” 类型 　<br>!ELEMENT body (第七行)定义 body 元素为 “#PCDATA” 类型</p>
+<p>   再举一个例子：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; standalone=&quot;yes&quot;&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE greeting [</span></span><br><span class="line"><span class="meta">   &lt;!ELEMENT greeting (#PCDATA)&gt;</span></span><br><span class="line"><span class="meta"> ]&gt;</span></span><br></pre></td></tr></table></figure>
+<p>  文档类型声明由&lt;! 开始，后面紧跟一个关键字DOCTYPE，然后是文档根元素的名称，接下来是标记生命块，标记声明块是放在左中括号 [ 和右中括号 ] 之间的，由一个或者多个标记声明构成，最后由&gt; 结束。<br>   在DTD当中，所有关键字都是大写的，就像在这里看到的ELEMENT、#PCDATA一样，在后面我们还会看到其他的关键字。不过在DTD中定义的元素和属性的大小写是可以任意指定的，但是要注意，XML文档是大小写相关的，所以一旦给一个元素命名吗，那么整个文档中都要使用相同的大小写。例如：greeting 和Greeting是两个不同的元素名。</p>
+<pre><code> 在XML文档中定义DTD，比较直观，修改也比较方便，而且不用担心XML处理器找不到DTD，但是它也有一些缺点：
+1.在文档中定义DTD会导致文档本身的长度增加，在传输数据市，即使不需要验证文档的有效性，这些声明也会随文档一起传输。
+2.如果多个XML文档需要共用一个DTD，我们就需要在每个文档中加入DTD，这是相当繁琐的。
+</code></pre><p>要解决上面两个问题，我们将dtd放到一个单独的文件中去定义，在XML文档中，通过URI外部引用<br>（有没有发现写程序的时候的#include 和import也有同样的功效重用代码）</p>
+<h3 id="②-外部文档声明"><a href="#②-外部文档声明" class="headerlink" title="② 外部文档声明"></a>② 外部文档声明</h3><pre><code> 假如 DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中： 
+</code></pre><p><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;外部DTD文件的URI&quot;&gt;</code>　　<br><strong>SYSTEM关键字表示文档使用的是私有的DTD文件</strong>，“外部DTD文件的URI”可以是相对URI或者绝对URI，相对URI是相对文档类型声明所在文档的位置。<br>比如</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE greeting SYSTEM &quot;hello.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>我们将DTD的定义放到了hello.dtd文件中，注意要将hello.dtd放在和XML文档同一目录下，这样XML处理器才能找到这个文件。在给DTD文件取名字的时候，文件名可以随便取，但扩展名一般为.dtd<br>如果位于不同位置的多个XML文档要使用同一个DTD，我们可以使用绝对URI来指明DTD文件的地址。假定hello.dtd位于</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.guowuxin.org/xml/hello.dtd</span><br></pre></td></tr></table></figure>
+<p> 我们可以在文档类型声明中使用此URI</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE greeting SYSTEM &quot;http://www.guowuxin.org/xml/hello.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>如果是一种企业或者行业领域标准，则不建议使用SYSTEM，而是使用public修饰<br><code>&lt;!DOCTYPE 根元素的名字 PUBLIC “DTD的名称&quot; “外部DTD文件的URI&quot;&gt;</code><br>PUBLIC关键字用于声明公共的DTD，并且这个DTD还有一个名称，“DTD的名称” 也称为公共标识符</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE web-app PUBLIC &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot; &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>比如上面是servlet2.3中web.xml的DTD<br>根元素web-app</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUBILC &quot;-//所有者//DTD文档描述的类型//ISO639语言标识符&quot; “外部DTD文件URI”</span><br></pre></td></tr></table></figure>
+<p>下面这个 XML 文档和上面的第一个 XML 文档相同，但是拥有一个外部的 DTD: 　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt; 　</span><br><span class="line">&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;</span><br><span class="line">&lt;note&gt; 　</span><br><span class="line"> 　&lt;to&gt;Tove&lt;&#x2F;to&gt; 　</span><br><span class="line"> 　&lt;from&gt;Jani&lt;&#x2F;from&gt; 　</span><br><span class="line"> 　&lt;heading&gt;Reminder&lt;&#x2F;heading&gt; 　</span><br><span class="line"> 　&lt;body&gt;Don&#39;t forget me this weekend!&lt;&#x2F;body&gt; 　</span><br><span class="line">&lt;&#x2F;note&gt; 　</span><br></pre></td></tr></table></figure>
+<p>　这是包含 DTD 的 “note.dtd” 文件： 　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt; 　</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt; 　　</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt; 　</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt; 　</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt; </span><br></pre></td></tr></table></figure>
+<p>通过 DTD，每一个 XML 文件均可携带一个有关其自身格式的描述，独立的团体可一致地使用某个标准的 DTD 来交换数据。应用程序也可使用某个标准的 DTD 来验证从外部接收到的数据。 　<br>   还可以使用 DTD 来验证自身的数据。</p>
+<h2 id="3-DTD的优势"><a href="#3-DTD的优势" class="headerlink" title="3.DTD的优势"></a>3.DTD的优势</h2><p>每一个XML文档都可携带一个DTD，用来对该文档格式进行描述，测试该文档是否为有效的XML文档。<br>既然DTD有外部和内部之分，当然就可以为某个独 立的团体定义一个公用的外部DTD，那么多个XML文档就都可以共享使用该DTD，使得数据交换更为有效。甚至在某些文档中还可以使内部DTD和外部 DTD相结合。<br>在应用程序中也可以用某个DTD来检测接收到的数据是否符合某个标准。<br>对于XML文档而言，虽然DTD不是必须的，但它为文档的编制带来了方便。加强了文档标记内参数的一致性，使XML语法分析器能够确认文档。</p>
+<p>如果不使用DTD来对XML文档进行定义，那么XML语法分析器将无法对该文档进行确认。 　　</p>
+<p>每个XML文档都只有一个根元素，其它的子元素都包含在该根元素中。<br>因此在DTD中对根元素的声明是必不可少的。</p>
+<p>元素声明的一般形式如下： 　</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE root[ 　　&lt;!-- 子元素 --&gt; ]&gt; 　</span><br></pre></td></tr></table></figure>
+<p>DOCTYPE是“document type”（文档类型）的简写，DOCTYPE声明必须放在文档最顶部，在所有代码和标识之上，DOCTYPE声明是必不可少的关键组成部分。DTD语法 要求DOCTYPE必须要大写，而且DOCTYPE和元素之间必须要有空格隔开，<strong>如在以上代码中DOCTYPE和根元素root之间要有空格隔开。</strong></p>
+<h2 id="4-DTD的缺陷"><a href="#4-DTD的缺陷" class="headerlink" title="4.DTD的缺陷"></a>4.DTD的缺陷</h2><p>利用DTD验证有效性的解析器，就能够立即对文档的完整性进行可靠的检查。DTD虽然比较实用，但DTD也有不少的缺陷。 　　</p>
+<ol>
+<li>DTD有自己的特殊语法，其本身不是XML文档； 　</li>
+<li>DTD只提供了有限的数据类型，用户无法自定义类型； 　</li>
+<li>DTD不支持域名机制。</li>
+</ol>
+<p><strong>servlet标准在2.5开始就放弃使用dtd，改用了xsd</strong></p>
+    </div>
+
+    
+    
+    
+    
+	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+	 
+<div class="post-copyright-information">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/posts/40227.html">XSD与DTD区别和联系</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
+  <p><span>发布时间:</span>2021年02月02日</p>
+  <p><span>原始链接:</span><a href="/posts/40227.html" title="XSD与DTD区别和联系">https://www.junpzx.cn/posts/40227.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/40227.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/DTD/" rel="tag"><i class="fa fa-tag"></i> DTD</a>
+              <a href="/tags/XSD/" rel="tag"><i class="fa fa-tag"></i> XSD</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/31793.html" rel="prev" title="设计模式之适配器模式">
+      <i class="fa fa-chevron-left"></i> 设计模式之适配器模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/31089.html" rel="next" title="计算机基础之进制">
+      计算机基础之进制 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DTD"><span class="nav-text">DTD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E8%AF%AD%E6%B3%95"><span class="nav-text">声明语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSD"><span class="nav-text">XSD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSD%E5%90%8D%E7%A7%B0%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="nav-text">XSD名称的来源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema%E4%B8%8Eschema%E6%96%87%E6%A1%A3"><span class="nav-text">Schema与schema文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema-component"><span class="nav-text">Schema component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema-%E6%97%A2%E9%AA%8C%E4%BF%A1%E6%81%AF%E9%9B%86%EF%BC%88Post-Schema-Validation-Infoset%EF%BC%89"><span class="nav-text">Schema 既验信息集（Post-Schema-Validation Infoset）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-Schema%E7%9A%84%E6%AC%A1%E8%A6%81%E7%94%A8%E9%80%94"><span class="nav-text">XML Schema的次要用途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-text">代码生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-text">XML文件结构文档的生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E8%8C%83"><span class="nav-text">示范</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DTD%E5%92%8CXSD%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB"><span class="nav-text">DTD和XSD的区别和联系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81dtd%EF%BC%8Cxsd-%E8%BF%99%E7%A7%8Dxml%E6%96%87%E6%A1%A3%E5%AE%9A%E4%B9%89%E6%8F%8F%E8%BF%B0%EF%BC%9F"><span class="nav-text">1.为什么需要dtd，xsd 这种xml文档定义描述？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9C%A8XML%E5%BD%93%E4%B8%AD%E5%BC%95%E5%85%A5DTD%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="nav-text">2.在XML当中引入DTD有哪些方式？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1-%E5%A4%96%E9%83%A8%E6%96%87%E6%A1%A3%E5%A3%B0%E6%98%8E"><span class="nav-text">② 外部文档声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DTD%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">3.DTD的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-DTD%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-text">4.DTD的缺陷</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JunPzx"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">JunPzx</p>
+  <div class="site-description" itemprop="description">记录日常学习中,问题的解决方案和学习笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Fools-jun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Fools-jun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junpzx@163.com" title="E-Mail → mailto:junpzx@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/p/1005055835930216/home" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;1005055835930216&#x2F;home" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright" style=" text-align:center;">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  
+  <span class="with-love">
+    <i class="fa fa-heart">JunPzx</i>
+  </span>
+
+  <div class="run_time" style=" text-align:center;">
+	  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	  <script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("09/17/2020 19:00:00");//此处修改你的建站时间或者网站上线时间 
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+		setInterval("createtime()",250);
+	    </script>
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<div>
+			<i class="fa fa-user-md"></i>
+			<span id="busuanzi_container_site_uv">
+			  访问人数：<span id="busuanzi_value_site_uv"></span>
+			</span>&nbsp;|&nbsp;
+			
+			<i class="fa fa-eye"></i>
+			<span id="busuanzi_container_site_pv">
+			  总访问量：<span id="busuanzi_value_site_pv"></span>
+			</span>&nbsp;|&nbsp;
+			
+			<!-- 添加博客全站总字数统计-->
+			<i class="fa fa-pencil"></i>
+			<span class="post-count">博客全站共 114.4k 字</span>
+		</div>
+	</div>
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="[object Object]"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2bMrcVfJFQH1jvGexxTRp8jB-gzGzoHsz',
+      appKey     : '4Setea8Pzh3Tt0JA4tdaq93s',
+      placeholder: "Just go go ^_^",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

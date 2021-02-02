@@ -1,6 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>计算机基础之原码、补码与反码</title>
+    <url>/posts/13838.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>原码</tag>
+        <tag>补码</tag>
+        <tag>反码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机基础之进制</title>
+    <url>/posts/31089.html</url>
+    <content><![CDATA[<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>以下内容来自摘抄至<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E4%BD%8D%E5%88%B6">维基百科</a>:</p>
+<blockquote>
+<p><strong>进位制</strong>是一种<a href="https://zh.wikipedia.org/wiki/记数系统">记数方式</a>，亦称<strong>进位计数法</strong>或<strong>位值计数法</strong>。利用这种记数法，可以使用有限种<a href="https://zh.wikipedia.org/wiki/數字">数字</a>符号来表示所有的数值。一种进位制中可以使用的数字符号的数目称为这种进位制的<a href="https://zh.wikipedia.org/wiki/基數_(進位記數法">基数</a>)或<a href="https://zh.wikipedia.org/wiki/底數_(進位記數法">底数</a>)。若一个进位制的基数为n，即可称之为n进位制，简称n进制。现在最常用的进位制是<a href="https://zh.wikipedia.org/wiki/十进制">十进制</a>，这种进位制通常使用10个<a href="https://zh.wikipedia.org/wiki/阿拉伯數字">阿拉伯数字</a>（即0-9）进行记数。</p>
+<p>我们可以用不同的进位制来表示同一个数。比如：<a href="https://zh.wikipedia.org/wiki/十进制">十进数</a><a href="https://zh.wikipedia.org/wiki/57">57</a><a href="https://zh.wikipedia.org/wiki/十進制">(10)</a>，可以用<a href="https://zh.wikipedia.org/wiki/二进制">二进制</a>表示为<a href="https://zh.wikipedia.org/wiki/57">111001</a><a href="https://zh.wikipedia.org/wiki/二進制">(2)</a>，也可以用<a href="https://zh.wikipedia.org/wiki/五進位">五进制</a>表示为<a href="https://zh.wikipedia.org/wiki/57">212</a><a href="https://zh.wikipedia.org/wiki/五進制">(5)</a>，同时也可以用<a href="https://zh.wikipedia.org/wiki/八进制">八进制</a>表示为<a href="https://zh.wikipedia.org/wiki/57">71</a><a href="https://zh.wikipedia.org/wiki/八進制">(8)</a>，可用<a href="https://zh.wikipedia.org/wiki/十二进制">十二进制</a>表示为<a href="https://zh.wikipedia.org/wiki/57">49</a><a href="https://zh.wikipedia.org/wiki/十二进制">(12)</a>，亦可用<a href="https://zh.wikipedia.org/wiki/十六进制">十六进制</a>表示为<a href="https://zh.wikipedia.org/wiki/57">39</a><a href="https://zh.wikipedia.org/wiki/十六進制">(16)</a>，它们所代表的数值都是一样的。</p>
+<p>在10进制中有10个数字（0 - 9），比如：</p>
+<script type="math/tex; mode=display">256  = 2 * 10^3 + 5 * 10^3 + 0 * 10^1 + 6 * 10^0</script><p>在16进制中有16个数字（0–9 和 A–F），比如：</p>
+<script type="math/tex; mode=display">171B = 1 * 16^3 + 7 * 16^2 + 1 * 16^1 + B * 16^0(16进制中A代表10,B代表11,C代表12,D代表13,E代表14,F代表15)</script><p>一般说来，<em>b</em>进制有<em>b</em>个数字,如果<script type="math/tex">a_3,a_2,a_1,a_0</script>是其中四个数字,那么就有:</p>
+<script type="math/tex; mode=display">a_3a_2a_1a_0 = a_3 * b^3 + a_2 * b^2 + a_1 * b^1 + a_0 * b^0(注意:a_3a_2a_1a_0表示一个数字序列,而不是数字的相乘)</script></blockquote>
+<h1 id="2-常见的进位制及其用途"><a href="#2-常见的进位制及其用途" class="headerlink" title="2.常见的进位制及其用途"></a>2.常见的进位制及其用途</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">底/  基数</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">十进制</td>
+<td style="text-align:center">世界上最常见的算术运算位进制系统，它是2和5的乘积，用于大多数机械计数器。其十位数字为 “0-9”。</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">十二进制</td>
+<td style="text-align:center">因为有多个约数如2，3，4和6的易于整除性，它传统上用以表示数量和总数，如一打即为十二个单位。十二位数字为“0-9”，接着是“A”和“B”。</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">二十进制</td>
+<td style="text-align:center">因为有多个约数如2，4，5和10的易于整除性，在几种传统文化中的数字系统，仍然被用于计数。二十位数字为“0-9”，接着是“A-J”。</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">二进制</td>
+<td style="text-align:center">几乎所有的电子计算机内部都使用二进位制，分别为“0”和“1”表示“关”和“开”。用于大多数电子计数器。</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">十六进制</td>
+<td style="text-align:center">经常用于计算机领域，2到4次幂。十六位数字为“0-9”，接着是“A-F”。</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">八进制</td>
+<td style="text-align:center">偶尔用于计算机领域，2到3次幂。八位数字为“0-7”。</td>
+</tr>
+<tr>
+<td style="text-align:center">60</td>
+<td style="text-align:center">六十进制</td>
+<td style="text-align:center">起源于古代苏美尔并传给巴比伦人。六十成为3,4和5的乘积。今天用作现代圆形坐标系（度，分，秒）和时间测量（小时，分钟和秒）的基础。</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">五进制</td>
+<td style="text-align:center">一般用于计算票数，“T”代表2，“正”代表5。正字一笔等于一。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>八进位制和十六进位制系统通常用于计算机领域，因为它们可方便当作二进位制的简写。十六进位制数字对应于四位二进位制数字的序列，因为十六是二的四次方; 例如，十六进位制 7816 是二进制 11110002。八进位制数和二进位制的数字序列之间也有类似关系，因为八是二的立方。底数通常是自然数。 然而，其它位进制系统也是可能的。黄金比率底数（其底为非整数代 数）和负底数（其底为负数）。</p>
+<h2 id="2-1-十进制"><a href="#2-1-十进制" class="headerlink" title="2.1.十进制"></a>2.1.十进制</h2><h3 id="2-1-1-介绍"><a href="#2-1-1-介绍" class="headerlink" title="2.1.1.介绍"></a>2.1.1.介绍</h3><blockquote>
+<p><strong>十进制</strong>是以10为基础数字系统，是在世界上应用最广泛的进位制。</p>
+<p>十进制有两大类：</p>
+<ul>
+<li>无位值概念的十进制：古希腊、古埃及和古印度的佉卢十进制和婆罗米十进制都属于这一类。</li>
+<li>具有位置概念的十进制，特称为十进位制，如中国古代的算筹数，和印度阿拉伯数字。</li>
+</ul>
+<p>十进制包括十进位制，但不等同十进位制。</p>
+</blockquote>
+<h3 id="2-1-2-世界各国的数字系统"><a href="#2-1-2-世界各国的数字系统" class="headerlink" title="2.1.2.世界各国的数字系统"></a>2.1.2.世界各国的数字系统</h3><h4 id="无位值十进制"><a href="#无位值十进制" class="headerlink" title="无位值十进制"></a>无位值十进制</h4><ul>
+<li>古埃及十进制：以一个竖道代表1，二并排竖道代表2，三竖道代表3，一横道代表4，左二撇右竖道代表5，上三撇下三撇代表6，上下两道代表8，四个（并排代表9，一个“人”字形代表10，“人”上加一横代表20，20左加一点代表30，横道上加一点代表40，横道上加三竖道（如中国筹算的8）代表60，横道上加四竖道代表80（形同中国筹算中的9）代表80，两横道上加三竖代表90……。</li>
+<li>古希腊十进制，1至9，10至90，100至900各有不同的单字母代表。</li>
+<li>古印度Kharosshi十进制，以一个竖道代表1，二并排竖道代表2，三竖道代表3，一个X代表4，IX代表5，||X代表6，XX代表8，10，20个有单字符代表。</li>
+<li>古印度和Brahmi十进制，和希腊十进制相似，1至9，10至90，100至900各有不同的单字母代表。符号很多。</li>
+</ul>
+<h4 id="非十进的进位制"><a href="#非十进的进位制" class="headerlink" title="非十进的进位制"></a>非十进的进位制</h4><ul>
+<li>巴比伦60进位制：以一个上大下小的楔形代表1，两个并列楔形代表2，三个并列楔形代表3，上二个楔形下二个楔形代表4，上三楔下二楔代表5，上三楔下三楔代表6，上四楔下三楔代表7，上四楔下四楔代表8，上五楔下四楔代表9；一个左小右大横楔代10，两个横楔并排代表20，三个横楔并排代表30，四个横楔并排代表40。</li>
+<li>玛雅20进位制：以一个点代表1，两个点并列代表2，三点并列代表3，四点并列代表4，短横线代表5，横线上加一点代表6，横线上加二点代表7，横线上加三点代表8，横线上加四点代表9；上下两横线代表10，上下两横线之上加一点代表11，三重叠横线代表15，三横线上加一，二，三点代表16，17，18；小椭圆圈上加一点代表20。</li>
+</ul>
+<h4 id="十进位制"><a href="#十进位制" class="headerlink" title="十进位制"></a>十进位制</h4><ul>
+<li>中国古代的十进制有书写式和算筹两种型式。</li>
+<li>印度-阿拉伯十进位制。</li>
+</ul>
+<h2 id="2-2-十二进制"><a href="#2-2-十二进制" class="headerlink" title="2.2.十二进制"></a>2.2.十二进制</h2><h2 id="2-3-二十进制"><a href="#2-3-二十进制" class="headerlink" title="2.3.二十进制"></a>2.3.二十进制</h2><h2 id="2-4-二进制"><a href="#2-4-二进制" class="headerlink" title="2.4.二进制"></a>2.4.二进制</h2><h2 id="2-5-十六进制"><a href="#2-5-十六进制" class="headerlink" title="2.5.十六进制"></a>2.5.十六进制</h2><h2 id="2-6-八进制"><a href="#2-6-八进制" class="headerlink" title="2.6.八进制"></a>2.6.八进制</h2><h2 id="2-7-六十进制"><a href="#2-7-六十进制" class="headerlink" title="2.7.六十进制"></a>2.7.六十进制</h2><h2 id="2-8-五进制"><a href="#2-8-五进制" class="headerlink" title="2.8.五进制"></a>2.8.五进制</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>进制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XSD与DTD区别和联系</title>
+    <url>/posts/40227.html</url>
+    <content><![CDATA[<h1 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>以下内容来自<a href="https://zh.wikipedia.org/wiki/%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89">维基百科</a>：</p>
+<blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/XML">XML</a>文件的<strong>文档类型定义</strong>（Document Type Definition）可以看成一个或者多个XML文件的模板，在这里可以定义XML文件中的元素、元素的属性、元素的排列方式、元素包含的内容等等。</p>
+<p>DTD（Document Type Definition）概念缘于SGML，每一份SGML文件，均应有相对应的DTD。对XML文件而言，DTD并非特别需要，well-formed XML就不需要有DTD。DTD有四个组成如下：</p>
+<ul>
+<li>元素（Elements）</li>
+<li>属性（Attribute）</li>
+<li>实体（Entities）</li>
+<li>注释（Comments）</li>
+</ul>
+<p>由于DTD限制较多，使用时较不方便，近来已渐被<a href="https://zh.wikipedia.org/wiki/XML_Schema">XML Schema</a>所取代。</p>
+</blockquote>
+<p>文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。</p>
+<p>DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</p>
+<h2 id="声明语法"><a href="#声明语法" class="headerlink" title="声明语法"></a>声明语法</h2><ul>
+<li>元素声明语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!ELEMENT 元素名称　元素內容&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>属性声明语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!ATTLIST 元素名称、属性名称、属性值类型、属性的内定值&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实体声明语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!ENTITY 实体名称　实体内容&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注释语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 注解內容 --&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="XSD"><a href="#XSD" class="headerlink" title="XSD"></a>XSD</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>以下内容来自<a href="https://zh.wikipedia.org/wiki/XML_Schema">维基百科</a>：</p>
+<blockquote>
+<p><strong>XSD (XML Schema Definition)</strong>是<a href="https://zh.wikipedia.org/wiki/World_Wide_Web_Consortium">W3C</a>于2001年5月发布的推荐标准，指出如何形式描述XML文档的元素。XSD是许多<a href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>中的一支。XSD是首先分离于XML本身的schema语言，故获取W3C的推荐地位。</p>
+<p>像所有<a href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>一样，XSD用来描述一组规则──一个XML文件必须遵守这些规则，才能根据该schema‘合法（Valid）’。</p>
+<p>然而，与其他<a href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>不同，XSD意图设计为在确认一个文档的有效性时，将会产生满足特定<a href="https://zh.wikipedia.org/wiki/數據類型">数据类型</a>的一个信息集合。这种后验证的<a href="https://zh.wikipedia.org/wiki/XML信息集">XML信息集</a>可用来开发XML文件处理软件。</p>
+</blockquote>
+<h2 id="XSD名称的来源"><a href="#XSD名称的来源" class="headerlink" title="XSD名称的来源"></a>XSD名称的来源</h2><p>因为有其他XML schema 语言存在，故在引用这W3C建议的语言时，使用XML Schema或W3C XML Schema，Schema永远前缀大写。</p>
+<p>“XML Schema”在2001年5月成为W3C推荐标准。由于“XML Schema”作为一种W3C的推荐标准的名字与广义的<a href="https://zh.wikipedia.org/wiki/XML_Schema_语言">XML Schema 语言</a>存在名称上的混淆，用户社区的一部分人采用了“WXS”来称呼它， 用户社区的另一部分人采用“<strong>XSD</strong>”（<strong>X</strong>ML <strong>S</strong>chema <strong>D</strong>efinition<a href="https://zh.wikipedia.org/wiki/首字母縮略字">首字母缩略字</a>）来称呼它。W3C发布的1.1标准采用了“<strong>XSD</strong>”作为官方称呼。</p>
+<h2 id="Schema与schema文档"><a href="#Schema与schema文档" class="headerlink" title="Schema与schema文档"></a>Schema与schema文档</h2><p>技术上说<strong>schema</strong>是元数据的一个抽象集合，包含一套<strong>schema component</strong>: 主要是元素与属性的声明、复杂与简单数据类型的定义。这些schema component通常是在处理一批<strong>schema document</strong>时被创建。schema文档包含着schema component的源语言定义。在日常使用中，一个schema文档常被称作一个schema。</p>
+<p>Schema文档通过名字空间组织起来：所有的被命名的schema component属于一个目标名字空间；这个目标名字空间是schema文档作为整体的一个属性。schema文档可以包含进来（include）使用同一名字空间的其它schema文档，也可以导入（import）使用不同名字空间的schema文档。</p>
+<p>当一个实例文档针对一个schema来验证有效性时（这一过程称为<em>assessment</em>），用来验证有效性的schema可以作为参数提供给验证器，也可以在实例文档中作为两种特殊属性之一直接提供：</p>
+<ul>
+<li><code>xsi:schemaLocation</code></li>
+<li><code>xsi:noNamespaceSchemaLocation</code>.这种机制要求客户启动验证以充分相信这个文档，知道文档对正确的schema是有效的。</li>
+</ul>
+<p>“xsi”是名字空间”<a href="http://www.w3.org/2001/XMLSchema-instance&quot;的传统前缀。">http://www.w3.org/2001/XMLSchema-instance&quot;的传统前缀。</a></p>
+<p>XML Schema Documents通常有<a href="https://zh.wikipedia.org/wiki/文件扩展名">文件扩展名</a>“.xsd”. XSD还没有专门的<a href="https://zh.wikipedia.org/wiki/互联网媒体类型">互联网媒体类型</a>，因此按照 RFC 3023使用”application/xml”或”text/xml” .</p>
+<h2 id="Schema-component"><a href="#Schema-component" class="headerlink" title="Schema component"></a>Schema component</h2><p>主要的schema component有:</p>
+<ul>
+<li><strong>元素声明</strong>（Element declaration）, 定义了元素的性质。包括：元素名字、目标名字空间；一个非常重要的性质是元素的类型，它限制了元素包含哪些属性与子元素。在XSD 1.1标准中，可以根据属性的值来有条件定义元素类型。一个元素可以属于一个替换群（substitution group），如果元素E在元素H的替换群中，那么schema许可H出现的地方E都可以出现。元素可以有完整性（integrity）约束：唯一性（uniqueness）约束确定特定值在该元素为根的子树中是独一无二的；引用（referential）约束确定值必须匹配一些其它元素的标识符。元素声明可以是全局的或局部的，允许同一个名字被用于一个实例文档的不同部分的不相关的元素。</li>
+<li><strong>属性声明</strong>（Attribute declaration）,定义了属性的性质。包括：属性名字、目标名字空间，属性类型限制了属性可以取哪些值，也可以指出属性的缺省值或固定值（fixed value，即属性只能取这个值）。</li>
+<li><strong>简单与复杂数据类型</strong>（Simple and complex type）.详见下节</li>
+<li><strong>模型群</strong>（model group）与<strong>属性群</strong>（attribute group）定义。这实际上是宏（macro）：被命名的元素的群与属性的群，可在许多数据类型定义中被重用。</li>
+<li><strong>属性使用</strong>（attribute use）表示复杂数据类型与属性声明的关系，指出属性是必需的还是可选的，在什么时候使用这种数据类型。</li>
+<li><strong>元素粒子</strong>（element particle）类似于表示复杂类型与元素的关系，指出元素在上下文中出现的最大与最小次数。类似于元素粒子，内容模型可以包括<strong>模型群粒子</strong>，在语法上相当于非终结符：定义了允许的元素序列的选择与重复的单位。此外，<strong>通配符粒子</strong>表示了一套元素或元素序列。</li>
+</ul>
+<p>其它更专门的schema component包括annotations, assertions, notations, 以及包含了schema整体信息的<strong>schema component</strong>.</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>简单数据类型（simple type）包含了可以出现在元素或属性的文本值。这是XSD与DTD的最大区别。</p>
+<p>XSD提供了一套19个基本数据类型：</p>
+<ul>
+<li><code>anyURI</code></li>
+<li><code>base64Binary</code></li>
+<li><code>boolean</code></li>
+<li><code>date</code></li>
+<li><code>dateTime</code></li>
+<li><code>decimal</code></li>
+<li><code>double</code></li>
+<li><code>duration</code></li>
+<li><code>float</code></li>
+<li><code>hexBinary</code></li>
+<li><code>gDay</code></li>
+<li><code>gMonth</code></li>
+<li><code>gMonthDay</code></li>
+<li><code>gYear</code></li>
+<li><code>gYearMonth</code></li>
+<li><code>NOTATION</code></li>
+<li><code>QName</code></li>
+<li><code>string</code></li>
+<li><code>time</code>).</li>
+</ul>
+<p>可以从这些基本数据类型通过三种机制构建三种数据类型：</p>
+<ul>
+<li>restriction (减少值集的范围),</li>
+<li>list (允许一个值的序列),</li>
+<li>union (允许从几个数据类型中选择值).</li>
+</ul>
+<p>XSD规范定义了25个导出数据类型。用户可以在schema中进一步定义自己的导出类型。</p>
+<p>Restriction机制包括指出最大最小值、<a href="https://zh.wikipedia.org/wiki/正则表达式">正则表达式</a>、限制字符串的长度、限制十进制数的位数等。XSD 1.1又增加了assertions, 即通过一个[XPath 2.0]]表达式给出任意约束的能力。</p>
+<p>复杂数据类型描述了一个元素的许可内容。包括这个元素、属性、子元素的许可内容。复杂类型定义由一套属性使用与一个内容模型组成。内容模型可以是：</p>
+<ul>
+<li>只有元素的内容（element-only content）, 不允许有文本（但可以有空白符或者子元素可以有文本）;</li>
+<li>简单内容（simple content）, 允许有文本，不允许有子元素;</li>
+<li>空内容（empty content）, 文本与子元素都不被允许;</li>
+<li>混合内容（mixed content）, 文本与子元素都可以有.</li>
+</ul>
+<p>复杂数据类型可以从别的复杂类型导出：</p>
+<ul>
+<li>restriction方法，不允许基类型允许的一些元素、属性或者值</li>
+<li>extension方法，允许额外的属性或元素出现。</li>
+</ul>
+<p>XSD 1.1又增加了assertion方法来约束复杂类型, 即通过一个[XPath 2.0]]表达式必须求值为真</p>
+<h2 id="Schema-既验信息集（Post-Schema-Validation-Infoset）"><a href="#Schema-既验信息集（Post-Schema-Validation-Infoset）" class="headerlink" title="Schema 既验信息集（Post-Schema-Validation Infoset）"></a>Schema 既验信息集（Post-Schema-Validation Infoset）</h2><p>基于 Schema 的验证完成后，可以按照 Schema 所隐含的数据模型来表达文档的结构与内容。XML Schema 数据模型包括：</p>
+<ul>
+<li>词汇（元素与属性名称集）</li>
+<li>内容模型（关联与结构）</li>
+<li>数据类型</li>
+</ul>
+<p>这些信息的集合即为 Schema 既验信息集（Post-Schema-Validation Infoset （PSVI））。对于有效的 XML，PSVI 给它赋以特定的“类型”，从而便于以对象方式来处理整个文档，并应用面向对象程序设计（OOP）范式。</p>
+<h2 id="XML-Schema的次要用途"><a href="#XML-Schema的次要用途" class="headerlink" title="XML Schema的次要用途"></a>XML Schema的次要用途</h2><p>XML Schema的主要用途是形式描述XML文档，然而最终的schema除了简单验证文档外还有许多其他用途。</p>
+<h3 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h3><p>Schema可用于生成代码，这称作{[tsl|en|XML Data Binding}}。这些代码允许XML文档的内容作为编程环境中的对象。</p>
+<h3 id="XML文件结构文档的生成"><a href="#XML文件结构文档的生成" class="headerlink" title="XML文件结构文档的生成"></a>XML文件结构文档的生成</h3><p>Schema可用于产生人可读的文档来描述一个XML文件的结构。这在作者利用了标记元素（annotation element）时非常有用。</p>
+<h2 id="示范"><a href="#示范" class="headerlink" title="示范"></a>示范</h2><p>一个Schema的简易示例，描述某个指定的国家，是这样的：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xs:schema</span></span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:xs</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">xs:element</span> <span class="attr">name</span>=<span class="string">&quot;country&quot;</span> <span class="attr">type</span>=<span class="string">&quot;Country&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">xs:complexType</span> <span class="attr">name</span>=<span class="string">&quot;Country&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">xs:sequence</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">xs:element</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xs:string&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">xs:element</span> <span class="attr">name</span>=<span class="string">&quot;population&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xs:decimal&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">xs:sequence</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">xs:complexType</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">xs:element</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xs:schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一份遵从这个视图的XML文件：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">country</span></span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag"> <span class="attr">xsi:noNamespaceSchemaLocation</span>=<span class="string">&quot;country.xsd&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>France<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">population</span>&gt;</span>59.7<span class="tag">&lt;/<span class="name">population</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">country</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="DTD和XSD的区别和联系"><a href="#DTD和XSD的区别和联系" class="headerlink" title="DTD和XSD的区别和联系"></a>DTD和XSD的区别和联系</h1><p><strong>以下内容转载至知乎-<a href="https://www.zhihu.com/question/38843167/answer/78782017">wuxinliulei</a></strong></p>
+<p>DTD(Document Type Definition) 是一套关于标记符的语法规则。<br>它是XML1.0版规格的一部分,是XML文件的验证机制,属于XML文件组成的一部分。DTD 是一种保证XML文档格式正确的有效方法，可通过比较XML文档和DTD文件来看文档是否符合规范，元素和标签使用是否正确。XML文件提供应用程序一个 数据交换的格式,DTD正是让XML文件能成为数据交换标准,因为不同的公司只需定义好标准DTD,各公司都能依DTD建立XML文件,并且进行验证,如 此就可以轻易的建立标准和交换数据，这样满足了网络共享和数据交互。DTD文件是一个ASCII文本文件，后缀名为.dtd。</p>
+<h2 id="1-为什么需要dtd，xsd-这种xml文档定义描述？"><a href="#1-为什么需要dtd，xsd-这种xml文档定义描述？" class="headerlink" title="1.为什么需要dtd，xsd 这种xml文档定义描述？"></a>1.为什么需要dtd，xsd 这种xml文档定义描述？</h2><p>对于一个格式良好的XML文档，我们只能保证这个文档的格式符合XML规范，但是元素与元素之间的关系、元素与属性的关系，属性的取值是否正确，我们就无法得知了。对于一个格式良好的文档，如果仅仅是在有限的应用中使用，或者作为数据的存储传输，那么也能很好的满足我们的应用。但是如果要让其他用户理解你的XML文档，或者和其他的应用进行数据交换，那么就有必要提供一种机制，来保证我们所写的XML文档和别人所写的XML文档其结构是相同的，元素与元素之间的关系是正确的，属性的取值也是符合要求的。</p>
+<h2 id="2-在XML当中引入DTD有哪些方式？"><a href="#2-在XML当中引入DTD有哪些方式？" class="headerlink" title="2.在XML当中引入DTD有哪些方式？"></a><strong>2.在XML当中引入DTD有哪些方式？</strong></h2><pre><code>**我们可以直接在XML文档中定义DTD，也可以通过URI引用外部的DTD文件，或者同时采用这两种方式。**
+ ### ①XML文档中内部定义DTD
+  内部的 DOCTYPE 声明，通过下面的语法包装在一个 DOCTYPE 声明中： 
+</code></pre><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE 根元素 [元素声明]&gt; 　</span><br></pre></td></tr></table></figure>
+<p>　　带有 DTD 的 XML 文档实例 　</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt; 　</span><br><span class="line">&lt;!DOCTYPE note [ 　</span><br><span class="line">　&lt;!ELEMENT note (to,from,heading,body)&gt; 　</span><br><span class="line">　&lt;!ELEMENT to (#PCDATA)&gt; 　</span><br><span class="line">　&lt;!ELEMENT from (#PCDATA)&gt; 　</span><br><span class="line">　&lt;!ELEMENT heading (#PCDATA)&gt; 　</span><br><span class="line">　&lt;!ELEMENT body (#PCDATA)&gt; 　　</span><br><span class="line">]&gt; 　</span><br><span class="line"></span><br><span class="line">&lt;note&gt;</span><br><span class="line">     &lt;to&gt;Tove&lt;&#x2F;to&gt; 　　</span><br><span class="line">     &lt;from&gt;Jani&lt;&#x2F;from&gt; 　</span><br><span class="line">   　&lt;heading&gt;Reminder&lt;&#x2F;heading&gt; 　</span><br><span class="line">   　&lt;body&gt;Don&#39;t forget me this weekend&lt;&#x2F;body&gt; 　</span><br><span class="line">&lt;&#x2F;note&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>以上 DTD 解释如下：</strong></p>
+<p>!DOCTYPE note (第二行)定义此文档是 note 类型的文档。 　<br>!ELEMENT note (第三行)定义 note 元素有四个元素：”to、from、heading,、body” 　<br>!ELEMENT to (第四行)定义 to 元素为 “#PCDATA” 类型 　　<br>!ELEMENT from (第五行)定义 from 元素为 “#PCDATA” 类型 　<br>!ELEMENT heading (第六行)定义 heading 元素为 “#PCDATA” 类型 　<br>!ELEMENT body (第七行)定义 body 元素为 “#PCDATA” 类型</p>
+<p>   再举一个例子：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; standalone=&quot;yes&quot;&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE greeting [</span></span><br><span class="line"><span class="meta">   &lt;!ELEMENT greeting (#PCDATA)&gt;</span></span><br><span class="line"><span class="meta"> ]&gt;</span></span><br></pre></td></tr></table></figure>
+<p>  文档类型声明由&lt;! 开始，后面紧跟一个关键字DOCTYPE，然后是文档根元素的名称，接下来是标记生命块，标记声明块是放在左中括号 [ 和右中括号 ] 之间的，由一个或者多个标记声明构成，最后由&gt; 结束。<br>   在DTD当中，所有关键字都是大写的，就像在这里看到的ELEMENT、#PCDATA一样，在后面我们还会看到其他的关键字。不过在DTD中定义的元素和属性的大小写是可以任意指定的，但是要注意，XML文档是大小写相关的，所以一旦给一个元素命名吗，那么整个文档中都要使用相同的大小写。例如：greeting 和Greeting是两个不同的元素名。</p>
+<pre><code> 在XML文档中定义DTD，比较直观，修改也比较方便，而且不用担心XML处理器找不到DTD，但是它也有一些缺点：
+1.在文档中定义DTD会导致文档本身的长度增加，在传输数据市，即使不需要验证文档的有效性，这些声明也会随文档一起传输。
+2.如果多个XML文档需要共用一个DTD，我们就需要在每个文档中加入DTD，这是相当繁琐的。
+</code></pre><p>要解决上面两个问题，我们将dtd放到一个单独的文件中去定义，在XML文档中，通过URI外部引用<br>（有没有发现写程序的时候的#include 和import也有同样的功效重用代码）</p>
+<h3 id="②-外部文档声明"><a href="#②-外部文档声明" class="headerlink" title="② 外部文档声明"></a>② 外部文档声明</h3><pre><code> 假如 DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中： 
+</code></pre><p><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;外部DTD文件的URI&quot;&gt;</code>　　<br><strong>SYSTEM关键字表示文档使用的是私有的DTD文件</strong>，“外部DTD文件的URI”可以是相对URI或者绝对URI，相对URI是相对文档类型声明所在文档的位置。<br>比如</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE greeting SYSTEM &quot;hello.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>我们将DTD的定义放到了hello.dtd文件中，注意要将hello.dtd放在和XML文档同一目录下，这样XML处理器才能找到这个文件。在给DTD文件取名字的时候，文件名可以随便取，但扩展名一般为.dtd<br>如果位于不同位置的多个XML文档要使用同一个DTD，我们可以使用绝对URI来指明DTD文件的地址。假定hello.dtd位于</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">http://www.guowuxin.org/xml/hello.dtd</span><br></pre></td></tr></table></figure>
+<p> 我们可以在文档类型声明中使用此URI</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE greeting SYSTEM &quot;http://www.guowuxin.org/xml/hello.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>如果是一种企业或者行业领域标准，则不建议使用SYSTEM，而是使用public修饰<br><code>&lt;!DOCTYPE 根元素的名字 PUBLIC “DTD的名称&quot; “外部DTD文件的URI&quot;&gt;</code><br>PUBLIC关键字用于声明公共的DTD，并且这个DTD还有一个名称，“DTD的名称” 也称为公共标识符</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE web-app PUBLIC &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot; &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>比如上面是servlet2.3中web.xml的DTD<br>根元素web-app</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">PUBILC &quot;-//所有者//DTD文档描述的类型//ISO639语言标识符&quot; “外部DTD文件URI”</span><br></pre></td></tr></table></figure>
+<p>下面这个 XML 文档和上面的第一个 XML 文档相同，但是拥有一个外部的 DTD: 　</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt; 　</span><br><span class="line">&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;</span><br><span class="line">&lt;note&gt; 　</span><br><span class="line"> 　&lt;to&gt;Tove&lt;&#x2F;to&gt; 　</span><br><span class="line"> 　&lt;from&gt;Jani&lt;&#x2F;from&gt; 　</span><br><span class="line"> 　&lt;heading&gt;Reminder&lt;&#x2F;heading&gt; 　</span><br><span class="line"> 　&lt;body&gt;Don&#39;t forget me this weekend!&lt;&#x2F;body&gt; 　</span><br><span class="line">&lt;&#x2F;note&gt; 　</span><br></pre></td></tr></table></figure>
+<p>　这是包含 DTD 的 “note.dtd” 文件： 　</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt; 　</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt; 　　</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt; 　</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt; 　</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt; </span><br></pre></td></tr></table></figure>
+<p>通过 DTD，每一个 XML 文件均可携带一个有关其自身格式的描述，独立的团体可一致地使用某个标准的 DTD 来交换数据。应用程序也可使用某个标准的 DTD 来验证从外部接收到的数据。 　<br>   还可以使用 DTD 来验证自身的数据。</p>
+<h2 id="3-DTD的优势"><a href="#3-DTD的优势" class="headerlink" title="3.DTD的优势"></a>3.DTD的优势</h2><p>每一个XML文档都可携带一个DTD，用来对该文档格式进行描述，测试该文档是否为有效的XML文档。<br>既然DTD有外部和内部之分，当然就可以为某个独 立的团体定义一个公用的外部DTD，那么多个XML文档就都可以共享使用该DTD，使得数据交换更为有效。甚至在某些文档中还可以使内部DTD和外部 DTD相结合。<br>在应用程序中也可以用某个DTD来检测接收到的数据是否符合某个标准。<br>对于XML文档而言，虽然DTD不是必须的，但它为文档的编制带来了方便。加强了文档标记内参数的一致性，使XML语法分析器能够确认文档。</p>
+<p>如果不使用DTD来对XML文档进行定义，那么XML语法分析器将无法对该文档进行确认。 　　</p>
+<p>每个XML文档都只有一个根元素，其它的子元素都包含在该根元素中。<br>因此在DTD中对根元素的声明是必不可少的。</p>
+<p>元素声明的一般形式如下： 　</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE root[ 　　&lt;!-- 子元素 --&gt; ]&gt; 　</span><br></pre></td></tr></table></figure>
+<p>DOCTYPE是“document type”（文档类型）的简写，DOCTYPE声明必须放在文档最顶部，在所有代码和标识之上，DOCTYPE声明是必不可少的关键组成部分。DTD语法 要求DOCTYPE必须要大写，而且DOCTYPE和元素之间必须要有空格隔开，<strong>如在以上代码中DOCTYPE和根元素root之间要有空格隔开。</strong></p>
+<h2 id="4-DTD的缺陷"><a href="#4-DTD的缺陷" class="headerlink" title="4.DTD的缺陷"></a>4.DTD的缺陷</h2><p>利用DTD验证有效性的解析器，就能够立即对文档的完整性进行可靠的检查。DTD虽然比较实用，但DTD也有不少的缺陷。 　　</p>
+<ol>
+<li>DTD有自己的特殊语法，其本身不是XML文档； 　</li>
+<li>DTD只提供了有限的数据类型，用户无法自定义类型； 　</li>
+<li>DTD不支持域名机制。</li>
+</ol>
+<p><strong>servlet标准在2.5开始就放弃使用dtd，改用了xsd</strong></p>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>DTD</tag>
+        <tag>XSD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式之适配器模式</title>
+    <url>/posts/31793.html</url>
+    <content><![CDATA[<h1 id="设计模式之适配器模式"><a href="#设计模式之适配器模式" class="headerlink" title="设计模式之适配器模式"></a>设计模式之适配器模式</h1><p><strong>亦称：</strong>封装器模式、Wrapper、Adapter</p>
+<h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>适配器模式</strong>是一种结构型设计模式，它能使接口不兼容的对象能够相互合作。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228185931.png" alt=""></p>
+<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假如你正在开发一款股票市场监测程序，它会从不同来源下载XML格式的股票数据，然后向用户呈现出美观的图表。</p>
+<p>在开发过程中，你决定在程序中整合一个第三方智能分析函数库。但是遇到了一个问题，那就是分析函数库只兼容JSON格式的数据。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190101.png" alt="你无法“直接”使用分析函数库，因为它所需的输入数据格式与你的程序不兼容"></p>
+<p>你可以修改程序库来支持XML。但是，这可能需要修改部分依赖该程序库的现有代码。甚至还有更糟糕的情况，你可能根本没有程序库的源代码，从而无法对其进行修改。</p>
+<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>你可以创建一个<em>适配器</em>。这是一个特殊的对象，能够转换对象接口，使其能与其他对象进行交互。</p>
+<p>适配器模式通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。例如，你可以使用一个将所有数据转换为英制单位（如英尺和英里）的适配器封装运行于米和千米单位制中的对象。</p>
+<p>适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：</p>
+<ol>
+<li>适配器实现与其中一个现有对象兼容的接口。</li>
+<li>现有对象可以使用该接口安全地调用适配器方法。</li>
+<li>适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给该对象。</li>
+</ol>
+<p>有时你甚至可以创建一个双向适配器来实现双向转换调用。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190140.png" alt=""></p>
+<p>让我们回到股票市场程序。为了解决数据格式不兼容的问题，你可以为分析函数库中的每个类创建将XML转换为JSON格式的适配器，然后让客户端仅通过这些适配器来与函数库进行交流。当某个适配器被调用时，它会将传入的XML数据转换为JSON结构，并将其传递给被封装分析对象的相应方法。</p>
+<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190222.png" alt="出国旅行前后的旅行箱"></p>
+<p>如果你是第一次从美国到欧洲旅行，那么在给笔记本充电时可能会大吃一惊。不同国家的电源插头和插座标准不同。美国插头和德国插座不匹配。同时提供美国标准插座和欧洲标准插头的电源适配器可以解决你的难题。</p>
+<h1 id="🤔适配器模式结构"><a href="#🤔适配器模式结构" class="headerlink" title="🤔适配器模式结构"></a>🤔适配器模式结构</h1><h2 id="对象适配器"><a href="#对象适配器" class="headerlink" title="对象适配器"></a>对象适配器</h2><p>实现时使用了构成原则：适配器实现了其中一个对象的接口，并对另一个对象进行封装。所有流行的编程语言都可以实现适配器。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190330.png" alt=""></p>
+<hr>
+<h2 id="类适配器"><a href="#类适配器" class="headerlink" title="类适配器"></a>类适配器</h2><p>这一实现使用了继承机制：适配器同时继承两个对象的接口。请注意，这种方式仅能在支持多重继承的编程语言中实现，例如C++。</p>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190501.png" alt=""></p>
+<h1 id="💡适配器模式适合应用场景"><a href="#💡适配器模式适合应用场景" class="headerlink" title="💡适配器模式适合应用场景"></a>💡适配器模式适合应用场景</h1><p>🧨<strong>当你希望使用某个类，但是其接口与其他代码不兼容时，可以使用适配器类。</strong></p>
+<p>🏮适配器模式允许你创建一个中间层类，其可作为代码与遗留类、第三方类或提供怪异接口的类之间的转换器。</p>
+<p>🧨<strong>如果您需要复用这样一些类，他们处于同一个继承体系，并且他们又有了额外的一些共同的方法，但是这些共同的方法不是所有在这一继承体系中的子类所具有的共性。</strong></p>
+<p>🏮你可以扩展每个子类，将缺少的功能添加到新的子类中。但是，你必须在所有新子类中重复添加这些代码，这样会使得代码有坏味道。</p>
+<p>将缺失功能添加到一个适配器类中是一种优雅得多的解决方案。然后你可以将缺少功能的对象封装在适配器中，从而动态地获取所需功能。如要这一点正常运作，目标类必须要有通用接口，适配器的成员变量应当遵循该通用接口。这种方式同装饰模式非常相似。</p>
+<h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
+<li>确保至少有两个类的接口不兼容：<ul>
+<li>一个无法修改（通常是第三方、遗留系统或者存在众多已有依赖的类）的功能性<em>服务</em>类。</li>
+<li>一个或多个将受益于使用服务类的<em>客户端</em>类。</li>
+</ul>
+</li>
+<li>声明客户端接口，描述客户端如何与服务交互。</li>
+<li>创建遵循客户端接口的适配器类。所有方法暂时都为空。</li>
+<li>在适配器类中添加一个成员变量用于保存对于服务对象的引用。通常情况下会通过构造函数对该成员变量进行初始化，但有时在调用其方法时将该变量传递给适配器会更方便。</li>
+<li>依次实现适配器类客户端接口的所有方法。适配器会将实际工作委派给服务对象，自身只负责接口或数据格式的转换。</li>
+<li>客户端必须通过客户端接口使用适配器。这样一来，你就可以在不影响客户端代码的情况下修改或扩展适配器。</li>
+</ol>
+<h1 id="⚖️适配器模式优缺点"><a href="#⚖️适配器模式优缺点" class="headerlink" title="⚖️适配器模式优缺点"></a>⚖️适配器模式优缺点</h1><p>✔️<strong>单一职责原则</strong>你可以将接口或数据转换代码从程序主要业务逻辑中分离。</p>
+<p>✔️<strong>开闭原则</strong>。只要客户端代码通过客户端接口与适配器进行交互，你就能在不修改现有客户端代码的情况下在程序中添加新类型的适配器。</p>
+<p>❌代码整体复杂度增加，因为你需要新增一系列接口和类。有时直接更改服务类使其与其他代码兼容会更简单。</p>
+<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
+<li>桥接模式通常会于开发前期进行设计，使你能够将程序的各个部分独立开来以便开发。另一方面，适配器模式通常在已有程序中使用，让相互不兼容的类能很好地合作。</li>
+<li>适配器可以对已有对象的接口进行修改，装饰模式则能在不改变对象接口的前提下强化对象功能。此外，<em>装饰</em>还支持递归组合，<em>适配器</em>则无法实现。</li>
+<li>适配器能为被封装对象提供不同的接口，代理模式能为对象提供相同的接口，装饰则能为对象提供加强的接口。</li>
+<li>外观模式为现有对象定义了一个新接口，适配器则会试图运用已有的接口。<em>适配器</em>通常只封装一个对象，<em>外观</em>通常会作用于整个对象子系统上。</li>
+<li>桥接、状态模式和策略模式（在某种程度上包括适配器）模式的接口非常相似。实际上，它们都基于组合模式——即将工作委派给其他对象，不过也各自解决了不同的问题。模式并不只是以特定方式组织代码的配方，你还可以使用它们来和其他开发者讨论模式所解决的问题。</li>
+</ul>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>基础</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>结构型设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>正则表达式语法</title>
     <url>/posts/48428.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>以下内容摘抄至<a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">维基百科</a>:</p>
@@ -1723,70 +2075,6 @@
         <tag>Idea</tag>
         <tag>JRebel</tag>
         <tag>XRebel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设计模式之适配器模式</title>
-    <url>/posts/31793.html</url>
-    <content><![CDATA[<h1 id="设计模式之适配器模式"><a href="#设计模式之适配器模式" class="headerlink" title="设计模式之适配器模式"></a>设计模式之适配器模式</h1><p><strong>亦称：</strong>封装器模式、Wrapper、Adapter</p>
-<h1 id="💬意图"><a href="#💬意图" class="headerlink" title="💬意图"></a>💬意图</h1><p><strong>适配器模式</strong>是一种结构型设计模式，它能使接口不兼容的对象能够相互合作。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228185931.png" alt=""></p>
-<h1 id="☹️问题"><a href="#☹️问题" class="headerlink" title="☹️问题"></a>☹️问题</h1><p>假如你正在开发一款股票市场监测程序，它会从不同来源下载XML格式的股票数据，然后向用户呈现出美观的图表。</p>
-<p>在开发过程中，你决定在程序中整合一个第三方智能分析函数库。但是遇到了一个问题，那就是分析函数库只兼容JSON格式的数据。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190101.png" alt="你无法“直接”使用分析函数库，因为它所需的输入数据格式与你的程序不兼容"></p>
-<p>你可以修改程序库来支持XML。但是，这可能需要修改部分依赖该程序库的现有代码。甚至还有更糟糕的情况，你可能根本没有程序库的源代码，从而无法对其进行修改。</p>
-<h1 id="😃解决方案"><a href="#😃解决方案" class="headerlink" title="😃解决方案"></a>😃解决方案</h1><p>你可以创建一个<em>适配器</em>。这是一个特殊的对象，能够转换对象接口，使其能与其他对象进行交互。</p>
-<p>适配器模式通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。例如，你可以使用一个将所有数据转换为英制单位（如英尺和英里）的适配器封装运行于米和千米单位制中的对象。</p>
-<p>适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：</p>
-<ol>
-<li>适配器实现与其中一个现有对象兼容的接口。</li>
-<li>现有对象可以使用该接口安全地调用适配器方法。</li>
-<li>适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给该对象。</li>
-</ol>
-<p>有时你甚至可以创建一个双向适配器来实现双向转换调用。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190140.png" alt=""></p>
-<p>让我们回到股票市场程序。为了解决数据格式不兼容的问题，你可以为分析函数库中的每个类创建将XML转换为JSON格式的适配器，然后让客户端仅通过这些适配器来与函数库进行交流。当某个适配器被调用时，它会将传入的XML数据转换为JSON结构，并将其传递给被封装分析对象的相应方法。</p>
-<h1 id="📰真实世界类比"><a href="#📰真实世界类比" class="headerlink" title="📰真实世界类比"></a>📰真实世界类比</h1><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190222.png" alt="出国旅行前后的旅行箱"></p>
-<p>如果你是第一次从美国到欧洲旅行，那么在给笔记本充电时可能会大吃一惊。不同国家的电源插头和插座标准不同。美国插头和德国插座不匹配。同时提供美国标准插座和欧洲标准插头的电源适配器可以解决你的难题。</p>
-<h1 id="🤔适配器模式结构"><a href="#🤔适配器模式结构" class="headerlink" title="🤔适配器模式结构"></a>🤔适配器模式结构</h1><h2 id="对象适配器"><a href="#对象适配器" class="headerlink" title="对象适配器"></a>对象适配器</h2><p>实现时使用了构成原则：适配器实现了其中一个对象的接口，并对另一个对象进行封装。所有流行的编程语言都可以实现适配器。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190330.png" alt=""></p>
-<hr>
-<h2 id="类适配器"><a href="#类适配器" class="headerlink" title="类适配器"></a>类适配器</h2><p>这一实现使用了继承机制：适配器同时继承两个对象的接口。请注意，这种方式仅能在支持多重继承的编程语言中实现，例如C++。</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20201228190501.png" alt=""></p>
-<h1 id="💡适配器模式适合应用场景"><a href="#💡适配器模式适合应用场景" class="headerlink" title="💡适配器模式适合应用场景"></a>💡适配器模式适合应用场景</h1><p>🧨<strong>当你希望使用某个类，但是其接口与其他代码不兼容时，可以使用适配器类。</strong></p>
-<p>🏮适配器模式允许你创建一个中间层类，其可作为代码与遗留类、第三方类或提供怪异接口的类之间的转换器。</p>
-<p>🧨<strong>如果您需要复用这样一些类，他们处于同一个继承体系，并且他们又有了额外的一些共同的方法，但是这些共同的方法不是所有在这一继承体系中的子类所具有的共性。</strong></p>
-<p>🏮你可以扩展每个子类，将缺少的功能添加到新的子类中。但是，你必须在所有新子类中重复添加这些代码，这样会使得代码有坏味道。</p>
-<p>将缺失功能添加到一个适配器类中是一种优雅得多的解决方案。然后你可以将缺少功能的对象封装在适配器中，从而动态地获取所需功能。如要这一点正常运作，目标类必须要有通用接口，适配器的成员变量应当遵循该通用接口。这种方式同装饰模式非常相似。</p>
-<h1 id="📔实现方式"><a href="#📔实现方式" class="headerlink" title="📔实现方式"></a>📔实现方式</h1><ol>
-<li>确保至少有两个类的接口不兼容：<ul>
-<li>一个无法修改（通常是第三方、遗留系统或者存在众多已有依赖的类）的功能性<em>服务</em>类。</li>
-<li>一个或多个将受益于使用服务类的<em>客户端</em>类。</li>
-</ul>
-</li>
-<li>声明客户端接口，描述客户端如何与服务交互。</li>
-<li>创建遵循客户端接口的适配器类。所有方法暂时都为空。</li>
-<li>在适配器类中添加一个成员变量用于保存对于服务对象的引用。通常情况下会通过构造函数对该成员变量进行初始化，但有时在调用其方法时将该变量传递给适配器会更方便。</li>
-<li>依次实现适配器类客户端接口的所有方法。适配器会将实际工作委派给服务对象，自身只负责接口或数据格式的转换。</li>
-<li>客户端必须通过客户端接口使用适配器。这样一来，你就可以在不影响客户端代码的情况下修改或扩展适配器。</li>
-</ol>
-<h1 id="⚖️适配器模式优缺点"><a href="#⚖️适配器模式优缺点" class="headerlink" title="⚖️适配器模式优缺点"></a>⚖️适配器模式优缺点</h1><p>✔️<strong>单一职责原则</strong>你可以将接口或数据转换代码从程序主要业务逻辑中分离。</p>
-<p>✔️<strong>开闭原则</strong>。只要客户端代码通过客户端接口与适配器进行交互，你就能在不修改现有客户端代码的情况下在程序中添加新类型的适配器。</p>
-<p>❌代码整体复杂度增加，因为你需要新增一系列接口和类。有时直接更改服务类使其与其他代码兼容会更简单。</p>
-<h1 id="🔱与其他模式的关系"><a href="#🔱与其他模式的关系" class="headerlink" title="🔱与其他模式的关系"></a>🔱与其他模式的关系</h1><ul>
-<li>桥接模式通常会于开发前期进行设计，使你能够将程序的各个部分独立开来以便开发。另一方面，适配器模式通常在已有程序中使用，让相互不兼容的类能很好地合作。</li>
-<li>适配器可以对已有对象的接口进行修改，装饰模式则能在不改变对象接口的前提下强化对象功能。此外，<em>装饰</em>还支持递归组合，<em>适配器</em>则无法实现。</li>
-<li>适配器能为被封装对象提供不同的接口，代理模式能为对象提供相同的接口，装饰则能为对象提供加强的接口。</li>
-<li>外观模式为现有对象定义了一个新接口，适配器则会试图运用已有的接口。<em>适配器</em>通常只封装一个对象，<em>外观</em>通常会作用于整个对象子系统上。</li>
-<li>桥接、状态模式和策略模式（在某种程度上包括适配器）模式的接口非常相似。实际上，它们都基于组合模式——即将工作委派给其他对象，不过也各自解决了不同的问题。模式并不只是以特定方式组织代码的配方，你还可以使用它们来和其他开发者讨论模式所解决的问题。</li>
-</ul>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>基础</category>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>结构型设计模式</tag>
       </tags>
   </entry>
   <entry>
