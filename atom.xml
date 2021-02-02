@@ -42,29 +42,6 @@
   </entry>
   
   <entry>
-    <title>设计模式之适配器模式</title>
-    <link href="https://www.junpzx.cn/posts/31793.html"/>
-    <id>https://www.junpzx.cn/posts/31793.html</id>
-    <published>2021-02-02T01:30:35.927Z</published>
-    <updated>2021-01-14T02:57:38.824Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228185931.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="结构型设计模式" scheme="https://www.junpzx.cn/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>正则表达式语法</title>
     <link href="https://www.junpzx.cn/posts/48428.html"/>
     <id>https://www.junpzx.cn/posts/48428.html</id>
@@ -459,6 +436,29 @@
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201229185034.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="结构型设计模式" scheme="https://www.junpzx.cn/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之桥接模式</title>
+    <link href="https://www.junpzx.cn/posts/60984.html"/>
+    <id>https://www.junpzx.cn/posts/60984.html</id>
+    <published>2020-12-28T11:14:19.000Z</published>
+    <updated>2021-01-14T02:57:38.820Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228191816.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
