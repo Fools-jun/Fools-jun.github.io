@@ -1,4 +1,5 @@
 User-agent: *
+Allow: /posts/
 Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
@@ -11,6 +12,5 @@ Disallow: /tags/
 Disallow: /categories/
 Disallow: /about/
 Disallow: /books/
-Allow: /posts/
 Sitemap: https://www.junpzx.cn/sitemap.xml
 Sitemap: https://www.junpzx.cn/baidusitemap.xml
