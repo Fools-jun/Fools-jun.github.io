@@ -26,9 +26,7 @@
   <entry>
     <title>Git使用</title>
     <url>/posts/54372.html</url>
-    <content><![CDATA[<p>Git的常用场景的使用方法</p>
-<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210312150355.png" alt="Git"></p>
-<h1 id="1-将本地项目初始化到远程仓库中"><a href="#1-将本地项目初始化到远程仓库中" class="headerlink" title="1.将本地项目初始化到远程仓库中"></a>1.将本地项目初始化到远程仓库中</h1><h2 id="方法1-无敌暴力法"><a href="#方法1-无敌暴力法" class="headerlink" title="方法1: 无敌暴力法"></a>方法1: 无敌暴力法</h2><p>clone项目到本地，然后复制文件上传</p>
+    <content><![CDATA[<h1 id="1-将本地项目初始化到远程仓库中"><a href="#1-将本地项目初始化到远程仓库中" class="headerlink" title="1.将本地项目初始化到远程仓库中"></a>1.将本地项目初始化到远程仓库中</h1><h2 id="方法1-无敌暴力法"><a href="#方法1-无敌暴力法" class="headerlink" title="方法1: 无敌暴力法"></a>方法1: 无敌暴力法</h2><p>clone项目到本地，然后复制文件上传</p>
 <h2 id="方法2-强行合并法"><a href="#方法2-强行合并法" class="headerlink" title="方法2: 强行合并法"></a>方法2: 强行合并法</h2><ol>
 <li><p>将本地项目初始化为git仓库，并将项目中的文件上传到新建的本地git仓库中，如果本地项目已经是一个git仓库了，请跳过这一步。</p>
  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;描述&quot;</span><br></pre></td></tr></table></figure>
@@ -48,8 +46,7 @@
 <p>注：由于远程库是空的，我们第一次推送 <code>master</code> 分支时，加上了 <code>-u</code> 参数，Git不但会把本地的 <code>master</code> 分支内容推送的远程新的 <code>master</code> 分支，还会把本地的 <code>master</code> 分支和远程的 <code>master</code> 分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
 </blockquote>
 </li>
-</ol>
-]]></content>
+</ol>]]></content>
       <categories>
         <category>使用说明</category>
       </categories>
