@@ -10,6 +10,12 @@ abbrlink: 54372
 date: 2021-03-12 14:47:27
 ---
 
+Git的常用场景的使用方法
+
+![Git](https://gitee.com/junpzx/blog-img/raw/master//img/20210312150355.png)
+
+
+
 # 1.将本地项目初始化到远程仓库中
 
 ## 方法1: 无敌暴力法
