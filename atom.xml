@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-03-22T03:43:39.137Z</updated>
+  <updated>2021-03-22T05:31:34.590Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.junpzx.cn/posts/15553.html"/>
     <id>https://www.junpzx.cn/posts/15553.html</id>
     <published>2021-03-22T01:57:54.000Z</published>
-    <updated>2021-03-22T03:43:39.137Z</updated>
+    <updated>2021-03-22T05:31:34.590Z</updated>
     
     
     <summary type="html">&lt;p&gt;我们知道网络层，可以实现两个主机之间的通信。但是这并不具体，因为，真正进行通信的实体是在主机中的进程，是一个主机中的一个进程与另外一个主机中的一个进程在交换数据。IP协议虽然能把数据报文送到目的主机，但是并没有交付给主机的具体应用进程。而端到端的通信才应该是应用进程之间的通信。&lt;/p&gt;
@@ -33,6 +33,8 @@
     <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="网络" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/"/>
     
     
     <category term="TCP" scheme="https://www.junpzx.cn/tags/TCP/"/>
