@@ -6,7 +6,7 @@
   <link href="https://www.junpzx.cn/atom.xml" rel="self"/>
   
   <link href="https://www.junpzx.cn/"/>
-  <updated>2021-03-12T07:06:47.721Z</updated>
+  <updated>2021-03-22T03:40:58.933Z</updated>
   <id>https://www.junpzx.cn/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>TCP三次握手与四次挥手</title>
+    <link href="https://www.junpzx.cn/posts/15553.html"/>
+    <id>https://www.junpzx.cn/posts/15553.html</id>
+    <published>2021-03-22T01:57:54.000Z</published>
+    <updated>2021-03-22T03:40:58.933Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="TCP" scheme="https://www.junpzx.cn/tags/TCP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git使用</title>
     <link href="https://www.junpzx.cn/posts/54372.html"/>
     <id>https://www.junpzx.cn/posts/54372.html</id>
     <published>2021-03-12T06:47:27.000Z</published>
-    <updated>2021-03-12T07:06:47.721Z</updated>
+    <updated>2021-03-12T07:08:38.774Z</updated>
     
     
     <summary type="html">&lt;p&gt;Git的常用场景的使用方法&lt;/p&gt;
@@ -119,7 +146,7 @@
     <link href="https://www.junpzx.cn/posts/15594.html"/>
     <id>https://www.junpzx.cn/posts/15594.html</id>
     <published>2021-01-26T02:05:11.000Z</published>
-    <updated>2021-01-26T02:36:52.989Z</updated>
+    <updated>2021-03-22T01:57:11.089Z</updated>
     
     
     <summary type="html">&lt;p&gt;OSI（Open System Interconnect），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。ISO为了更好的使网络应用更为普及，推出了OSI参考模型。其含义就是推荐所有公司使用这个规范来控制网络。这样所有公司都有相同的规范，就能互联了。&lt;br&gt;OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。&lt;/p&gt;</summary>
@@ -357,13 +384,13 @@
   
   <entry>
     <title>设计模式之享元模式</title>
-    <link href="https://www.junpzx.cn/posts/47555.html"/>
-    <id>https://www.junpzx.cn/posts/47555.html</id>
+    <link href="https://www.junpzx.cn/posts/47556.html"/>
+    <id>https://www.junpzx.cn/posts/47556.html</id>
     <published>2020-12-29T10:45:52.000Z</published>
-    <updated>2021-01-14T02:57:38.815Z</updated>
+    <updated>2021-01-14T02:57:38.817Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201229191235.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -380,13 +407,13 @@
   
   <entry>
     <title>设计模式之享元模式</title>
-    <link href="https://www.junpzx.cn/posts/47556.html"/>
-    <id>https://www.junpzx.cn/posts/47556.html</id>
+    <link href="https://www.junpzx.cn/posts/47555.html"/>
+    <id>https://www.junpzx.cn/posts/47555.html</id>
     <published>2020-12-29T10:45:52.000Z</published>
-    <updated>2021-01-14T02:57:38.817Z</updated>
+    <updated>2021-01-14T02:57:38.815Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201228140759.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201229191235.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -433,29 +460,6 @@
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201229185815.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="设计模式" scheme="https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="结构型设计模式" scheme="https://www.junpzx.cn/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之组合模式</title>
-    <link href="https://www.junpzx.cn/posts/59529.html"/>
-    <id>https://www.junpzx.cn/posts/59529.html</id>
-    <published>2020-12-29T10:45:08.000Z</published>
-    <updated>2021-01-14T02:57:38.822Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/junpzx/blog-img/raw/master//img/20201229185034.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     

@@ -22,20 +22,25 @@
     var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Swagger2中的注解及其参数的作用">
+  <meta name="description" content="概述 TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，这种断点我们叫作套接字（socket），它的定义为端口号拼接到IP地址即构成了套接字，例如，若IP地址为192.3.4.16 而端口号为80，那么得到的套接字为192.3.4.16:80。  TCP报文头部 源端口和目的端口，各占2个字节,分别写入源端口和目的端口。 序号，占4个字节，TCP连接中传送的字节流中的每个字节都按顺序编号">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swagger2注解说明">
-<meta property="og:url" content="https://www.junpzx.cn/posts/63365.html">
+<meta property="og:title" content="TCP三次握手与四次挥手">
+<meta property="og:url" content="https://www.junpzx.cn/posts/15553.html">
 <meta property="og:site_name" content="星辰大海">
-<meta property="og:description" content="Swagger2中的注解及其参数的作用">
+<meta property="og:description" content="概述 TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，这种断点我们叫作套接字（socket），它的定义为端口号拼接到IP地址即构成了套接字，例如，若IP地址为192.3.4.16 而端口号为80，那么得到的套接字为192.3.4.16:80。  TCP报文头部 源端口和目的端口，各占2个字节,分别写入源端口和目的端口。 序号，占4个字节，TCP连接中传送的字节流中的每个字节都按顺序编号">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-18T02:16:03.000Z">
-<meta property="article:modified_time" content="2021-02-01T13:51:15.866Z">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20210322100555.gif">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20210322114039.png">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20210322114044.gif">
+<meta property="og:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20210322114048.png">
+<meta property="article:published_time" content="2021-03-22T01:57:54.000Z">
+<meta property="article:modified_time" content="2021-03-22T03:40:58.933Z">
 <meta property="article:author" content="JunPzx">
-<meta property="article:tag" content="Swagger2">
+<meta property="article:tag" content="TCP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/junpzx/blog-img/raw/master//img/20210322100555.gif">
 
-<link rel="canonical" href="https://www.junpzx.cn/posts/63365.html">
+<link rel="canonical" href="https://www.junpzx.cn/posts/15553.html">
 
 
 <script id="page-configurations">
@@ -48,7 +53,7 @@
   };
 </script>
 
-  <title>Swagger2注解说明 | 星辰大海</title>
+  <title>TCP三次握手与四次挥手 | 星辰大海</title>
   
 
 
@@ -195,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/63365.html">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/15553.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -208,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Swagger2注解说明
+          TCP三次握手与四次挥手
         </h1>
 
         <div class="post-meta">
@@ -218,28 +223,26 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-01-18 10:16:03" itemprop="dateCreated datePublished" datetime="2021-01-18T10:16:03+08:00">2021-01-18</time>
+              <time title="创建时间：2021-03-22 09:57:54 / 修改时间：11:40:58" itemprop="dateCreated datePublished" datetime="2021-03-22T09:57:54+08:00">2021-03-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-01 21:51:15" itemprop="dateModified" datetime="2021-02-01T21:51:15+08:00">2021-02-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" itemprop="url" rel="index"><span itemprop="name">使用说明</span></a>
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
                 </span>
             </span>
 
           
-            <span id="/posts/63365.html" class="post-meta-item leancloud_visitors" data-flag-title="Swagger2注解说明" title="阅读次数">
+            <span id="/posts/15553.html" class="post-meta-item leancloud_visitors" data-flag-title="TCP三次握手与四次挥手" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -254,8 +257,8 @@
       </span>
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/posts/63365.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/63365.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/15553.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/15553.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -270,324 +273,82 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">注解</th>
-<th style="text-align:left">属性</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>@Api</code></td>
-<td style="text-align:left">用于类上，说明该类的作用。可以标记一个Controller类做为swagger 文档资源示例：<code>@Api</code>(value = “xxx”, description = “xxx”)</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">value</td>
-<td style="text-align:left">url的路径值</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">tags</td>
-<td style="text-align:left">如果设置这个值、value的值会被覆盖</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">description</td>
-<td style="text-align:left">对api资源的描述</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">basePath</td>
-<td style="text-align:left">基本路径可以不配置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">position</td>
-<td style="text-align:left">如果配置多个Api 想改变显示的顺序位置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">produces</td>
-<td style="text-align:left">For example, “application/json, application/xml”</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">consumes</td>
-<td style="text-align:left">For example, “application/json, application/xml”</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">protocols</td>
-<td style="text-align:left">Possible values: http, https, ws, wss.</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">authorizations</td>
-<td style="text-align:left">高级特性认证时配置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">hidden</td>
-<td style="text-align:left">配置为true 将在文档中隐藏</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>@ApiOperation</code></td>
-<td style="text-align:left">用于方法上，说明方法的作用，每一个url资源的定义示例：<code>@ApiOperation</code>(value = “xxx”,httpMethod=”POST”, notes= “xxx”,response=String.class)</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">value</td>
-<td style="text-align:left">url的路径值</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">tags</td>
-<td style="text-align:left">如果设置这个值、value的值会被覆盖</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">notes</td>
-<td style="text-align:left">对api资源的描述</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">position</td>
-<td style="text-align:left">如果配置多个Api 想改变显示的顺序位置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">produces</td>
-<td style="text-align:left">For example, “application/json, application/xml”</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">consumes</td>
-<td style="text-align:left">For example, “application/json, application/xml”</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">protocols</td>
-<td style="text-align:left">Possible values: http, https, ws, wss.</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">authorizations</td>
-<td style="text-align:left">高级特性认证时配置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">hidden</td>
-<td style="text-align:left">配置为true 将在文档中隐藏</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">response</td>
-<td style="text-align:left">返回的对象</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">responseContainer</td>
-<td style="text-align:left">这些对象是有效的 “List”, “Set” or “Map”.，其他无效</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">httpMethod</td>
-<td style="text-align:left">“GET”, “HEAD”, “POST”, “PUT”, “DELETE”, “OPTIONS” and “PATCH”</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">code</td>
-<td style="text-align:left">http的状态码 默认 200</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">extensions</td>
-<td style="text-align:left">扩展属性</td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiParam</td>
-<td style="text-align:left">用于方法、参数、字段上，请求属性示例： public ResponseEntity<User> createUser(@RequestBody @ApiParam(value = “Created user object”, required = true)  User user)</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">name</td>
-<td style="text-align:left">属性名称</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">value</td>
-<td style="text-align:left">属性值</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">defaultValue</td>
-<td style="text-align:left">默认属性值</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">allowableValues</td>
-<td style="text-align:left">可以不配置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">required</td>
-<td style="text-align:left">是否属性必填</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">access</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">allowMultiple</td>
-<td style="text-align:left">默认为false</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">hidden</td>
-<td style="text-align:left">隐藏该属性</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">example</td>
-<td style="text-align:left">示例</td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiResponse</td>
-<td style="text-align:left">用于方法上，响应配置示例：@ApiResponse(code = 400, message = “Invalid user supplied”)</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">code</td>
-<td style="text-align:left">http的状态码</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">message</td>
-<td style="text-align:left">描述</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">response</td>
-<td style="text-align:left">默认响应类 Void</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">reference</td>
-<td style="text-align:left">参考ApiOperation中配置</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">responseHeaders</td>
-<td style="text-align:left">参考 ResponseHeader 属性配置说明</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">responseContainer</td>
-<td style="text-align:left">参考ApiOperation中配置</td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiResponses</td>
-<td style="text-align:left">用于方法上，响应集配置示例： @ApiResponses({ @ApiResponse(code = 400, message = “Invalid Order”) })</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">value</td>
-<td style="text-align:left">多个ApiResponse配置</td>
-</tr>
-<tr>
-<td style="text-align:center">@ResponseHeader</td>
-<td style="text-align:left">用于方法上，响应头设置示例：@ResponseHeader(name=”head1”,description=”response head conf”)</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">name</td>
-<td style="text-align:left">响应头名称</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">description</td>
-<td style="text-align:left">头描述</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">response</td>
-<td style="text-align:left">默认响应类 Void</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">responseContainer</td>
-<td style="text-align:left">参考ApiOperation中配置</td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiImplicitParams</td>
-<td style="text-align:left">用于方法上，包含一组参数说明</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiImplicitParam</td>
-<td style="text-align:left">用于方法上，用在@ApiImplicitParams注解中，指定一个请求参数的各个方面</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">paramType</td>
-<td style="text-align:left">参数放在哪个地方:     - header 参数在request headers 里边提交（@RequestHeader）- query 直接跟参数完成自动映射赋值（@RequestParam）- path 用于restful接口，以地址的形式提交数(@PathVariable)      - body 以流的形式提交 仅支持POST(@RequestBody)- form 以form表单的形式提交 仅支持POST</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">name</td>
-<td style="text-align:left">参数名</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">value</td>
-<td style="text-align:left">参数的汉字说明、解释</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">dataType</td>
-<td style="text-align:left">参数类型，默认String，其它值dataType=”Integer”  ，无用</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">required</td>
-<td style="text-align:left">是否必要</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">defaultValue</td>
-<td style="text-align:left">参数的默认值</td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiModel</td>
-<td style="text-align:left">用于类上，描述一个Model的信息（这种一般用在post创建的时候，使用@RequestBody这样的场景，请求参数无法使用@ApiImplicitParam注解进行描述的时候</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiModelProperty</td>
-<td style="text-align:left">用于方法、字段上，描述一个model的属性</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">@ApiIgnore</td>
-<td style="text-align:left">用于类，属性，方法上，忽略某项api,使用@ApiIgnore</td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
-</div>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，这种断点我们叫作套接字（socket），它的定义为端口号拼接到IP地址即构成了套接字，例如，若IP地址为192.3.4.16 而端口号为80，那么得到的套接字为192.3.4.16:80。</p>
+</blockquote>
+<h2 id="TCP报文头部"><a href="#TCP报文头部" class="headerlink" title="TCP报文头部"></a>TCP报文头部</h2><ul>
+<li>源端口和目的端口，各占2个字节,分别写入源端口和目的端口。</li>
+<li>序号，占4个字节，<strong>TCP连接中传送的字节流中的每个字节都按顺序编号</strong>。例如，一段报文的序号字段值是 301 ，而携带的数据共有100字段，显然下一个报文段（如果还有的话）的数据序号应该从401开始。</li>
+<li>确认号，占4个字节，<strong>是期望收到对方下一个报文的第一个数据字节的序号</strong>。例如，B收到了A发送过来的报文，其序列号字段是501，而数据长度是200字节，<strong>这表明B正确的收到了A发送的到序号700为止的数据</strong>。因此，B期望收到A的下一个数据序号是701，于是B在发送给A的确认报文段中把确认号置为701。</li>
+<li>数据偏移，占4位，它指出TCP报文的数据距离TCP报文段的起始处有多远。</li>
+<li>保留，占6位，保留今后使用，但目前应都为0。</li>
+<li>紧急URG，当URG=1，表明紧急指针字段有效。告诉系统此报文段中有紧急数据。</li>
+<li>确认ACK，仅当ACK=1时，确认号字段才有效。TCP规定，在连接建立后所有报文的传输都必须把ACK置1。</li>
+<li>推送PSH，当两个应用进程进行交互式通信时，有时在一端的应用进程希望在键入一个命令后立即就能收到对方的响应，这时候就将PSH=1。</li>
+<li>复位RST，当RST=1，表明TCP连接中出现严重差错，必须释放连接，然后再重新建立连接。</li>
+<li>同步SYN，在连接建立时用来同步序号。当SYN=1，ACK=0，表明是连接请求报文，若同意连接，则响应报文中应该使SYN=1，ACK=1。</li>
+<li>终止FIN，用来释放连接。当FIN=1，表明此报文的发送方的数据已经发送完毕，并且要求释放。</li>
+<li>窗口，占2字节，指的是通知接收方，发送本报文你需要有多大的空间来接受。</li>
+<li>检验和，占2字节，校验首部和数据这两部分。</li>
+<li>紧急指针，占2字节，指出本报文段中的紧急数据的字节数。</li>
+<li>选项，长度可变，定义一些其他的可选的参数。</li>
+</ul>
+<h2 id="TCP连接的建立（三次握手）"><a href="#TCP连接的建立（三次握手）" class="headerlink" title="TCP连接的建立（三次握手）"></a>TCP连接的建立（三次握手）</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210322100555.gif" alt="三次握手动图"></p>
+<blockquote>
+<p><strong>最开始的时候客户端和服务器都是处于CLOSED状态。主动打开连接的为客户端，被动打开连接的是服务器。</strong></p>
+</blockquote>
+<ol>
+<li>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态。</li>
+<li>TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中的同部位SYN=1，同时选择一个初始序列号 seq=x ，此时，TCP客户端进程进入了 SYN-SENT（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。</li>
+<li>TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该 ACK=1，SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y，此时，TCP服务器进程进入了SYN-RCVD（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。</li>
+<li>TCP客户进程收到确认后，还要向服务器给出确认。确认报文的ACK=1，ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立，客户端进入ESTABLISHED（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。</li>
+<li>当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。<br> <img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210322114039.png" alt="三次握手"></li>
+</ol>
+<p>简而言之，三次握手类比于A与B打电话：</p>
+<ol>
+<li>A说：听的到吗？</li>
+<li>B说: 听得到，你听得到吗？</li>
+<li>A说： 听到了！</li>
+</ol>
+<p>那么这样，就建立起来了一个连接。</p>
+<h2 id="为什么TCP客户端最后还要发送一次确认呢？"><a href="#为什么TCP客户端最后还要发送一次确认呢？" class="headerlink" title="为什么TCP客户端最后还要发送一次确认呢？"></a>为什么TCP客户端最后还要发送一次确认呢？</h2><blockquote>
+<p>一句话，主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。</p>
+<p>如果使用的是两次握手建立连接，假设有这样一种场景，客户端发送了第一个请求连接并且没有丢失，只是因为在网络结点中滞留的时间太长了，由于TCP的客户端迟迟没有收到确认报文，以为服务器没有收到，此时重新向服务器发送这条报文，此后客户端和服务器经过两次握手完成连接，传输数据，然后关闭连接。此时此前滞留的那一次请求连接，网络通畅了到达了服务器，这个报文本该是失效的，但是，两次握手的机制将会让客户端和服务器再次建立连接，这将导致不必要的错误和资源的浪费。</p>
+<p>如果采用的是三次握手，就算是那一次失效的报文传送过来了，服务端接受到了那条失效报文并且回复了确认报文，但是客户端不会再次发出确认。由于服务器收不到确认，就知道客户端并没有请求连接。</p>
+</blockquote>
+<p>在这个地方，请不要纠结如果第三次失败怎么办，如果大家都像你这样纠结的话，那么就陷入死循环了，如果当时设计者像你这样纠结的话，就不会有http和tcp了。</p>
+<h2 id="TCP连接的释放（四次挥手）"><a href="#TCP连接的释放（四次挥手）" class="headerlink" title="TCP连接的释放（四次挥手）"></a>TCP连接的释放（四次挥手）</h2><p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210322114044.gif" alt="四次挥手动图"></p>
+<blockquote>
+<p>数据传输完毕后，双方都可释放连接。最开始的时候，客户端和服务器都是处于ESTABLISHED状态，然后客户端主动关闭，服务器被动关闭。</p>
+</blockquote>
+<ol>
+<li>客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。</li>
+<li>服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。</li>
+<li>客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。</li>
+<li>服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。</li>
+<li>客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗ *∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。</li>
+<li>服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。</li>
+</ol>
+<p><img src="https://gitee.com/junpzx/blog-img/raw/master//img/20210322114048.png" alt="四次挥手"></p>
+<p>简而言之，四次挥手类比于A与B打电话：</p>
+<ol>
+<li>A说：我说完了</li>
+<li>B说：我知道了</li>
+<li>B说：xxxxx，我说完了</li>
+<li>A说：我知道了</li>
+</ol>
+<p>那么这样，就结束了本次连接。</p>
+<h2 id="为什么客户端最后还要等待2MSL"><a href="#为什么客户端最后还要等待2MSL" class="headerlink" title="为什么客户端最后还要等待2MSL?"></a>为什么客户端最后还要等待2MSL?</h2><blockquote>
+<p>MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。</p>
+<p>第一，保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文，并且会重启2MSL计时器。</p>
+<p>第二，防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样新的连接中不会出现旧连接的请求报文。</p>
+<p>为什么建立连接是三次握手，关闭连接确是四次挥手呢？</p>
+<p>建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。<br>而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。</p>
+</blockquote>
+<h2 id="如果已经建立了连接，但是客户端突然出现故障了怎么办？"><a href="#如果已经建立了连接，但是客户端突然出现故障了怎么办？" class="headerlink" title="如果已经建立了连接，但是客户端突然出现故障了怎么办？"></a>如果已经建立了连接，但是客户端突然出现故障了怎么办？</h2><blockquote>
+<p>TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</p>
+</blockquote>
+
     </div>
 
     
@@ -602,11 +363,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/posts/63365.html">Swagger2注解说明</a></p>
+  <p><span>本文标题:</span><a href="/posts/15553.html">TCP三次握手与四次挥手</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2021年01月18日</p>
-  <p><span>原始链接:</span><a href="/posts/63365.html" title="Swagger2注解说明">https://www.junpzx.cn/posts/63365.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/63365.html"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2021年03月22日</p>
+  <p><span>原始链接:</span><a href="/posts/15553.html" title="TCP三次握手与四次挥手">https://www.junpzx.cn/posts/15553.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/15553.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
 </div>
@@ -629,7 +390,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Swagger2/" rel="tag"><i class="fa fa-tag"></i> Swagger2</a>
+              <a href="/tags/TCP/" rel="tag"><i class="fa fa-tag"></i> TCP</a>
           </div>
 
         
@@ -638,13 +399,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/56916.html" rel="prev" title="Java8新特性之Stream用法">
-      <i class="fa fa-chevron-left"></i> Java8新特性之Stream用法
+    <a href="/posts/54372.html" rel="prev" title="Git使用">
+      <i class="fa fa-chevron-left"></i> Git使用
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/4810.html" rel="next" title="接口文档工具之Swagger2">
-      接口文档工具之Swagger2 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -704,6 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E6%8A%A5%E6%96%87%E5%A4%B4%E9%83%A8"><span class="nav-text">TCP报文头部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%BB%BA%E7%AB%8B%EF%BC%88%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%89"><span class="nav-text">TCP连接的建立（三次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88TCP%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%80%E5%90%8E%E8%BF%98%E8%A6%81%E5%8F%91%E9%80%81%E4%B8%80%E6%AC%A1%E7%A1%AE%E8%AE%A4%E5%91%A2%EF%BC%9F"><span class="nav-text">为什么TCP客户端最后还要发送一次确认呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%87%8A%E6%94%BE%EF%BC%88%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%89"><span class="nav-text">TCP连接的释放（四次挥手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%80%E5%90%8E%E8%BF%98%E8%A6%81%E7%AD%89%E5%BE%852MSL"><span class="nav-text">为什么客户端最后还要等待2MSL?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%B7%B2%E7%BB%8F%E5%BB%BA%E7%AB%8B%E4%BA%86%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%86%E6%98%AF%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AA%81%E7%84%B6%E5%87%BA%E7%8E%B0%E6%95%85%E9%9A%9C%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-text">如果已经建立了连接，但是客户端突然出现故障了怎么办？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
