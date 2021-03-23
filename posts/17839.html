@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-cG59bfS3Wi" />
+<meta name="google-site-verification" content="O_6plY-maMAjbfpX3G4tdwxyUj01j0pV3nw5Jd0_tb4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128-pzx.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-pzx.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-pzx.png">
+  <link rel="mask-icon" href="/images/logo-pzx.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.junpzx.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LVS入门手册">
+<meta property="og:url" content="https://www.junpzx.cn/posts/17839.html">
+<meta property="og:site_name" content="星辰大海">
+<meta property="og:description" content="LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-23T03:02:41.000Z">
+<meta property="article:modified_time" content="2021-03-23T09:08:42.138Z">
+<meta property="article:author" content="JunPzx">
+<meta property="article:tag" content="LVS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.junpzx.cn/posts/17839.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>LVS入门手册 | 星辰大海</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">星辰大海</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Starry Sea</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-util">
+
+    <a href="/utils/" rel="section"><i class="fa fa-sitemap fa-fw"></i>网站</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/17839.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="JunPzx">
+      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="星辰大海">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LVS入门手册
+        </h1>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-23 11:02:41 / 修改时间：17:08:42" itemprop="dateCreated datePublished" datetime="2021-03-23T11:02:41+08:00">2021-03-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/17839.html" class="post-meta-item leancloud_visitors" data-flag-title="LVS入门手册" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/posts/17839.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/17839.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p><strong>LVS</strong>是<strong>Linux Virtual Server</strong>的简写，意即<strong>Linux虚拟服务器</strong>，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。</p>
+<p>LVS的主要为了解决大数据高并发的情况下的负载均衡和流量调度问题。</p>
+<p>说起负载均衡，就不得不说Nginx，那么Nginx和LVS有哪些区别呢？</p>
+<h2 id="LVS与Nginx的区别"><a href="#LVS与Nginx的区别" class="headerlink" title="LVS与Nginx的区别"></a>LVS与Nginx的区别</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>LVS：Linux虚拟机、流量调度、负载均衡</p>
+<p>Nginx：高性能的代理服务器，系统内部流量分发，反向代理</p>
+<h3 id="LVS的优势"><a href="#LVS的优势" class="headerlink" title="LVS的优势"></a>LVS的优势</h3><ul>
+<li>抗负载能力强，因为 LVS 工作方式的逻辑是非常简单的，而且工作在网络的第 4 层，仅作请求分发用，没有流量，所以在效率上基本不需要太过考虑。LVS 一般很少出现故障，即使出现故障一般也是其他地方（如内存、CPU 等）出现问题导致 LVS 出现问题</li>
+<li>配置性低，这通常是一大劣势同时也是一大优势，因为没有太多的可配置的选项，所以除了增减服务器，并不需要经常去触碰它，大大减少了人为出错的几率</li>
+<li>工作稳定，因为其本身抗负载能力很强，所以稳定性高也是顺理成章的事，另外各种 LVS 都有完整的双机热备方案，所以一点不用担心均衡器本身会出什么问题，节点出现故障的话，LVS 会自动判别，所以系统整体是非常稳定的</li>
+<li>无流量，LVS 仅仅分发请求，而流量并不从它本身出去，所以可以利用它这点来做一些线路分流之用。没有流量同时也保住了均衡器的 IO 性能不会受到大流量的影响</li>
+<li>LVS 基本上能支持所有应用，因为 LVS 工作在第 4 层，所以它可以对几乎所有应用做负载均衡，包括 http、数据库、聊天室等</li>
+</ul>
+<h3 id="LVS与Nginx对比"><a href="#LVS与Nginx对比" class="headerlink" title="LVS与Nginx对比"></a>LVS与Nginx对比</h3><ul>
+<li>Nginx 工作在网络的第 7 层，可以作为网页静态服务器，支持 Rewrite 重写规则；支持 GZIP 压缩，节省带宽；可以做缓存；可以针对 http 应用本身来做分流策略，静态分离，针对域名、目录结构等<br>  相比之下 LVS 并不具备这样的功能，所以 Nginx 单凭这点可以利用的场合就远多于 LVS 了；但 Nginx 有用的这些功能使其可调整度要高于 LVS，所以经常要去触碰，人为出现问题的几率也就大</li>
+<li><p>Nginx 对网络的依赖较小，理论上只要 ping 得通，网页访问正常，Nginx 就能连得通，Nginx 同时还能区分内外网，如果是同时拥有内外网的节点，就相当于单机拥有了备份线路；LVS 就比较依赖于网络环境，目前来看服务器在同一网段内并且 LVS 使用 direct 方式分流，效果较能得到保证。另外注意，LVS 需要向托管商至少申请多于一个 ip 来做 visual ip(虚拟IP)</p>
+</li>
+<li><p>Nginx 安装和配置比较简单，测试起来也很方便，因为它基本能把错误用日志打印出来。LVS 的安装和配置、测试就要花比较长的时间，因为同上所述，LVS 对网络依赖性比较大，很多时候不能配置成功都是因为网络问题而不是配置问题，出了问题要解决也相应的会麻烦的多</p>
+</li>
+<li>Nginx 也同样能承受很高负载且稳定，但负载度和稳定度差 LVS 还有几个等级：Nginx 处理所有流量所以受限于机器 IO 和配置；本身的 bug 也还是难以避免的；Nginx 没有现成的双机热备方案，所以跑在单机上还是风险比较大，单机上的事情全都很难说</li>
+<li>Nginx 可以检测到服务器内部的故障（健康检查），比如根据服务器处理网页返回的状态码、超时等等，并且会把返回错误的请求重新提交到另一个节点。目前 LVS 中 ldirectd 也能支持针对服务器内部的情况来监控，但 LVS 的原理使其不能重发请求。比如用户正在上传一个文件，而处理该上传的节点刚好在上传过程中出现故障，Nginx 会把上传切到另一台服务器重新处理，而 LVS 就直接断掉了</li>
+</ul>
+<h3 id="适用业务场景"><a href="#适用业务场景" class="headerlink" title="适用业务场景"></a>适用业务场景</h3><ul>
+<li>网站建设初期（每日 PV 小于 100 万），可以选用 Nigix 作为反向代理负载均衡，因为其配置简单，性能也能满足一般的业务场景。如果考虑到负载均衡器是有单点问题，可以采用 Nginx + Keepalived 避免负载均衡器自身的单点问题</li>
+<li>网站并发达到一定程度之后，为了提高稳定性和转发效率，可以使用 LVS、毕竟 LVS 比 Nginx 要更稳定，转发效率也更高。不过维护 LVS 对维护人员的要求也会更高，投入成本也更大</li>
+</ul>
+<h3 id="LVS-Nginx-为什么会被同时使用"><a href="#LVS-Nginx-为什么会被同时使用" class="headerlink" title="LVS+Nginx 为什么会被同时使用"></a>LVS+Nginx 为什么会被同时使用</h3><p>Nginx 用来做 http 的反向代理，能够 upsteam 实现 http 请求的多种方式的均衡转发。由于采用的是异步转发可以做到如果一个服务器请求失败，立即切换到其他服务器，直到请求成功或者最后一台服务器失败为止。这可以最大程度的提高系统的请求成功率</p>
+<p>LVS 采用的是同步请求转发的策略。这里说一下同步转发和异步转发的区别。同步转发是在 LVS 服务器接收到请求之后，立即 redirect 到一个后端服务器，由客户端直接和后端服务器建立连接。异步转发是 Nginx 在保持客户端连接的同时，发起一个相同内容的新请求到后端，等后端返回结果后，由 Nginx 返回给客户端</p>
+<p>进一步来说：当做为负载均衡服务器的 Nginx 和 LVS 处理相同的请求时，所有的请求和响应流量都会经过 Nginx；但是使用 LVS 时，仅请求流量经过 LVS 的网络，响应流量由后端服务器的网络返回</p>
+<p>也就是，当作为后端的服务器规模庞大时，Nginx 的网络带宽就成了一个巨大的瓶颈</p>
+<p>但是仅仅使用 LVS 作为负载均衡的话，一旦后端接受到请求的服务器出了问题，那么这次请求就失败了。但是如果在 LVS 的后端在添加一层 Nginx（多个），每个 Nginx 后端再有几台应用服务器，那么结合两者的优势，既能避免单 Nginx 的流量集中瓶颈，又能避免单 LVS 时一锤子买卖的问题</p>
+<p>LVS + Nginx 的使用中，Nginx 还可以作为一个中间环节来减小后端 tomcat 的服务压力，以及做一些业务切换、分流、前置缓存的功能</p>
+<h2 id="搭建一个最基本的LVS测试服务"><a href="#搭建一个最基本的LVS测试服务" class="headerlink" title="搭建一个最基本的LVS测试服务"></a>搭建一个最基本的LVS测试服务</h2><p>一下内容基于3台虚拟机中进行搭建：</p>
+<p>LVS服务器 1台: 内部IP为 192.168.10.11</p>
+<p>业务服务器2台： 内部IP为 192.168.10.12和192.168.10.13</p>
+<p><strong>搭建过程：</strong></p>
+<ol>
+<li><p>在LVS服务器上进行设置</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该命令的作用为:在eth0 网卡下挂一个子网卡 ip地址为 192.168.10.100 子网掩码为 255.255.255.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /24 等同于 netmask 255.255.255.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为什么等同,因为子网掩码分为4位,每一位的最大值为255,255的二进制编码为1111 1111,也就是8个1,那么</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3个255也就是24</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ifconfig eth0:这个地方随便一个数字 该网段中的随便一个IP/24</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig  eth0:8 192.168.10.100/24</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在具体业务服务器进行设置</p>
+<ul>
+<li><p>修改 服务器上内核协议</p>
+  <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/net/ipv4/conf/eth0/arp_ignore</span><br><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/net/ipv4/conf/all/arp_ignore</span><br><span class="line"> </span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span> &gt; /proc/sys/net/ipv4/conf/eth0/arp_announce</span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span> &gt; /proc/sys/net/ipv4/conf/all/arp_announce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在虚拟网卡上添加虚拟IP</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ifconfig lo:这个地方随便一个数字 LVS的IP地址 netmask 255.255.255.255</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig lo:8 192.168.10.155 netmask 255.255.255.255</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证是否添加成功</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装httpd(该服务为一个静态server)</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在线安装httpd服务</span></span><br><span class="line">yum install httpd -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装完成后进行启动</span></span><br><span class="line">service httpd start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建一个主页文件,输入 from 该服务器的IP,例如192.168.10.12</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /var/www/html 为httpd的默认目录</span></span><br><span class="line">vi /var/www/html/index.html</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在LVS服务器上进行设置</p>
+<ul>
+<li><p>安装ipvsadm服务 </p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ipvsadm -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加入包的规则</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 语法:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加：-A -t|u|f service-address [-s scheduler]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -t: TCP协议的集群</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -u: UDP协议的集群</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> service-address: IP:PORT</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -f: FWM: 防火墙标记</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> service-address: Mark Number</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改：-E</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除：-D -t|u|f service-address</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 调度算法(-s scheduler):</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 静态调度算法： </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.rr（Round Robin）：轮询调度，轮叫调度。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.wrr（weight,加权）：以权重之间的比例实现在各主机之间进行调度。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.dh（Destination hashing）：目标地址散列。把同一个IP地址的请求，发送给同一个server。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.sh（<span class="built_in">source</span> hashing）：源地址散列。主要实现会话绑定，能够将此前建立的session信息保留了。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 动态调度算法：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.lc（Least-Connection）: 最少连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.wlc（Weighted Least-Connection Scheduling）: 加权最少连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.sed（Shortest Expected Delay）: 最短期望延迟</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.nq（never queue）: never queue</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 5.LBLC（Locality-Based Least Connection）: 基于本地的最少连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 6.LBLCR（Locality-Based Least Connections withReplication）: 基于本地的带复制功能的最少连接</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果请求该服务器的请求为tcp协议，并且该请求的请求地址为192.168.10.100:80,那么则进行负载，负载的调度算法为轮训</span></span><br><span class="line">ipvsadm -A -t 192.168.10.100:80 -s rr</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询是否添加成功</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -ln</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加数据包的负载规则</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加：-a -t|u|f service-address -r server-address [-g|i|m] [-w weight]</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -t|u|f service-address：事先定义好的某集群服务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -r server-address: 某RS的地址，在NAT模型中，可使用IP：PORT实现端口映射；</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   [-g|i|m]: LVS类型 </span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -g: DR（修改链路层中的mac地址方式）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -i: TUN（隧道方式）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -m: NAT（修改网络层中的ip方式）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   [-w weight]: 定义服务器权重</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改：-e</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除：-d -t|u|f service-address -r server-address</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -a -t 172.16.100.1:80 -r 192.168.10.8 –g</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -a -t 172.16.100.1:80 -r 192.168.10.9 -g</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -L|l</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -n: 数字格式显示主机地址和端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   --stats：统计数据</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   --rate: 速率</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   --timeout: 显示tcp、tcpfin和udp的会话超时时长</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -:c 显示当前的ipvs连接状况</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除所有集群服务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -C：清空ipvs规则</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 保存规则</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -S</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -S &gt; /path/to/somefile</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 载入此前的规则：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -R</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -R &lt; /path/form/somefile </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 案例语法： ipvsadm -a -t 192.168.10.100:80 -r 192.168.10.12 -g -w 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 解释： 将请求地址为 192.168.10.100:80 负载到 192.168.10.12 上，负载的类型为DR,权重为1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 案例：</span></span><br><span class="line">ipvsadm -a -t 192.168.10.100:80 -r 192.168.10.12 -g -w 1</span><br><span class="line">ipvsadm -a -t 192.168.10.100:80 -r 192.168.10.13 -g -w 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询是否添加成功</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -ln</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>验证是否设置成功</p>
+<ul>
+<li><p>在浏览器中访问192.168.10.100，如果能显示from 192.168.10.12或者13，那么重复刷新页面，如果能以轮训的方式展示12和13，那么代表设置成功</p>
+</li>
+<li><p>在LVS服务器上，也就是设置192.168.10.100IP的服务器上输入命令</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该命令为查看该服务器上的连接</span></span><br><span class="line">netstat -natp </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行以上命令以后，会发现连接列表上并不存在 刚才一直访问的连接，那么得出一个结论，浏览器并没有与192.168.10.100服务器，也就是LVS服务器进行握手和挥手的操作。</p>
+</li>
+<li><p>那么去192.168.10.12 和 192.168.10.13，也就是业务服务器中进行查看，会发现连接列表中存在连接</p>
+</li>
+<li><p>也可以在LVS服务器上，输入<code>ipvsadm -lnc</code>查看LVS的偷窥记录</p>
+</li>
+</ul>
+</li>
+</ol>
+    </div>
+
+    
+    
+    
+    
+	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+	 
+<div class="post-copyright-information">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/posts/17839.html">LVS入门手册</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
+  <p><span>发布时间:</span>2021年03月23日</p>
+  <p><span>原始链接:</span><a href="/posts/17839.html" title="LVS入门手册">https://www.junpzx.cn/posts/17839.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/17839.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/LVS/" rel="tag"><i class="fa fa-tag"></i> LVS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/15553.html" rel="prev" title="TCP三次握手与四次挥手">
+      <i class="fa fa-chevron-left"></i> TCP三次握手与四次挥手
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LVS%E7%AE%80%E4%BB%8B"><span class="nav-text">LVS简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LVS%E4%B8%8ENginx%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">LVS与Nginx的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">LVS的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS%E4%B8%8ENginx%E5%AF%B9%E6%AF%94"><span class="nav-text">LVS与Nginx对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="nav-text">适用业务场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS-Nginx-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%A2%AB%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8"><span class="nav-text">LVS+Nginx 为什么会被同时使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84LVS%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1"><span class="nav-text">搭建一个最基本的LVS测试服务</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JunPzx"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">JunPzx</p>
+  <div class="site-description" itemprop="description">记录日常学习中,问题的解决方案和学习笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Fools-jun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Fools-jun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:junpzx@163.com" title="E-Mail → mailto:junpzx@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/p/1005055835930216/home" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;1005055835930216&#x2F;home" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright" style=" text-align:center;">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  
+  <span class="with-love">
+    <i class="fa fa-heart">JunPzx</i>
+  </span>
+
+  <div class="run_time" style=" text-align:center;">
+	  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	  <script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("09/17/2020 19:00:00");//此处修改你的建站时间或者网站上线时间 
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+		setInterval("createtime()",250);
+	    </script>
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<div>
+			<i class="fa fa-user-md"></i>
+			<span id="busuanzi_container_site_uv">
+			  访问人数：<span id="busuanzi_value_site_uv"></span>
+			</span>&nbsp;|&nbsp;
+			
+			<i class="fa fa-eye"></i>
+			<span id="busuanzi_container_site_pv">
+			  总访问量：<span id="busuanzi_value_site_pv"></span>
+			</span>&nbsp;|&nbsp;
+			
+			<!-- 添加博客全站总字数统计-->
+			<i class="fa fa-pencil"></i>
+			<span class="post-count">博客全站共 119k 字</span>
+		</div>
+	</div>
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="[object Object]"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '2bMrcVfJFQH1jvGexxTRp8jB-gzGzoHsz',
+      appKey     : '4Setea8Pzh3Tt0JA4tdaq93s',
+      placeholder: "Just go go ^_^",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
