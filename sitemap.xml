@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.junpzx.cn/posts/7065.html</loc>
+    <loc>https://www.junpzx.cn/posts/17839.html</loc>
     
     <lastmod>2021-03-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/posts/17839.html</loc>
+    <loc>https://www.junpzx.cn/posts/7065.html</loc>
     
     <lastmod>2021-03-23</lastmod>
     
@@ -571,7 +571,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/tags/LVS/</loc>
+    <loc>https://www.junpzx.cn/tags/MockJS/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -592,14 +592,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/tags/MockJS/</loc>
-    <lastmod>2021-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.junpzx.cn/tags/Swagger2/</loc>
+    <loc>https://www.junpzx.cn/tags/LVS/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -613,7 +606,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/tags/Vue/</loc>
+    <loc>https://www.junpzx.cn/tags/Swagger2/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -621,6 +614,13 @@
   
   <url>
     <loc>https://www.junpzx.cn/tags/TCP/</loc>
+    <lastmod>2021-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.junpzx.cn/tags/Vue/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -655,13 +655,6 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/tags/hexo/</loc>
-    <lastmod>2021-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.junpzx.cn/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
@@ -670,6 +663,13 @@
   
   <url>
     <loc>https://www.junpzx.cn/tags/ShowDoc/</loc>
+    <lastmod>2021-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.junpzx.cn/tags/hexo/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -804,7 +804,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9C%BA%E6%99%AF%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -818,7 +818,7 @@
   </url>
   
   <url>
-    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://www.junpzx.cn/categories/%E7%AC%94%E8%AE%B0/%E5%9C%BA%E6%99%AF%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2021-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

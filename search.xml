@@ -34,7 +34,7 @@
 <p>也就是，当作为后端的服务器规模庞大时，Nginx 的网络带宽就成了一个巨大的瓶颈</p>
 <p>但是仅仅使用 LVS 作为负载均衡的话，一旦后端接受到请求的服务器出了问题，那么这次请求就失败了。但是如果在 LVS 的后端在添加一层 Nginx（多个），每个 Nginx 后端再有几台应用服务器，那么结合两者的优势，既能避免单 Nginx 的流量集中瓶颈，又能避免单 LVS 时一锤子买卖的问题</p>
 <p>LVS + Nginx 的使用中，Nginx 还可以作为一个中间环节来减小后端 tomcat 的服务压力，以及做一些业务切换、分流、前置缓存的功能</p>
-<h2 id="搭建一个最基本的LVS测试服务"><a href="#搭建一个最基本的LVS测试服务" class="headerlink" title="搭建一个最基本的LVS测试服务"></a>搭建一个最基本的LVS测试服务</h2><p>一下内容基于3台虚拟机中进行搭建：</p>
+<h2 id="搭建一个最基本的LVS测试服务"><a href="#搭建一个最基本的LVS测试服务" class="headerlink" title="搭建一个最基本的LVS测试服务"></a>搭建一个最基本的LVS测试服务</h2><p>以下内容基于3台虚拟机中进行搭建：</p>
 <p>LVS服务器 1台: 内部IP为 192.168.10.11</p>
 <p>业务服务器2台： 内部IP为 192.168.10.12和192.168.10.13</p>
 <p><strong>搭建过程：</strong></p>
@@ -42,13 +42,13 @@
 <li><p>在LVS服务器上进行设置</p>
  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该命令的作用为:在eth0 网卡下挂一个子网卡 ip地址为 192.168.10.100 子网掩码为 255.255.255.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /24 等同于 netmask 255.255.255.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为什么等同,因为子网掩码分为4位,每一位的最大值为255,255的二进制编码为1111 1111,也就是8个1,那么</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3个255也就是24</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ifconfig eth0:这个地方随便一个数字 该网段中的随便一个IP/24</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig  eth0:8 192.168.10.100/24</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在具体业务服务器进行设置</p>
+<li><p>在2台具体业务服务器都进行以下设置</p>
 <ul>
 <li><p>修改 服务器上内核协议</p>
   <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/net/ipv4/conf/eth0/arp_ignore</span><br><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/net/ipv4/conf/all/arp_ignore</span><br><span class="line"> </span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span> &gt; /proc/sys/net/ipv4/conf/eth0/arp_announce</span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span> &gt; /proc/sys/net/ipv4/conf/all/arp_announce</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在虚拟网卡上添加虚拟IP</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ifconfig lo:这个地方随便一个数字 LVS的IP地址 netmask 255.255.255.255</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig lo:8 192.168.10.155 netmask 255.255.255.255</span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ifconfig lo:这个地方随便一个数字 LVS的IP地址 netmask 255.255.255.255</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig lo:8 192.168.10.100 netmask 255.255.255.255</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>验证是否添加成功</p>
   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
