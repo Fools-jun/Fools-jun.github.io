@@ -4,7 +4,7 @@ copyright: true
 mathjax: true
 categories:
   - 笔记
-  - 运维
+  - 场景方法
 tags:
   - LVS
 abbrlink: 17839
