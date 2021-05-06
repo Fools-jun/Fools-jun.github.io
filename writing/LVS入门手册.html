@@ -23,19 +23,19 @@
   </script>
 
   <meta name="description" content="LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="LVS入门手册">
-<meta property="og:url" content="https://www.junpzx.cn/posts/17839.html">
+<meta property="og:url" content="https://www.junpzx.cn/writing/LVS%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C.html">
 <meta property="og:site_name" content="星辰大海">
 <meta property="og:description" content="LVS是Linux Virtual Server的简写，意即Linux虚拟服务器，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-23T03:02:41.000Z">
-<meta property="article:modified_time" content="2021-03-23T09:34:12.151Z">
+<meta property="article:modified_time" content="2021-05-06T07:47:53.140Z">
 <meta property="article:author" content="JunPzx">
 <meta property="article:tag" content="LVS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.junpzx.cn/posts/17839.html">
+<link rel="canonical" href="https://www.junpzx.cn/writing/LVS%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C.html">
 
 
 <script id="page-configurations">
@@ -43,12 +43,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>LVS入门手册 | 星辰大海</title>
+  <title>LVS入门手册 | 星辰大海
+</title>
   
 
 
@@ -187,88 +188,33 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.junpzx.cn/posts/17839.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="JunPzx">
-      <meta itemprop="description" content="记录日常学习中,问题的解决方案和学习笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="星辰大海">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          LVS入门手册
-        </h1>
 
-        <div class="post-meta">
-	  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+<h1 class="post-title" itemprop="name headline">LVS入门手册
+</h1>
 
-              <time title="创建时间：2021-03-23 11:02:41 / 修改时间：17:34:12" itemprop="dateCreated datePublished" datetime="2021-03-23T11:02:41+08:00">2021-03-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%9C%BA%E6%99%AF%E6%96%B9%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">场景方法</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/17839.html" class="post-meta-item leancloud_visitors" data-flag-title="LVS入门手册" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/posts/17839.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/17839.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
+<div class="post-meta">
   
 
-        </div>
-      </header>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p><strong>LVS</strong>是<strong>Linux Virtual Server</strong>的简写，意即<strong>Linux虚拟服务器</strong>，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。</p>
+      
+      
+      <div class="post-body">
+          <h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p><strong>LVS</strong>是<strong>Linux Virtual Server</strong>的简写，意即<strong>Linux虚拟服务器</strong>，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。</p>
 <p>LVS的主要为了解决大数据高并发的情况下的负载均衡和流量调度问题。</p>
 <p>说起负载均衡，就不得不说Nginx，那么Nginx和LVS有哪些区别呢？</p>
 <h2 id="LVS与Nginx的区别"><a href="#LVS与Nginx的区别" class="headerlink" title="LVS与Nginx的区别"></a>LVS与Nginx的区别</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>LVS：Linux虚拟机、流量调度、负载均衡</p>
@@ -349,7 +295,7 @@
 <li><p>在LVS服务器上，也就是设置192.168.10.100IP的服务器上输入命令</p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该命令为查看该服务器上的连接</span></span><br><span class="line">netstat -natp </span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行以上命令以后，会发现连接列表上并不存在 刚才一直访问的连接，那么得出一个结论，浏览器并没有与192.168.10.100服务器，也就是LVS服务器进行握手和挥手的操作。</p>
+<li><p>执行以上命令以后，会发现连接列表上并不存在 刚才一直访问的连接，那么得出一个结论，浏览器并没有与192.168.10.100服务器，也就是LVS服务器进行握手和挥手的操作。 </p>
 </li>
 <li><p>那么去192.168.10.12 和 192.168.10.13，也就是业务服务器中进行查看，会发现连接列表中存在连接</p>
 </li>
@@ -358,68 +304,17 @@
 </ul>
 </li>
 </ol>
+<p>从上文可知,LVS是负责负载均衡和流量分发的,但是如果LVS所在的服务器宕机了,那么不管后面具体的业务服务器是否正常,都会导致整个业务系统宕机,那么应该怎么解决这个问题呢?</p>
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-    
-	 <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
-	 
-<div class="post-copyright-information">
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-  <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/posts/17839.html">LVS入门手册</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 JunPzx 的个人博客">JunPzx</a></p>
-  <p><span>发布时间:</span>2021年03月23日</p>
-  <p><span>原始链接:</span><a href="/posts/17839.html" title="LVS入门手册">https://www.junpzx.cn/posts/17839.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.junpzx.cn/posts/17839.html"  aria-label="复制成功！"></i></span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">转载请保留原文链接及作者。</p>  
-</div>
-<script>
-    var clipboard = new Clipboard('.fa-clipboard');
-      $(".fa-clipboard").click(function(){
-      clipboard.on('success', function(){
-        swal({   
-          title: "",   
-          text: '复制成功',
-          icon: "success",
-          showConfirmButton: true
-          });
-        });
-    });  
-</script>
-
-    
-
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/LVS/" rel="tag"><i class="fa fa-tag"></i> LVS</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/15553.html" rel="prev" title="TCP三次握手与四次挥手">
-      <i class="fa fa-chevron-left"></i> TCP三次握手与四次挥手
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>
@@ -487,20 +382,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -584,7 +479,7 @@
 			
 			<!-- 添加博客全站总字数统计-->
 			<i class="fa fa-pencil"></i>
-			<span class="post-count">博客全站共 119k 字</span>
+			<span class="post-count">博客全站共 115.7k 字</span>
 		</div>
 	</div>
 </div>

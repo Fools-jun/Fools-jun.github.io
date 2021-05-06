@@ -1,107 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>LVS入门手册</title>
-    <url>/posts/17839.html</url>
-    <content><![CDATA[<h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p><strong>LVS</strong>是<strong>Linux Virtual Server</strong>的简写，意即<strong>Linux虚拟服务器</strong>，是一个虚拟的服务器集群系统。本项目在1998年5月由章文嵩博士成立，是中国国内最早出现的自由软件项目之一。</p>
-<p>LVS的主要为了解决大数据高并发的情况下的负载均衡和流量调度问题。</p>
-<p>说起负载均衡，就不得不说Nginx，那么Nginx和LVS有哪些区别呢？</p>
-<h2 id="LVS与Nginx的区别"><a href="#LVS与Nginx的区别" class="headerlink" title="LVS与Nginx的区别"></a>LVS与Nginx的区别</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>LVS：Linux虚拟机、流量调度、负载均衡</p>
-<p>Nginx：高性能的代理服务器，系统内部流量分发，反向代理</p>
-<h3 id="LVS的优势"><a href="#LVS的优势" class="headerlink" title="LVS的优势"></a>LVS的优势</h3><ul>
-<li>抗负载能力强，因为 LVS 工作方式的逻辑是非常简单的，而且工作在网络的第 4 层，仅作请求分发用，没有流量，所以在效率上基本不需要太过考虑。LVS 一般很少出现故障，即使出现故障一般也是其他地方（如内存、CPU 等）出现问题导致 LVS 出现问题</li>
-<li>配置性低，这通常是一大劣势同时也是一大优势，因为没有太多的可配置的选项，所以除了增减服务器，并不需要经常去触碰它，大大减少了人为出错的几率</li>
-<li>工作稳定，因为其本身抗负载能力很强，所以稳定性高也是顺理成章的事，另外各种 LVS 都有完整的双机热备方案，所以一点不用担心均衡器本身会出什么问题，节点出现故障的话，LVS 会自动判别，所以系统整体是非常稳定的</li>
-<li>无流量，LVS 仅仅分发请求，而流量并不从它本身出去，所以可以利用它这点来做一些线路分流之用。没有流量同时也保住了均衡器的 IO 性能不会受到大流量的影响</li>
-<li>LVS 基本上能支持所有应用，因为 LVS 工作在第 4 层，所以它可以对几乎所有应用做负载均衡，包括 http、数据库、聊天室等</li>
-</ul>
-<h3 id="LVS与Nginx对比"><a href="#LVS与Nginx对比" class="headerlink" title="LVS与Nginx对比"></a>LVS与Nginx对比</h3><ul>
-<li>Nginx 工作在网络的第 7 层，可以作为网页静态服务器，支持 Rewrite 重写规则；支持 GZIP 压缩，节省带宽；可以做缓存；可以针对 http 应用本身来做分流策略，静态分离，针对域名、目录结构等<br>  相比之下 LVS 并不具备这样的功能，所以 Nginx 单凭这点可以利用的场合就远多于 LVS 了；但 Nginx 有用的这些功能使其可调整度要高于 LVS，所以经常要去触碰，人为出现问题的几率也就大</li>
-<li><p>Nginx 对网络的依赖较小，理论上只要 ping 得通，网页访问正常，Nginx 就能连得通，Nginx 同时还能区分内外网，如果是同时拥有内外网的节点，就相当于单机拥有了备份线路；LVS 就比较依赖于网络环境，目前来看服务器在同一网段内并且 LVS 使用 direct 方式分流，效果较能得到保证。另外注意，LVS 需要向托管商至少申请多于一个 ip 来做 visual ip(虚拟IP)</p>
-</li>
-<li><p>Nginx 安装和配置比较简单，测试起来也很方便，因为它基本能把错误用日志打印出来。LVS 的安装和配置、测试就要花比较长的时间，因为同上所述，LVS 对网络依赖性比较大，很多时候不能配置成功都是因为网络问题而不是配置问题，出了问题要解决也相应的会麻烦的多</p>
-</li>
-<li>Nginx 也同样能承受很高负载且稳定，但负载度和稳定度差 LVS 还有几个等级：Nginx 处理所有流量所以受限于机器 IO 和配置；本身的 bug 也还是难以避免的；Nginx 没有现成的双机热备方案，所以跑在单机上还是风险比较大，单机上的事情全都很难说</li>
-<li>Nginx 可以检测到服务器内部的故障（健康检查），比如根据服务器处理网页返回的状态码、超时等等，并且会把返回错误的请求重新提交到另一个节点。目前 LVS 中 ldirectd 也能支持针对服务器内部的情况来监控，但 LVS 的原理使其不能重发请求。比如用户正在上传一个文件，而处理该上传的节点刚好在上传过程中出现故障，Nginx 会把上传切到另一台服务器重新处理，而 LVS 就直接断掉了</li>
-</ul>
-<h3 id="适用业务场景"><a href="#适用业务场景" class="headerlink" title="适用业务场景"></a>适用业务场景</h3><ul>
-<li>网站建设初期（每日 PV 小于 100 万），可以选用 Nigix 作为反向代理负载均衡，因为其配置简单，性能也能满足一般的业务场景。如果考虑到负载均衡器是有单点问题，可以采用 Nginx + Keepalived 避免负载均衡器自身的单点问题</li>
-<li>网站并发达到一定程度之后，为了提高稳定性和转发效率，可以使用 LVS、毕竟 LVS 比 Nginx 要更稳定，转发效率也更高。不过维护 LVS 对维护人员的要求也会更高，投入成本也更大</li>
-</ul>
-<h3 id="LVS-Nginx-为什么会被同时使用"><a href="#LVS-Nginx-为什么会被同时使用" class="headerlink" title="LVS+Nginx 为什么会被同时使用"></a>LVS+Nginx 为什么会被同时使用</h3><p>Nginx 用来做 http 的反向代理，能够 upsteam 实现 http 请求的多种方式的均衡转发。由于采用的是异步转发可以做到如果一个服务器请求失败，立即切换到其他服务器，直到请求成功或者最后一台服务器失败为止。这可以最大程度的提高系统的请求成功率</p>
-<p>LVS 采用的是同步请求转发的策略。这里说一下同步转发和异步转发的区别。同步转发是在 LVS 服务器接收到请求之后，立即 redirect 到一个后端服务器，由客户端直接和后端服务器建立连接。异步转发是 Nginx 在保持客户端连接的同时，发起一个相同内容的新请求到后端，等后端返回结果后，由 Nginx 返回给客户端</p>
-<p>进一步来说：当做为负载均衡服务器的 Nginx 和 LVS 处理相同的请求时，所有的请求和响应流量都会经过 Nginx；但是使用 LVS 时，仅请求流量经过 LVS 的网络，响应流量由后端服务器的网络返回</p>
-<p>也就是，当作为后端的服务器规模庞大时，Nginx 的网络带宽就成了一个巨大的瓶颈</p>
-<p>但是仅仅使用 LVS 作为负载均衡的话，一旦后端接受到请求的服务器出了问题，那么这次请求就失败了。但是如果在 LVS 的后端在添加一层 Nginx（多个），每个 Nginx 后端再有几台应用服务器，那么结合两者的优势，既能避免单 Nginx 的流量集中瓶颈，又能避免单 LVS 时一锤子买卖的问题</p>
-<p>LVS + Nginx 的使用中，Nginx 还可以作为一个中间环节来减小后端 tomcat 的服务压力，以及做一些业务切换、分流、前置缓存的功能</p>
-<h2 id="搭建一个最基本的LVS测试服务"><a href="#搭建一个最基本的LVS测试服务" class="headerlink" title="搭建一个最基本的LVS测试服务"></a>搭建一个最基本的LVS测试服务</h2><p>以下内容基于3台虚拟机中进行搭建：</p>
-<p>LVS服务器 1台: 内部IP为 192.168.10.11</p>
-<p>业务服务器2台： 内部IP为 192.168.10.12和192.168.10.13</p>
-<p><strong>搭建过程：</strong></p>
-<ol>
-<li><p>在LVS服务器上进行设置</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该命令的作用为:在eth0 网卡下挂一个子网卡 ip地址为 192.168.10.100 子网掩码为 255.255.255.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /24 等同于 netmask 255.255.255.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为什么等同,因为子网掩码分为4位,每一位的最大值为255,255的二进制编码为1111 1111,也就是8个1,那么</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3个255也就是24</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ifconfig eth0:这个地方随便一个数字 该网段中的随便一个IP/24</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig  eth0:8 192.168.10.100/24</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在2台具体业务服务器都进行以下设置</p>
-<ul>
-<li><p>修改 服务器上内核协议</p>
-  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/net/ipv4/conf/eth0/arp_ignore</span><br><span class="line"><span class="built_in">echo</span> <span class="number">1</span> &gt; /proc/sys/net/ipv4/conf/all/arp_ignore</span><br><span class="line"> </span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span> &gt; /proc/sys/net/ipv4/conf/eth0/arp_announce</span><br><span class="line"><span class="built_in">echo</span> <span class="number">2</span> &gt; /proc/sys/net/ipv4/conf/all/arp_announce</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在虚拟网卡上添加虚拟IP</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ifconfig lo:这个地方随便一个数字 LVS的IP地址 netmask 255.255.255.255</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如:</span></span><br><span class="line">ifconfig lo:8 192.168.10.100 netmask 255.255.255.255</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证是否添加成功</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装httpd(该服务为一个静态server)</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在线安装httpd服务</span></span><br><span class="line">yum install httpd -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装完成后进行启动</span></span><br><span class="line">service httpd start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建一个主页文件,输入 from 该服务器的IP,例如192.168.10.12</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /var/www/html 为httpd的默认目录</span></span><br><span class="line">vi /var/www/html/index.html</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>在LVS服务器上进行设置</p>
-<ul>
-<li><p>安装ipvsadm服务 </p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install ipvsadm -y</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加入包的规则</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 语法:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加：-A -t|u|f service-address [-s scheduler]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -t: TCP协议的集群</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -u: UDP协议的集群</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> service-address: IP:PORT</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -f: FWM: 防火墙标记</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> service-address: Mark Number</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改：-E</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除：-D -t|u|f service-address</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 调度算法(-s scheduler):</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 静态调度算法： </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.rr（Round Robin）：轮询调度，轮叫调度。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.wrr（weight,加权）：以权重之间的比例实现在各主机之间进行调度。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.dh（Destination hashing）：目标地址散列。把同一个IP地址的请求，发送给同一个server。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.sh（<span class="built_in">source</span> hashing）：源地址散列。主要实现会话绑定，能够将此前建立的session信息保留了。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 动态调度算法：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.lc（Least-Connection）: 最少连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.wlc（Weighted Least-Connection Scheduling）: 加权最少连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.sed（Shortest Expected Delay）: 最短期望延迟</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.nq（never queue）: never queue</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 5.LBLC（Locality-Based Least Connection）: 基于本地的最少连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 6.LBLCR（Locality-Based Least Connections withReplication）: 基于本地的带复制功能的最少连接</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果请求该服务器的请求为tcp协议，并且该请求的请求地址为192.168.10.100:80,那么则进行负载，负载的调度算法为轮训</span></span><br><span class="line">ipvsadm -A -t 192.168.10.100:80 -s rr</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询是否添加成功</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ipvsadm -ln</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加数据包的负载规则</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加：-a -t|u|f service-address -r server-address [-g|i|m] [-w weight]</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -t|u|f service-address：事先定义好的某集群服务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -r server-address: 某RS的地址，在NAT模型中，可使用IP：PORT实现端口映射；</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   [-g|i|m]: LVS类型 </span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -g: DR（修改链路层中的mac地址方式）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -i: TUN（隧道方式）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -m: NAT（修改网络层中的ip方式）</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   [-w weight]: 定义服务器权重</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改：-e</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除：-d -t|u|f service-address -r server-address</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -a -t 172.16.100.1:80 -r 192.168.10.8 –g</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -a -t 172.16.100.1:80 -r 192.168.10.9 -g</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -L|l</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -n: 数字格式显示主机地址和端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   --stats：统计数据</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   --rate: 速率</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   --timeout: 显示tcp、tcpfin和udp的会话超时时长</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -:c 显示当前的ipvs连接状况</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除所有集群服务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -C：清空ipvs规则</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 保存规则</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -S</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -S &gt; /path/to/somefile</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 载入此前的规则：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   -R</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ipvsadm -R &lt; /path/form/somefile </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 案例语法： ipvsadm -a -t 192.168.10.100:80 -r 192.168.10.12 -g -w 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 解释： 将请求地址为 192.168.10.100:80 负载到 192.168.10.12 上，负载的类型为DR,权重为1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 案例：</span></span><br><span class="line">ipvsadm -a -t 192.168.10.100:80 -r 192.168.10.12 -g -w 1</span><br><span class="line">ipvsadm -a -t 192.168.10.100:80 -r 192.168.10.13 -g -w 1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询是否添加成功</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ipvsadm -ln</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>验证是否设置成功</p>
-<ul>
-<li><p>在浏览器中访问192.168.10.100，如果能显示from 192.168.10.12或者13，那么重复刷新页面，如果能以轮训的方式展示12和13，那么代表设置成功</p>
-</li>
-<li><p>在LVS服务器上，也就是设置192.168.10.100IP的服务器上输入命令</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该命令为查看该服务器上的连接</span></span><br><span class="line">netstat -natp </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行以上命令以后，会发现连接列表上并不存在 刚才一直访问的连接，那么得出一个结论，浏览器并没有与192.168.10.100服务器，也就是LVS服务器进行握手和挥手的操作。</p>
-</li>
-<li><p>那么去192.168.10.12 和 192.168.10.13，也就是业务服务器中进行查看，会发现连接列表中存在连接</p>
-</li>
-<li><p>也可以在LVS服务器上，输入<code>ipvsadm -lnc</code>查看LVS的偷窥记录</p>
-</li>
-</ul>
-</li>
-</ol>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>场景方法</category>
-      </categories>
-      <tags>
-        <tag>LVS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TCP三次握手与四次挥手</title>
     <url>/posts/15553.html</url>
     <content><![CDATA[</p>
@@ -1699,6 +1598,62 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align:center">Ctrl + 反斜杠</td>
+<td style="text-align:center">选项卡补全</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 分号</td>
+<td style="text-align:center">语句补全</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 空格</td>
+<td style="text-align:center">智能补全</td>
+</tr>
+<tr>
+<td style="text-align:center">. + 补全建议</td>
+<td style="text-align:center">后缀补全</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 减号/等号</td>
+<td style="text-align:center">收起代码片段/展开代码片段</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + shift + 减号/等号</td>
+<td style="text-align:center">收起所有代码片段/展开所有代码片段</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + T</td>
+<td style="text-align:center">设置模板环绕代码，例如：try-catch块</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + I -&gt; 解包/移除</td>
+<td style="text-align:center">使用Ctrl + I 唤出搜索操作面板，然后输入解包/移除，<br />则可以去除上面添加的模板块</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + J</td>
+<td style="text-align:center">选中光标处的此符号，再次按Alt + J 选择该符号的下一个匹配项，<br />Alt + Shift + J 取消选择上一个匹配项，按Ctrl + Alt + Shift + J<br />选择文件中的所有匹配项</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + R</td>
+<td style="text-align:center">重命名，需要选中需要重命名的类名或者字段名或者方法名</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + V</td>
+<td style="text-align:center">提取局部变量</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + M</td>
+<td style="text-align:center">提取方法</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + Shift + T</td>
+<td style="text-align:center">重构代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + B</td>
+<td style="text-align:center">跳转到方法的声明</td>
+</tr>
+<tr>
 <td style="text-align:center">Ctrl + C</td>
 <td style="text-align:center">复制</td>
 </tr>
@@ -1715,19 +1670,27 @@
 <td style="text-align:center">复制一行</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + W</td>
-<td style="text-align:center">选中,连续按会有其他效果,如果光标在梅花括号旁,则会选中该括号作用域中的所有代码;如果光标在行尾,则是选中整行</td>
+<td style="text-align:center">Ctrl + E</td>
+<td style="text-align:center">删除一行</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + .</td>
+<td style="text-align:center">选中,连续按会扩大选中范围</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + ,</td>
+<td style="text-align:center">取消选中，连续按会缩小选中范围</td>
 </tr>
 <tr>
 <td style="text-align:center">Ctrl + G</td>
 <td style="text-align:center">跳转到指定行</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + F</td>
+<td style="text-align:center">Ctrl + F/Ctrl + Shift + F</td>
 <td style="text-align:center">搜索</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + R</td>
+<td style="text-align:center">Ctrl + H/Ctrl + Shift + H</td>
 <td style="text-align:center">替换</td>
 </tr>
 <tr>
@@ -1735,36 +1698,12 @@
 <td style="text-align:center">导入包,自动修正</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + N</td>
-<td style="text-align:center">查找类</td>
-</tr>
-<tr>
-<td style="text-align:center">Ctrl + Shift + N</td>
-<td style="text-align:center">查找文件</td>
-</tr>
-<tr>
-<td style="text-align:center">Ctrl + Alt + O</td>
-<td style="text-align:center">优化导入的类和包</td>
-</tr>
-<tr>
 <td style="text-align:center">Alt + Insert</td>
 <td style="text-align:center">生成代码(如get,set方法,构造函数等)</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + E</td>
-<td style="text-align:center">最近打开的文件</td>
-</tr>
-<tr>
-<td style="text-align:center">Alt + Shift + C</td>
-<td style="text-align:center">最近的更改</td>
-</tr>
-<tr>
 <td style="text-align:center">Ctrl + P</td>
 <td style="text-align:center">方法参数提示</td>
-</tr>
-<tr>
-<td style="text-align:center">Ctrl + H</td>
-<td style="text-align:center">显示类结构图</td>
 </tr>
 <tr>
 <td style="text-align:center">Ctrl + Q</td>
@@ -1779,36 +1718,28 @@
 <td style="text-align:center">列出该类的所有方法</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + Alt + L</td>
+<td style="text-align:center">Alt + Shift + F</td>
 <td style="text-align:center">整理代码格式</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl + Alt + left/right</td>
+<td style="text-align:center">Alt + left/right</td>
 <td style="text-align:center">返回至上次浏览的位置</td>
 </tr>
 <tr>
-<td style="text-align:center">Alt + left/right</td>
-<td style="text-align:center">切换代码视图</td>
-</tr>
-<tr>
-<td style="text-align:center">Alt+ Up/Down</td>
-<td style="text-align:center">在方法间快速移动定位</td>
-</tr>
-<tr>
-<td style="text-align:center">Ctrl + Shift + Up/Down</td>
+<td style="text-align:center">Alt+ Shift + Up/Down</td>
 <td style="text-align:center">代码向上/下移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt+ + Ctrl + Up/Down</td>
+<td style="text-align:center">在方法间快速移动定位</td>
 </tr>
 <tr>
 <td style="text-align:center">F2 或 Shift + F2</td>
 <td style="text-align:center">高亮错误或警告快速定位</td>
 </tr>
 <tr>
-<td style="text-align:center">Ctrl＋O</td>
-<td style="text-align:center">可以选择父类的方法进行重写</td>
-</tr>
-<tr>
-<td style="text-align:center">Ctrl ＋ Alt ＋ B</td>
-<td style="text-align:center">可以跳转到抽象方法的实现</td>
+<td style="text-align:center">Ctrl + I  或 双击Shift</td>
+<td style="text-align:center">查找搜索</td>
 </tr>
 </tbody>
 </table>
@@ -5797,39 +5728,6 @@
       </categories>
       <tags>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IDEA、WebStrom最新版破解教程</title>
-    <url>/posts/58324.html</url>
-    <content><![CDATA[<h1 id="激活方法"><a href="#激活方法" class="headerlink" title="激活方法"></a>激活方法</h1><h2 id="1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；"><a href="#1、下载完成后，双击-ideaIU-2020-2-exe-打开安装软件；" class="headerlink" title="1、下载完成后，双击 ideaIU-2020.2.exe,打开安装软件；"></a>1、下载完成后，双击 <code>ideaIU-2020.2.exe</code>,打开安装软件；</h2><blockquote>
-<p>PS: 确保电脑没有安装老版本软件，如有请卸载。</p>
-</blockquote>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/1_m4b8on.png" alt=""></p>
-<h2 id="2、-安装目录选择；"><a href="#2、-安装目录选择；" class="headerlink" title="2、 安装目录选择；"></a><strong>2、</strong> 安装目录选择；</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/2_juogad.png" alt=""></p>
-<h2 id="3、-按自己电脑配置勾选："><a href="#3、-按自己电脑配置勾选：" class="headerlink" title="3、 按自己电脑配置勾选："></a><strong>3、</strong> 按自己电脑配置勾选：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/3_cewijo.png" alt=""></p>
-<h2 id="4、-点击-next-安心等待其安装完成："><a href="#4、-点击-next-安心等待其安装完成：" class="headerlink" title="4、 点击 next, 安心等待其安装完成："></a><strong>4、</strong> 点击 <code>next</code>, 安心等待其安装完成：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511958/idea、webstorm最新版破解教程/4_erf7vj.png" alt=""></p>
-<h2 id="5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件"><a href="#5、-安装完成后，勾选-Run-IntelliJ-IDEA，点击-finish-运行软件" class="headerlink" title="5、 安装完成后，勾选 Run IntelliJ IDEA，点击 finish 运行软件:"></a><strong>5、</strong> 安装完成后，勾选 <code>Run IntelliJ IDEA</code>，点击 <code>finish</code> 运行软件:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/5_pxaqbd.png" alt=""></p>
-<h2 id="6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate"><a href="#6、-会先弹出一个注册框，勾选-Evaluate-for-free-点击-Evaluate" class="headerlink" title="6、 会先弹出一个注册框，勾选 Evaluate for free, 点击 Evaluate:"></a><strong>6、</strong> 会先弹出一个注册框，勾选 <code>Evaluate for free</code>, 点击 <code>Evaluate</code>:</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/6_l7v8mh.png" alt=""></p>
-<h2 id="7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中"><a href="#7、-2020-版本文件夹中的激活补丁破解补丁拖入IDEA-界面中" class="headerlink" title="7、 2020 版本文件夹中的激活补丁破解补丁拖入IDEA 界面中"></a><strong>7、</strong> 2020 版本文件夹中的激活补丁<em><a href="https://pan.baidu.com/s/1uFKQ9au7mGENR2IguG9NHg">破解补丁</a></em>拖入IDEA 界面中</h2><p>下载链接：<a href="https://pan.baidu.com/s/1uFKQ9au7mGENR2IguG9NHg">https://pan.baidu.com/s/1uFKQ9au7mGENR2IguG9NHg</a></p>
-<p>提取码：0000</p>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511961/idea、webstorm最新版破解教程/7_o7c2z1.png" alt=""></p>
-<p> <strong>补丁，拖不进去，请重启 IDEA ，新建一个Java 项目，写一个空的 main 方法，再次试试</strong></p>
-<p> <strong>注意：激活补丁，拖进去之后，激活补丁的位置不要更换，不要删除。否则激活之后还会失效，</strong></p>
-<p> <strong>注意：激活补丁，拖进去，等于是程序，帮你去写一个激活补丁的位置，你换补丁jar位置，或者，删除补丁jar，就找不到激活补丁了</strong></p>
-<h2 id="8、拖入补丁后会弹框，点击-restart-重启-idea："><a href="#8、拖入补丁后会弹框，点击-restart-重启-idea：" class="headerlink" title="8、拖入补丁后会弹框，点击 restart 重启 idea："></a>8、拖入补丁后会弹框，点击 <code>restart</code> 重启 <strong>idea</strong>：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/8_ttpxq1.png" alt=""></p>
-<h2 id="9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装："><a href="#9、-配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的-Activation-Code，通过注册码来激活，点击为IDEA安装：" class="headerlink" title="9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 Activation Code，通过注册码来激活，点击为IDEA安装："></a>9、 配置助手会提示您，需要使用哪种激活方式，这里我们选择默认的 <code>Activation Code</code>，通过注册码来激活，点击<code>为IDEA安装</code>：</h2><p><strong>安装参数</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HbVMaxqQrTt4UvDUk8fhyFT7uRdv48bqJsQMwVFp53YH9PZC9l+ZxAgnA60cLwwhURw&#x2F;e4DcZZtle4tQzur4yWRk35qghES4JLFlmKty&#x2F;UNiYh6RZyXeCNPTCvIqxT9HR2YKqQT93be6AfLTcbJwPSLO201g+HbMbg6+aK1MUJI</span><br></pre></td></tr></table></figure>
-<p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511959/idea、webstorm最新版破解教程/10_skts9u.png" alt=""></p>
-<h2 id="10、-点击是，重启-IDEA-即可"><a href="#10、-点击是，重启-IDEA-即可" class="headerlink" title="10、 点击是，重启 IDEA 即可"></a><strong>10、</strong> 点击<code>是</code>，重启 <strong>IDEA</strong> 即可</h2><h1 id="验证是否激活成功"><a href="#验证是否激活成功" class="headerlink" title="验证是否激活成功"></a>验证是否激活成功</h1><p>验证步骤如下：</p>
-<h2 id="1、-进入-IDEA-界面后，点击-Help-gt-Register-查看："><a href="#1、-进入-IDEA-界面后，点击-Help-gt-Register-查看：" class="headerlink" title="1、 进入 IDEA 界面后，点击 Help -&gt; Register 查看："></a><strong>1、</strong> 进入 <strong>IDEA</strong> 界面后，点击 <code>Help</code> -&gt; <code>Register</code> 查看：</h2><p><img src="https://res.cloudinary.com/junpzx/image/upload/v1600511960/idea、webstorm最新版破解教程/11_sbvbve.png" alt=""></p>]]></content>
-      <categories>
-        <category>激活教程</category>
-      </categories>
-      <tags>
-        <tag>Idea</tag>
-        <tag>WebStorm</tag>
-        <tag>JetBrains</tag>
       </tags>
   </entry>
   <entry>
